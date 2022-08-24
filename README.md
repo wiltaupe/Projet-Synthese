@@ -1,2 +1,2 @@
-# Projet-Synth-se
+# Projet-Synthèse
 Projet Final - Technique Informatique - CVM
