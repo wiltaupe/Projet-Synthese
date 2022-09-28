@@ -1,0 +1,68 @@
+Rogue like spatial : 
+
+on choisi parmi plusieurs planete son prochain itinéraire selon des chemins qui mene au boss final
+
+actions aléatoire sur chaque planète (neutre, malus ,positif, combat, loot, amélioration pièce)
+
+
+gameplay :
+
+
+ftl/slay the spire/backpack hero
+
+
+vaisseau max 10 cases rng 3 de départ non bougables moteur, O^2, pilotage
+
+
+commence avec 3 membre equipage aléatoire qui augmente stats (rôle spécifique)
+
+
+equipage : réparer, combattre, soutien piece, donneur d'O2,kamikaze
+
+stat vaisseau : esquive, armure(réduit dégat), bouclier pour proteger une piece, dommage, % de découverte piece(selon vaisseau et/ou piece, equipage), chance critique,
+
+stat equipage : vitesse reparation, degat, bonus sur certaine piece,
+
+
+piece : hacking device, teleportation, amélioration unique des pièce, armement, bouclier, moteur, pilotage, o2, générateur d'électricité, table de sacrifice
+
+
+on pourrait echanger son armement avec le vaisseau détruit, trouver des épaves de vaisseau et transferer tout son matériel dedans.
+
+fusion d'items lorsqu'ils sont a proximité
+
+
+EST-CE QU'ON FAIT UN TOUR PAR TOUR OU UN TEMPS RÉEL ?? -> TPT : chacun a des actions chaque tour, TR : on attaque selon un timing
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
