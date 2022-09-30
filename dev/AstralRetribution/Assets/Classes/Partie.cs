@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Partie : MonoBehaviour
 {
@@ -13,11 +9,8 @@ public class Partie : MonoBehaviour
     private int niveauActuel;
     private bool enCombat = false;
 
-<<<<<<< HEAD
     // 11 23 35 41 47
 
-=======
->>>>>>> 7563a797df5ce89fbd6f229d75a67ae3c7e82b29
 
 
     // Start is called before the first frame update
@@ -43,18 +36,30 @@ public class Partie : MonoBehaviour
         {
             partieEnCours = true;
             joueur.AjouterVaisseau(gameObject.AddComponent<Vaisseau>());
-            carteActuelle = gameObject.AddComponent<CarteCeleste>();
+            
         }
     }
+
+    public void FinirPartie()
+    {
+        if (partieEnCours)
+        {
+            partieEnCours = false;
+        }
+    }
+
+    public void GenererCarte()
+    {
+        carteActuelle = gameObject.AddComponent<CarteCeleste>();
+    }
+
+    
 
     public void DemarrerCombat()
     {
         if (!enCombat)
         {
-<<<<<<< HEAD
-            CommencerCombat();
             enCombat = true;
-            SceneManager.LoadSceneAsync()
         }
     }
 
@@ -63,20 +68,12 @@ public class Partie : MonoBehaviour
         if (enCombat)
         {
             enCombat = false;
-=======
->>>>>>> 7563a797df5ce89fbd6f229d75a67ae3c7e82b29
-
         }
-    }
-
-    private void CommencerCombat()
-    {
-        throw new NotImplementedException();
     }
 
     public void ProchainNiveau()
     {
         niveauActuel++;
-        carteActuelle = gameObject.AddComponent<CarteCeleste>();
+        GenererCarte();
     }
 }
