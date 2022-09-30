@@ -6,7 +6,6 @@ public class Partie : MonoBehaviour
 {
     private bool partieEnCours = false;
     private Joueur joueur;
-    private Vaisseau vaisseauJoueur;
     private CarteCeleste carteActuelle;
     private int niveauActuel;
     private bool enCombat = false;
@@ -16,7 +15,9 @@ public class Partie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        joueur = new Joueur();
         CommencerPartie();
+        
     }
 
     // Update is called once per frame
