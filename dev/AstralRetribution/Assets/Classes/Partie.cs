@@ -1,17 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Partie : MonoBehaviour
 {
     private bool partieEnCours = false;
     private Joueur joueur;
-    private GenerateurDeSalle generateurDeSalle;
     private Vaisseau vaisseauJoueur;
+    private CarteCeleste carteActuelle;
+    private int niveauActuel;
+    private bool enCombat = false;
+
+    // 11 23 35 41 47
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        generateurDeSalle = gameObject.AddComponent<GenerateurDeSalle>();
         CommencerPartie();
     }
 
@@ -28,12 +36,41 @@ public class Partie : MonoBehaviour
 
     public void CommencerPartie()
     {
-        if (partieEnCours == false)
+        if (partieEnCours == false && joueur != null)
         {
             partieEnCours = true;
-            vaisseauJoueur = gameObject.AddComponent<Vaisseau>();
-            Debug.Log(vaisseauJoueur.VoirSalles());
+            joueur.AjouterVaisseau(gameObject.AddComponent<Vaisseau>());
+            carteActuelle = gameObject.AddComponent<CarteCeleste>();
+        }
+    }
+
+    public void DemarrerCombat()
+    {
+        if (!enCombat)
+        {
+            CommencerCombat();
+            enCombat = true;
+            SceneManager.LoadSceneAsync()
+        }
+    }
+
+    public void TerminerCombat()
+    {
+        if (enCombat)
+        {
+            enCombat = false;
 
         }
+    }
+
+    private void CommencerCombat()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void ProchainNiveau()
+    {
+        niveauActuel++;
+        carteActuelle = gameObject.AddComponent<CarteCeleste>();
     }
 }
