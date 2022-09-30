@@ -3,23 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Joueur : MonoBehaviour
+public class Joueur
 {
-    private
-    // Start is called before the first frame update
-    void Start()
+    private Vaisseau vaisseau;
+
+    public void AjouterVaisseau(Vaisseau vaisseau)
     {
-        
+        this.vaisseau = vaisseau;
     }
 
-    // Update is called once per frame
-    void Update()
+    public Vaisseau GetVaisseau()
     {
-        
+        return vaisseau;
     }
 
-    internal void AjouterVaisseau(Vaisseau vaisseau)
-    {
-        throw new NotImplementedException();
-    }
+
 }

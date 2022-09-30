@@ -4,19 +4,17 @@ public class Partie : MonoBehaviour
 {
     private bool partieEnCours = false;
     private Joueur joueur;
-    private Vaisseau vaisseauJoueur;
     private CarteCeleste carteActuelle;
     private int niveauActuel;
     private bool enCombat = false;
-
-    // 11 23 35 41 47
-
 
 
     // Start is called before the first frame update
     void Start()
     {
+        joueur = new Joueur();
         CommencerPartie();
+        
     }
 
     // Update is called once per frame
@@ -36,7 +34,7 @@ public class Partie : MonoBehaviour
         {
             partieEnCours = true;
             joueur.AjouterVaisseau(gameObject.AddComponent<Vaisseau>());
-            
+            GenererCarte();
         }
     }
 

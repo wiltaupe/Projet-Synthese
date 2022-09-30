@@ -5,7 +5,7 @@ using UnityEngine;
 public class Vaisseau : MonoBehaviour
 {
     private List<Vector2> salles;
-    private GenerateurDeSalle generateurDeSalle;
+    
 
     
 
@@ -13,7 +13,9 @@ public class Vaisseau : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        generateurDeSalle = gameObject.AddComponent<GenerateurDeSalle>();
+       
+        GameObject owner = GameObject.Find("GenerateurDeSalle");
+        GenerateurDeSalle generateurDeSalle = owner.GetComponent<GenerateurDeSalle>();
         salles = generateurDeSalle.GenererSalles();
     }
 
