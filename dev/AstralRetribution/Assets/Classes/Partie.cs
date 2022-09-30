@@ -6,12 +6,16 @@ public class Partie : MonoBehaviour
 {
     private bool partieEnCours = false;
     private Joueur joueur;
-    private GenerateurDeSalle generateurDeSalle;
     private Vaisseau vaisseauJoueur;
+    private CarteCeleste carteActuelle;
+    private int niveauActuel;
+    private bool enCombat = false;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        generateurDeSalle = gameObject.AddComponent<GenerateurDeSalle>();
         CommencerPartie();
     }
 
@@ -28,11 +32,18 @@ public class Partie : MonoBehaviour
 
     public void CommencerPartie()
     {
-        if (partieEnCours == false)
+        if (partieEnCours == false && joueur != null)
         {
             partieEnCours = true;
-            vaisseauJoueur = gameObject.AddComponent<Vaisseau>();
-            Debug.Log(vaisseauJoueur.VoirSalles());
+            joueur.AjouterVaisseau(gameObject.AddComponent<Vaisseau>());
+            carteActuelle = gameObject.AddComponent<CarteCeleste>();
+        }
+    }
+
+    public void DemarrerCombat()
+    {
+        if (!enCombat)
+        {
 
         }
     }
