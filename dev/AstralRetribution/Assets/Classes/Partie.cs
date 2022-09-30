@@ -13,8 +13,11 @@ public class Partie : MonoBehaviour
     private int niveauActuel;
     private bool enCombat = false;
 
+<<<<<<< HEAD
     // 11 23 35 41 47
 
+=======
+>>>>>>> 7563a797df5ce89fbd6f229d75a67ae3c7e82b29
 
 
     // Start is called before the first frame update
@@ -48,6 +51,7 @@ public class Partie : MonoBehaviour
     {
         if (!enCombat)
         {
+<<<<<<< HEAD
             CommencerCombat();
             enCombat = true;
             SceneManager.LoadSceneAsync()
@@ -59,6 +63,8 @@ public class Partie : MonoBehaviour
         if (enCombat)
         {
             enCombat = false;
+=======
+>>>>>>> 7563a797df5ce89fbd6f229d75a67ae3c7e82b29
 
         }
     }
