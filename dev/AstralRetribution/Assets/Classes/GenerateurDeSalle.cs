@@ -21,11 +21,6 @@ public class GenerateurDeSalle : MonoBehaviour
 
     public List<Vector2> GenererSalles()
     {
-        List<Vector2> liste = new List<Vector2>();
-        for (int i = 0; i < 10; i++)
-        {
-            liste.Add(new Vector2(i, i));
-        }
-        return liste;
+        return new List<Vector2>();
     }
 }

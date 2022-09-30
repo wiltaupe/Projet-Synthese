@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Joueur : MonoBehaviour
+public class CarteCeleste : MonoBehaviour
 {
-    private
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +14,5 @@ public class Joueur : MonoBehaviour
     void Update()
     {
         
-    }
-
-    internal void AjouterVaisseau(Vaisseau vaisseau)
-    {
-        throw new NotImplementedException();
     }
 }
