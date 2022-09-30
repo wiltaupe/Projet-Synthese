@@ -37,7 +37,7 @@ public class Partie : MonoBehaviour
         {
             partieEnCours = true;
             joueur.AjouterVaisseau(gameObject.AddComponent<Vaisseau>());
-            
+            GenererCarte();
         }
     }
 
