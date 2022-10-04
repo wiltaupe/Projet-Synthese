@@ -336,9 +336,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 710441029}
-        m_TargetAssemblyTypeName: changerScene, Assembly-CSharp
-        m_MethodName: Menu
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Revenir, Assembly-CSharp
+        m_MethodName: Retour
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -663,8 +663,8 @@ Canvas:
   m_GameObject: {fileID: 1346322730}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 351220129}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
