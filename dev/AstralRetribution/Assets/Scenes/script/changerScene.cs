@@ -12,6 +12,5 @@ public class changerScene : MonoBehaviour
 
     public void MenuOption()
     {
-        SceneManager.LoadScene("AstralRetribution_MenuOption");
     }
 }
