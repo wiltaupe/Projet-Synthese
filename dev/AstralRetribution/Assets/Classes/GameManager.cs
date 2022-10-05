@@ -19,10 +19,12 @@ public class GameManager : MonoBehaviour
     public void Awake()
     {
         _instance = this;
+        
     }
 
     private void Start()
     {
+        
         _currentState = new BeginState();
         _currentState.Start();
 
