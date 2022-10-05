@@ -3,25 +3,19 @@
 public class BeginState : State
 {
 
-
-    public BeginState(GameManager gameManager) : base(gameManager)
-    {
-       
-    }
-
     public override void Start()
     {
-        base.Start();
+        
     }
 
     public override void Options()
     {
-        _gameManager.SetState(new OptionsState(_gameManager));
+        GameManager.Instance.SetState(new OptionsState());
     }
 
     public override void DemarrerPartie()
     {
-        _gameManager.SetState(new GameState(_gameManager));
+        GameManager.Instance.SetState(new ChoixPieceState());
     }
 
     public override void QuitterPartie()

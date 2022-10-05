@@ -6,18 +6,30 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private State _currentState;
+    private static GameManager _instance;
 
+    public static GameManager Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+
+    public void Awake()
+    {
+        _instance = this;
+    }
 
     private void Start()
     {
-        _currentState = new BeginState(this);
+        _currentState = new BeginState();
         _currentState.Start();
 
     }
 
     public void SetState(State state)
     {
-        Debug.Log(state);
         _currentState = state;
         _currentState.Start();
     }
@@ -39,7 +51,6 @@ public class GameManager : MonoBehaviour
 
     public void QuitterOptions()
     {
-        Debug.Log("salut");
         SceneManager.LoadScene("AstralRetribution_MenuInitial");
     }
 

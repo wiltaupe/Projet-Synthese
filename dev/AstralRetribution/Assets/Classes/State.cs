@@ -1,11 +1,5 @@
 public abstract class State
 {
-    protected readonly GameManager _gameManager;
-
-    public State(GameManager gameManager)
-    {
-        _gameManager = gameManager;
-    }
 
     public virtual void Start()
     {
@@ -28,6 +22,26 @@ public abstract class State
     }
 
     public virtual void Options()
+    {
+
+    }
+
+    public virtual void GenererVaisseau()
+    {
+
+    }
+
+    public virtual void GenererCarte()
+    {
+
+    }
+
+    public virtual void AppuyerPlanète(Planete planete)
+    {
+
+    }
+
+    public virtual void DeplacerPiece()
     {
 
     }

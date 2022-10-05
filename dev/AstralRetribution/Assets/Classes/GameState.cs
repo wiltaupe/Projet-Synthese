@@ -1,12 +1,28 @@
-﻿internal class GameState : State
+﻿using UnityEngine;
+
+internal class GameState : State
 {
-    public GameState(GameManager gameManager) : base(gameManager)
-    {
-    }
 
     public override void Start()
     {
-        base.Start();
+        GenererVaisseau();
+        GenererCarte();
+    }
+
+
+    public override void GenererVaisseau()
+    {
+        base.GenererVaisseau();
+    }
+
+    public override void GenererCarte()
+    {
+        base.GenererCarte();
+    }
+
+    public override void AppuyerPlanète(Planete planete)
+    {
+        base.AppuyerPlanète(planete);
     }
 
 
