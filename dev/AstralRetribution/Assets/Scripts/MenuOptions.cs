@@ -9,6 +9,6 @@ public class MenuOptions : MonoBehaviour
     // Start is called before the first frame update
     public void Quitter()
     {
-        SceneManager.LoadSceneAsync("AstralRetribution_MenuInitial");
+        SceneManager.LoadSceneAsync("MenuInitial");
     }
 }
