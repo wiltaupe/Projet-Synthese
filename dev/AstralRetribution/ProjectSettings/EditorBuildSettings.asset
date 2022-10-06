@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/AstralRetribution_MenuInitial.unity
+    path: Assets/Scenes/MenuInitial.unity
     guid: 2721a336906477d4b87cc6ba0799371e
   - enabled: 1
-    path: Assets/Scenes/AstralRetribution_MenuOption.unity
+    path: Assets/Scenes/MenuOption.unity
     guid: f60a4c2f3429e8747be46ecf26d20b19
   m_configObjects: {}
