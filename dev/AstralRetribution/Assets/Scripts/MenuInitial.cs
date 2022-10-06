@@ -20,7 +20,7 @@ public class MenuInitial : MonoBehaviour
 
     public void DemarrerPartie()
     {
-
+        SceneManager.LoadSceneAsync("MenuOption");
     }
 
     public void QuitterPartie()
@@ -29,6 +29,6 @@ public class MenuInitial : MonoBehaviour
     }
     public void Options()
     {
-        SceneManager.LoadSceneAsync("AstralRetribution_MenuOption");
+        SceneManager.LoadSceneAsync("MenuOption");
     }
 }
