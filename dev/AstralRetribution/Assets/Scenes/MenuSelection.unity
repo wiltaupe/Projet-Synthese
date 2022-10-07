@@ -249,8 +249,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 91d8c539425760c44a7e308ac3830b63, type: 3}
   - {fileID: 21300000, guid: 7142108d3f9915841923056ca9eb356b, type: 3}
   - {fileID: 21300000, guid: d34a0fa7869f29d45ae23894df01c09d, type: 3}
-  nbSalle: 0
-  taille: {x: 0, y: 0}
+  nbSalle: 10
+  taille: {x: 10, y: 10}
 --- !u!4 &1370440565
 Transform:
   m_ObjectHideFlags: 0
