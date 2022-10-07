@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 260
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -249,6 +249,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 91d8c539425760c44a7e308ac3830b63, type: 3}
   - {fileID: 21300000, guid: 7142108d3f9915841923056ca9eb356b, type: 3}
   - {fileID: 21300000, guid: d34a0fa7869f29d45ae23894df01c09d, type: 3}
+  nbSalle: 0
+  taille: {x: 0, y: 0}
 --- !u!4 &1370440565
 Transform:
   m_ObjectHideFlags: 0
@@ -315,7 +317,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -332,8 +334,8 @@ Canvas:
   m_GameObject: {fileID: 1961326307}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 959169292}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
