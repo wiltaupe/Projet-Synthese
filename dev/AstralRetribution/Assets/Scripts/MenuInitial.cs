@@ -20,7 +20,7 @@ public class MenuInitial : MonoBehaviour
 
     public void DemarrerPartie()
     {
-        SceneManager.LoadSceneAsync("MenuSelection");
+        SceneManager.LoadScene("MenuSelection");
     }
 
     public void QuitterPartie()
