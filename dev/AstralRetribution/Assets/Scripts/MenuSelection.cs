@@ -10,18 +10,18 @@ public class MenuSelection : MonoBehaviour
     public Sprite[] textures;
     public GenerateurDeSalle generateurDeSalle;
     public int nbSalle;
-    public Vector2 taille;
     // Start is called before the first frame update
     void Start()
     {
         GenererBackground();
+        generateurDeSalle = new GenerateurDeSalle(4);
         GenererVaisseau();
-        generateurDeSalle = new GenerateurDeSalle(nbSalle,taille);
         
     }
 
     private void GenererVaisseau()
     {
+        generateurDeSalle.GenererVaisseau();
     }
 
     private void GenererBackground()
