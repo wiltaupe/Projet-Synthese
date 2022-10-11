@@ -4,45 +4,97 @@ using UnityEngine;
 
 public class GenerateurDeSalle
 {
-    public ArbreBinaire arbreBinaire;
-    public int nbSalleVoulue;
-    public Vector2 taille;
-    private List<Vector2> listePoints;
+    private Arbre arbre;
+    private int taille = 400;
+    private int nbIterations;
 
-    public GenerateurDeSalle(int nbSalleVoulue, Vector2 taille)
+    public GenerateurDeSalle(int nbIterations)
     {
-        this.nbSalleVoulue = nbSalleVoulue;
-        this.taille = taille;
-        arbreBinaire = new ArbreBinaire();
-        listePoints = new List<Vector2>();
-        GenererPoints();
+        this.nbIterations = nbIterations;
     }
 
-    private void GenererPoints()
+    public void CreerArbre()
     {
-        for (int i = 0; i < taille.x; i++)
+        List<Vector2> liste = new();
+        for (int i=0; i < 20; i++)
         {
-            for (int j = 0; j < taille.y; j++)
+            for(int j=0; j < 20; j++)
             {
-                Vector2 vector2 = new Vector2(i, j);
-                Debug.Log(vector2);
-                listePoints.Add(vector2);
+                liste.Add(new Vector2(i, j));
             }
+        }
+        
+        arbre = new Arbre(liste);
+
+        Iteration(arbre.racine, nbIterations) ;
+    }
+
+    private void Iteration(Noeud noeud, int nbIterations)
+    {
+        if (nbIterations > 0)
+        {
+            int randomInt = UnityEngine.Random.Range(0, 2);
+            Diviser(noeud, randomInt);
+            
         }
     }
 
-    public void Division(NoeudArbre noeud,float pourcentage,bool noeudFait)
+    private void Diviser(Noeud noeud, int horizontalVertical)
     {
+        if (horizontalVertical == 1)
+        {
+            // horizontal
+            float mx = noeud.points[0][1];
+            float mn = noeud.points[0][1];
 
+            for (int i = 0; i < noeud.points.Count; i++)
+            {
+                if (noeud.points[i][1] > mx)
+                {
+                    mx = noeud.points[i][1];
+                }
+
+
+                if (noeud.points[i][1] < mn)
+                {
+                    mn = noeud.points[i][1];
+                }
+            }
+
+            
+
+
+            Debug.Log(mn);
+            Debug.Log(mx);
+        }
+        else if (horizontalVertical == 0)
+        {
+            // vertical
+            float mx = noeud.points[0][0];
+            float mn = noeud.points[0][0];
+
+            for (int i = 0; i < noeud.points.Count; i++)
+            {
+                if (noeud.points[i][1] > mx)
+                {
+                    mx = noeud.points[i][0];
+                }
+
+
+                if (noeud.points[i][1] < mn)
+                {
+                    mn = noeud.points[i][0];
+                }
+            }
+
+            Debug.Log(mn);
+            Debug.Log(mx);
+        }
     }
 
-    public void AjouterPoints(Vector2[] vector2s)
+    internal void GenererVaisseau()
     {
+        CreerArbre();
 
     }
-    public void CreerSalle()
-    {
-
-    }
-
 }
