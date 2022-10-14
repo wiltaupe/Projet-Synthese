@@ -2,12 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class MenuSelection : MonoBehaviour
 {
     public Image image;
     public Sprite[] textures;
+    private Vaisseau vaisseauJoueur;
+    public Tilemap tilemap;
+    public TileBase sol, mur;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +23,16 @@ public class MenuSelection : MonoBehaviour
     {
         GameObject gameObject = GameObject.Find("GenerateurSalle");
         GenerateurSalle gs = gameObject.GetComponent<GenerateurSalle>();
-        Vaisseau vaisseau = gs.GenererVaisseau(20,3);
-        Debug.Log(vaisseau);
+        vaisseauJoueur = gs.GenererVaisseau(20,3);
+        
     }
 
     void AfficherVaisseau()
     {
-
+        foreach (RectInt salle in vaisseauJoueur.Salles)
+        {
+            
+        }
     }
 
     private void GenererBackground()

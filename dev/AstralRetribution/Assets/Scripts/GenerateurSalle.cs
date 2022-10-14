@@ -88,48 +88,5 @@ public class GenerateurSalle : MonoBehaviour
         return new RectInt[] { c1, c2 };
     }
 
-    /*void OnDrawGizmos()
-    {
-        AttemptDebugDrawBsp();
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        AttemptDebugDrawBsp();
-    }
-
-    void AttemptDebugDrawBsp()
-    {
-        if (shouldDebugDrawBsp)
-        {
-            DebugDrawBsp();
-        }
-    }
-
-    public void DebugDrawBsp()
-    {
-        if (tree == null) return; // hasn't been generated yet
-
-        DebugDrawBspNode(tree); // recursive call
-    }
-
-    public void DebugDrawBspNode(BSPTree node)
-    {
-
-
-        // Container
-        Gizmos.color = Color.green;
-        // top
-        Gizmos.DrawLine(new Vector3(node.Contenu.x, node.Contenu.y, 0), new Vector3Int(node.Contenu.xMax, node.Contenu.y, 0));
-        // right
-        Gizmos.DrawLine(new Vector3(node.Contenu.xMax, node.Contenu.y, 0), new Vector3Int(node.Contenu.xMax, node.Contenu.yMax, 0));
-        // bottom
-        Gizmos.DrawLine(new Vector3(node.Contenu.x, node.Contenu.yMax, 0), new Vector3Int(node.Contenu.xMax, node.Contenu.yMax, 0));
-        // left
-        Gizmos.DrawLine(new Vector3(node.Contenu.x, node.Contenu.y, 0), new Vector3Int(node.Contenu.x, node.Contenu.yMax, 0));
-
-        // children
-        if (node.Gauche != null) DebugDrawBspNode(node.Gauche);
-        if (node.Droite != null) DebugDrawBspNode(node.Droite);
-    }*/
+  
 }

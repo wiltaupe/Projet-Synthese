@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Vaisseau
 {
-    private List<RectInt> salles;
+    public List<RectInt> Salles { get; set; }
 
     public Vaisseau(List<RectInt> salles)
     {
-        this.salles = salles;
+        Salles = salles;
     }
 }
