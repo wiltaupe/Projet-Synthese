@@ -294,6 +294,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 91d8c539425760c44a7e308ac3830b63, type: 3}
   - {fileID: 21300000, guid: 7142108d3f9915841923056ca9eb356b, type: 3}
   - {fileID: 21300000, guid: d34a0fa7869f29d45ae23894df01c09d, type: 3}
+  tilemap: {fileID: 1745494097}
+  sol: {fileID: 11400000, guid: 9d9e8e5c742cb1248a843a6c842687a0, type: 2}
+  mur: {fileID: 11400000, guid: 9d6fef1e30e79bf48b2b96c3a0d822fc, type: 2}
 --- !u!4 &1370440565
 Transform:
   m_ObjectHideFlags: 0
