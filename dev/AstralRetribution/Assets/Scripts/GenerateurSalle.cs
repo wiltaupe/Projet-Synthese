@@ -15,6 +15,7 @@ public class GenerateurSalle : MonoBehaviour
     public void Start()
     {
         GenererVaisseau();
+
     }
 
     // Start is called before the first frame update
@@ -46,12 +47,14 @@ public class GenerateurSalle : MonoBehaviour
             c1 = new RectInt(contenu.x, contenu.y, contenu.width, (int)Random.Range(contenu.height * 0.3f,contenu.height * 0.5f));
             c2 = new RectInt(contenu.x, contenu.y + c1.height, contenu.width, contenu.height - c1.height);
 
-            var c1WRatio = c1.width / c1.height;
-            var c2WRatio = c2.width / c2.height;
+            /*
+             * ratio pour egaliser  ////// % split x ou y par 50/50 augmentatiion 25% / - 25 %
+             * float c1WRatio = c1.width / c1.height;
+            float c2WRatio = c2.width / c2.height;
             if (c1WRatio < ratio || c2WRatio < ratio)
             {
                 return DiviserContenu(contenu);
-            }
+            }*/
 
         }
         else
@@ -60,12 +63,6 @@ public class GenerateurSalle : MonoBehaviour
             c1 = new RectInt(contenu.x, contenu.y, (int)Random.Range(contenu.width * 0.3f,contenu.width * 0.5f), contenu.height);
             c2 = new RectInt(contenu.x + c1.width, contenu.y, contenu.width - c1.width, contenu.height);
 
-            var c1HRatio = c1.width / c1.height;
-            var c2HRatio = c2.width / c2.height;
-            if (c1HRatio < ratio || c2HRatio < ratio)
-            {
-                return DiviserContenu(contenu);
-            }
         }
 
         return new RectInt[] { c1, c2 };
@@ -98,6 +95,8 @@ public class GenerateurSalle : MonoBehaviour
 
     public void DebugDrawBspNode(BSPTree node)
     {
+
+
         // Container
         Gizmos.color = Color.green;
         // top

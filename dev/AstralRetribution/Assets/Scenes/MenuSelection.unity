@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626513185f944f04ca837047298e1a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tailleVaisseau: 25
+  tailleVaisseau: 100
   nbIterations: 4
 --- !u!4 &1994682122
 Transform:
