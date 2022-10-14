@@ -1,27 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GenerateurSalle : MonoBehaviour
 {
-    public int tailleVaisseau;
-    [Range(1, 10)]
-    public int nbIterations;
-    private BSPTree tree;
-    private readonly bool shouldDebugDrawBsp = true;
+    private float ratio = 0.45f;
+    private List<RectInt> salles;
 
-    private float ratio;
-
-    public void Start()
+    public Vaisseau GenererVaisseau(int taille,int nbIterations)
     {
-        GenererVaisseau();
+        BSPTree tree;
+        
+        tree = Division(nbIterations, new RectInt(0, 0, taille, taille));
 
+        salles = new();
+        PrendreRectDansArbre(tree,salles);
+        return new(salles);
     }
-
-    // Start is called before the first frame update
-    public void GenererVaisseau()
+    private void PrendreRectDansArbre(BSPTree noeud,List<RectInt> salles)
     {
-        tree = Division(nbIterations, new RectInt(0, 0, tailleVaisseau, tailleVaisseau));
+        // source : https://www.geeksforgeeks.org/print-leaf-nodes-left-right-binary-tree/
+        // If node is null, return
+        if (noeud == null)
+            return;
+
+        // If node is leaf node, print its data    
+        if (noeud.Gauche == null &&
+            noeud.Droite == null)
+        {
+            salles.Add(noeud.Contenu);
+        }
+
+        // If left child exists, check for leaf
+        // recursively
+        if (noeud.Gauche != null)
+            PrendreRectDansArbre(noeud.Gauche,salles);
+
+        // If right child exists, check for leaf
+        // recursively
+        if (noeud.Droite != null)
+            PrendreRectDansArbre(noeud.Droite,salles);
     }
 
     private BSPTree Division(int nbIterations, RectInt contenu)
@@ -47,15 +66,8 @@ public class GenerateurSalle : MonoBehaviour
             c1 = new RectInt(contenu.x, contenu.y, contenu.width, (int)Random.Range(contenu.height * 0.3f,contenu.height * 0.5f));
             c2 = new RectInt(contenu.x, contenu.y + c1.height, contenu.width, contenu.height - c1.height);
 
-            /*
-             * ratio pour egaliser  ////// % split x ou y par 50/50 augmentatiion 25% / - 25 %
-             * float c1WRatio = c1.width / c1.height;
-            float c2WRatio = c2.width / c2.height;
-            if (c1WRatio < ratio || c2WRatio < ratio)
-            {
-                return DiviserContenu(contenu);
-            }*/
-
+            
+            //ratio pour egaliser  ////// % split x ou y par 50/50 augmentatiion 25% / - 25 %
         }
         else
         {
@@ -63,12 +75,20 @@ public class GenerateurSalle : MonoBehaviour
             c1 = new RectInt(contenu.x, contenu.y, (int)Random.Range(contenu.width * 0.3f,contenu.width * 0.5f), contenu.height);
             c2 = new RectInt(contenu.x + c1.width, contenu.y, contenu.width - c1.width, contenu.height);
 
+            
+        }
+
+        float c1WRatio = c1.width / c1.height;
+        float c2WRatio = c2.width / c2.height;
+        if (c1WRatio < ratio || c2WRatio < ratio)
+        {
+            return DiviserContenu(contenu);
         }
 
         return new RectInt[] { c1, c2 };
     }
 
-    void OnDrawGizmos()
+    /*void OnDrawGizmos()
     {
         AttemptDebugDrawBsp();
     }
@@ -111,5 +131,5 @@ public class GenerateurSalle : MonoBehaviour
         // children
         if (node.Gauche != null) DebugDrawBspNode(node.Gauche);
         if (node.Droite != null) DebugDrawBspNode(node.Droite);
-    }
+    }*/
 }
