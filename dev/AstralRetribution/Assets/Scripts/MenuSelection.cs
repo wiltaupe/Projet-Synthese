@@ -12,6 +12,20 @@ public class MenuSelection : MonoBehaviour
     void Start()
     {
         GenererBackground();
+        GenererVaisseau();
+    }
+
+    void GenererVaisseau()
+    {
+        GameObject gameObject = GameObject.Find("GenerateurSalle");
+        GenerateurSalle gs = gameObject.GetComponent<GenerateurSalle>();
+        Vaisseau vaisseau = gs.GenererVaisseau(20,3);
+        Debug.Log(vaisseau);
+    }
+
+    void AfficherVaisseau()
+    {
+
     }
 
     private void GenererBackground()
