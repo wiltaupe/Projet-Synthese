@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6321723898682794079}
   - component: {fileID: 6321723898682794076}
-  - component: {fileID: 6321723898682794078}
+  - component: {fileID: 8131976081800845781}
   m_Layer: 0
   m_Name: GenerateurSalle
-  m_TagString: Generateur
+  m_TagString: DontDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626513185f944f04ca837047298e1a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6321723898682794078
+--- !u!114 &8131976081800845781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

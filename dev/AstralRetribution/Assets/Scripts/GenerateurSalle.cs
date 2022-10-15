@@ -8,17 +8,18 @@ public class GenerateurSalle : MonoBehaviour
     private float ratio = 0.45f;
     private List<RectInt> salles;
 
-    public Vaisseau GenererVaisseau(int taille,int nbIterations)
+    public List<RectInt> GenererSalles(int taille,int nbIterations)
     {
         BSPTree tree;
         
         tree = Division(nbIterations, new RectInt(0, 0, taille, taille));
 
         salles = new();
-        PrendreRectDansArbre(tree,salles);
-        return new(salles);
+        PrendreRectDansArbre(tree);
+
+        return salles;
     }
-    private void PrendreRectDansArbre(BSPTree noeud,List<RectInt> salles)
+    private void PrendreRectDansArbre(BSPTree noeud)
     {
         // source : https://www.geeksforgeeks.org/print-leaf-nodes-left-right-binary-tree/
         // If node is null, return
@@ -35,12 +36,12 @@ public class GenerateurSalle : MonoBehaviour
         // If left child exists, check for leaf
         // recursively
         if (noeud.Gauche != null)
-            PrendreRectDansArbre(noeud.Gauche,salles);
+            PrendreRectDansArbre(noeud.Gauche);
 
         // If right child exists, check for leaf
         // recursively
         if (noeud.Droite != null)
-            PrendreRectDansArbre(noeud.Droite,salles);
+            PrendreRectDansArbre(noeud.Droite);
     }
 
     private BSPTree Division(int nbIterations, RectInt contenu)
