@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,19 +6,28 @@ using UnityEngine.Tilemaps;
 
 public class GenerateurSalle : MonoBehaviour
 {
-    private float ratio = 0.45f;
+    private readonly float ratio = 0.45f;
     private List<RectInt> salles;
 
     public List<RectInt> GenererSalles(int taille,int nbIterations)
     {
         BSPTree tree;
-        
-        tree = Division(nbIterations, new RectInt(0, 0, taille, taille));
-
-        salles = new();
-        PrendreRectDansArbre(tree);
+        try
+        {
+            tree = Division(nbIterations, new RectInt(0, 0, taille, taille));
+            salles = new();
+            PrendreRectDansArbre(tree);
+            
+        }
+        catch (DivideByZeroException)
+        {
+            GenererSalles(taille, nbIterations);
+        }
 
         return salles;
+
+
+
     }
     private void PrendreRectDansArbre(BSPTree noeud)
     {
@@ -60,11 +70,11 @@ public class GenerateurSalle : MonoBehaviour
     {
         RectInt c1, c2;
 
-        if(Random.Range(0f,1f) > 0.5f)
+        if(UnityEngine.Random.Range(0f,1f) > 0.5f)
         {
 
             // vertical split
-            c1 = new RectInt(contenu.x, contenu.y, contenu.width, (int)Random.Range(contenu.height * 0.3f,contenu.height * 0.5f));
+            c1 = new RectInt(contenu.x, contenu.y, contenu.width, (int)UnityEngine.Random.Range(contenu.height * 0.3f,contenu.height * 0.5f));
             c2 = new RectInt(contenu.x, contenu.y + c1.height, contenu.width, contenu.height - c1.height);
 
             
@@ -73,7 +83,7 @@ public class GenerateurSalle : MonoBehaviour
         else
         {
             // horizontal split
-            c1 = new RectInt(contenu.x, contenu.y, (int)Random.Range(contenu.width * 0.3f,contenu.width * 0.5f), contenu.height);
+            c1 = new RectInt(contenu.x, contenu.y, (int)UnityEngine.Random.Range(contenu.width * 0.3f,contenu.width * 0.5f), contenu.height);
             c2 = new RectInt(contenu.x + c1.width, contenu.y, contenu.width - c1.width, contenu.height);
 
             
