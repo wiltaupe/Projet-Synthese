@@ -1,15 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class GenerateurSalle : MonoBehaviour
 {
-    private readonly float ratio = 0.45f;
     private List<RectInt> salles;
 
-    public List<RectInt> GenererSalles(int taille,int nbIterations)
+    public List<RectInt> GenererSalles(int taille, int nbIterations)
     {
         BSPTree tree;
         try
@@ -17,7 +14,7 @@ public class GenerateurSalle : MonoBehaviour
             tree = Division(nbIterations, new RectInt(0, 0, taille, taille));
             salles = new();
             PrendreRectDansArbre(tree);
-            
+
         }
         catch (DivideByZeroException)
         {
@@ -70,34 +67,28 @@ public class GenerateurSalle : MonoBehaviour
     {
         RectInt c1, c2;
 
-        if(UnityEngine.Random.Range(0f,1f) > 0.5f)
+        if (UnityEngine.Random.Range(0f, 1f) > 0.5f)
         {
 
             // vertical split
-            c1 = new RectInt(contenu.x, contenu.y, contenu.width, (int)UnityEngine.Random.Range(contenu.height * 0.3f,contenu.height * 0.5f));
+            c1 = new RectInt(contenu.x, contenu.y, contenu.width, (int)UnityEngine.Random.Range(contenu.height * 0.3f, contenu.height * 0.5f));
             c2 = new RectInt(contenu.x, contenu.y + c1.height, contenu.width, contenu.height - c1.height);
 
-            
+
             //ratio pour egaliser  ////// % split x ou y par 50/50 augmentatiion 25% / - 25 %
         }
         else
         {
             // horizontal split
-            c1 = new RectInt(contenu.x, contenu.y, (int)UnityEngine.Random.Range(contenu.width * 0.3f,contenu.width * 0.5f), contenu.height);
+            c1 = new RectInt(contenu.x, contenu.y, (int)UnityEngine.Random.Range(contenu.width * 0.3f, contenu.width * 0.5f), contenu.height);
             c2 = new RectInt(contenu.x + c1.width, contenu.y, contenu.width - c1.width, contenu.height);
 
-            
+
         }
 
-        float c1WRatio = c1.width / c1.height;
-        float c2WRatio = c2.width / c2.height;
-        if (c1WRatio < ratio || c2WRatio < ratio)
-        {
-            return DiviserContenu(contenu);
-        }
 
         return new RectInt[] { c1, c2 };
     }
 
-  
+
 }

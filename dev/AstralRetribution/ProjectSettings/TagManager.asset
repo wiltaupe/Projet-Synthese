@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DontDestroy
   - GenerateurSalle
+  - Grid
   layers:
   - Default
   - TransparentFX
@@ -42,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: plancher
+    uniqueID: 3140019705
+    locked: 0
+  - name: toit
+    uniqueID: 3930182119
     locked: 0
