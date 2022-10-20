@@ -8,6 +8,7 @@ public class MainManager : MonoBehaviour
     public static MainManager Instance { get; private set; }
     public GridManager GridManager { get; private set; }
     public RoomManager RoomManager { get; private set; }
+    public PlaneteManager PlaneteManager { get; private set; }
     public Sprite Background { get; set; }
     private void Awake()
     {
@@ -19,5 +20,6 @@ public class MainManager : MonoBehaviour
         Instance = this;
         GridManager = GetComponentInChildren<GridManager>();
         RoomManager = GetComponentInChildren<RoomManager>();
+        PlaneteManager = GetComponentInChildren<PlaneteManager>();
     }
 }
