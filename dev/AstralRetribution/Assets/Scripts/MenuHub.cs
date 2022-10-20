@@ -20,15 +20,9 @@ public class MenuHub : MonoBehaviour
 
         vaisseau.transform.localScale = new Vector3(0.41f, 0.41f, 0);
         vaisseau.transform.position = positionVaisseau.position;
-        
 
-        /*grid = GameObject.Find("Vaisseau_toit");
-        vaisseau = grid.GetComponent<Tilemap>();
+        MainManager.Instance.PlaneteManager.GenererPlanete();
 
-        vaisseau.SetTile(new Vector3Int(1, 0, 0), gridtile);
-        vaisseau.SetTile(new Vector3Int(2, 0, 0), gridtile);
-        vaisseau.SetTile(new Vector3Int(2, 1, 0), gridtile);
-        vaisseau.SetTile(new Vector3Int(2, 2, 0), gridtile);*/
     }
 
     // Update is called once per frame

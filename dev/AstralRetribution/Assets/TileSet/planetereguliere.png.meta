@@ -1,0 +1,1662 @@
+fileFormatVersion: 2
+guid: 33d897080aeeb5d40a8806596d8d10f2
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 2.5
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: planetereguliere_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 627.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630747861b1336a4e945e1e748005908
+      internalID: -501987523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 627.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1b916d3375780b42a8ca6c5c2c79bfe
+      internalID: 1675394385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_2
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 627.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8a7ece15629ee34fa56927b3f21f616
+      internalID: 453370148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_3
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 627.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 016591411e8902f4698204ce05db137b
+      internalID: 39413695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_4
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 627.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47dc49aef3d608147b8c0f18ff6409a9
+      internalID: -135499529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_5
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 627.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4749eedda4844874fb92d40ffe238cd8
+      internalID: 1996424506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_6
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 627.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9766a3193d0262544abec915a3141986
+      internalID: -415741272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_7
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 627.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 058fd5b5f4aa51442a47601097c0b880
+      internalID: 1109381828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_8
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 627.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c8a56de5da2ebd49bafa33568bdfadf
+      internalID: 1431083010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_9
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 627.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b567b24959b210f48ad7702af17bd04f
+      internalID: -839835203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 523.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225ce4b966a754540a922347953a481c
+      internalID: 316847429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_11
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 523.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4a91dc2215f2a141a3db55c4c8dd0ae
+      internalID: -476599486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_12
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 523.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13716932216f20c4ea0da68be707185c
+      internalID: -392937897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_13
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 523.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8950500b4eaab5b48a604fac0d10524e
+      internalID: -1031267868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_14
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 523.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31170e03a19203a4784a775722b83c58
+      internalID: -1717585132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_15
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 523.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 306b7bb7e07ff7e48a9da1c0277f0aa0
+      internalID: 415779947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_16
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 523.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81aebc59614fc5c4d83bc78acb433bd7
+      internalID: 1965008931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_17
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 523.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82b788db543dd2c4b91a06caa905deed
+      internalID: -418667568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_18
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 523.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ec66956de10b94992d6812f5a08455
+      internalID: -1246631335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_19
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 523.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a8f0ea2c69cbd6448bdf36856e14c49
+      internalID: 516862071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 419.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 800f6b12e45cab14e9708c47f7f92e87
+      internalID: 1268890319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_21
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 419.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95c38ce7dc371a64d9b6c65978cf7261
+      internalID: -561653706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_22
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 419.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ccc1aae024961142be9769e45a7c5dd
+      internalID: -555111865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_23
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 419.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ec2c7e9ef79c2448800687582e182d6
+      internalID: -1207765151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_24
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 419.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d54b80b3ba79574a9f8f939b17270d8
+      internalID: 1485474632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_25
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 419.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3879d87bbb59ba84c9cc6962cc7136b5
+      internalID: -355940740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_26
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 419.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c34a3e5d0b14a24b9c94140f36338aa
+      internalID: 133029374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_27
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 419.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a3e44f94eacc7b42a787819aa97e299
+      internalID: -1638368640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_28
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 419.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 760bb2b8c2522154680dec9a67c7bf49
+      internalID: 740344895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_29
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 419.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad16c07f86d23fb42b2efad05024a13b
+      internalID: 584320389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 315.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45000e7e1d5f1f149ad3ca8327ab6303
+      internalID: 240851498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_31
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 315.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3598e285d8774f84e8e8fb5505ab192c
+      internalID: -685563108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_32
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 315.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19575a61eae3b034ab4a84db64cfa3c6
+      internalID: -1921363761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_33
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 315.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2a7e95c2d8dbc541b1daab778fd6167
+      internalID: -48142757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_34
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 315.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e14c9d6db831da84a99d64791b3d81f2
+      internalID: -1777734106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_35
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 315.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83ddf512f2caf6c448b66dcad384752d
+      internalID: 1124921086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_36
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 315.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96a9ab567338d554995b1be620259200
+      internalID: -892936699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_37
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 315.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9b5100783627e2418bd229524fc2c71
+      internalID: 1711878329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_38
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 315.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fc95bf71ee403443ae1d046658df7e7
+      internalID: 362704283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_39
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 315.4286
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 787c714213d36664a81545121c907d50
+      internalID: 361053705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 211.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6de4af12d3117c43912da0133561aa7
+      internalID: -1677665617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_41
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 211.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6caa3fb621c1414428e7a2deb8f36307
+      internalID: 637814941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_42
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 211.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41012d9e03a023e45b144920169b6ca0
+      internalID: -2132593860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_43
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 211.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b95ac2cac14ef6499a9f055fad2dff4
+      internalID: 374648128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_44
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 211.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e334fdfe8769e740b5d47133d1fc9b0
+      internalID: 382572080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_45
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 211.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6feae534c4c76ca4b81770da3878dcf0
+      internalID: 1983006990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_46
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 211.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2afd780b2b4ee49bc3b7a1bac0d845
+      internalID: -386913754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_47
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 211.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cca13a9e6219ca44284765a51fa99599
+      internalID: 1096351233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_48
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 211.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d675c8e17bbaa4eb5e2520efc9854e
+      internalID: -853991297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_49
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 211.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6e5d5e6d478b3c42913a9728e116d4e
+      internalID: -742522016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 107.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2832b6a1bf41d394faa739805a6f5eca
+      internalID: 586541695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_51
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 107.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c90ba4dba75614ca52a1244648a0ac
+      internalID: -192504491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_52
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 107.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25b7e21a76aed7c429b3821a72553300
+      internalID: 215339032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_53
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 107.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 385dbdbc482856e46935b7578ca4fee4
+      internalID: -642297771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_54
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 107.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b7b0eb92093a54eab2f61df25b5a20
+      internalID: -1748495828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_55
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 107.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccfb94314f8e94941b7797356babb6c2
+      internalID: -1659249965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_56
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 107.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d703706c1dcc17943b83dc6c83e2d7d1
+      internalID: -263544153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_57
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 107.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a6e92d8cd00e0e468677c411893f5ed
+      internalID: -608265596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_58
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 107.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f8ddcbb0eef40346b629e931b3bb3ac
+      internalID: -1264203093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_59
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 107.42857
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7eaf5f6ac873784b9157e2100221c82
+      internalID: -1142912901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3.4285736
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f57306d54e4305449f53ca8c8c1927e
+      internalID: -18816752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_61
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 3.4285736
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4322db2faa28d544aac0cabb733be0f8
+      internalID: -308782245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_62
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 3.4285736
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac92bc08e50a65458c562e87db4c896
+      internalID: 1495818700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_63
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 3.4285736
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d6d182d2865934db9d54e7979f9c49
+      internalID: 1001404962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_64
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 3.4285736
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a6cf819da0c2af4bb68a5d3ff1f0328
+      internalID: -1203174675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_65
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 3.4285736
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b346c6ae271bb04ba884a2f7113ea0b
+      internalID: 1088951061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_66
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 3.4285736
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df9a004e3f42224db04b173fb9dfb11
+      internalID: -1004760280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_67
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 3.4285736
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4a960abcdfd6db469dd3a5a088d46ea
+      internalID: 774697040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_68
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 3.4285736
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c9992ac7f3ea0342b042837fd062215
+      internalID: -1443081294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetereguliere_69
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 3.4285736
+        width: 104.4
+        height: 104.57143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe1fcb0d98d18945825c93de06bfe12
+      internalID: -1293939971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      planetereguliere_2: 453370148
+      planetereguliere_59: -1142912901
+      planetereguliere_65: 1088951061
+      planetereguliere_50: 586541695
+      planetereguliere_20: 1268890319
+      planetereguliere_14: -1717585132
+      planetereguliere_22: -555111865
+      planetereguliere_5: 1996424506
+      planetereguliere_41: 637814941
+      planetereguliere_35: 1124921086
+      planetereguliere_40: -1677665617
+      planetereguliere_7: 1109381828
+      planetereguliere_4: -135499529
+      planetereguliere_9: -839835203
+      planetereguliere_16: 1965008931
+      planetereguliere_24: 1485474632
+      planetereguliere_12: -392937897
+      planetereguliere_15: 415779947
+      planetereguliere_44: 382572080
+      planetereguliere_55: -1659249965
+      planetereguliere_25: -355940740
+      planetereguliere_10: 316847429
+      planetereguliere_31: -685563108
+      planetereguliere_69: -1293939971
+      planetereguliere_53: -642297771
+      planetereguliere_58: -1264203093
+      planetereguliere_62: 1495818700
+      planetereguliere_64: -1203174675
+      planetereguliere_66: -1004760280
+      planetereguliere_36: -892936699
+      planetereguliere_42: -2132593860
+      planetereguliere_52: 215339032
+      planetereguliere_68: -1443081294
+      planetereguliere_37: 1711878329
+      planetereguliere_56: -263544153
+      planetereguliere_29: 584320389
+      planetereguliere_67: 774697040
+      planetereguliere_28: 740344895
+      planetereguliere_60: -18816752
+      planetereguliere_51: -192504491
+      planetereguliere_63: 1001404962
+      planetereguliere_54: -1748495828
+      planetereguliere_30: 240851498
+      planetereguliere_0: -501987523
+      planetereguliere_8: 1431083010
+      planetereguliere_45: 1983006990
+      planetereguliere_49: -742522016
+      planetereguliere_13: -1031267868
+      planetereguliere_3: 39413695
+      planetereguliere_39: 361053705
+      planetereguliere_6: -415741272
+      planetereguliere_38: 362704283
+      planetereguliere_18: -1246631335
+      planetereguliere_11: -476599486
+      planetereguliere_17: -418667568
+      planetereguliere_21: -561653706
+      planetereguliere_34: -1777734106
+      planetereguliere_48: -853991297
+      planetereguliere_46: -386913754
+      planetereguliere_1: 1675394385
+      planetereguliere_19: 516862071
+      planetereguliere_43: 374648128
+      planetereguliere_27: -1638368640
+      planetereguliere_26: 133029374
+      planetereguliere_33: -48142757
+      planetereguliere_23: -1207765151
+      planetereguliere_61: -308782245
+      planetereguliere_47: 1096351233
+      planetereguliere_57: -608265596
+      planetereguliere_32: -1921363761
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
