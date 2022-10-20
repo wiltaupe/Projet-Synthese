@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class MenuSelection : MonoBehaviour
 {
-    public Image image;
-    public Sprite[] textures;
-    public Tilemap tilemap;
-    public TileBase sol, mur;
+    [SerializeField] private Image image;
+    [SerializeField] private Sprite[] textures;
     // Start is called before the first frame update
     void Start()
     {

@@ -4,30 +4,16 @@ using UnityEngine.Tilemaps;
 
 public class Vaisseau : MonoBehaviour
 {
-    public List<RectInt> salles { get; set; }
-    public Tilemap sol, mur;
-    public TileBase solBase;
-    public TileBase murbase;
-    public int taille;
-    public int nbGenerations;
+    public List<RectInt> Salles { get; set; }
+    [SerializeField] private int taille;
+    [SerializeField] private int nbIterations;
     // Start is called before the first frame update
-    void Start()
-    {
-        Affichage();
-    }
 
-    private void Affichage()
+    private void Start()
     {
-        GameObject gameObject = GameObject.Find("GenerateurSalle");
-        GenerateurSalle generateurSalle = gameObject.GetComponent<GenerateurSalle>();
-        salles = generateurSalle.GenererSalles(taille, nbGenerations);
-        GameObject gameObjectAffichage = GameObject.Find("Afficher");
-        Affichage afficher = gameObjectAffichage.GetComponent<Affichage>();
-        afficher.AfficherSol(this,sol,solBase);
-        afficher.AfficherMurs(this,mur,murbase);
-        
+        Salles = MainManager.Instance.RoomManager.GenererSalles(taille, nbIterations);
+        MainManager.Instance.GridManager.AfficherSalles(Salles,taille);
     }
-
     // Update is called once per frame
     void Update()
     {
