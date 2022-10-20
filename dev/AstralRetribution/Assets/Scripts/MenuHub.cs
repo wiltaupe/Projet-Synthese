@@ -1,33 +1,26 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
-public class menuhub : MonoBehaviour
+public class MenuHub : MonoBehaviour
 {
     public TileBase gridtile;
+    public Transform positionVaisseau;
+    public Image background;
 
-    GameObject grid,gridtest;
-    Tilemap vaisseau,plancher,mur;
+    GameObject grid,vaisseau;
+    GridManager management;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("Grid");
-        plancher = objs[0].GetComponent<Tilemap>();
-        mur = objs[1].GetComponent<Tilemap>();
+        vaisseau = GameObject.Find("Vaisseau");
+        background.sprite = MainManager.Instance.Background;
+        management = MainManager.Instance.GridManager;
 
-        //objs[0].transform.position = new Vector3(-398,-40,1);
-
-        //t_plan.Scale.X = 0.75;
-        //t_plan.Scale.Y = 0.75;
-
-        //tilemap.SetTileFlags(cellPos, TileFlags.None);
-        //tilemap.SetTileFlags(position, TileFlags.None);
-        //plancher.SetColor(position, Color.blue);
-        //gridtest = GameObject.Find("GameZone");
-
-        //Debug.Log(gridtest);
-        //gridtest.SetActive(false);
-
+        vaisseau.transform.localScale = new Vector3(0.41f, 0.41f, 0);
+        vaisseau.transform.position = positionVaisseau.position;
+        
 
         /*grid = GameObject.Find("Vaisseau_toit");
         vaisseau = grid.GetComponent<Tilemap>();

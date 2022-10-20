@@ -16,6 +16,7 @@ public class MenuSelection : MonoBehaviour
     {
         int randomInt = UnityEngine.Random.Range(0, textures.Length);
         image.sprite = textures[randomInt];
+        MainManager.Instance.Background = image.sprite;
     }
 
     public void TerminerMiseEnPlace()
