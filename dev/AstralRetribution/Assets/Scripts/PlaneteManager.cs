@@ -33,8 +33,12 @@ public class PlaneteManager : MonoBehaviour
     {
         float x = UnityEngine.Random.Range(-55, 400);
         float y = UnityEngine.Random.Range(-205, 95);
+        float rotation = UnityEngine.Random.Range(0, 360);
 
-        return Instantiate(position, new Vector3(x, y), Quaternion.identity);
+        GameObject objet = Instantiate(position, new Vector3(x, y), Quaternion.identity);
+        objet.transform.Rotate(0, 0, rotation, Space.Self);
+
+        return objet;
     }
 
     public void GenererPlanetes(int valeur)
@@ -42,11 +46,14 @@ public class PlaneteManager : MonoBehaviour
         for (int i = 0; i < valeur; i++)
         {
             int randomInt = UnityEngine.Random.Range(0, planetes.Count);
+            float rotation = UnityEngine.Random.Range(0, 360);
             GameObject selection = planetes[randomInt];
 
             if (i == 0)
             {
-                actif.Add(Instantiate(selection, new Vector3(-55f, -30f), Quaternion.identity));
+                GameObject objet = Instantiate(selection, new Vector3(-55f, -30f), Quaternion.identity);
+                objet.transform.Rotate(0, 0, rotation, Space.Self);
+                actif.Add(objet);
             }
 
             else
