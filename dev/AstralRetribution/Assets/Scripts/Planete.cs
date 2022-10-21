@@ -7,6 +7,7 @@ public class Planete : MonoBehaviour
     void Start()
     {
         cercle = transform.GetChild(0).gameObject;
+        animation();
     }
 
     private void OnMouseEnter()
@@ -19,6 +20,15 @@ public class Planete : MonoBehaviour
     private void OnMouseExit()
     {
         cercle.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    private void animation()
+    {
+        //AnimationState tempslancement = cercle.GetComponent<AnimationState>();
+        //float tempsTotal = tempslancement.length;
+        //float nouveauTemps = UnityEngine.Random.Range(0, tempsTotal);
+
+        //tempslancement.time = nouveauTemps;
     }
 
     public int VerificationPosition(GameObject planete)
