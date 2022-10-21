@@ -21,7 +21,8 @@ public class MenuHub : MonoBehaviour
         vaisseau.transform.localScale = new Vector3(0.41f, 0.41f, 0);
         vaisseau.transform.position = positionVaisseau.position;
 
-        MainManager.Instance.PlaneteManager.GenererPlanete();
+        //MainManager.Instance.PlaneteManager.GenererPlanetes(40);
+        MainManager.Instance.PlaneteManager.GenererPlanetes(200);
 
     }
 

@@ -1,0 +1,914 @@
+fileFormatVersion: 2
+guid: 5d9fb8342be37644fb4446c14c7c332b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: planetteAnneau_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12029.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a0932641aa211941924c326d999e2e9
+      internalID: 285730929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_1
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 12029.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156ef89eaf6ad6146b2fa71916275c04
+      internalID: 726398024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_2
+      rect:
+        serializedVersion: 2
+        x: 4810
+        y: 12029.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee34cc350bd02054b895deeaca2534e5
+      internalID: 1868669069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_3
+      rect:
+        serializedVersion: 2
+        x: 7215
+        y: 12029.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb79b2b2aa7cc1d41869dd50c84f59a1
+      internalID: 165275055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_4
+      rect:
+        serializedVersion: 2
+        x: 9620
+        y: 12029.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39ac9e6e9f7063f46a9f7359c96ebc0b
+      internalID: 1784819788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_5
+      rect:
+        serializedVersion: 2
+        x: 12025
+        y: 12029.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd36524f5bac0e468707bdaad4991b8
+      internalID: 411623638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9624.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6dcd90def02d504e9d53ee36cc21713
+      internalID: -1136883753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_7
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 9624.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda9cd1bafe668f49808a8f4fc1ddf20
+      internalID: -1725445543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_8
+      rect:
+        serializedVersion: 2
+        x: 4810
+        y: 9624.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bb344544f41cdf4aa1631c03958978c
+      internalID: 448051264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_9
+      rect:
+        serializedVersion: 2
+        x: 7215
+        y: 9624.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d07d1f9283a9be408174fe74824c944
+      internalID: 35816754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_10
+      rect:
+        serializedVersion: 2
+        x: 9620
+        y: 9624.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb85732d2aada484fb7343fd10f098c2
+      internalID: -1300299569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_11
+      rect:
+        serializedVersion: 2
+        x: 12025
+        y: 9624.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde5c9514f1cd8a4988c3627da8873bc
+      internalID: -1242123801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7219.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9482fa08f81ffce478550cca0d4f3d93
+      internalID: 1977630753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_13
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 7219.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f269216e9dfdb64e9e2e135a9764af8
+      internalID: -594548391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_14
+      rect:
+        serializedVersion: 2
+        x: 4810
+        y: 7219.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4b9a19deb73f44284fa59343e2e518
+      internalID: 1208049227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_15
+      rect:
+        serializedVersion: 2
+        x: 7215
+        y: 7219.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb208cc3652a4f541b0d0cf0fa2705dd
+      internalID: 2003197800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_16
+      rect:
+        serializedVersion: 2
+        x: 9620
+        y: 7219.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0f7f1c1ffb47f3419b52daf40648e8b
+      internalID: 624107005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_17
+      rect:
+        serializedVersion: 2
+        x: 12025
+        y: 7219.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a3d2603a7657e44b3312002e6b469d
+      internalID: -1742574491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4814.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d3b1f61241e2f149adda8e2b836b602
+      internalID: -337545849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_19
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 4814.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86bf7c72e38e31c4cb89004bf2bb9ea7
+      internalID: -565342347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_20
+      rect:
+        serializedVersion: 2
+        x: 4810
+        y: 4814.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2deaacd7e466e484192f4559fd4fb065
+      internalID: -1965303010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_21
+      rect:
+        serializedVersion: 2
+        x: 7215
+        y: 4814.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8112b1b82e79d374493901b63814cc85
+      internalID: 2145996365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_22
+      rect:
+        serializedVersion: 2
+        x: 9620
+        y: 4814.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9640e4df5d4e59b47a7b92bd75365a93
+      internalID: -557057876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_23
+      rect:
+        serializedVersion: 2
+        x: 12025
+        y: 4814.167
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38cfa21ad77df4c4a9ac8e500074bbaa
+      internalID: -1113727384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2409.1667
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c633b75a503c7344ca5460983246e76d
+      internalID: -1643163946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_25
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 2409.1667
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27be112d263fdfa4a9002c1929530458
+      internalID: 660090488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_26
+      rect:
+        serializedVersion: 2
+        x: 4810
+        y: 2409.1667
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6bace3c89516f44b0aab027fd7f068
+      internalID: 932403985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_27
+      rect:
+        serializedVersion: 2
+        x: 7215
+        y: 2409.1667
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4694c3199af27294dab9015e21b1f5e4
+      internalID: -320559818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_28
+      rect:
+        serializedVersion: 2
+        x: 9620
+        y: 2409.1667
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d33b9833ae7525b47b00e09c4eb79560
+      internalID: -1231999868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_29
+      rect:
+        serializedVersion: 2
+        x: 12025
+        y: 2409.1667
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f77d623a31fce3469ca480e1dbc6ab5
+      internalID: -503180076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4.166748
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 869ed4ce6dcd4e94dbc13029ece7e19f
+      internalID: 245845553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_31
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 4.166748
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011c8235a7d2a684488241b7a2fc25fa
+      internalID: 1231837892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_32
+      rect:
+        serializedVersion: 2
+        x: 4810
+        y: 4.166748
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41e9dfc402b6dc646b51acad7d866b35
+      internalID: -1626405075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_33
+      rect:
+        serializedVersion: 2
+        x: 7215
+        y: 4.166748
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec3c7e547f513d24abf38dd920c76bdb
+      internalID: -546666551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_34
+      rect:
+        serializedVersion: 2
+        x: 9620
+        y: 4.166748
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0444bec5c6e2f084f880ae1d0b07cae2
+      internalID: -522259929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetteAnneau_35
+      rect:
+        serializedVersion: 2
+        x: 12025
+        y: 4.166748
+        width: 2405.8333
+        height: 2405.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43ccabdfd1b9db445a62f631734cc7bb
+      internalID: -1329061257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      planetteAnneau_24: -1643163946
+      planetteAnneau_15: 2003197800
+      planetteAnneau_4: 1784819788
+      planetteAnneau_0: 285730929
+      planetteAnneau_8: 448051264
+      planetteAnneau_10: -1300299569
+      planetteAnneau_18: -337545849
+      planetteAnneau_6: -1136883753
+      planetteAnneau_5: 411623638
+      planetteAnneau_20: -1965303010
+      planetteAnneau_2: 1868669069
+      planetteAnneau_26: 932403985
+      planetteAnneau_27: -320559818
+      planetteAnneau_23: -1113727384
+      planetteAnneau_25: 660090488
+      planetteAnneau_35: -1329061257
+      planetteAnneau_28: -1231999868
+      planetteAnneau_29: -503180076
+      planetteAnneau_22: -557057876
+      planetteAnneau_19: -565342347
+      planetteAnneau_11: -1242123801
+      planetteAnneau_33: -546666551
+      planetteAnneau_3: 165275055
+      planetteAnneau_9: 35816754
+      planetteAnneau_12: 1977630753
+      planetteAnneau_13: -594548391
+      planetteAnneau_7: -1725445543
+      planetteAnneau_17: -1742574491
+      planetteAnneau_34: -522259929
+      planetteAnneau_16: 624107005
+      planetteAnneau_32: -1626405075
+      planetteAnneau_21: 2145996365
+      planetteAnneau_31: 1231837892
+      planetteAnneau_30: 245845553
+      planetteAnneau_1: 726398024
+      planetteAnneau_14: 1208049227
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

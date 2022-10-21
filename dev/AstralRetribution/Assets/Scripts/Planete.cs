@@ -11,13 +11,25 @@ public class Planete : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Debug.Log("Pizza Time");
+        Debug.Log(cercle.transform.position);
+        Debug.Log(VerificationPosition(cercle));
         cercle.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     private void OnMouseExit()
     {
-        Debug.Log("Bye");
         cercle.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    public int VerificationPosition(GameObject planete)
+    {
+        int position = 11;
+
+        for (double i = (planete.transform.position.x + 55); i < 455; i += 45.5)
+        {
+            position -= 1;
+        }
+
+        return position;
     }
 }
