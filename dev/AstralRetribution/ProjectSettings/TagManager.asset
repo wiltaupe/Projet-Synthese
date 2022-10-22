@@ -12,11 +12,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Sol
   - Water
   - UI
-  - tilemap_plancher
-  - tilemap_toit
+  - 
+  - 
   - 
   - 
   - 
@@ -45,9 +45,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: plancher
+  - name: 
     uniqueID: 3140019705
     locked: 0
-  - name: toit
+  - name: 
     uniqueID: 3930182119
     locked: 0
