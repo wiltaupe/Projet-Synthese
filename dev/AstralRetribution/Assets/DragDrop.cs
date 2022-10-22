@@ -32,6 +32,7 @@ public class DragDrop : MonoBehaviour
     private void OnMouseUp()
     {
         Collider2D col = Physics2D.OverlapPoint(GetMousePos(),LayerMask.GetMask("Sol"));
+        if (col == null) return;
         this.transform.position = col.gameObject.transform.position;
     }
 }
