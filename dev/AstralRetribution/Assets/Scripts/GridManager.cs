@@ -23,41 +23,43 @@ public class GridManager : MonoBehaviour
                     {
                         
                         var obj = Instantiate(mur, new Vector3(i * 32, j * 32) + transform.position, Quaternion.identity);
-                        obj.transform.parent = transform.parent;
+                        obj.transform.SetParent(GameObject.Find("Tuiles").transform);
 
 
                     }
                     else
                     {
                         Sol obj = Instantiate(sol, new Vector3(i * 32, j * 32) + transform.position, Quaternion.identity);
-                        obj.transform.parent = transform.parent;
+                        obj.transform.SetParent(GameObject.Find("Tuiles").transform);
+                        obj.position = new Vector2(i, j);
                         tiles[new Vector2(i, j)] = obj;
+                        obj.name = $"Sol x:{i} y:{j}";
                     }
 
                     if (rectInt.xMin != 0)
                     {
 
                         var obj = Instantiate(sol, new Vector3(rectInt.xMin * 32, (int)rectInt.center.y * 32) + transform.position, Quaternion.identity);
-                        obj.transform.parent = transform.parent;
+                        obj.transform.SetParent(GameObject.Find("Tuiles").transform);
 
                     }
                     
                     if (rectInt.xMax != taille)
                     {
                         var obj = Instantiate(sol, new Vector3(rectInt.xMax * 32, (int)rectInt.center.y * 32) + transform.position, Quaternion.identity);
-                        obj.transform.parent = transform.parent;
+                        obj.transform.SetParent(GameObject.Find("Tuiles").transform);
                     }
 
                     if (rectInt.yMin != 0)
                     {
                         var obj = Instantiate(sol, new Vector3((int)rectInt.center.x * 32, rectInt.yMin * 32) + transform.position, Quaternion.identity);
-                        obj.transform.parent = transform.parent;
+                        obj.transform.SetParent(GameObject.Find("Tuiles").transform);
                     }
 
                     if (rectInt.yMax != taille)
                     {
                         var obj = Instantiate(sol, new Vector3((int)rectInt.center.x * 32, rectInt.yMax * 32) + transform.position, Quaternion.identity);
-                        obj.transform.parent = transform.parent;
+                        obj.transform.SetParent(GameObject.Find("Tuiles").transform);
                     }
 
                     

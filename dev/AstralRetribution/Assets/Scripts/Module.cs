@@ -54,7 +54,10 @@ public class Module : MonoBehaviour
             col.gameObject.GetComponent<Sol>().Module = this;
             currentTile = col.gameObject.GetComponent<Sol>();
             transform.position = currentTile.transform.position;
+            transform.SetParent(currentTile.transform);
             lastPos = currentTile.transform.position;
+
+            Debug.Log(currentTile.position);
         }
         else
         {

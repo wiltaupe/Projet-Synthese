@@ -7,6 +7,8 @@ public class Sol : Tile
     private Color startcolor;
     public Module Module { get; set; }
     public Objet objet { get; set; }
+
+    public Vector2 position { get; set; }
     void OnMouseEnter()
     {
         startcolor = GetComponent<Renderer>().material.color;
@@ -15,5 +17,10 @@ public class Sol : Tile
     void OnMouseExit()
     {
         GetComponent<Renderer>().material.color = startcolor;
+    }
+
+    private void OnMouseDown()
+    {
+        Debug.Log(position);
     }
 }
