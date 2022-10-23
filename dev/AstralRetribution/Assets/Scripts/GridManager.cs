@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    [SerializeField] Tile mur;
-    [SerializeField] Sol sol;
+    [SerializeField] private Tile mur;
+    [SerializeField] private Sol sol;
 
     internal List<Salle> AfficherSalles(List<RectInt> rectSalles,int taille)
     {

@@ -16,6 +16,7 @@ public class Module : MonoBehaviour
     {
         dragOffset = transform.position - GetMousePos();
         lastPos = GetMousePos();
+        GetComponent<SpriteRenderer>().sortingOrder += 1;
 
     }
 
@@ -33,6 +34,7 @@ public class Module : MonoBehaviour
 
     private void OnMouseUp()
     {
+        GetComponent<SpriteRenderer>().sortingOrder -= 1;
         Collider2D col = Physics2D.OverlapPoint(GetMousePos(), LayerMask.GetMask("Sol"));
         if (col == null)
         {
