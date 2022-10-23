@@ -7,6 +7,7 @@ public class GridManager : MonoBehaviour
 {
     [SerializeField] private Tile mur;
     [SerializeField] private Sol sol;
+    [SerializeField] private Porte porte;
 
     internal List<Salle> AfficherSalles(List<RectInt> rectSalles,int taille)
     {
@@ -39,26 +40,28 @@ public class GridManager : MonoBehaviour
                     if (rectInt.xMin != 0)
                     {
 
-                        var obj = Instantiate(sol, new Vector3(rectInt.xMin * 32, (int)rectInt.center.y * 32) + transform.position, Quaternion.identity);
+                        var obj = Instantiate(porte, new Vector3(rectInt.xMin * 32, (int)rectInt.center.y * 32) + transform.position, Quaternion.identity);
                         obj.transform.SetParent(GameObject.Find("Tuiles").transform);
+                        obj.transform.Rotate(0, 0, 90, Space.Self);
 
                     }
                     
                     if (rectInt.xMax != taille)
                     {
-                        var obj = Instantiate(sol, new Vector3(rectInt.xMax * 32, (int)rectInt.center.y * 32) + transform.position, Quaternion.identity);
+                        var obj = Instantiate(porte, new Vector3(rectInt.xMax * 32, (int)rectInt.center.y * 32) + transform.position, Quaternion.identity);
                         obj.transform.SetParent(GameObject.Find("Tuiles").transform);
+                        obj.transform.Rotate(0, 0, 90, Space.Self);
                     }
 
                     if (rectInt.yMin != 0)
                     {
-                        var obj = Instantiate(sol, new Vector3((int)rectInt.center.x * 32, rectInt.yMin * 32) + transform.position, Quaternion.identity);
+                        var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * 32, rectInt.yMin * 32) + transform.position, Quaternion.identity);
                         obj.transform.SetParent(GameObject.Find("Tuiles").transform);
                     }
 
                     if (rectInt.yMax != taille)
                     {
-                        var obj = Instantiate(sol, new Vector3((int)rectInt.center.x * 32, rectInt.yMax * 32) + transform.position, Quaternion.identity);
+                        var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * 32, rectInt.yMax * 32) + transform.position, Quaternion.identity);
                         obj.transform.SetParent(GameObject.Find("Tuiles").transform);
                     }
 

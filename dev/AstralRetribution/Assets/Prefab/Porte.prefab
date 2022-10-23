@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3060791211249741301}
   - component: {fileID: 3060791211249741302}
   - component: {fileID: 4593993545548129158}
-  - component: {fileID: 6119319484698865677}
+  - component: {fileID: 7130109244102938183}
   m_Layer: 0
   m_Name: Porte
   m_TagString: Untagged
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 32, y: 32}
   m_EdgeRadius: 0
---- !u!114 &6119319484698865677
+--- !u!114 &7130109244102938183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +121,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3060791211249741303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 748a0bc283d88a0438ee56cf2adc0096, type: 3}
+  m_Script: {fileID: 11500000, guid: dca8230fb9a658a4f9427d6fc88bd63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

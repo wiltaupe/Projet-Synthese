@@ -7,6 +7,7 @@ public class Module : MonoBehaviour
     private Vector3 lastPos;
     private Sol currentTile;
 
+
     private void Awake()
     {
         cam = Camera.main;
@@ -71,6 +72,8 @@ public class Module : MonoBehaviour
             {
                 transform.position = currentTile.gameObject.transform.position;
             }
+
+
             
         }
 

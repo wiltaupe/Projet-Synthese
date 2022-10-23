@@ -301,6 +301,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 171086258}
     m_Modifications:
+    - target: {fileID: 4780291461394488564, guid: 54a54be27ab7ff744927d191323ef399, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 690688705, guid: c07830de40208b440a04610710e3a0a8, type: 3}
     - target: {fileID: 4780291461394488566, guid: 54a54be27ab7ff744927d191323ef399, type: 3}
       propertyPath: m_Name
       value: Module3
@@ -363,6 +367,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 171086258}
     m_Modifications:
+    - target: {fileID: 4780291461394488564, guid: 54a54be27ab7ff744927d191323ef399, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1357189894, guid: c07830de40208b440a04610710e3a0a8, type: 3}
     - target: {fileID: 4780291461394488566, guid: 54a54be27ab7ff744927d191323ef399, type: 3}
       propertyPath: m_Name
       value: Module2
@@ -950,6 +958,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 171086258}
     m_Modifications:
+    - target: {fileID: 4780291461394488564, guid: 54a54be27ab7ff744927d191323ef399, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1340670870, guid: c07830de40208b440a04610710e3a0a8, type: 3}
     - target: {fileID: 4780291461394488566, guid: 54a54be27ab7ff744927d191323ef399, type: 3}
       propertyPath: m_Name
       value: Module1
@@ -1007,64 +1019,8 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4985988469898317109, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: planetes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985988469898317109, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: planetes.Array.data[0]
-      value: 
-      objectReference: {fileID: 6005476383919433794, guid: d1821d39deeaa2a47bda41aa789322f1, type: 3}
-    - target: {fileID: 4985988469898317109, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: planetes.Array.data[1]
-      value: 
-      objectReference: {fileID: 3980038280178224209, guid: 5b8e5ca202d9da64989a17672c6242d2, type: 3}
-    - target: {fileID: 4985988469898317109, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: planetes.Array.data[2]
-      value: 
-      objectReference: {fileID: 3980038280178224209, guid: 5b8e5ca202d9da64989a17672c6242d2, type: 3}
-    - target: {fileID: 4985988469898317109, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: planetes.Array.data[3]
-      value: 
-      objectReference: {fileID: 6005476383919433794, guid: d1821d39deeaa2a47bda41aa789322f1, type: 3}
-    - target: {fileID: 4985988469898317109, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: planetes.Array.data[4]
-      value: 
-      objectReference: {fileID: 3980038280178224209, guid: 5b8e5ca202d9da64989a17672c6242d2, type: 3}
-    - target: {fileID: 4985988469898317109, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: planetes.Array.data[5]
-      value: 
-      objectReference: {fileID: 6005476383919433794, guid: d1821d39deeaa2a47bda41aa789322f1, type: 3}
-    - target: {fileID: 4985988469898317109, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: planetes.Array.data[6]
-      value: 
-      objectReference: {fileID: 3980038280178224209, guid: 5b8e5ca202d9da64989a17672c6242d2, type: 3}
-    - target: {fileID: 4985988469898317109, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: planetes.Array.data[7]
-      value: 
-      objectReference: {fileID: 6005476383919433794, guid: d1821d39deeaa2a47bda41aa789322f1, type: 3}
-    - target: {fileID: 4985988469898317109, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: planetes.Array.data[8]
-      value: 
-      objectReference: {fileID: 3980038280178224209, guid: 5b8e5ca202d9da64989a17672c6242d2, type: 3}
-    - target: {fileID: 4985988469898317109, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: planetes.Array.data[9]
-      value: 
-      objectReference: {fileID: 6005476383919433794, guid: d1821d39deeaa2a47bda41aa789322f1, type: 3}
     - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
-      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
@@ -1111,5 +1067,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vaisseau
       objectReference: {fileID: 0}
+    - target: {fileID: 4985988470754439533, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: porte
+      value: 
+      objectReference: {fileID: 7130109244102938183, guid: 27ea0b62b4d366a40956262952734ba9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 138b62b49638db8428208148128b7a40, type: 3}
