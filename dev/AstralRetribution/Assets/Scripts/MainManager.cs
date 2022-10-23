@@ -10,6 +10,8 @@ public class MainManager : MonoBehaviour
     public RoomManager RoomManager { get; private set; }
     public PlaneteManager PlaneteManager { get; private set; }
     public Sprite Background { get; set; }
+
+    public Vaisseau VaisseauJoueur { get; set; }
     private void Awake()
     {
         if (Instance != null && Instance != this)

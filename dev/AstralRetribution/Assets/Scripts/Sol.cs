@@ -5,6 +5,8 @@ using UnityEngine;
 public class Sol : Tile
 {
     private Color startcolor;
+    public Module Module { get; set; }
+    public Objet objet { get; set; }
     void OnMouseEnter()
     {
         startcolor = GetComponent<Renderer>().material.color;

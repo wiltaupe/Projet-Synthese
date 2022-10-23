@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    [SerializeField] Tile sol,mur;
-    private Dictionary<Vector2, Tile> tiles;
+    [SerializeField] Tile mur;
+    [SerializeField] Sol sol;
 
-    internal void AfficherSalles(List<RectInt> salles,int taille)
+    internal List<Salle> AfficherSalles(List<RectInt> rectSalles,int taille)
     {
-        foreach (RectInt rectInt in salles)
+        List<Salle> salles = new();
+        foreach (RectInt rectInt in rectSalles)
         {
+            Dictionary<Vector2, Sol> tiles = new();
             for (int i = rectInt.xMin; i <= rectInt.xMax; i++)
             {
                 for (int j = rectInt.yMin; j <= rectInt.yMax; j++)
@@ -22,11 +24,14 @@ public class GridManager : MonoBehaviour
                         
                         var obj = Instantiate(mur, new Vector3(i * 32, j * 32) + transform.position, Quaternion.identity);
                         obj.transform.parent = transform.parent;
+
+
                     }
                     else
                     {
-                        var obj = Instantiate(sol, new Vector3(i * 32, j * 32) + transform.position, Quaternion.identity);
+                        Sol obj = Instantiate(sol, new Vector3(i * 32, j * 32) + transform.position, Quaternion.identity);
                         obj.transform.parent = transform.parent;
+                        tiles[new Vector2(i, j)] = obj;
                     }
 
                     if (rectInt.xMin != 0)
@@ -53,12 +58,17 @@ public class GridManager : MonoBehaviour
                     {
                         var obj = Instantiate(sol, new Vector3((int)rectInt.center.x * 32, rectInt.yMax * 32) + transform.position, Quaternion.identity);
                         obj.transform.parent = transform.parent;
-                        
                     }
 
                     
                 }
             }
+            
+            Salle salle = new(rectInt.width, rectInt.height, tiles);
+
+            salles.Add(salle);
         }
+
+        return salles;
     }
 }
