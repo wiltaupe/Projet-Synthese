@@ -70,6 +70,7 @@ public class GridManager : MonoBehaviour
             }
             
             Salle salle = new(rectInt.width, rectInt.height, tiles);
+            
 
             salles.Add(salle);
         }

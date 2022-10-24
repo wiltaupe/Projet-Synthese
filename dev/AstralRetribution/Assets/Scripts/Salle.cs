@@ -13,6 +13,11 @@ public class Salle
         Width = width;
         Height = height;
         Tuiles = tuiles;
+
+        foreach (Sol tuile in Tuiles.Values)
+        {
+            tuile.Parent = this;  
+        }
     }
     
 }

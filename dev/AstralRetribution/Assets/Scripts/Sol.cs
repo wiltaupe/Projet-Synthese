@@ -6,7 +6,8 @@ public class Sol : Tile
 {
     private Color startcolor;
     public Module Module { get; set; }
-    public Objet objet { get; set; }
+    public Objet Objet { get; set; }
+    public Salle Parent {get; set;}
 
     public Vector2 position { get; set; }
     void OnMouseEnter()
