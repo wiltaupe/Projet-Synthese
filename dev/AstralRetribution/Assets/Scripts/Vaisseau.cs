@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 public class Vaisseau : MonoBehaviour
 {
     private List<Salle> salles;
+    private List<GameObject> membresEquipage;
     [SerializeField] private int taille;
     [SerializeField] private int nbIterations;
     // Start is called before the first frame update
@@ -13,8 +14,20 @@ public class Vaisseau : MonoBehaviour
     private void Start()
     {
         List<RectInt> Salles = MainManager.Instance.RoomManager.GenererSalles(taille, nbIterations);
+        membresEquipage = new List<GameObject>();
         salles = MainManager.Instance.GridManager.AfficherSalles(Salles,taille);
 
+        while (membresEquipage.Count != 3)
+        {
+            Sol sol = GetRandomAvailableTile();
+            if (sol == null)
+            {
+                return;
+            }
+
+            membresEquipage.Add(MainManager.Instance.MemberManager.GenererMembre(sol));
+
+        }
         
     }
 
@@ -24,8 +37,34 @@ public class Vaisseau : MonoBehaviour
 
     }
 
-    internal void GetTuile(Sol sol)
+
+
+    internal Sol GetRandomAvailableTile()
     {
-        throw new NotImplementedException();
+        int choice = UnityEngine.Random.Range(0, salles.Count);
+        Salle salle = salles[choice];
+        Sol sol = null;
+
+        if (salle.Tuiles.Count == 0)
+        {
+            return sol;
+        }
+
+        int rand = UnityEngine.Random.Range(0, salle.Tuiles.Count);
+
+
+        sol = salle.Tuiles[rand];
+
+
+
+        if(sol.Module != null && sol.MembreEquipage != null)
+        {
+            sol = null;
+            return sol;
+        }
+
+
+        return sol;
+
     }
 }

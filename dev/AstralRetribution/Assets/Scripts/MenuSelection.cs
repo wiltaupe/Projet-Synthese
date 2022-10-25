@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
@@ -11,7 +12,14 @@ public class MenuSelection : MonoBehaviour
     void Start()
     {
         GenererBackground();
+        GenererMembreEquipage();
     }
+
+    private void GenererMembreEquipage()
+    {
+        
+    }
+
     private void GenererBackground()
     {
         int randomInt = UnityEngine.Random.Range(0, textures.Length);

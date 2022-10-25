@@ -16,7 +16,7 @@ public class GridManager : MonoBehaviour
         List<Salle> salles = new();
         foreach (RectInt rectInt in rectSalles)
         {
-            Dictionary<Vector2, Sol> tiles = new();
+            List<Sol> tiles = new();
             for (int i = rectInt.xMin; i <= rectInt.xMax; i++)
             {
                 for (int j = rectInt.yMin; j <= rectInt.yMax; j++)
@@ -35,7 +35,7 @@ public class GridManager : MonoBehaviour
                         Sol obj = Instantiate(sol, new Vector3(i * (tileSize * (1 - (Screen.width / 1920) + (Screen.width / 1920))), j * (tileSize * ((1 - Screen.height / 1080) + Screen.height / 1080))) + transform.position, Quaternion.identity);
                         obj.transform.SetParent(GameObject.Find("Tuiles").transform);
                         obj.position = new Vector2(i, j);
-                        tiles[new Vector2(i, j)] = obj;
+                        tiles.Add(obj);
                         obj.name = $"Sol x:{i} y:{j}";
                     }
 
@@ -72,7 +72,7 @@ public class GridManager : MonoBehaviour
             }
             
             Salle salle = new(rectInt.width, rectInt.height, tiles);
-            
+            Debug.Log(salle.Tuiles.Count);
 
             salles.Add(salle);
         }
