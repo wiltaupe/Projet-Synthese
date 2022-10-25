@@ -47,7 +47,7 @@ public class Module : MonoBehaviour
             return;
         }
 
-        if (col.gameObject.GetComponent<Sol>().Module == null)
+        if (col.gameObject.GetComponent<Sol>().Module == null && col.GetComponent<Sol>().MembreEquipage == null)
         {
             if (currentTile != null)
             {

@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class Salle
 {
-    private int Width { get; set; }
-    private int Height { get; set; }
-    private Dictionary<Vector2, Sol> Tuiles { get; set; }
+    public int Width { get; set; }
+    public int Height { get; set; }
+    public List<Sol> Tuiles { get; set; }
 
-    public Salle(int width, int height, Dictionary<Vector2,Sol> tuiles)
+    public Salle(int width, int height, List<Sol> tuiles)
     {
         Width = width;
         Height = height;
         Tuiles = tuiles;
-
-        foreach (Sol tuile in Tuiles.Values)
-        {
-            tuile.Parent = this;  
-        }
     }
     
 }

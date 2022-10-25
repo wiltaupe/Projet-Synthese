@@ -9,6 +9,8 @@ public class MainManager : MonoBehaviour
     public GridManager GridManager { get; private set; }
     public RoomManager RoomManager { get; private set; }
     public PlaneteManager PlaneteManager { get; private set; }
+
+    public MemberManager MemberManager { get; private set; }
     public Sprite Background { get; set; }
 
     public Vaisseau VaisseauJoueur { get; set; }
@@ -20,8 +22,10 @@ public class MainManager : MonoBehaviour
             return;
         }
         Instance = this;
+
         GridManager = GetComponentInChildren<GridManager>();
         RoomManager = GetComponentInChildren<RoomManager>();
         PlaneteManager = GetComponentInChildren<PlaneteManager>();
+        MemberManager = GetComponentInChildren<MemberManager>();
     }
 }

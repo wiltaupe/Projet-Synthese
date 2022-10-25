@@ -10,6 +10,8 @@ public class Sol : Tile
     public Salle Parent {get; set;}
 
     public Vector2 position { get; set; }
+    public GameObject MembreEquipage { get; set; }
+
     void OnMouseEnter()
     {
         startcolor = GetComponent<Renderer>().material.color;
