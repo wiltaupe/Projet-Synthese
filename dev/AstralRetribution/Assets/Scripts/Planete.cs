@@ -3,17 +3,19 @@
 public class Planete : MonoBehaviour
 {
     GameObject cercle;
+    public int pos;
+    public bool possedeCheminDevant = false;
+    public bool possedeCheminDerriere = false;
 
     void Start()
     {
         cercle = transform.GetChild(0).gameObject;
-        animation();
+        //VerificationPosition();
     }
 
     private void OnMouseEnter()
     {
-        Debug.Log(cercle.transform.position);
-        Debug.Log(VerificationPosition(cercle));
+        Debug.Log(VerificationPosition());
         cercle.GetComponent<SpriteRenderer>().enabled = true;
     }
 
@@ -22,20 +24,21 @@ public class Planete : MonoBehaviour
         cercle.GetComponent<SpriteRenderer>().enabled = false;
     }
 
-    private void animation()
+    private void Anim()
     {
         //AnimationState tempslancement = cercle.GetComponent<AnimationState>();
         //float tempsTotal = tempslancement.length;
         //float nouveauTemps = UnityEngine.Random.Range(0, tempsTotal);
 
         //tempslancement.time = nouveauTemps;
+        return;
     }
 
-    public int VerificationPosition(GameObject planete)
+    public int VerificationPosition()
     {
         int position = 11;
 
-        for (double i = (planete.transform.position.x + 55); i < 455; i += 45.5)
+        for (double i = (transform.position.x + 55); i < 455; i += 45.5)
         {
             position -= 1;
         }
