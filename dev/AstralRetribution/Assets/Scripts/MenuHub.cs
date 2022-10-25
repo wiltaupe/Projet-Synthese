@@ -18,11 +18,12 @@ public class MenuHub : MonoBehaviour
         background.sprite = MainManager.Instance.Background;
         management = MainManager.Instance.GridManager;
 
-        vaisseau.transform.localScale = new Vector3(((1 - (Screen.width / 1920)) + (Screen.width / 1920)) * 0.705f, ((1 - (Screen.height / 1080)) + (Screen.height / 1080)) * 0.705f, 0);
+        vaisseau.transform.localScale = new Vector3((Screen.width / 1920) * 0.705f, (Screen.height / 1080) * 0.705f, 0);
         vaisseau.transform.position = positionVaisseau.position;
 
         //MainManager.Instance.PlaneteManager.GenererPlanetes(40);
         MainManager.Instance.PlaneteManager.GenererPlanetes(200);
+        MainManager.Instance.PlaneteManager.GenererPathPlanete();
 
     }
 

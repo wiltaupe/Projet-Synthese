@@ -25,14 +25,14 @@ public class GridManager : MonoBehaviour
                     if (i == rectInt.xMin || i == rectInt.xMax || j == rectInt.yMin || j == rectInt.yMax)
                     {
                         
-                        var obj = Instantiate(mur, new Vector3(i * (tileSize * (1 -(Screen.width / 1920) + (Screen.width / 1920))), j * (tileSize * (( 1 - Screen.height / 1080) + Screen.height / 1080))) + transform.position, Quaternion.identity);
+                        var obj = Instantiate(mur, new Vector3(i * ((tileSize * Screen.width) / 1920), j  * ((tileSize * Screen.height) / 1080)) + transform.position, Quaternion.identity);
                         obj.transform.SetParent(GameObject.Find("Tuiles").transform);
 
 
                     }
                     else
                     {
-                        Sol obj = Instantiate(sol, new Vector3(i * (tileSize * (1 - (Screen.width / 1920) + (Screen.width / 1920))), j * (tileSize * ((1 - Screen.height / 1080) + Screen.height / 1080))) + transform.position, Quaternion.identity);
+                        Sol obj = Instantiate(sol, new Vector3(i * ((tileSize * Screen.width) / 1920), j  * ((tileSize * Screen.height) / 1080)) + transform.position, Quaternion.identity);
                         obj.transform.SetParent(GameObject.Find("Tuiles").transform);
                         obj.position = new Vector2(i, j);
                         tiles[new Vector2(i, j)] = obj;
@@ -42,7 +42,7 @@ public class GridManager : MonoBehaviour
                     if (rectInt.xMin != 0)
                     {
 
-                        var obj = Instantiate(porte, new Vector3(rectInt.xMin * (tileSize * (1 - (Screen.width / 1920) + (Screen.width / 1920))), (int)rectInt.center.y * (tileSize * ((1 - Screen.height / 1080) + Screen.height / 1080))) + transform.position, Quaternion.identity);
+                        var obj = Instantiate(porte, new Vector3(rectInt.xMin * ((tileSize * Screen.width) / 1920), (int)rectInt.center.y * ((tileSize * Screen.height) / 1080)) + transform.position, Quaternion.identity);
                         obj.transform.SetParent(GameObject.Find("Tuiles").transform);
                         obj.transform.Rotate(0, 0, 90, Space.Self);
 
@@ -50,20 +50,20 @@ public class GridManager : MonoBehaviour
                     
                     if (rectInt.xMax != taille)
                     {
-                        var obj = Instantiate(porte, new Vector3(rectInt.xMax * (tileSize * (1 - (Screen.width / 1920) + (Screen.width / 1920))), (int)rectInt.center.y * (tileSize * ((1 - Screen.height / 1080) + Screen.height / 1080))) + transform.position, Quaternion.identity);
+                        var obj = Instantiate(porte, new Vector3(rectInt.xMax  * ((tileSize * Screen.width) / 1920), (int)rectInt.center.y * ((tileSize * Screen.height) / 1080)) + transform.position, Quaternion.identity);
                         obj.transform.SetParent(GameObject.Find("Tuiles").transform);
                         obj.transform.Rotate(0, 0, 90, Space.Self);
                     }
 
                     if (rectInt.yMin != 0)
                     {
-                        var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * (tileSize * (1 - (Screen.width / 1920) + (Screen.width / 1920))), rectInt.yMin * (tileSize * ((1 - Screen.height / 1080) + Screen.height / 1080))) + transform.position, Quaternion.identity);
+                        var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * ((tileSize * Screen.width) / 1920), rectInt.yMin * ((tileSize * Screen.height) / 1080)) + transform.position, Quaternion.identity);
                         obj.transform.SetParent(GameObject.Find("Tuiles").transform);
                     }
 
                     if (rectInt.yMax != taille)
                     {
-                        var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * (tileSize * (1 - (Screen.width / 1920) + (Screen.width / 1920))), rectInt.yMax * (tileSize * ((1 - Screen.height / 1080) + Screen.height / 1080))) + transform.position, Quaternion.identity);
+                        var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * ((tileSize * Screen.width) / 1920), rectInt.yMax * ((tileSize * Screen.height) / 1080)) + transform.position, Quaternion.identity);
                         obj.transform.SetParent(GameObject.Find("Tuiles").transform);
                     }
 
