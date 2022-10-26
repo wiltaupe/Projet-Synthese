@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuSelection.unity
     guid: 2d562cacbee97fa4281f1194bddb966c
+  - enabled: 1
+    path: Assets/Scenes/MenuCombat.unity
+    guid: b1d4ca461307e1a4da7ed1928fc6f500
   m_configObjects: {}

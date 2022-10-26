@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
@@ -12,7 +13,7 @@ public class MenuHub : MonoBehaviour
     GridManager management;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         vaisseau = GameObject.Find("Vaisseau");
         background.sprite = MainManager.Instance.Background;
@@ -28,7 +29,8 @@ public class MenuHub : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Combat()
     {
+        SceneManager.LoadScene("MenuCombat");
     }
 }
