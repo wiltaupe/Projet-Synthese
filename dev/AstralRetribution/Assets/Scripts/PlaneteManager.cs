@@ -8,6 +8,7 @@ public class PlaneteManager : MonoBehaviour
     public List<GameObject> planetes;
     public Dictionary<int,(GameObject,int)> actif;
     public float ray = 30f;
+    public int position = 0;
 
 
     private void Start()
@@ -40,23 +41,21 @@ public class PlaneteManager : MonoBehaviour
     public int min(int posi)
     {
         int max = posi;
-        int min = 15;
+        int pos = 0;
+        int min = 0;
         
-         var arr = actif.ToArray();
-         Array.Sort(arr, (a, b) => a.Value.Item2.CompareTo(b.Value.Item2)); 
 
-        foreach (var planete in arr)
+        foreach (var planete in actif.Values)
         {
-            int pospla = planete.Value.Item2;
+            int pospla = planete.Item2;
 
-            if (min > (max - pospla))
+            if (min < pospla && pospla < max)
             {
-                min = max - pospla;
+                pos = pospla;
             }
-
         }
 
-        return min;
+        return posi - pos;
     }
 
     public bool VerificationPossedeChemin(GameObject planete,int planetepos)
@@ -65,10 +64,7 @@ public class PlaneteManager : MonoBehaviour
 
         foreach (var verif in actif.Values)
         {
-            Planete positionVerif = verif.Item1.GetComponent<Planete>();
-            int minimum = min(verif.Item2);
-
-            if ((planetepos - minimum == verif.Item2) && !classePlanete.possedeCheminDerriere)
+            if ((planetepos - min(planetepos) == verif.Item2) && !classePlanete.possedeCheminDerriere)
             {
 
                 Debug.Log("Creation du chemin vers autre planete suplementaire");
@@ -79,6 +75,8 @@ public class PlaneteManager : MonoBehaviour
                 return true;
             }
         }
+
+
         return false;
     }
 
@@ -127,13 +125,13 @@ public class PlaneteManager : MonoBehaviour
         lr.SetPosition(1, fin.transform.position);
     }
 
-    public GameObject GenererUnePlanete(GameObject position)
+    public GameObject GenererUnePlanete(GameObject planete)
     {
         float x = UnityEngine.Random.Range(-55, 400);
         float y = UnityEngine.Random.Range(-205, 95);
         float rotation = UnityEngine.Random.Range(0, 360);
 
-        GameObject objet = Instantiate(position, new Vector3(x, y), Quaternion.identity);
+        GameObject objet = Instantiate(planete, new Vector3(x, y), Quaternion.identity);
         objet.transform.Rotate(0, 0, rotation, Space.Self);
 
         return objet;
@@ -149,7 +147,7 @@ public class PlaneteManager : MonoBehaviour
 
             if (i == 0)
             {
-                GameObject objet = Instantiate(selection, new Vector3(-55f, -30f), Quaternion.identity);
+                GameObject objet = Instantiate(selection, new Vector3(-55, 95), Quaternion.identity);
                 objet.transform.Rotate(0, 0, rotation, Space.Self);
                 Planete classePlanete = objet.GetComponent<Planete>();
 
@@ -181,6 +179,16 @@ public class PlaneteManager : MonoBehaviour
             VerificationPath(planete.Item1,planete.Item2);
             VerificationPossedeChemin(planete.Item1, planete.Item2);
         }
+    }
+
+    public void SetPosition(int p)
+    {
+        position = p;
+    }
+
+    public int GetPosition()
+    { 
+        return position;
     }
 
 }
