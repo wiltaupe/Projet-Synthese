@@ -15,7 +15,7 @@ public class Vaisseau : MonoBehaviour
     {
         List<RectInt> Salles = MainManager.Instance.RoomManager.GenererSalles(taille, nbIterations);
         membresEquipage = new List<GameObject>();
-        salles = MainManager.Instance.GridManager.AfficherSalles(Salles,taille);
+        salles = MainManager.Instance.GridManager.AfficherSalles(Salles,taille,this);
 
         while (membresEquipage.Count != 3)
         {
