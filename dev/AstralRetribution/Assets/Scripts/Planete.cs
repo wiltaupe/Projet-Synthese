@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Planete : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class Planete : MonoBehaviour
     {
         cercle = transform.GetChild(0).gameObject;
         //VerificationPosition();
+    }
+
+    public void OnMouseDown()
+    {
+        SceneManager.LoadScene("MenuCombat");
     }
 
     private void OnMouseEnter()
