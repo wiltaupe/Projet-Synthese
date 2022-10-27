@@ -14,7 +14,7 @@ public class MenuHub : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        vaisseau = GameObject.Find("Vaisseau");
+        vaisseau = GameObject.Find("VaisseauJoueur");
         pos1 = GameObject.Find("Canvas/ContientIterationPlanete/Circle1");
         background.sprite = MainManager.Instance.Background;
 
@@ -24,9 +24,11 @@ public class MenuHub : MonoBehaviour
         vaisseau.transform.position = positionVaisseau.position;
 
         //MainManager.Instance.PlaneteManager.GenererPlanetes(40);
-        MainManager.Instance.PlaneteManager.GenererPlanetes(200);
-        posiVaisseau = MainManager.Instance.PlaneteManager.GetPosition();
-        MainManager.Instance.PlaneteManager.GenererPathPlanete();
+        GameObject gameObject = GameObject.Find("PlaneteManager");
+        PlaneteManager planeteManager = gameObject.GetComponent<PlaneteManager>();
+        planeteManager.GenererPlanetes(200);
+        posiVaisseau = planeteManager.GetPosition();
+        planeteManager.GenererPathPlanete();
 
     }
 

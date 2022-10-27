@@ -22,7 +22,9 @@ public class ShipManager : MonoBehaviour
 
     private Vaisseau CreerVaisseau(Vector2 position)
     {
-        return Instantiate(prefabVaisseau, position, Quaternion.identity);
+        Vaisseau vaisseau = Instantiate(prefabVaisseau, position, Quaternion.identity);
+        vaisseau.name = "VaisseauJoueur";
+        return vaisseau;
     }
 
     internal Vaisseau CreerTuiles(Vaisseau vaisseau)

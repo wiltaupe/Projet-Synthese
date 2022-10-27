@@ -12,7 +12,7 @@ public class PlaneteManager : MonoBehaviour
 
     private void Start()
     {
-        actif = new();
+        actif = new Dictionary<int, (GameObject, int)>();
     }
 
     public double CalculDistance(float x1, float x2, float y1, float y2)

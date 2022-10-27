@@ -19,6 +19,7 @@ public class MainManager : MonoBehaviour
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(this);
 
         ShipManager = GetComponentInChildren<ShipManager>();
         PlaneteManager = GetComponentInChildren<PlaneteManager>();
