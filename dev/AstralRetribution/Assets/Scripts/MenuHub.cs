@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
@@ -9,32 +10,40 @@ public class MenuHub : MonoBehaviour
     public Transform positionVaisseau;
     public Image background;
     public int posiVaisseau;
+    public Dictionary<int, (GameObject, int)> actif = new();
 
     GameObject grid, vaisseau, pos1;
-    // Start is called before the first frame update
     public void Start()
     {
         vaisseau = GameObject.Find("VaisseauJoueur");
         pos1 = GameObject.Find("Canvas/ContientIterationPlanete/Circle1");
         background.sprite = MainManager.Instance.Background;
 
-
-
         vaisseau.transform.localScale = new Vector3((Screen.width / 1920) * 0.705f, (Screen.height / 1080) * 0.705f, 0);
         vaisseau.transform.position = positionVaisseau.position;
 
-        //MainManager.Instance.PlaneteManager.GenererPlanetes(40);
-        GameObject gameObject = GameObject.Find("PlaneteManager");
-        PlaneteManager planeteManager = gameObject.GetComponent<PlaneteManager>();
-        planeteManager.GenererPlanetes(200);
-        posiVaisseau = planeteManager.GetPosition();
-        planeteManager.GenererPathPlanete();
+        if (PlaneteManager.Instance.position == 1)
+        {
+            var _spriteRender = pos1.GetComponent<SpriteRenderer>();
+            _spriteRender.color = new Color(236, 104, 104);
+        }
+
+        Debug.Log(PlaneteManager.Instance.fait);
+
+        if (PlaneteManager.Instance.fait == false)
+        {
+            Generation();
+            PlaneteManager.Instance.fait = true;
+            Debug.Log(PlaneteManager.Instance.fait); 
+        }
 
     }
 
-    // Update is called once per frame
-    public void Combat()
+    public void Generation()
     {
-        SceneManager.LoadScene("MenuCombat");
+        PlaneteManager.Instance.position = 1;
+        PlaneteManager.Instance.GenererPlanetes(200);
+        PlaneteManager.Instance.GenererPathPlanete();
     }
+
 }

@@ -3,19 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlaneteManager : MonoBehaviour
 {
-    GameObject planeteReg;
-    public List<GameObject> planetes;
-    public Dictionary<int, (GameObject, int)> actif;
-    public float ray = 30f;
-    public int position = 0;
 
+    GameObject planeteReg;
+    public static PlaneteManager Instance { get; private set; }
+    public List<GameObject> planetes;
+    public Dictionary<int, (GameObject, int)> actif = new();
+    public float ray = 30f;
+    public int position;
+    public bool fait;
+
+    public void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(this);
+    }
 
     private void Start()
     {
-        actif = new Dictionary<int, (GameObject, int)>();
+        Debug.Log(position);
     }
 
-    public double CalculDistance(float x1, float x2, float y1, float y2)
+        public double CalculDistance(float x1, float x2, float y1, float y2)
     {
         double dx = Math.Pow(Math.Abs(x1 - x2), 2);
         double dy = Math.Pow(Math.Abs(y1 - y2), 2);
@@ -37,14 +50,14 @@ public class PlaneteManager : MonoBehaviour
         return false;
     }
 
-    public int min(int posi)
+    public int min(int posi, Dictionary<int, (GameObject, int)> dictionnaire)
     {
         int max = posi;
         int pos = 0;
         int min = 0;
 
 
-        foreach (var planete in actif.Values)
+        foreach (var planete in dictionnaire.Values)
         {
             int pospla = planete.Item2;
 
@@ -63,11 +76,8 @@ public class PlaneteManager : MonoBehaviour
 
         foreach (var verif in actif.Values)
         {
-            if ((planetepos - min(planetepos) == verif.Item2) && !classePlanete.possedeCheminDerriere)
+            if ((planetepos - min(planetepos, actif) == verif.Item2) && !classePlanete.possedeCheminDerriere)
             {
-
-                Debug.Log("Creation du chemin vers autre planete suplementaire");
-
                 CreationLigne(planete, verif.Item1);
                 classePlanete.possedeCheminDerriere = true;
 
@@ -91,8 +101,6 @@ public class PlaneteManager : MonoBehaviour
 
             if (planetepos == 1 && (planetepos + 1 == verif.Item2))
             {
-                Debug.Log("Creation du chemin vers autre planete initial");
-
                 CreationLigne(planete, verif.Item1);
                 classePlanete.possedeCheminDevant = true;
                 positionVerif.possedeCheminDerriere = true;
@@ -102,8 +110,6 @@ public class PlaneteManager : MonoBehaviour
 
             if (distance < 160f && (planetepos < verif.Item2))
             {
-                Debug.Log("Creation du chemin vers autre planete");
-
                 CreationLigne(planete, verif.Item1);
                 classePlanete.possedeCheminDevant = true;
                 positionVerif.possedeCheminDerriere = true;
@@ -149,7 +155,6 @@ public class PlaneteManager : MonoBehaviour
                 GameObject objet = Instantiate(selection, new Vector3(-55, 95), Quaternion.identity);
                 objet.transform.Rotate(0, 0, rotation, Space.Self);
                 Planete classePlanete = objet.GetComponent<Planete>();
-
                 actif[0] = (objet, classePlanete.VerificationPosition());
             }
 
@@ -169,6 +174,13 @@ public class PlaneteManager : MonoBehaviour
                 }
             }
         }
+
+    }
+
+    public void Gener()
+    {
+    
+    
     }
 
     public void GenererPathPlanete()
@@ -183,11 +195,6 @@ public class PlaneteManager : MonoBehaviour
     public void SetPosition(int p)
     {
         position = p;
-    }
-
-    public int GetPosition()
-    {
-        return position;
     }
 
 }

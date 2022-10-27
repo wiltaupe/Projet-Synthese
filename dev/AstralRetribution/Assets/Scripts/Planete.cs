@@ -16,15 +16,12 @@ public class Planete : MonoBehaviour
 
     public void OnMouseDown()
     {
-        MainManager.Instance.PlaneteManager.SetPosition(VerificationPosition());
+        PlaneteManager.Instance.SetPosition(VerificationPosition());
         SceneManager.LoadScene("MenuCombat");
     }
 
     private void OnMouseEnter()
     {
-        Debug.Log(VerificationPosition());
-        Debug.Log(possedeCheminDerriere);
-
         cercle.GetComponent<SpriteRenderer>().enabled = true;
     }
 
