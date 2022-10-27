@@ -5,7 +5,6 @@ public class MainManager : MonoBehaviour
     public static MainManager Instance { get; private set; }
 
     public ShipManager ShipManager { get; private set; }
-    public PlaneteManager PlaneteManager { get; private set; }
 
     public MemberManager MemberManager { get; private set; }
     public Sprite Background { get; set; }
@@ -22,7 +21,6 @@ public class MainManager : MonoBehaviour
         DontDestroyOnLoad(this);
 
         ShipManager = GetComponentInChildren<ShipManager>();
-        PlaneteManager = GetComponentInChildren<PlaneteManager>();
         MemberManager = GetComponentInChildren<MemberManager>();
     }
 }

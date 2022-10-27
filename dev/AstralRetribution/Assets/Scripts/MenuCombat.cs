@@ -8,7 +8,7 @@ public class MenuCombat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("Vaisseau").transform.position = posJoueur.position;
+        GameObject.Find("VaisseauJoueur").transform.position = posJoueur.position;
         Instantiate(vaisseauEnnemi.gameObject, posEnnemi.position, Quaternion.identity);
     }
 
