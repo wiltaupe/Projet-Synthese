@@ -1,23 +1,29 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class MenuSelection : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] private Sprite[] textures;
+    [SerializeField] private Transform positionJoueur;
     // Start is called before the first frame update
     void Start()
     {
+        
+        GenererMembreEquipage(GenererVaisseauJoueur());
         GenererBackground();
-        GenererMembreEquipage();
+        
     }
 
-    private void GenererMembreEquipage()
+    private Vaisseau GenererVaisseauJoueur()
     {
-        
+        return MainManager.Instance.ShipManager.GenererVaisseau(positionJoueur.position);
+    }
+
+    private void GenererMembreEquipage(Vaisseau vaisseau)
+    {
+        MainManager.Instance.MemberManager.GenererMembres(3,vaisseau);
     }
 
     private void GenererBackground()

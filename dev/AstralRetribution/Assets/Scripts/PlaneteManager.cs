@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 public class PlaneteManager : MonoBehaviour
 {
     GameObject planeteReg;
     public List<GameObject> planetes;
-    public Dictionary<int,(GameObject,int)> actif;
+    public Dictionary<int, (GameObject, int)> actif;
     public float ray = 30f;
     public int position = 0;
 
@@ -16,7 +15,7 @@ public class PlaneteManager : MonoBehaviour
         actif = new();
     }
 
-    public double CalculDistance(float x1, float x2,float y1, float y2)
+    public double CalculDistance(float x1, float x2, float y1, float y2)
     {
         double dx = Math.Pow(Math.Abs(x1 - x2), 2);
         double dy = Math.Pow(Math.Abs(y1 - y2), 2);
@@ -26,7 +25,7 @@ public class PlaneteManager : MonoBehaviour
     }
 
 
-    public bool VerificationRayon(GameObject posi,float rayon)
+    public bool VerificationRayon(GameObject posi, float rayon)
     {
         foreach (var planete in actif.Values)
         {
@@ -43,7 +42,7 @@ public class PlaneteManager : MonoBehaviour
         int max = posi;
         int pos = 0;
         int min = 0;
-        
+
 
         foreach (var planete in actif.Values)
         {
@@ -58,7 +57,7 @@ public class PlaneteManager : MonoBehaviour
         return posi - pos;
     }
 
-    public bool VerificationPossedeChemin(GameObject planete,int planetepos)
+    public bool VerificationPossedeChemin(GameObject planete, int planetepos)
     {
         Planete classePlanete = planete.GetComponent<Planete>();
 
@@ -80,14 +79,14 @@ public class PlaneteManager : MonoBehaviour
         return false;
     }
 
-    public bool VerificationPath(GameObject planete,int planetepos) 
+    public bool VerificationPath(GameObject planete, int planetepos)
     {
         Planete classePlanete = planete.GetComponent<Planete>();
 
         foreach (var verif in actif.Values)
         {
             Planete positionVerif = verif.Item1.GetComponent<Planete>();
-          
+
             double distance = CalculDistance(planete.transform.position.x, verif.Item1.transform.position.x, planete.transform.position.y, verif.Item1.transform.position.y);
 
             if (planetepos == 1 && (planetepos + 1 == verif.Item2))
@@ -159,7 +158,7 @@ public class PlaneteManager : MonoBehaviour
                 GameObject objet = GenererUnePlanete(selection);
                 Planete classePlanete = objet.GetComponent<Planete>();
 
-                if (VerificationRayon(objet,80f))
+                if (VerificationRayon(objet, 80f))
                 {
                     Destroy(objet);
                 }
@@ -176,7 +175,7 @@ public class PlaneteManager : MonoBehaviour
     {
         foreach (var planete in actif.Values)
         {
-            VerificationPath(planete.Item1,planete.Item2);
+            VerificationPath(planete.Item1, planete.Item2);
             VerificationPossedeChemin(planete.Item1, planete.Item2);
         }
     }
@@ -187,7 +186,7 @@ public class PlaneteManager : MonoBehaviour
     }
 
     public int GetPosition()
-    { 
+    {
         return position;
     }
 

@@ -10,16 +10,14 @@ public class MenuHub : MonoBehaviour
     public Image background;
     public int posiVaisseau;
 
-    GameObject grid,vaisseau,pos1;
-    GridManager management;
-
+    GameObject grid, vaisseau, pos1;
     // Start is called before the first frame update
     public void Start()
     {
         vaisseau = GameObject.Find("Vaisseau");
         pos1 = GameObject.Find("Canvas/ContientIterationPlanete/Circle1");
         background.sprite = MainManager.Instance.Background;
-        management = MainManager.Instance.GridManager;
+
 
 
         vaisseau.transform.localScale = new Vector3((Screen.width / 1920) * 0.705f, (Screen.height / 1080) * 0.705f, 0);

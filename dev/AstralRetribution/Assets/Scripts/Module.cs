@@ -53,7 +53,7 @@ public class Module : MonoBehaviour
             {
                 currentTile.Module = null;
             }
-            
+
             col.gameObject.GetComponent<Sol>().Module = this;
             currentTile = col.gameObject.GetComponent<Sol>();
             transform.position = currentTile.transform.position;
@@ -64,7 +64,7 @@ public class Module : MonoBehaviour
         }
         else
         {
-            if(currentTile == null)
+            if (currentTile == null)
             {
                 transform.position = lastPos;
             }
@@ -74,7 +74,7 @@ public class Module : MonoBehaviour
             }
 
 
-            
+
         }
 
     }

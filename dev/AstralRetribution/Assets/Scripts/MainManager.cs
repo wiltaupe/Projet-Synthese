@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
     public static MainManager Instance { get; private set; }
-    public GridManager GridManager { get; private set; }
-    public RoomManager RoomManager { get; private set; }
+
+    public ShipManager ShipManager { get; private set; }
     public PlaneteManager PlaneteManager { get; private set; }
 
     public MemberManager MemberManager { get; private set; }
@@ -23,8 +20,7 @@ public class MainManager : MonoBehaviour
         }
         Instance = this;
 
-        GridManager = GetComponentInChildren<GridManager>();
-        RoomManager = GetComponentInChildren<RoomManager>();
+        ShipManager = GetComponentInChildren<ShipManager>();
         PlaneteManager = GetComponentInChildren<PlaneteManager>();
         MemberManager = GetComponentInChildren<MemberManager>();
     }

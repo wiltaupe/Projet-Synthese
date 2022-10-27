@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Salle
 {
@@ -14,5 +12,5 @@ public class Salle
         Height = height;
         Tuiles = tuiles;
     }
-    
+
 }

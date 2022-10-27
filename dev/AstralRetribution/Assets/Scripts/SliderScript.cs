@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SliderScript : MonoBehaviour
@@ -25,7 +23,7 @@ public class SliderScript : MonoBehaviour
         }
         else
         {
-            bar.localScale = new Vector3(tour / tourMax, bar.transform.localScale.y,bar.transform.localScale.z);
+            bar.localScale = new Vector3(tour / tourMax, bar.transform.localScale.y, bar.transform.localScale.z);
         }
     }
 

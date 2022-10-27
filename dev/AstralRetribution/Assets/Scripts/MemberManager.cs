@@ -4,20 +4,36 @@ using UnityEngine;
 public class MemberManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> membresPossible;
-    public GameObject GenererMembre(Sol sol)
+
+    public void GenererMembres(int v,Vaisseau vaisseau)
     {
-        
+        List<GameObject> membresEquipage = new();
+        while(membresEquipage.Count != v)
+        {
+            membresEquipage.Add(PlacerMembre(GenererMembre(),vaisseau));
+            
+        }
 
-
-        int randomInt = Random.Range(0, membresPossible.Count);
-
-        GameObject membre = membresPossible[randomInt];
-        GameObject obj = Instantiate(membre, sol.transform.position + new Vector3(0,6), Quaternion.identity);
-        obj.transform.SetParent(sol.transform);
-        sol.MembreEquipage = obj;
-        
-        return obj;
+        vaisseau.MembresEquipage = membresEquipage;
     }
 
+    private GameObject PlacerMembre(GameObject membreEquipage, Vaisseau vaisseau)
+    {
+        Sol tuile = null;
+        while(tuile == null)
+        {
+            tuile = vaisseau.GetRandomAvailableTile();
+        }
 
+        membreEquipage.transform.SetParent(tuile.transform);
+        membreEquipage.transform.position = tuile.transform.position;
+        tuile.MembreEquipage = membreEquipage;
+        return membreEquipage;
+    }
+
+    private GameObject GenererMembre()
+    {
+        int randomInt = Random.Range(0, membresPossible.Count);
+        return Instantiate(membresPossible[randomInt], transform.position, Quaternion.identity);
+    }
 }

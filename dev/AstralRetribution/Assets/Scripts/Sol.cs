@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Sol : Tile
@@ -7,7 +5,7 @@ public class Sol : Tile
     private Color startcolor;
     public Module Module { get; set; }
     public Objet Objet { get; set; }
-    public Salle Parent {get; set;}
+    public Salle Parent { get; set; }
 
     public Vector2 position { get; set; }
     public GameObject MembreEquipage { get; set; }
