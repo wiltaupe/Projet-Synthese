@@ -330,7 +330,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posJoueur: {fileID: 1371753956}
   posEnnemi: {fileID: 2015409998}
-  vaisseauEnnemi: {fileID: 5531253191122667986, guid: 3f2cbb70fd3ee70489031df1ee2f029c, type: 3}
 --- !u!4 &124829005
 Transform:
   m_ObjectHideFlags: 0
@@ -895,7 +894,6 @@ GameObject:
   - component: {fileID: 1039800079}
   - component: {fileID: 1039800081}
   - component: {fileID: 1039800080}
-  - component: {fileID: 1039800082}
   m_Layer: 5
   m_Name: PlayerSide
   m_TagString: Untagged
@@ -961,21 +959,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039800078}
   m_CullTransparentMesh: 1
---- !u!114 &1039800082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039800078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81ac6ea855080464bbc8cecbd4bcd4f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posJoueur: {fileID: 0}
-  posEnnemi: {fileID: 0}
-  vaisseauEnnemi: {fileID: 0}
 --- !u!1 &1173368381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371753955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -402, y: -99, z: 1.045164}
+  m_LocalPosition: {x: -440, y: -99, z: 1.045164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

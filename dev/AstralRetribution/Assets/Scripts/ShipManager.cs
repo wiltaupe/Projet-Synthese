@@ -10,7 +10,7 @@ public class ShipManager : MonoBehaviour
     [SerializeField] private int tileSize = 32;
     [SerializeField] private int taille;
     [SerializeField] private int nbIterations;
-    [SerializeField] private Vaisseau prefabVaisseau;
+    [SerializeField] private GameObject prefabVaisseau;
     private List<RectInt> rectInts;
 
     public Vaisseau GenererVaisseau(Vector2 position)
@@ -22,9 +22,10 @@ public class ShipManager : MonoBehaviour
 
     private Vaisseau CreerVaisseau(Vector2 position)
     {
-        Vaisseau vaisseau = Instantiate(prefabVaisseau, position, Quaternion.identity);
-        vaisseau.name = "VaisseauJoueur";
-        return vaisseau;
+        GameObject goVaisseau = Instantiate(prefabVaisseau, position, Quaternion.identity);
+
+        goVaisseau.name = "Vaisseau";
+        return goVaisseau.GetComponent<Vaisseau>();
     }
 
     internal Vaisseau CreerTuiles(Vaisseau vaisseau)
