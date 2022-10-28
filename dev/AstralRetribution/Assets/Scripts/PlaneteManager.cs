@@ -25,7 +25,7 @@ public class PlaneteManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(position);
+        this.transform.SetParent(GameObject.Find("MainManager").transform);
     }
 
     public int VerificationPosition(float x)
@@ -169,7 +169,6 @@ public class PlaneteManager : MonoBehaviour
 
                 if (!VerificationRayon(objet.Item1,objet.Item2, 80f))
                 {
-                    Debug.Log("rayon verifier");
                     actif[actif.Count] = (new Vector3(objet.Item1, objet.Item2), objet.Item3, VerificationPosition(objet.Item1), randomInt);
                 }
             }

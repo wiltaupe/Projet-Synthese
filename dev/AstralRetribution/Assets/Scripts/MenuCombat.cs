@@ -3,13 +3,22 @@ using UnityEngine.SceneManagement;
 
 public class MenuCombat : MonoBehaviour
 {
-    [SerializeField] private Transform posJoueur, posEnnemi;
-    [SerializeField] private Vaisseau vaisseauEnnemi;
+    [SerializeField] private Transform posJoueur,posEnnemi;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        //GameObject.Find("VaisseauJoueur").transform.position = GameObject.Find("PosJoueur").transform.position;
+        //Instantiate(vaisseauEnnemi, GameObject.Find("PosEnnemi").transform.position, Quaternion.identity);
+    }
+    
     void Start()
     {
-        GameObject.Find("VaisseauJoueur").transform.position = posJoueur.position;
-        Instantiate(vaisseauEnnemi.gameObject, posEnnemi.position, Quaternion.identity);
+            //Debug.Log(vaisseauEnnemi);
+
+            GameObject.Find("Vaisseau").transform.position = posJoueur.position;
+            MainManager.Instance.ShipManager.GenererVaisseau(posEnnemi.position);
+
     }
 
     // Update is called once per frame
