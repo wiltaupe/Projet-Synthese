@@ -7,7 +7,7 @@ public class PlaneteManager : MonoBehaviour
     GameObject planeteReg;
     public static PlaneteManager Instance { get; private set; }
     public List<GameObject> planetes;
-    public Dictionary<int, (GameObject, int)> actif = new();
+    public Dictionary<int, (Vector3 vecteurPosition,float rotationZ, int position, int selection)> actif = new();
     public float ray = 30f;
     public int position;
     public bool fait;
@@ -28,7 +28,19 @@ public class PlaneteManager : MonoBehaviour
         Debug.Log(position);
     }
 
-        public double CalculDistance(float x1, float x2, float y1, float y2)
+    public int VerificationPosition(float x)
+    {
+        int position = 11;
+
+        for (double i = (x + 55); i < 455; i += 45.5)
+        {
+            position -= 1;
+        }
+
+        return position;
+    }
+
+    public double CalculDistance(float x1, float x2, float y1, float y2)
     {
         double dx = Math.Pow(Math.Abs(x1 - x2), 2);
         double dy = Math.Pow(Math.Abs(y1 - y2), 2);
@@ -38,11 +50,11 @@ public class PlaneteManager : MonoBehaviour
     }
 
 
-    public bool VerificationRayon(GameObject posi, float rayon)
+    public bool VerificationRayon(float x,float y, float rayon)
     {
         foreach (var planete in actif.Values)
         {
-            if (CalculDistance(posi.transform.position.x, planete.Item1.transform.position.x, posi.transform.position.y, planete.Item1.transform.position.y) < rayon)
+            if (CalculDistance(x, planete.vecteurPosition.x, y, planete.vecteurPosition.y) < rayon)
             {
                 return true;
             }
@@ -50,14 +62,14 @@ public class PlaneteManager : MonoBehaviour
         return false;
     }
 
-    public int min(int posi, Dictionary<int, (GameObject, int)> dictionnaire)
+    public int min(int posi, List<(GameObject, int)> list)
     {
         int max = posi;
         int pos = 0;
         int min = 0;
 
 
-        foreach (var planete in dictionnaire.Values)
+        foreach (var planete in list)
         {
             int pospla = planete.Item2;
 
@@ -70,13 +82,13 @@ public class PlaneteManager : MonoBehaviour
         return posi - pos;
     }
 
-    public bool VerificationPossedeChemin(GameObject planete, int planetepos)
+    public bool VerificationPossedeChemin(GameObject planete, int planetepos, List<(GameObject, int)> pla)
     {
         Planete classePlanete = planete.GetComponent<Planete>();
 
-        foreach (var verif in actif.Values)
+        foreach (var verif in pla)
         {
-            if ((planetepos - min(planetepos, actif) == verif.Item2) && !classePlanete.possedeCheminDerriere)
+            if ((planetepos - min(planetepos, pla) == verif.Item2) && !classePlanete.possedeCheminDerriere)
             {
                 CreationLigne(planete, verif.Item1);
                 classePlanete.possedeCheminDerriere = true;
@@ -89,15 +101,15 @@ public class PlaneteManager : MonoBehaviour
         return false;
     }
 
-    public bool VerificationPath(GameObject planete, int planetepos)
+    public bool VerificationPath(GameObject planete, int planetepos, List<(GameObject, int)> pla)
     {
         Planete classePlanete = planete.GetComponent<Planete>();
 
-        foreach (var verif in actif.Values)
+        foreach (var verif in pla)
         {
             Planete positionVerif = verif.Item1.GetComponent<Planete>();
 
-            double distance = CalculDistance(planete.transform.position.x, verif.Item1.transform.position.x, planete.transform.position.y, verif.Item1.transform.position.y);
+            double distance = CalculDistance(classePlanete.transform.position.x, positionVerif.transform.position.x, classePlanete.transform.position.y, positionVerif.transform.position.y);
 
             if (planetepos == 1 && (planetepos + 1 == verif.Item2))
             {
@@ -130,16 +142,13 @@ public class PlaneteManager : MonoBehaviour
         lr.SetPosition(1, fin.transform.position);
     }
 
-    public GameObject GenererUnePlanete(GameObject planete)
+    public (float,float,float) GenererUnePlanete()
     {
         float x = UnityEngine.Random.Range(-55, 400);
         float y = UnityEngine.Random.Range(-205, 95);
         float rotation = UnityEngine.Random.Range(0, 360);
 
-        GameObject objet = Instantiate(planete, new Vector3(x, y), Quaternion.identity);
-        objet.transform.Rotate(0, 0, rotation, Space.Self);
-
-        return objet;
+        return (x,y, rotation);
     }
 
     public void GenererPlanetes(int valeur)
@@ -148,47 +157,47 @@ public class PlaneteManager : MonoBehaviour
         {
             int randomInt = UnityEngine.Random.Range(0, planetes.Count);
             float rotation = UnityEngine.Random.Range(0, 360);
-            GameObject selection = planetes[randomInt];
 
             if (i == 0)
             {
-                GameObject objet = Instantiate(selection, new Vector3(-55, 95), Quaternion.identity);
-                objet.transform.Rotate(0, 0, rotation, Space.Self);
-                Planete classePlanete = objet.GetComponent<Planete>();
-                actif[0] = (objet, classePlanete.VerificationPosition());
+                actif[0] = (new Vector3(-55, 95),rotation,VerificationPosition(-55), randomInt);
             }
 
             else
             {
-                GameObject objet = GenererUnePlanete(selection);
-                Planete classePlanete = objet.GetComponent<Planete>();
+                var objet = GenererUnePlanete();
 
-                if (VerificationRayon(objet, 80f))
+                if (!VerificationRayon(objet.Item1,objet.Item2, 80f))
                 {
-                    Destroy(objet);
-                }
-
-                else
-                {
-                    actif[actif.Count] = (objet, classePlanete.VerificationPosition());
+                    Debug.Log("rayon verifier");
+                    actif[actif.Count] = (new Vector3(objet.Item1, objet.Item2), objet.Item3, VerificationPosition(objet.Item1), randomInt);
                 }
             }
         }
-
     }
 
-    public void Gener()
+    public void GenererPathPlanete(GameObject path, int pathPosition, List<(GameObject, int)> pla)
     {
-    
-    
+        VerificationPath(path, pathPosition,pla);
+        VerificationPossedeChemin(path, pathPosition,pla);
     }
 
-    public void GenererPathPlanete()
+
+    public void PlacerActif()
     {
-        foreach (var planete in actif.Values)
+        List<(GameObject, int)> pla = new();
+
+        for (int i = 0; i < actif.Count; i++)
         {
-            VerificationPath(planete.Item1, planete.Item2);
-            VerificationPossedeChemin(planete.Item1, planete.Item2);
+            GameObject selection = planetes[actif[i].selection];
+            GameObject c = Instantiate(selection, actif[i].vecteurPosition,Quaternion.identity);
+            c.transform.Rotate(0, 0, actif[i].rotationZ, Space.Self);
+            pla.Add((c, actif[i].position));
+        }
+
+        foreach (var item in pla)
+        {
+            GenererPathPlanete(item.Item1,item.Item2,pla);
         }
     }
 

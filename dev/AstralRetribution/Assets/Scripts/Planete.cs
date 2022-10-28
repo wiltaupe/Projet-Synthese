@@ -11,7 +11,7 @@ public class Planete : MonoBehaviour
     void Start()
     {
         cercle = transform.GetChild(0).gameObject;
-        //VerificationPosition();
+        VerificationPosition();
     }
 
     public void OnMouseDown()
@@ -48,6 +48,7 @@ public class Planete : MonoBehaviour
         {
             position -= 1;
         }
+
 
         return position;
     }

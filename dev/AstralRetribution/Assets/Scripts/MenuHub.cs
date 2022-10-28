@@ -28,13 +28,15 @@ public class MenuHub : MonoBehaviour
             _spriteRender.color = new Color(236, 104, 104);
         }
 
-        Debug.Log(PlaneteManager.Instance.fait);
-
         if (PlaneteManager.Instance.fait == false)
         {
             Generation();
             PlaneteManager.Instance.fait = true;
-            Debug.Log(PlaneteManager.Instance.fait); 
+        }
+
+        else
+        {
+            PlaneteManager.Instance.PlacerActif();
         }
 
     }
@@ -43,7 +45,7 @@ public class MenuHub : MonoBehaviour
     {
         PlaneteManager.Instance.position = 1;
         PlaneteManager.Instance.GenererPlanetes(200);
-        PlaneteManager.Instance.GenererPathPlanete();
+        PlaneteManager.Instance.PlacerActif();
     }
 
 }
