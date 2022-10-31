@@ -8,8 +8,8 @@ public class ShipManager : MonoBehaviour
     [SerializeField] private Tile mur;
     [SerializeField] private Sol sol;
     [SerializeField] private Porte porte;
-    //[SerializeField] private taille porte;
-    [SerializeField] public int taille { get; set; }
+    public static int taille { get; private set; }
+    //[SerializeField] public int taille { get; set; }
     [SerializeField] private int nbIterations;
     [SerializeField] private GameObject prefabVaisseau;
 
@@ -17,7 +17,7 @@ public class ShipManager : MonoBehaviour
 
     public Vaisseau GenererVaisseau(Vector2 position)
     {
-        taille = 20;
+        taille = 18; // 18 cest le best selon Will et David un peu moins comme il est jamais d'accord
         GenererSalles(taille, nbIterations);
         return CreerTuiles(CreerVaisseau(position));
     }

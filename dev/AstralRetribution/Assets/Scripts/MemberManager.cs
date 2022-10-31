@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+
 public class MemberManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> membresPossible;
@@ -11,7 +12,6 @@ public class MemberManager : MonoBehaviour
         while(membresEquipage.Count != v)
         {
             membresEquipage.Add(PlacerMembre(GenererMembre(),vaisseau));
-            
         }
 
         vaisseau.MembresEquipage = membresEquipage;
@@ -33,7 +33,12 @@ public class MemberManager : MonoBehaviour
 
     private GameObject GenererMembre()
     {
+        float ajustersize = (float)10 / (float)ShipManager.taille;
+
         int randomInt = Random.Range(0, membresPossible.Count);
-        return Instantiate(membresPossible[randomInt], transform.position, Quaternion.identity);
+        GameObject member= Instantiate(membresPossible[randomInt], transform.position, Quaternion.identity);
+
+        member.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
+        return member;
     }
 }
