@@ -18,8 +18,6 @@ public class Vaisseau : MonoBehaviour
 
     }
 
-
-
     internal Sol GetRandomAvailableTile()
     {
 
@@ -30,7 +28,6 @@ public class Vaisseau : MonoBehaviour
 
 
         Sol sol = salle.Tuiles[rand];
-
 
 
         if (sol.Module != null && sol.MembreEquipage != null)

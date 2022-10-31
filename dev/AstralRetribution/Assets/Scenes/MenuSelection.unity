@@ -434,6 +434,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: taille
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: tileSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: nbIterations
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
       propertyPath: prefabVaisseau
       value: 
       objectReference: {fileID: 4985988470680792901, guid: 138b62b49638db8428208148128b7a40, type: 3}

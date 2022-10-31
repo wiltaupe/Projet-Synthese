@@ -1,42 +1,46 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ShipManager : MonoBehaviour
 {
     [SerializeField] private Tile mur;
     [SerializeField] private Sol sol;
     [SerializeField] private Porte porte;
-    [SerializeField] private int tileSize = 32;
-    [SerializeField] private int taille;
+    //[SerializeField] private taille porte;
+    [SerializeField] public int taille { get; set; }
     [SerializeField] private int nbIterations;
     [SerializeField] private GameObject prefabVaisseau;
+
     private List<RectInt> rectInts;
 
     public Vaisseau GenererVaisseau(Vector2 position)
     {
+        taille = 20;
         GenererSalles(taille, nbIterations);
-
         return CreerTuiles(CreerVaisseau(position));
     }
 
     private Vaisseau CreerVaisseau(Vector2 position)
     {
         GameObject goVaisseau = Instantiate(prefabVaisseau, position, Quaternion.identity);
-
         goVaisseau.name = "Vaisseau";
         return goVaisseau.GetComponent<Vaisseau>();
     }
 
     internal Vaisseau CreerTuiles(Vaisseau vaisseau)
     {
+        float ajusterTileHW = (float)320 / (float)taille;
+        float ajustersize = (float)10 / (float)taille;
+        Debug.Log(ajustersize);
 
         List<Salle> salles = new();
-
 
         foreach (RectInt rectInt in rectInts)
         {
             List<Sol> tiles = new();
+
             for (int i = rectInt.xMin; i <= rectInt.xMax; i++)
             {
                 for (int j = rectInt.yMin; j <= rectInt.yMax; j++)
@@ -45,14 +49,15 @@ public class ShipManager : MonoBehaviour
                     if (i == rectInt.xMin || i == rectInt.xMax || j == rectInt.yMin || j == rectInt.yMax)
                     {
 
-                        var obj = Instantiate(mur, new Vector3(i * tileSize, j * tileSize) + vaisseau.transform.position, Quaternion.identity);
+                        var obj = Instantiate(mur, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
+                        obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
-
 
                     }
                     else
                     {
-                        Sol obj = Instantiate(sol, new Vector3(i * tileSize, j * tileSize) + vaisseau.transform.position, Quaternion.identity);
+                        Sol obj = Instantiate(sol, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
+                        obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                         obj.position = new Vector2(i, j);
                         tiles.Add(obj);
@@ -62,7 +67,8 @@ public class ShipManager : MonoBehaviour
                     if (rectInt.xMin != 0)
                     {
 
-                        var obj = Instantiate(porte, new Vector3(rectInt.xMin * tileSize, (int)rectInt.center.y * tileSize) + vaisseau.transform.position, Quaternion.identity);
+                        var obj = Instantiate(porte, new Vector3(rectInt.xMin * ajusterTileHW, (int)rectInt.center.y * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
+                        obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                         obj.transform.Rotate(0, 0, 90, Space.Self);
 
@@ -70,32 +76,31 @@ public class ShipManager : MonoBehaviour
 
                     if (rectInt.xMax != taille)
                     {
-                        var obj = Instantiate(porte, new Vector3(rectInt.xMax * tileSize, (int)rectInt.center.y * tileSize) + vaisseau.transform.position, Quaternion.identity);
+                        var obj = Instantiate(porte, new Vector3(rectInt.xMax * ajusterTileHW, (int)rectInt.center.y * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
+                        obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                         obj.transform.Rotate(0, 0, 90, Space.Self);
                     }
 
                     if (rectInt.yMin != 0)
                     {
-                        var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * tileSize, rectInt.yMin * tileSize) + vaisseau.transform.position, Quaternion.identity);
+                        var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * ajusterTileHW, rectInt.yMin * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
+                        obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                     }
 
                     if (rectInt.yMax != taille)
                     {
-                        var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * tileSize, rectInt.yMax * tileSize) + vaisseau.transform.position, Quaternion.identity);
+                        var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * ajusterTileHW, rectInt.yMax * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
+                        obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                     }
-
-
-
-
                 }
             }
 
             if (tiles.Count != 0)
             {
-                Salle salle = new(rectInt.width, rectInt.height, tiles);
+                Salle salle = new(rectInt.width /** (int)ajusterTile*/, rectInt.height /** (int)ajusterTile*/, tiles);
                 salles.Add(salle);
             }
 
