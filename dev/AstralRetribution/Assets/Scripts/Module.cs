@@ -6,7 +6,8 @@ public class Module : MonoBehaviour
     private Camera cam;
     private Vector3 lastPos;
     private Sol currentTile;
-
+    private bool redo = false;
+    private bool aBouger = false;
 
     private void Awake()
     {
@@ -15,8 +16,18 @@ public class Module : MonoBehaviour
 
     private void OnMouseDown()
     {
+
+        float ajuster = (float)10 / (float)ShipManager.taille;
+
         dragOffset = transform.position - GetMousePos();
         lastPos = GetMousePos();
+
+        if (redo == false || aBouger == false)
+        {
+            this.transform.localScale = new Vector3(ajuster, ajuster, 0);
+            redo = true;
+        }
+
         GetComponent<SpriteRenderer>().sortingOrder += 1;
 
     }
@@ -54,27 +65,26 @@ public class Module : MonoBehaviour
                 currentTile.Module = null;
             }
 
+            aBouger = true;
+
             col.gameObject.GetComponent<Sol>().Module = this;
             currentTile = col.gameObject.GetComponent<Sol>();
             transform.position = currentTile.transform.position;
             transform.SetParent(currentTile.transform);
             lastPos = currentTile.transform.position;
-
-            Debug.Log(currentTile.position);
         }
         else
         {
             if (currentTile == null)
             {
+                this.transform.localScale = new Vector3(1, 1, 0);
                 transform.position = lastPos;
             }
             else
             {
+                this.transform.localScale = new Vector3(1, 1, 0);
                 transform.position = currentTile.gameObject.transform.position;
             }
-
-
-
         }
 
     }
