@@ -53,6 +53,7 @@ public class Module : MonoBehaviour
             if (currentTile == null)
             {
                 transform.position = lastPos;
+                this.transform.localScale = new Vector3(1, 1, 0);
             }
             else transform.position = currentTile.transform.position;
             return;
