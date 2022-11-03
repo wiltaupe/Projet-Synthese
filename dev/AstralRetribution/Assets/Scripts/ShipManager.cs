@@ -8,32 +8,45 @@ public class ShipManager : MonoBehaviour
     [SerializeField] private Tile mur;
     [SerializeField] private Sol sol;
     [SerializeField] private Porte porte;
-    public static int taille { get; private set; }
+    public static int Taille { get; private set; }
     //[SerializeField] public int taille { get; set; }
     [SerializeField] private int nbIterations;
     [SerializeField] private GameObject prefabVaisseau;
+    [SerializeField] private GameObject prefabEnnemi;
 
     private List<RectInt> rectInts;
 
-    public Vaisseau GenererVaisseau(Vector2 position)
+    public Vaisseau GenererVaisseau(Vector2 position,bool ennemi)
     {
-        taille = 18; // 18 cest le best selon Will et David un peu moins comme il est jamais d'accord
-        GenererSalles(taille, nbIterations);
-        return CreerTuiles(CreerVaisseau(position));
+        Taille = 18; 
+        GenererSalles(Taille, nbIterations);
+        return CreerTuiles(CreerVaisseau(position,ennemi));
     }
 
-    private Vaisseau CreerVaisseau(Vector2 position)
+    private Vaisseau CreerVaisseau(Vector2 position,bool ennemi)
     {
-        GameObject goVaisseau = Instantiate(prefabVaisseau, position, Quaternion.identity);
-        goVaisseau.name = "Vaisseau";
+        GameObject goVaisseau;
+        if (ennemi)
+        {
+            goVaisseau = Instantiate(prefabEnnemi, position, Quaternion.identity);
+            goVaisseau.name = "VaisseauEnnemi";
+        }
+        else
+        {
+            goVaisseau = Instantiate(prefabVaisseau, position, Quaternion.identity);
+            goVaisseau.name = "Vaisseau";
+        }
+
+        Debug.Log(goVaisseau.name);
+        Debug.Log(goVaisseau.transform.parent);
+        
         return goVaisseau.GetComponent<Vaisseau>();
     }
 
     internal Vaisseau CreerTuiles(Vaisseau vaisseau)
     {
-        float ajusterTileHW = (float)320 / (float)taille;
-        float ajustersize = (float)10 / (float)taille;
-        Debug.Log(ajustersize);
+        float ajusterTileHW = (float)320 / (float)Taille;
+        float ajustersize = (float)10 / (float)Taille;
 
         List<Salle> salles = new();
 
@@ -52,7 +65,6 @@ public class ShipManager : MonoBehaviour
                         var obj = Instantiate(mur, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
                         obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
-
                     }
                     else
                     {
@@ -62,6 +74,7 @@ public class ShipManager : MonoBehaviour
                         obj.position = new Vector2(i, j);
                         tiles.Add(obj);
                         obj.name = $"Sol x:{i} y:{j}";
+                        
                     }
 
                     if (rectInt.xMin != 0)
@@ -71,10 +84,9 @@ public class ShipManager : MonoBehaviour
                         obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                         obj.transform.Rotate(0, 0, 90, Space.Self);
-
                     }
 
-                    if (rectInt.xMax != taille)
+                    if (rectInt.xMax != Taille)
                     {
                         var obj = Instantiate(porte, new Vector3(rectInt.xMax * ajusterTileHW, (int)rectInt.center.y * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
                         obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
@@ -89,7 +101,7 @@ public class ShipManager : MonoBehaviour
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                     }
 
-                    if (rectInt.yMax != taille)
+                    if (rectInt.yMax != Taille)
                     {
                         var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * ajusterTileHW, rectInt.yMax * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
                         obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);

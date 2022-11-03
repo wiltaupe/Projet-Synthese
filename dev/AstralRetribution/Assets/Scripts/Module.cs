@@ -17,7 +17,7 @@ public class Module : MonoBehaviour
     private void OnMouseDown()
     {
 
-        float ajuster = (float)10 / (float)ShipManager.taille;
+        float ajuster = (float)10 / (float)ShipManager.Taille;
 
         dragOffset = transform.position - GetMousePos();
         lastPos = GetMousePos();

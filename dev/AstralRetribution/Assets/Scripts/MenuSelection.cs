@@ -18,7 +18,7 @@ public class MenuSelection : MonoBehaviour
 
     private Vaisseau GenererVaisseauJoueur()
     {
-        return MainManager.Instance.ShipManager.GenererVaisseau(positionJoueur.position);
+        return MainManager.Instance.ShipManager.GenererVaisseau(positionJoueur.position,false);
     }
 
     private void GenererMembreEquipage(Vaisseau vaisseau)

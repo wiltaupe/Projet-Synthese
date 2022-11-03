@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VaisseauEnnemi
       objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792901, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4985988470680792890, guid: 138b62b49638db8428208148128b7a40, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 138b62b49638db8428208148128b7a40, type: 3}

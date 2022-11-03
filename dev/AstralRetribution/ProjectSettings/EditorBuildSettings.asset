@@ -15,11 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuOption.unity
     guid: f60a4c2f3429e8747be46ecf26d20b19
   - enabled: 1
-    path: Assets/Scenes/MenuHub.unity
-    guid: 93221a9afedc28f43b46df40c20a2f8a
-  - enabled: 1
     path: Assets/Scenes/MenuSelection.unity
     guid: 2d562cacbee97fa4281f1194bddb966c
+  - enabled: 1
+    path: Assets/Scenes/MenuHub.unity
+    guid: 93221a9afedc28f43b46df40c20a2f8a
   - enabled: 1
     path: Assets/Scenes/MenuCombat.unity
     guid: b1d4ca461307e1a4da7ed1928fc6f500
