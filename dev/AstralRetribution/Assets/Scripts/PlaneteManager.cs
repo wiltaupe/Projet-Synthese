@@ -7,10 +7,11 @@ public class PlaneteManager : MonoBehaviour
     GameObject planeteReg;
     public static PlaneteManager Instance { get; private set; }
     public List<GameObject> planetes;
-    public Dictionary<int, (Vector3 vecteurPosition,float rotationZ, int position, int selection)> actif = new();
-    public float ray = 30f;
-    public int position;
-    public bool fait;
+    private Dictionary<int, (Vector3 vecteurPosition,float rotationZ, int position, int selection)> actif = new();
+    private int position;
+    private bool fait;
+    private bool debut = false;
+
 
     public void Awake()
     {
@@ -200,9 +201,35 @@ public class PlaneteManager : MonoBehaviour
         }
     }
 
+    public int GetPosition()
+    {
+        return position;
+    }
+
+    public bool GetDebut()
+    {
+        return debut;
+    }
+
+    public bool GetFait()
+    {
+        return fait;
+    }
+
     public void SetPosition(int p)
     {
         position = p;
     }
+
+    public void SetDebut(bool d)
+    {
+        debut = d;
+    }
+
+    public void SetFait(bool f)
+    {
+        fait = f;
+    }
+
 
 }
