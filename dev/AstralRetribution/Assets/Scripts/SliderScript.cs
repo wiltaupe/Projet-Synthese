@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SliderScript : MonoBehaviour
 {
-    public int tourMax = 20;
+    public int tourMax = 200;
     public float tour = 0;
     public RectTransform bar;
 
