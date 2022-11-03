@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Slider = FindObjectOfType<SliderScript>();
+        Debug.Log(Slider);
         currentState = new BeginState(this);
         currentState.Start();
         Debug.Log(currentState);
