@@ -17,24 +17,15 @@ public class MenuHub : MonoBehaviour
     public void Start()
     {
         vaisseau = GameObject.Find("Vaisseau");
-        //pos1 = GameObject.Find("Canvas/ContientIterationPlanete/Circle1");
         background.sprite = MainManager.Instance.Background;
-
-        //GameObject c = Instantiate(selection, actif[i].vecteurPosition, Quaternion.identity);
 
         vaisseau.transform.localScale = new Vector3((Screen.width / 1920) * 0.705f, (Screen.height / 1080) * 0.705f, 0);
         vaisseau.transform.position = positionVaisseau.position;
 
-        /*if (PlaneteManager.Instance.position == 1)
-        {
-            var _spriteRender = pos1.GetComponent<SpriteRenderer>();
-            _spriteRender.color = new Color(236, 104, 104);
-        }*/
-
-        if (PlaneteManager.Instance.fait == false)
+        if (PlaneteManager.Instance.GetFait() == false)
         {
             Generation();
-            PlaneteManager.Instance.fait = true;
+            PlaneteManager.Instance.SetFait(true);
         }
 
         else
@@ -47,7 +38,7 @@ public class MenuHub : MonoBehaviour
             GameObject pos = cercle[i];
             var _spriteRender = pos.GetComponent<SpriteRenderer>();
 
-            if (i >= PlaneteManager.Instance.position)
+            if (i >= PlaneteManager.Instance.GetPosition())
             {
                 _spriteRender.color = new Color(255, 0, 0);
             }
@@ -61,7 +52,7 @@ public class MenuHub : MonoBehaviour
 
     public void Generation()
     {
-        PlaneteManager.Instance.position = 1;
+        PlaneteManager.Instance.SetPosition(1);
         PlaneteManager.Instance.GenererPlanetes(200);
         PlaneteManager.Instance.PlacerActif();
     }

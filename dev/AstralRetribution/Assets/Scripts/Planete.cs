@@ -11,45 +11,29 @@ public class Planete : MonoBehaviour
     void Start()
     {
         cercle = transform.GetChild(0).gameObject;
-        VerificationPosition();
+        PlaneteManager.Instance.VerificationPosition(transform.position.x);
     }
 
     public void OnMouseDown()
     {
-        PlaneteManager.Instance.SetPosition(VerificationPosition());
-        SceneManager.LoadScene("MenuCombat");
+        if (PlaneteManager.Instance.VerificationPosition(transform.position.x) > PlaneteManager.Instance.GetPosition() || (PlaneteManager.Instance.GetPosition() == 1 && PlaneteManager.Instance.VerificationPosition(transform.position.x) == PlaneteManager.Instance.GetPosition() && !PlaneteManager.Instance.GetDebut()))
+        {
+            PlaneteManager.Instance.SetPosition(PlaneteManager.Instance.VerificationPosition(transform.position.x));
+            PlaneteManager.Instance.SetDebut(true);
+            SceneManager.LoadScene("MenuCombat");
+        }
     }
 
     private void OnMouseEnter()
     {
-        cercle.GetComponent<SpriteRenderer>().enabled = true;
+        if (PlaneteManager.Instance.VerificationPosition(transform.position.x) > PlaneteManager.Instance.GetPosition() || (PlaneteManager.Instance.GetPosition() == 1 && PlaneteManager.Instance.VerificationPosition(transform.position.x) == PlaneteManager.Instance.GetPosition() && !PlaneteManager.Instance.GetDebut()))
+        {
+            cercle.GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
 
     private void OnMouseExit()
     {
         cercle.GetComponent<SpriteRenderer>().enabled = false;
-    }
-
-    private void Anim()
-    {
-        //AnimationState tempslancement = cercle.GetComponent<AnimationState>();
-        //float tempsTotal = tempslancement.length;
-        //float nouveauTemps = UnityEngine.Random.Range(0, tempsTotal);
-
-        //tempslancement.time = nouveauTemps;
-        return;
-    }
-
-    public int VerificationPosition()
-    {
-        int position = 11;
-
-        for (double i = (transform.position.x + 55); i < 455; i += 45.5)
-        {
-            position -= 1;
-        }
-
-
-        return position;
     }
 }
