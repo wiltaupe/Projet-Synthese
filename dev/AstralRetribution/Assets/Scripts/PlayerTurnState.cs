@@ -9,8 +9,7 @@
 
     public override void Start()
     {
-
+        gameManager.Slider.PlayerTurn = true;
     }
-
 
 }
