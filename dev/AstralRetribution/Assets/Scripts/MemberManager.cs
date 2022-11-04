@@ -33,7 +33,7 @@ public class MemberManager : MonoBehaviour
 
     private GameObject GenererMembre()
     {
-        float ajustersize = (float)10 / (float)ShipManager.Taille;
+        float ajustersize = (float)8 / (float)ShipManager.Taille;
 
         int randomInt = Random.Range(0, membresPossible.Count);
         GameObject member= Instantiate(membresPossible[randomInt], transform.position, Quaternion.identity);
