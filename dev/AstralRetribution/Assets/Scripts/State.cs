@@ -6,4 +6,14 @@ public abstract class State
     {
         
     }
+
+    public virtual void TempsFini()
+    {
+
+    }
+
+    public virtual void Attack()
+    {
+
+    }
 }

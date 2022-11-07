@@ -15,10 +15,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Slider = FindObjectOfType<SliderScript>();
-        Debug.Log(Slider);
         currentState = new BeginState(this);
         currentState.Start();
-        Debug.Log(currentState);
     }
 
     public void SetState(State gameState)
@@ -26,6 +24,11 @@ public class GameManager : MonoBehaviour
         currentState = gameState;
         currentState.Start();
         Debug.Log(currentState);
+    }
+
+    public void PlayerTurnEnd()
+    {
+        SetState(new EnemyTurnState(this));
     }
 
     // Update is called once per frame
