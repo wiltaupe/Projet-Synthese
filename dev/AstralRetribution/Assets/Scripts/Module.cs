@@ -28,7 +28,7 @@ public class Module : MonoBehaviour
             redo = true;
         }
 
-        GetComponent<SpriteRenderer>().sortingOrder += 1;
+        GetComponent<SpriteRenderer>().sortingOrder += 2;
 
     }
 
@@ -46,7 +46,7 @@ public class Module : MonoBehaviour
 
     private void OnMouseUp()
     {
-        GetComponent<SpriteRenderer>().sortingOrder -= 1;
+        GetComponent<SpriteRenderer>().sortingOrder += 2;
         Collider2D col = Physics2D.OverlapPoint(GetMousePos(), LayerMask.GetMask("Sol"));
         if (col == null)
         {
