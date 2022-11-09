@@ -198,6 +198,7 @@ public class PlaneteManager : MonoBehaviour
         foreach (var item in pla)
         {
             GenererPathPlanete(item.Item1,item.Item2,pla);
+            item.Item1.transform.SetParent(GameObject.Find("ObjetPlanete").transform);
         }
     }
 
