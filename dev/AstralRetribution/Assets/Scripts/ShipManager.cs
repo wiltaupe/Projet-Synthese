@@ -71,6 +71,7 @@ public class ShipManager : MonoBehaviour
                         obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                     }
+                    else
                     {
                         Sol obj = Instantiate(sol, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
                         obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
