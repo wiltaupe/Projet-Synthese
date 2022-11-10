@@ -5,6 +5,7 @@ public class Vaisseau : MonoBehaviour
 {
     public List<Salle> Salles { get; set; }
     public List<GameObject> MembresEquipage { get; set; }
+    public List<Module> ModulesActifs { get; set; }
     // Start is called before the first frame update
 
     private void Start()
@@ -30,12 +31,12 @@ public class Vaisseau : MonoBehaviour
         Sol sol = salle.Tuiles[rand];
 
 
-        if (sol.Module != null && sol.MembreEquipage != null)
+        if (sol.Module != null || sol.MembreEquipage != null)
         {
             sol = null;
             return sol;
         }
-
+        Debug.Log(sol.MembreEquipage);
 
         return sol;
 
