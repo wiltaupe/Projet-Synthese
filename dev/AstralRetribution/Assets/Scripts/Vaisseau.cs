@@ -8,11 +8,10 @@ public class Vaisseau : MonoBehaviour
     public List<Module> ModulesActifs { get; set; }
     // Start is called before the first frame update
 
-    private void Start()
+    private void Awake()
     {
-
+        ModulesActifs = new();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -36,9 +35,19 @@ public class Vaisseau : MonoBehaviour
             sol = null;
             return sol;
         }
-        Debug.Log(sol.MembreEquipage);
 
         return sol;
 
+    }
+
+    internal void AddModule(Module module)
+    {
+        if (ModulesActifs.Contains(module))
+        {
+            return;
+        }
+
+        ModulesActifs.Add(module);
+        Debug.Log(ModulesActifs);
     }
 }

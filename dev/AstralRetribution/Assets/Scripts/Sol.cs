@@ -6,7 +6,7 @@ public class Sol : Tile
     public Module Module { get; set; }
     public Objet Objet { get; set; }
     public Salle Parent { get; set; }
-
+    public Vaisseau Vaisseau { get; set; }
     public Vector2 position { get; set; }
     public GameObject MembreEquipage{ get; set; }
 
@@ -22,6 +22,6 @@ public class Sol : Tile
 
     private void OnMouseDown()
     {
-        Debug.Log(position);
+        Debug.Log(Vaisseau);
     }
 }

@@ -8,6 +8,7 @@ public class Module : MonoBehaviour
     private Sol currentTile;
     private bool redo = false;
     private bool aBouger = false;
+    private bool draggable = true;
 
     private void Awake()
     {
@@ -16,25 +17,32 @@ public class Module : MonoBehaviour
 
     private void OnMouseDown()
     {
-
-        float ajuster = (float)10 / (float)ShipManager.Taille;
-
-        dragOffset = transform.position - GetMousePos();
-        lastPos = GetMousePos();
-
-        if (redo == false || aBouger == false)
+        if (draggable)
         {
-            this.transform.localScale = new Vector3(ajuster, ajuster, 0);
-            redo = true;
-        }
+            float ajuster = (float)10 / (float)ShipManager.Taille;
 
-        GetComponent<SpriteRenderer>().sortingOrder += 2;
+            dragOffset = transform.position - GetMousePos();
+            lastPos = GetMousePos();
+
+            if (redo == false || aBouger == false)
+            {
+                this.transform.localScale = new Vector3(ajuster, ajuster, 0);
+                redo = true;
+            }
+
+            GetComponent<SpriteRenderer>().sortingOrder += 2;
+        }
+        
 
     }
 
     private void OnMouseDrag()
     {
-        transform.position = GetMousePos() + dragOffset;
+        if (draggable)
+        {
+            transform.position = GetMousePos() + dragOffset;
+        }
+        
     }
 
     Vector3 GetMousePos()
@@ -46,47 +54,55 @@ public class Module : MonoBehaviour
 
     private void OnMouseUp()
     {
-        GetComponent<SpriteRenderer>().sortingOrder += 2;
-        Collider2D col = Physics2D.OverlapPoint(GetMousePos(), LayerMask.GetMask("Sol"));
-        if (col == null)
+        if (draggable)
         {
-            if (currentTile == null)
+            GetComponent<SpriteRenderer>().sortingOrder += 2;
+            Collider2D col = Physics2D.OverlapPoint(GetMousePos(), LayerMask.GetMask("Sol"));
+            if (col == null)
             {
-                transform.position = lastPos;
-                this.transform.localScale = new Vector3(1, 1, 0);
-            }
-            else transform.position = currentTile.transform.position;
-            return;
-        }
-
-        if (col.gameObject.GetComponent<Sol>().Module == null && col.GetComponent<Sol>().MembreEquipage == null)
-        {
-            if (currentTile != null)
-            {
-                currentTile.Module = null;
+                if (currentTile == null)
+                {
+                    transform.position = lastPos;
+                    this.transform.localScale = new Vector3(1, 1, 0);
+                }
+                else transform.position = currentTile.transform.position;
+                return;
             }
 
-            aBouger = true;
+            Sol sol = col.gameObject.GetComponent<Sol>();
 
-            col.gameObject.GetComponent<Sol>().Module = this;
-            currentTile = col.gameObject.GetComponent<Sol>();
-            transform.position = currentTile.transform.position;
-            transform.SetParent(currentTile.transform);
-            lastPos = currentTile.transform.position;
-        }
-        else
-        {
-            if (currentTile == null)
+            if (sol.Module == null && sol.MembreEquipage == null)
             {
-                this.transform.localScale = new Vector3(1, 1, 0);
-                transform.position = lastPos;
+                if (currentTile != null)
+                {
+                    currentTile.Module = null;
+                }
+
+                aBouger = true;
+
+                sol.Module = this;
+                transform.position = sol.transform.position;
+                transform.SetParent(sol.transform);
+
+                lastPos = sol.transform.position;
+                sol.Vaisseau.AddModule(this);
+                draggable = false;
             }
             else
             {
-                this.transform.localScale = new Vector3(1, 1, 0);
-                transform.position = currentTile.gameObject.transform.position;
+                if (currentTile == null)
+                {
+                    this.transform.localScale = new Vector3(1, 1, 0);
+                    transform.position = lastPos;
+                }
+                else
+                {
+                    this.transform.localScale = new Vector3(1, 1, 0);
+                    transform.position = currentTile.gameObject.transform.position;
+                }
             }
         }
+        
 
     }
 }

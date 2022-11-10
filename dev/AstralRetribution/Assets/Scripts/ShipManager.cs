@@ -37,8 +37,6 @@ public class ShipManager : MonoBehaviour
             goVaisseau.name = "Vaisseau";
         }
 
-        Debug.Log(goVaisseau.name);
-        Debug.Log(goVaisseau.transform.parent);
         
         return goVaisseau.GetComponent<Vaisseau>();
     }
@@ -49,15 +47,10 @@ public class ShipManager : MonoBehaviour
         float ajustersize = (float)10 / (float)Taille;
 
         List<Salle> salles = new();
-        Debug.Log(Taille);
 
         foreach (RectInt rectInt in rectInts)
         {
             List<Sol> tiles = new();
-            Debug.Log(rectInt.xMax);
-            Debug.Log(rectInt.xMin);
-            Debug.Log(rectInt.yMin);
-            Debug.Log(rectInt.yMax);
 
             for (int i = rectInt.xMin; i <= rectInt.xMax; i++)
             {
@@ -77,8 +70,10 @@ public class ShipManager : MonoBehaviour
                         obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                         obj.position = new Vector2(i, j);
-                        tiles.Add(obj);
+                        obj.Vaisseau = vaisseau;
                         obj.name = $"Sol x:{i} y:{j}";
+                        tiles.Add(obj);
+                        
                         
                     }
 
@@ -127,7 +122,6 @@ public class ShipManager : MonoBehaviour
 
             
         }
-        Debug.Log(salles);
 
         vaisseau.Salles = salles;
         return vaisseau;
