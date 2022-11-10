@@ -37,8 +37,6 @@ public class ShipManager : MonoBehaviour
             goVaisseau.name = "Vaisseau";
         }
 
-        Debug.Log(goVaisseau.name);
-        Debug.Log(goVaisseau.transform.parent);
         
         return goVaisseau.GetComponent<Vaisseau>();
     }
@@ -59,7 +57,7 @@ public class ShipManager : MonoBehaviour
                 for (int j = rectInt.yMin; j <= rectInt.yMax; j++)
                 {
 
-                    if (i == rectInt.xMin || i == rectInt.xMax || j == rectInt.yMin || j == rectInt.yMax)
+                    if ((i == rectInt.xMin || i == rectInt.xMax || j == rectInt.yMin || j == rectInt.yMax) && (((i != (int)rectInt.center.x && j != (int)rectInt.center.y)) || (i == 0 || i == Taille || j == 0 || j == Taille)))
                     {
 
                         var obj = Instantiate(mur, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
@@ -72,12 +70,14 @@ public class ShipManager : MonoBehaviour
                         obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                         obj.position = new Vector2(i, j);
-                        tiles.Add(obj);
+                        obj.Vaisseau = vaisseau;
                         obj.name = $"Sol x:{i} y:{j}";
+                        tiles.Add(obj);
+                        
                         
                     }
 
-                    if (rectInt.xMin != 0)
+                    /*if (rectInt.xMin != 0)
                     {
 
                         var obj = Instantiate(porte, new Vector3(rectInt.xMin * ajusterTileHW, (int)rectInt.center.y * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
@@ -106,7 +106,7 @@ public class ShipManager : MonoBehaviour
                         var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * ajusterTileHW, rectInt.yMax * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
                         obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
-                    }
+                    }*/
                 }
             }
 
@@ -122,7 +122,6 @@ public class ShipManager : MonoBehaviour
 
             
         }
-        Debug.Log(salles);
 
         vaisseau.Salles = salles;
         return vaisseau;
