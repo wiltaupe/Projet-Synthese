@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject VaisseauJoueur { get; set; }
     public GameObject VaisseauEnnemi { get; set; }
     public SliderScript Slider { get; set; }
+    public Deck deckJoueur { get; set; }
     // Start is called before the first frame update
     void Start()
     {
