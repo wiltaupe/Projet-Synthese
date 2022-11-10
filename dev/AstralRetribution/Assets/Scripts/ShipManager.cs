@@ -49,24 +49,28 @@ public class ShipManager : MonoBehaviour
         float ajustersize = (float)10 / (float)Taille;
 
         List<Salle> salles = new();
+        Debug.Log(Taille);
 
         foreach (RectInt rectInt in rectInts)
         {
             List<Sol> tiles = new();
+            Debug.Log(rectInt.xMax);
+            Debug.Log(rectInt.xMin);
+            Debug.Log(rectInt.yMin);
+            Debug.Log(rectInt.yMax);
 
             for (int i = rectInt.xMin; i <= rectInt.xMax; i++)
             {
                 for (int j = rectInt.yMin; j <= rectInt.yMax; j++)
                 {
 
-                    if (i == rectInt.xMin || i == rectInt.xMax || j == rectInt.yMin || j == rectInt.yMax)
+                    if ((i == rectInt.xMin || i == rectInt.xMax || j == rectInt.yMin || j == rectInt.yMax) && (((i != (int)rectInt.center.x && j != (int)rectInt.center.y)) || (i == 0 || i == Taille || j == 0 || j == Taille)))
                     {
 
                         var obj = Instantiate(mur, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
                         obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                     }
-                    else
                     {
                         Sol obj = Instantiate(sol, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
                         obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
@@ -77,7 +81,7 @@ public class ShipManager : MonoBehaviour
                         
                     }
 
-                    if (rectInt.xMin != 0)
+                    /*if (rectInt.xMin != 0)
                     {
 
                         var obj = Instantiate(porte, new Vector3(rectInt.xMin * ajusterTileHW, (int)rectInt.center.y * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
@@ -106,7 +110,7 @@ public class ShipManager : MonoBehaviour
                         var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * ajusterTileHW, rectInt.yMax * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
                         obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                         obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
-                    }
+                    }*/
                 }
             }
 
