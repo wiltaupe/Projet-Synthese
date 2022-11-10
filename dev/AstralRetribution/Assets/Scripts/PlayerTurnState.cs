@@ -1,4 +1,6 @@
-﻿internal class PlayerTurnState : State
+﻿using System;
+
+internal class PlayerTurnState : State
 {
     private GameManager gameManager;
 
@@ -11,5 +13,4 @@
     {
         gameManager.Slider.PlayerTurn = true;
     }
-
 }

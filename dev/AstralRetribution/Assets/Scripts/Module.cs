@@ -9,10 +9,20 @@ public class Module : MonoBehaviour
     private bool redo = false;
     private bool aBouger = false;
     private bool draggable = true;
+    public GameObject Prefab;
+    public int nbCartes;
+    public Etat Type { get; set; }
 
     private void Awake()
     {
         cam = Camera.main;
+        Type = Etat.actif;
+    }
+
+    public enum Etat
+    {
+        actif,
+        passif
     }
 
     private void OnMouseDown()
