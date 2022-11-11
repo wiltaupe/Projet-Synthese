@@ -6,12 +6,14 @@ public class PlaneteManager : MonoBehaviour
 
     GameObject planeteReg;
     public static PlaneteManager Instance { get; private set; }
-    public List<GameObject> planetes;
-    private Dictionary<int, (Vector3 vecteurPosition,float rotationZ, int position, int selection)> actif = new();
+    public List<GameObject> planetesPrefab;
+    private Dictionary<int, (GameObject,int)> p;
+    private Dictionary<int, (Vector3 vecteurPosition,float rotationZ,int selection)> actif = new();
     private int position;
     private bool fait;
     private bool debut = false;
     private float[] tab;
+    private GameObject posSelection = null;
 
 
     public void Awake()
@@ -40,6 +42,11 @@ public class PlaneteManager : MonoBehaviour
         }
 
         return position;
+    }
+
+    private double DistancePlanete(Vector3 p1, Vector3 p2)
+    {
+        return Math.Sqrt(Math.Pow(p2.x - p1.x, 2) + Math.Pow(p2.y - p1.y, 2));
     }
 
     public double CalculDistance(float x1, float x2, float y1, float y2)
@@ -84,55 +91,73 @@ public class PlaneteManager : MonoBehaviour
         return posi - pos;
     }
 
-    public bool VerificationPossedeChemin(GameObject planete, int planetepos, List<(GameObject, int)> pla)
+    public bool VerificationPossedeChemin(GameObject planete)
     {
         Planete classePlanete = planete.GetComponent<Planete>();
 
-        foreach (var verif in pla)
+        foreach (var verif in p)
         {
-            if ((planetepos - min(planetepos, pla) == verif.Item2) && !classePlanete.possedeCheminDerriere)
+
+            /*if ((planetepos - min(planetepos, pla) == verif.Item2) && !classePlanete.possedeCheminDerriere)
             {
                 CreationLigne(planete, verif.Item1);
                 classePlanete.possedeCheminDerriere = true;
 
                 return true;
-            }
+            }*/
         }
 
 
         return false;
     }
 
-    public bool VerificationPath(GameObject planete, int planetepos, List<(GameObject, int)> pla)
+    public void VerificationPath(GameObject presentement = null)
     {
-        Planete classePlanete = planete.GetComponent<Planete>();
 
-        foreach (var verif in pla)
+        if (presentement == null)
         {
-            Planete positionVerif = verif.Item1.GetComponent<Planete>();
-
-            double distance = CalculDistance(classePlanete.transform.position.x, positionVerif.transform.position.x, classePlanete.transform.position.y, positionVerif.transform.position.y);
-
-            if (planetepos == 1 && (planetepos + 1 == verif.Item2))
+            for (int i = 0; i < p.Count; i++)
             {
-                CreationLigne(planete, verif.Item1);
-                classePlanete.possedeCheminDevant = true;
-                positionVerif.possedeCheminDerriere = true;
+                Vector3 TEST = p[i].Item1.transform.position;
 
-                return true;
-            }
+                for (int j = 0; j < p.Count; j++)
+                {
+                    Planete positionVerif = p[j].Item1.GetComponent<Planete>();
 
-            if (distance < 160f && (planetepos < verif.Item2))
-            {
-                CreationLigne(planete, verif.Item1);
-                classePlanete.possedeCheminDevant = true;
-                positionVerif.possedeCheminDerriere = true;
+                    double distance = DistancePlanete(p[j].Item1.transform.position, TEST);
 
-                return true;
+                    if (VerificationPosition(TEST.x) == VerificationPosition(p[j].Item1.transform.position.x) + 1)
+                    {
+
+                        if (distance < 110f) // -55 en x
+                        {
+                            CreationLigne(p[i].Item1, p[j].Item1);
+                            positionVerif.possedeCheminDerriere = true;
+                        }
+                    }
+                }
             }
         }
 
-        return false;
+        else
+        {
+            Vector3 TEST = presentement.transform.position;
+
+            for (int k = 0; k < p.Count; k++)
+            {
+                double distance = DistancePlanete(p[k].Item1.transform.position, TEST);
+
+                if (VerificationPosition(TEST.x) == VerificationPosition(p[k].Item1.transform.position.x) + 1)
+                {
+
+                    if (distance < 110f) // -55 en x
+                    {
+                        CreationLigne(presentement, p[k].Item1);
+                    }
+                }
+            }
+            
+        }
     }
 
     public void CreationLigne(GameObject ini, GameObject fin)
@@ -142,15 +167,6 @@ public class PlaneteManager : MonoBehaviour
 
         lr.SetPosition(0, ini.transform.position);
         lr.SetPosition(1, fin.transform.position);
-    }
-
-    public (float,float,float) GenererUnePlanete()
-    {
-        float x = UnityEngine.Random.Range(-55, 400);
-        float y = UnityEngine.Random.Range(-205, 95);
-        float rotation = UnityEngine.Random.Range(0, 360);
-
-        return (x,y, rotation);
     }
 
     /******************************************************/
@@ -187,55 +203,68 @@ public class PlaneteManager : MonoBehaviour
     */
 
     /******************************************************/
+    public (float, float, float) GenererUnePlanete()
+    {
+        float x = UnityEngine.Random.Range(-55, 400);
+        float y = UnityEngine.Random.Range(-205, 95);
+        float rotation = UnityEngine.Random.Range(0, 360);
+
+        return (x, y, rotation);
+    }
 
     public void GenererPlanetes(int valeur)
     {
         for (int i = 0; i < valeur; i++)
         {
-            int randomInt = UnityEngine.Random.Range(0, planetes.Count);
+            int randomPlanetePrefeb = UnityEngine.Random.Range(0, planetesPrefab.Count);
             float rotation = UnityEngine.Random.Range(0, 360);
 
             if (i == 0)
             {
-                actif[0] = (new Vector3(-55, 95),rotation,VerificationPosition(-55), randomInt);
+                actif[0] = (new Vector3(-55, 95),rotation, randomPlanetePrefeb);
             }
 
             else
             {
                 var objet = GenererUnePlanete();
 
-                if (!VerificationRayon(objet.Item1,objet.Item2, 80f))
+                if (!VerificationRayon(objet.Item1,objet.Item2, 40f))  // 40f etant la véerification de distance pour en placer une autre
                 {
-                    actif[actif.Count] = (new Vector3(objet.Item1, objet.Item2), objet.Item3, VerificationPosition(objet.Item1), randomInt);
+                    actif[actif.Count] = (new Vector3(objet.Item1, objet.Item2), objet.Item3, randomPlanetePrefeb);
                 }
             }
         }
     }
 
-    public void GenererPathPlanete(GameObject path, int pathPosition, List<(GameObject, int)> pla)
+    public void GenererPathPlanete()
     {
-        VerificationPath(path, pathPosition,pla);
-        VerificationPossedeChemin(path, pathPosition,pla);
+        Debug.Log(posSelection);
+        VerificationPath(posSelection);
+        /*foreach (var item in p)
+        {
+            VerificationPath(item.Item1);
+        }*/
+        /*foreach (var item in p)
+        {
+            VerificationPossedeChemin(item.Item1);
+        }*/
     }
 
 
     public void PlacerActif()
     {
-        List<(GameObject, int)> pla = new();
+        p = new();
 
         for (int i = 0; i < actif.Count; i++)
         {
-            GameObject selection = planetes[actif[i].selection];
+            GameObject selection = planetesPrefab[actif[i].selection];
             GameObject c = Instantiate(selection, actif[i].vecteurPosition,Quaternion.identity);
             c.transform.Rotate(0, 0, actif[i].rotationZ, Space.Self);
-            pla.Add((c, actif[i].position));
+            c.transform.SetParent(GameObject.Find("ObjetPlanete").transform);
+            p[i] = (c, i);
         }
 
-        foreach (var item in pla)
-        {
-            GenererPathPlanete(item.Item1,item.Item2,pla);
-            item.Item1.transform.SetParent(GameObject.Find("ObjetPlanete").transform);
-        }
+        GenererPathPlanete();
     }
 
     public int GetPosition()
@@ -256,6 +285,11 @@ public class PlaneteManager : MonoBehaviour
     public void SetPosition(int p)
     {
         position = p;
+    }
+
+    public void SetposSelection(GameObject ps)
+    {
+        posSelection = ps;
     }
 
     public void SetDebut(bool d)

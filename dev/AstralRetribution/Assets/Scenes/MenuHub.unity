@@ -1085,9 +1085,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5530e164e9140634f811763abb214595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetes:
+  planetesPrefab:
   - {fileID: 6005476383919433794, guid: d1821d39deeaa2a47bda41aa789322f1, type: 3}
   - {fileID: 3980038280178224209, guid: 5b8e5ca202d9da64989a17672c6242d2, type: 3}
+  p: []
 --- !u!1 &1301411811
 GameObject:
   m_ObjectHideFlags: 0
