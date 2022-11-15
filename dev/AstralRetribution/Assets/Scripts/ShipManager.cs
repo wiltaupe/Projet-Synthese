@@ -47,6 +47,7 @@ public class ShipManager : MonoBehaviour
         float ajustersize = (float)10 / (float)Taille;
 
         List<Salle> salles = new();
+        List<Vector3> use = new();
 
         foreach (RectInt rectInt in rectInts)
         {
@@ -59,22 +60,27 @@ public class ShipManager : MonoBehaviour
 
                     if ((i == rectInt.xMin || i == rectInt.xMax || j == rectInt.yMin || j == rectInt.yMax) && (((i != (int)rectInt.center.x && j != (int)rectInt.center.y)) || (i == 0 || i == Taille || j == 0 || j == Taille)))
                     {
-
-                        var obj = Instantiate(mur, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
-                        obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
-                        obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
+                        if (!use.Contains(new Vector3(i,j)))
+                        {
+                            var obj = Instantiate(mur, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
+                            obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
+                            obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
+                            use.Add(new Vector3(i, j));
+                        }
                     }
                     else
                     {
-                        Sol obj = Instantiate(sol, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
-                        obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
-                        obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
-                        obj.position = new Vector2(i, j);
-                        obj.Vaisseau = vaisseau;
-                        obj.name = $"Sol x:{i} y:{j}";
-                        tiles.Add(obj);
-                        
-                        
+                        if (!use.Contains(new Vector3(i, j)))
+                        {
+                            Sol obj = Instantiate(sol, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
+                            obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
+                            obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
+                            obj.position = new Vector2(i, j);
+                            obj.Vaisseau = vaisseau;
+                            obj.name = $"Sol x:{i} y:{j}";
+                            tiles.Add(obj);
+                            use.Add(new Vector3(i, j));
+                        }
                     }
 
                     /*if (rectInt.xMin != 0)
@@ -190,15 +196,38 @@ public class ShipManager : MonoBehaviour
             c1 = new RectInt(contenu.x, contenu.y, contenu.width, (int)UnityEngine.Random.Range(contenu.height * 0.3f, contenu.height * 0.5f));
             c2 = new RectInt(contenu.x, contenu.y + c1.height, contenu.width, contenu.height - c1.height);
 
+            /*try
+            {
+                if (c1.height <= 2 || c2.height <= 2 || c1.width <= 2 || c2.width <= 2)
+                {
+                    DiviserContenu(contenu);
+                }
+            }
+            catch (StackOverflowException)
+            {
+                GenererSalles(Taille, nbIterations);
+            }*/
 
             //ratio pour egaliser  ////// % split x ou y par 50/50 augmentatiion 25% / - 25 %
         }
+
         else
         {
             // horizontal split
             c1 = new RectInt(contenu.x, contenu.y, (int)UnityEngine.Random.Range(contenu.width * 0.3f, contenu.width * 0.5f), contenu.height);
             c2 = new RectInt(contenu.x + c1.width, contenu.y, contenu.width - c1.width, contenu.height);
 
+            /*try
+            {
+                if (c1.height <= 2 || c2.height <= 2 || c1.width <= 2 || c2.width <= 2)
+                {
+                    DiviserContenu(contenu);
+                }
+            }
+            catch (StackOverflowException)
+            {
+                GenererSalles(Taille, nbIterations);
+            }*/
 
         }
 
