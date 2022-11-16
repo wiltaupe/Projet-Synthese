@@ -16,6 +16,7 @@ public class BeginState : State
 
         InitVaisseaux();
         GenererDeck();
+        AfficherDeck();
         
 
         gameManager.SetState(new PlayerTurnState(gameManager));
@@ -23,10 +24,15 @@ public class BeginState : State
         
     }
 
+    private void AfficherDeck()
+    {
+        gameManager.AfficherDeck();
+    }
+
     private void GenererDeck()
     {
-        Deck deck = gameManager.deckJoueur;
-        deck = new();
+        Deck deck = new();
+        deck.Cartes = new();
         Vaisseau vaisseauJoueur = gameManager.VaisseauJoueur.GetComponent<Vaisseau>();
         foreach (Module module in vaisseauJoueur.ModulesActifs)
         {
@@ -42,6 +48,7 @@ public class BeginState : State
             
         }
 
+        gameManager.DeckJoueur = deck;
     }
 
     private void InitVaisseaux()

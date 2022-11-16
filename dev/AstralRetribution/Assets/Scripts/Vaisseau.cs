@@ -48,6 +48,5 @@ public class Vaisseau : MonoBehaviour
         }
 
         ModulesActifs.Add(module);
-        Debug.Log(ModulesActifs.Count);
     }
 }
