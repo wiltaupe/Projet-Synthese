@@ -36,7 +36,7 @@ public class MenuHub : MonoBehaviour
         for (int i = 0; i < cercle.Count; i++)
         {
             GameObject pos = cercle[i];
-            var _spriteRender = pos.GetComponent<SpriteRenderer>();
+            var _spriteRender = pos.GetComponent<Image>();
 
             if (i >= PlaneteManager.Instance.GetPosition())
             {
