@@ -870,9 +870,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      planetteAnneau_4: 1784819788
+      planetteAnneau_24: -1643163946
       planetteAnneau_15: 2003197800
-      planetteAnneau_14: 1208049227
+      planetteAnneau_4: 1784819788
       planetteAnneau_0: 285730929
       planetteAnneau_8: 448051264
       planetteAnneau_10: -1300299569
@@ -905,7 +905,7 @@ TextureImporter:
       planetteAnneau_31: 1231837892
       planetteAnneau_30: 245845553
       planetteAnneau_1: 726398024
-      planetteAnneau_24: -1643163946
+      planetteAnneau_14: 1208049227
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
