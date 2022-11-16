@@ -1,18 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public State currentState;
-    public Transform posJoueur;
-    public Transform posEnnemi;
+    private State currentState;
+    [field: SerializeField] public Transform posJoueur { get; set; }
+    [field: SerializeField] public Transform posEnnemi { get; set; }
+    [field: SerializeField] public GameObject deckContainer { get; set; }
+
     public GameObject VaisseauJoueur { get; set; }
     public GameObject VaisseauEnnemi { get; set; }
     public SliderScript Slider { get; set; }
-    public Deck deckJoueur { get; set; }
+    [HideInInspector] public Deck DeckJoueur { get; set; }
+    private int cartesParTour;
+
+
+    public void AfficherDeck()
+    {
+        foreach (GameObject carte in DeckJoueur.Cartes)
+        {
+            Instantiate(carte, deckContainer.transform);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerTurnEnd()
     {
+
         SetState(new EnemyTurnState(this));
     }
 
