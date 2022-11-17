@@ -20,7 +20,15 @@ public class Planete : MonoBehaviour
         {
             PlaneteManager.Instance.SetPosition(PlaneteManager.Instance.VerificationPosition(transform.position.x));
             PlaneteManager.Instance.SetposSelection(gameObject.transform.position);
-            SceneManager.LoadScene("MenuCombat");
+            if (Random.Range(0, 2) == 1)
+            {
+                SceneManager.LoadScene("MenuCombat");
+            }
+            else
+            {
+                SceneManager.LoadScene("MenuEvenement");
+            }
+
         }
     }
 

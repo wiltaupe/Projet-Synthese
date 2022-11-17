@@ -40,6 +40,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2812626775
+    locked: 0
+  - name: Mileu Bg Av
+    uniqueID: 519570011
+    locked: 0
+  - name: Devant
+    uniqueID: 1148253903
+    locked: 0
+  - name: Front
+    uniqueID: 684017119
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
