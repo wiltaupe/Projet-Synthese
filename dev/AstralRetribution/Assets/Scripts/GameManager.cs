@@ -9,6 +9,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public delegate void PlayerTurnAction();
+    public static event PlayerTurnAction OnPlayerTurn;
+    public delegate void EnnemyTurnAction();
+    public static event EnnemyTurnAction OnEnnemyTurn;
+
     private State currentState;
     [field: SerializeField] public Transform posJoueur { get; set; }
     [field: SerializeField] public Transform posEnnemi { get; set; }
@@ -16,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject VaisseauJoueur { get; set; }
     public GameObject VaisseauEnnemi { get; set; }
-    public SliderScript Slider { get; set; }
+    [field:SerializeField] public SliderScript Slider { get; set; }
     [HideInInspector] public Deck DeckJoueur { get; set; }
     private int cartesParTour = 4;
     private System.Random random = new();
@@ -24,6 +29,10 @@ public class GameManager : MonoBehaviour
     public void AfficherDeck()
     {
         int compteur = 0;
+        if (cartesParTour > DeckJoueur.Cartes.Count)
+        {
+            cartesParTour = DeckJoueur.Cartes.Count;
+        }
         
         
         while (compteur != cartesParTour)
@@ -39,24 +48,18 @@ public class GameManager : MonoBehaviour
             
             Instantiate(carte, deckContainer.transform);
         }
-
-        
-
-
-        /*foreach (GameObject carte in DeckJoueur.Cartes)
-        {
-            Instantiate(carte, deckContainer.transform);
-            
-
-        }*/
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Slider = FindObjectOfType<SliderScript>();
         currentState = new BeginState(this);
         currentState.Start();
+    }
+
+    public void PlayerTurn()
+    {
+        OnPlayerTurn?.Invoke();
     }
 
     public void SetState(State gameState)
@@ -68,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerTurnEnd()
     {
-
+        OnEnnemyTurn?.Invoke();
         SetState(new EnemyTurnState(this));
     }
 

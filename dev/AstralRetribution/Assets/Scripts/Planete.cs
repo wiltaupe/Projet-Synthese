@@ -20,15 +20,20 @@ public class Planete : MonoBehaviour
         {
             PlaneteManager.Instance.SetPosition(PlaneteManager.Instance.VerificationPosition(transform.position.x));
             PlaneteManager.Instance.SetposSelection(gameObject.transform.position);
-            if (Random.Range(0, 2) == 1)
-            {
+            //if (Random.Range(0, 2) == 1)
+            //{
                 SceneManager.LoadScene("MenuCombat");
-            }
+            /*}
             else
             {
                 PlaneteManager.Instance.currentEvent = EnvoyerEvent();
                 SceneManager.LoadScene("MenuEvenement");
+<<<<<<< HEAD
+            }*/
+
+=======
             }
+>>>>>>> 17be6bc1abb3be0ec234cbb7dfc8b9e0d5160dc5
         }
     }
     public virtual Evenement EnvoyerEvent()

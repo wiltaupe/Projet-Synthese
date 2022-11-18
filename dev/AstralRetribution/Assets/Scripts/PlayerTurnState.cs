@@ -14,7 +14,8 @@ internal class PlayerTurnState : State
 
     public override void Start()
     {
+        gameManager.PlayerTurn();
         gameManager.Slider.PlayerTurn = true;
-
+        
     }
 }
