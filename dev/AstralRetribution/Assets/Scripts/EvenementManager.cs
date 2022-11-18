@@ -16,9 +16,4 @@ public class EvenementManager : MonoBehaviour
     {
         
     }
-
-    public void RetourHub()
-    {
-        SceneManager.LoadSceneAsync("MenuHub");
-    }
 }
