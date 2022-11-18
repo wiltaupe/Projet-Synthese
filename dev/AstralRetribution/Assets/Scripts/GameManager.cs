@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
         foreach (GameObject carte in DeckJoueur.Main)
         {
+            
             Instantiate(carte, deckContainer.transform);
         }
 
