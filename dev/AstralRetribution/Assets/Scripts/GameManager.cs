@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject VaisseauEnnemi { get; set; }
     public SliderScript Slider { get; set; }
     [HideInInspector] public Deck DeckJoueur { get; set; }
-    private int cartesParTour = 3;
+    private int cartesParTour = 4;
     private System.Random random = new();
 
     public void AfficherDeck()

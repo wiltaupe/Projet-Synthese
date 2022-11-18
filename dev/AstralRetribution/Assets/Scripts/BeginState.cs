@@ -16,17 +16,12 @@ public class BeginState : State
 
         InitVaisseaux();
         GenererDeck();
-        AfficherDeck();
-        
+        gameManager.AfficherDeck();
+
 
         gameManager.SetState(new PlayerTurnState(gameManager));
 
         
-    }
-
-    private void AfficherDeck()
-    {
-        gameManager.AfficherDeck();
     }
 
     private void GenererDeck()

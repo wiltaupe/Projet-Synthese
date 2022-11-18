@@ -1,8 +1,11 @@
 ﻿using System;
+using UnityEngine;
+using UnityEngine.Events;
 
 internal class PlayerTurnState : State
 {
     private GameManager gameManager;
+    
 
     public PlayerTurnState(GameManager gameManager)
     {
@@ -12,5 +15,6 @@ internal class PlayerTurnState : State
     public override void Start()
     {
         gameManager.Slider.PlayerTurn = true;
+
     }
 }
