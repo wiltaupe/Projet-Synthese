@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,15 +18,36 @@ public class GameManager : MonoBehaviour
     public GameObject VaisseauEnnemi { get; set; }
     public SliderScript Slider { get; set; }
     [HideInInspector] public Deck DeckJoueur { get; set; }
-    private int cartesParTour;
-
+    private int cartesParTour = 3;
+    private System.Random random = new();
 
     public void AfficherDeck()
     {
-        foreach (GameObject carte in DeckJoueur.Cartes)
+        int compteur = 0;
+        
+        
+        while (compteur != cartesParTour)
+        {
+            int index = random.Next(DeckJoueur.Cartes.Count);
+            DeckJoueur.Main.Add(DeckJoueur.Cartes[index]);
+            DeckJoueur.Cartes.RemoveAt(index);
+            compteur++;
+        }
+
+        foreach (GameObject carte in DeckJoueur.Main)
         {
             Instantiate(carte, deckContainer.transform);
         }
+
+        
+
+
+        /*foreach (GameObject carte in DeckJoueur.Cartes)
+        {
+            Instantiate(carte, deckContainer.transform);
+            
+
+        }*/
     }
 
     // Start is called before the first frame update

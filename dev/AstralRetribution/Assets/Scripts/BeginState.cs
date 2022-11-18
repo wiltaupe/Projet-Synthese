@@ -32,7 +32,6 @@ public class BeginState : State
     private void GenererDeck()
     {
         Deck deck = new();
-        deck.Cartes = new();
         Vaisseau vaisseauJoueur = gameManager.VaisseauJoueur.GetComponent<Vaisseau>();
         foreach (Module module in vaisseauJoueur.ModulesActifs)
         {
