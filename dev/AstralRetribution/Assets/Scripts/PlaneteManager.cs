@@ -13,6 +13,8 @@ public class PlaneteManager : MonoBehaviour
     private bool fait;
     private bool debut = false;
     private Vector3 posSelection;
+    private int indexPos;
+    public Evenement currentEvent;
 
 
     public void Awake()
@@ -183,13 +185,12 @@ public class PlaneteManager : MonoBehaviour
     public void GenererPathPlanete()
     {
         bool f = false;
-        int monk = 0;
 
         for (int k = 0; k < p.Count; k++)
         {
             if (p[k].Item1.transform.position == posSelection)
             {
-                monk = k;
+                indexPos = k;
             }
 
             f = true;
@@ -197,7 +198,7 @@ public class PlaneteManager : MonoBehaviour
 
         if (f)
         {
-            VerificationPath(p[monk].Item1);
+            VerificationPath(p[indexPos].Item1);
         }
 
         else
