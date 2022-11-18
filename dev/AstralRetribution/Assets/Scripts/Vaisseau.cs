@@ -6,6 +6,15 @@ public class Vaisseau : MonoBehaviour
     public List<Salle> Salles { get; set; }
     public List<GameObject> MembresEquipage { get; set; }
     public List<Module> ModulesActifs { get; set; }
+    public float esquive = 0;
+
+    internal void AjoutEsquive(float pourcentageEsquive)
+    {
+        esquive += pourcentageEsquive;
+        Debug.Log(esquive);
+    }
+
+    public float pourcentageEsquive = 0;
     // Start is called before the first frame update
 
     private void Awake()
