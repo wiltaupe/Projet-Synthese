@@ -141,8 +141,8 @@ public class PlaneteManager : MonoBehaviour
 
         lr.SetPosition(0, ini.transform.position);
         lr.SetPosition(1, fin.transform.position);
-
-        lr.SetColors(Color.cyan, Color.cyan);
+        lr.startColor = Color.cyan;
+        lr.endColor = Color.cyan;
     }
 
       /********************************************************/
