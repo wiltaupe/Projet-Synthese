@@ -8,17 +8,12 @@ public class EvenementManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log(PlaneteManager.Instance.currentEvent);
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    public void RetourHub()
-    {
-        SceneManager.LoadSceneAsync("MenuHub");
     }
 }

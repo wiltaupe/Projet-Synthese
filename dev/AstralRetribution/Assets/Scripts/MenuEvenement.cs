@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuEvenement : MonoBehaviour
@@ -26,5 +27,11 @@ public class MenuEvenement : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void RetourHub()
+    {
+        vaisseau.SetActive(true);
+        SceneManager.LoadSceneAsync("MenuHub");
     }
 }
