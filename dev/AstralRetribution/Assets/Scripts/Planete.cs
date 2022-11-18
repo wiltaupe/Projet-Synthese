@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Planete : MonoBehaviour
 {
-    protected GameObject cercle;
+    public GameObject cercle;
     public int pos;
     public bool possedeCheminDevant = false;
     public bool possedeCheminDerriere = false;
@@ -41,16 +41,17 @@ public class Planete : MonoBehaviour
         throw new System.NotImplementedException();
     }
 
-    public void OnMouseEnter()
+    private void OnMouseOver()
     {
         if (PlaneteManager.Instance.VerificationPosition(transform.position.x) > PlaneteManager.Instance.GetPosition() || (PlaneteManager.Instance.GetPosition() == 1 && PlaneteManager.Instance.VerificationPosition(transform.position.x) == PlaneteManager.Instance.GetPosition() && !PlaneteManager.Instance.GetDebut()))
         {
-            cercle.GetComponent<SpriteRenderer>().enabled = true;
+
+            cercle.SetActive(true);
         }
     }
 
     private void OnMouseExit()
     {
-        cercle.GetComponent<SpriteRenderer>().enabled = false;
+        cercle.SetActive(false);
     }
 }

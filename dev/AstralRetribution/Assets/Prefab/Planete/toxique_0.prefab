@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69cc5c9dffddac42ba866c343f5433c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cercle: {fileID: 6966295642166825835}
   pos: 0
   possedeCheminDevant: 0
   possedeCheminDerriere: 0
@@ -149,6 +150,10 @@ PrefabInstance:
     - target: {fileID: 494665716608179069, guid: 7d5100c2623cccb4b980efca91cf183d, type: 3}
       propertyPath: m_Name
       value: overCircle
+      objectReference: {fileID: 0}
+    - target: {fileID: 494665716608179069, guid: 7d5100c2623cccb4b980efca91cf183d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2401898182676087778, guid: 7d5100c2623cccb4b980efca91cf183d, type: 3}
       propertyPath: m_RootOrder
@@ -196,12 +201,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3467442095625569339, guid: 7d5100c2623cccb4b980efca91cf183d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d5100c2623cccb4b980efca91cf183d, type: 3}
 --- !u!4 &5126616488661912564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2401898182676087778, guid: 7d5100c2623cccb4b980efca91cf183d, type: 3}
+  m_PrefabInstance: {fileID: 7381442820794091542}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6966295642166825835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 494665716608179069, guid: 7d5100c2623cccb4b980efca91cf183d, type: 3}
   m_PrefabInstance: {fileID: 7381442820794091542}
   m_PrefabAsset: {fileID: 0}
