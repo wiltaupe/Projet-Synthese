@@ -28,14 +28,14 @@ public class Planete : MonoBehaviour
             {
                 PlaneteManager.Instance.currentEvent = EnvoyerEvent();
                 SceneManager.LoadScene("MenuEvenement");
-<<<<<<< HEAD
+
             }*/
 
-=======
-            }
->>>>>>> 17be6bc1abb3be0ec234cbb7dfc8b9e0d5160dc5
+
+            
         }
     }
+
     public virtual Evenement EnvoyerEvent()
     {
         throw new System.NotImplementedException();
