@@ -3,11 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class Planete : MonoBehaviour
 {
+    public Evenement evenementEvent;
     public GameObject cercle;
     public int pos;
     public bool possedeCheminDevant = false;
     public bool possedeCheminDerriere = false;
-    public Evenement monEvenement;
+    public Planete monEvenement;
 
     void Start()
     {
