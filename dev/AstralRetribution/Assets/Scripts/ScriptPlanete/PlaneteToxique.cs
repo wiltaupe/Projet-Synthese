@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class PlaneteToxique : Planete
 {
-    public EvenementToxique eventToxique;
-    
-
     // Start is called before the first frame update
     void Start()
     {
         cercle = transform.GetChild(0).gameObject;
-        monEvenement = new EvenementToxique();
     }
 
     // Update is called once per frame
@@ -20,13 +16,9 @@ public class PlaneteToxique : Planete
         
     }
 
-    public class EvenementToxique : Evenement
-    {
-    }
-
-    override public Evenement EnvoyerEvent()
+    override public Planete EnvoyerEvent()
     {
         Debug.Log("je suis toxique je joue a LOL");
-        return monEvenement;
+        return this;
     }
 }

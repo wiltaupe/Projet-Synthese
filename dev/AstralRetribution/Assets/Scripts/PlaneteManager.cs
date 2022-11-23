@@ -14,7 +14,7 @@ public class PlaneteManager : MonoBehaviour
     private bool debut = false;
     private Vector3 posSelection;
     private int indexPos;
-    public Evenement currentEvent;
+    public Planete currentEvent;
 
 
     public void Awake()

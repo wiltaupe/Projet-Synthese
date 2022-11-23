@@ -77,6 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab07244329d6394c82fb6d8b61e6cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esquive: 0
+  pourcentageEsquive: 0
 --- !u!114 &4985988470680792890
 MonoBehaviour:
   m_ObjectHideFlags: 0
