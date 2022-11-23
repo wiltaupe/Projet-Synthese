@@ -139,6 +139,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: 
+  <Button>k__BackingField: {fileID: 4638614907170271270}
   puissanceAttaque: 5
   precision: 0.75
   cible: {fileID: 0}
+--- !u!114 &4638614907170271270 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4598653469365800689, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+  m_PrefabInstance: {fileID: 9191311760779230935}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023559613211307054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public Deck DeckJoueur { get; set; }
     public int cartesParTour = 4;
     private System.Random random = new();
+    public Carte currentSelected;
 
     public void DrawCards()
     {
@@ -67,11 +69,11 @@ public class GameManager : MonoBehaviour
     {
         currentState = gameState;
         currentState.Start();
-        Debug.Log(currentState);
     }
 
     public void PlayerTurnEnd()
     {
+        Debug.Log(currentSelected);
         OnPlayerTurnEnd?.Invoke();
         SetState(new EnemyTurnState(this));
     }

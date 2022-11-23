@@ -121,6 +121,17 @@ PrefabInstance:
       objectReference: {fileID: 1561448264, guid: efa0de0419022bf49a3f2fba5c64d904, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+--- !u!114 &772435300100969144 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4598653469365800689, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+  m_PrefabInstance: {fileID: 3848764754983590985}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4959585198035422896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4959585198035422896 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8194989271316747001, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
@@ -139,3 +150,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: 
+  <Button>k__BackingField: {fileID: 772435300100969144}
