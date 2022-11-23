@@ -210,7 +210,7 @@ public class PlaneteManager : MonoBehaviour
 
     public void PlacerActif()
     {
-        p = new();
+        p = new(); // Garde les gamesObjects
 
         for (int i = 0; i < actif.Count; i++)
         {
