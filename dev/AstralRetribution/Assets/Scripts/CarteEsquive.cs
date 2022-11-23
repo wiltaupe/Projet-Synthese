@@ -7,14 +7,4 @@ public class CarteEsquive : Carte
 {
     public float pourcentageEsquive = 0.25f;
 
-	void Start()
-	{
-		Button btn = GetComponent<Button>();
-		btn.onClick.AddListener(TaskOnClick);
-	}
-	void TaskOnClick()
-	{
-		Debug.Log("sa marche");
-	}
-
 }

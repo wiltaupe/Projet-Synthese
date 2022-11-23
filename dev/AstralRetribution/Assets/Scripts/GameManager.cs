@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public delegate void PlayerTurnAction();
     public static event PlayerTurnAction OnPlayerTurn;
-    public delegate void EnnemyTurnAction();
-    public static event EnnemyTurnAction OnEnnemyTurn;
+    public delegate void PlayerTurnEndAction();
+    public static event PlayerTurnEndAction OnPlayerTurnEnd;
 
     private State currentState;
     [field: SerializeField] public Transform posJoueur { get; set; }
@@ -23,18 +23,18 @@ public class GameManager : MonoBehaviour
     public GameObject VaisseauEnnemi { get; set; }
     [field:SerializeField] public SliderScript Slider { get; set; }
     [HideInInspector] public Deck DeckJoueur { get; set; }
-    private int cartesParTour = 4;
+    public int cartesParTour = 4;
     private System.Random random = new();
 
-    public void AfficherDeck()
+    public void DrawCards()
     {
         int compteur = 0;
         if (cartesParTour > DeckJoueur.Cartes.Count)
         {
             cartesParTour = DeckJoueur.Cartes.Count;
         }
-        
-        
+
+
         while (compteur != cartesParTour)
         {
             int index = random.Next(DeckJoueur.Cartes.Count);
@@ -45,10 +45,11 @@ public class GameManager : MonoBehaviour
 
         foreach (GameObject carte in DeckJoueur.Main)
         {
-            
+
             Instantiate(carte, deckContainer.transform);
         }
     }
+
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerTurnEnd()
     {
-        OnEnnemyTurn?.Invoke();
+        OnPlayerTurnEnd?.Invoke();
         SetState(new EnemyTurnState(this));
     }
 
