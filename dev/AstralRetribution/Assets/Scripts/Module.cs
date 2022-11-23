@@ -11,12 +11,11 @@ public class Module : MonoBehaviour
     private bool draggable = true;
     public GameObject Prefab;
     public int nbCartes;
-    public Etat Type { get; set; }
+    public virtual Etat Type { get; set; }
 
     private void Awake()
     {
         cam = Camera.main;
-        Type = Etat.actif;
     }
 
     public enum Etat

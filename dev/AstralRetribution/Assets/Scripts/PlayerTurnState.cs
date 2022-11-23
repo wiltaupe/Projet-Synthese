@@ -16,6 +16,8 @@ internal class PlayerTurnState : State
     {
         gameManager.PlayerTurn();
         gameManager.Slider.PlayerTurn = true;
+        gameManager.DrawCards();
         
     }
+
 }
