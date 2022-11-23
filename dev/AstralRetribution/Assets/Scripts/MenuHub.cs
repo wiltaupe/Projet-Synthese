@@ -40,7 +40,7 @@ public class MenuHub : MonoBehaviour
 
             if (i >= PlaneteManager.Instance.GetPosition())
             {
-                _spriteRender.color = new Color(0, 255, 255);
+                _spriteRender.color = new Color(255, 255, 255);
             }
             else
             {

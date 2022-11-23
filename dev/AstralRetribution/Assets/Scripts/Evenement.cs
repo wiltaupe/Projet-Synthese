@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName ="evenements", menuName ="event")]
 public class Evenement : ScriptableObject
 {
-
     public string[] description;
-    public Image[] background;
+    public Sprite[] background;
     public bool choix;
     public bool combat;
     public bool retourMenu;
@@ -19,7 +19,7 @@ public class Evenement : ScriptableObject
         PlanetesHostiles : La légion d’honneur du suzerain est alliée depuis plusieurs décennies avec le tyran galactique, un de ses vaisseaux vous attaque --> mode combat activé
         PlaneteToxique : ajoute un membre d’équipage robotique (si amélioration défectueuse -- > combat) 
         PlaneteParadisiaque : vous et votre équipage profitez de l’hospitalité de cette planète pour vous reposer, en vous réveillant un membre de votre équipage semble avoir eu des relations intime avec une personne importante de cette planète, son père vous attaque violemment avec son vaisseau. Dans 25% des cas, vous perdez votre membre d’équipage, il s’emble s’être sauvé avec la personne importante --> deuxième rencontre : vous arrivez de nouveau sur une planète qui semble hospitalière, un individu de la planète semble reconnaitre votre équipage, il dit être le frère du fiancé de votre ancien membre d’équipage, il souhaite se joindre à vous. 
-        PlaneteFeu : réduit la santé maximale de 3 de vos pièces de 50% 
+        PlaneteFeu : Votre arrivez est pour le moins difficile vous rebrousser chemin rapidement. réduit la santé maximale de 3 de vos pièces de 50% 
         PlaneteIndigene : la population sur cette planète semble trouver votre comportement un peu étrange. Elle vous oblige à changer en vous donnant un dilemme de réflexion. 
         PlaneteCrystalline : Aye toi, le pauvre, c’est quoi se vaisseau de pacotille que tu possèdes, ramener moi ça à la décharge, qu’on lui montre la qualité d’un vaisseau cristallin : votre vaisseau est détruit et remplacé par un vaisseau cristallin 
         PlaneteEnormomax : Les habitants de cette planète semble apprécier le goût de la chair. Vous et votre équipage tenter de repartir au plus vite. -Checker moi ce repas qui essaye de se sauver de mon assiette. Un membre de votre équipage se fait rattraper. Vous perdez un membre. 

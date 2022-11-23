@@ -114,6 +114,9 @@ public class PlaneteManager : MonoBehaviour
 
         else
         {
+            Planete cheminAV = g.GetComponent<Planete>();
+            double distancepetit = double.PositiveInfinity;
+            int positionAVANT = 0;
 
             for (int k = 0; k < p.Count; k++)
             {
@@ -125,10 +128,21 @@ public class PlaneteManager : MonoBehaviour
                     if (distance < 110f) // -55 en x
                     {
                         CreationLigne(g, p[k].Item1);
+                        cheminAV.possedeCheminDevant = true;
+                    }
+
+                    if (distance < distancepetit)
+                    {
+                        distancepetit = distance;
+                        positionAVANT = k;
                     }
                 }
             }
-            
+
+            if (!cheminAV.possedeCheminDevant && VerificationPosition(posSelection.x) != 10) // dans le cas ou il n'existe pas de chemin avant
+            {
+                CreationLigne(g, p[positionAVANT].Item1);
+            }      
         }
     }
 

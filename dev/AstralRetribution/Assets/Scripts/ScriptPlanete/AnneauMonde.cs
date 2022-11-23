@@ -5,10 +5,6 @@ using UnityEngine.UI;
 
 public class AnneauMonde : Planete
 {
- 
-    //Image background;
-
-
     // Start is called before the first frame update
     void Start()
     {
