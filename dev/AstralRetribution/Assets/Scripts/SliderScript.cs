@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class SliderScript : MonoBehaviour
 {
-    public int tourMax = 200;
+    public int tourMax = 100;
     public float tour = 0;
     public RectTransform bar;
     public bool PlayerTurn { get; set; }

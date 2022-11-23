@@ -1,42 +1,40 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Carte : MonoBehaviour
+public class Carte : MonoBehaviour,ISelectHandler
 {
     public string description;
-    
+    [field:SerializeField] public Button Button { get; set; }
 
-    void Start()
-    {
-        Button btn = GetComponent<Button>();
-        btn.onClick.AddListener(OnClick);
-    }
-    void OnClick()
-    {
-        Debug.Log("sa marche");
-    }
-
-    private void OnEnable()
+    void OnEnable()
     {
         GameManager.OnPlayerTurn += GameManager_OnPlayerTurn;
-        GameManager.OnPlayerTurnEnd += GameManager_OnEnnemyTurn;
+        GameManager.OnPlayerTurnEnd += GameManager_OnPlayerTurnEnd;
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         GameManager.OnPlayerTurn -= GameManager_OnPlayerTurn;
-        GameManager.OnPlayerTurnEnd -= GameManager_OnEnnemyTurn;
+        GameManager.OnPlayerTurnEnd -= GameManager_OnPlayerTurnEnd;
+    }
+
+
+
+    private void GameManager_OnPlayerTurnEnd()
+    {
+        Button.interactable = false;
+        
     }
 
     private void GameManager_OnPlayerTurn()
     {
-        GetComponent<Button>().interactable = true;
+        Button.interactable = true;
     }
 
-    private void GameManager_OnEnnemyTurn()
+    public void OnSelect(BaseEventData eventData)
     {
-        GetComponent<Button>().interactable = false;
+        GameManager.Instance.currentSelected = this;
     }
-
 }

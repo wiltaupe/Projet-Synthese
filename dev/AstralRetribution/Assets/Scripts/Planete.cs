@@ -23,12 +23,12 @@ public class Planete : MonoBehaviour
             PlaneteManager.Instance.SetposSelection(gameObject.transform.position);
             //if (Random.Range(0, 2) == 1)
             //{
-            //    SceneManager.LoadScene("MenuCombat");
+            SceneManager.LoadScene("MenuCombat");
             /*}
             else
             {*/
-            PlaneteManager.Instance.currentEvent = EnvoyerEvent();
-            SceneManager.LoadScene("MenuEvenement");
+            //PlaneteManager.Instance.currentEvent = EnvoyerEvent();
+            //SceneManager.LoadScene("MenuEvenement");
 
             /*}*/
 
