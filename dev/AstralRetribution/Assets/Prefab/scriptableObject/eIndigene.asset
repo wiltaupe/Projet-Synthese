@@ -10,14 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0e2a8b9b53da7746912b560d487a721, type: 3}
-  m_Name: eLava
+  m_Name: eIndigene
   m_EditorClassIdentifier: 
-  description:
-  - Votre arrivez est pour le moins difficile vous rebrousser chemin rapidement.
-  background:
-  - {fileID: 21300000, guid: f63576eaf9ba6c047b43192fac013bb9, type: 3}
-  - {fileID: 21300000, guid: 4a41108143282e64e88d1d7ffc3fbbc4, type: 3}
-  - {fileID: 21300000, guid: 9aa28635f83082e46937e44291896ebb, type: 3}
+  description: []
+  background: []
   choix: 0
   combat: 0
   retourMenu: 0
