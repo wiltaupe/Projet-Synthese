@@ -167,8 +167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: 
+  selected: 0
   <Button>k__BackingField: {fileID: 5682752377553980333}
-  pourcentageEsquive: 0.25
+  pourcentageEsquive: 0.5
 --- !u!114 &5682752377553980333 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4598653469365800689, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}

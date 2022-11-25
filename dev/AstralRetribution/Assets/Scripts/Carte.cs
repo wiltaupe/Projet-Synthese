@@ -3,9 +3,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Carte : MonoBehaviour,ISelectHandler
+public class Carte : MonoBehaviour,ISelectHandler, IDeselectHandler
 {
     public string description;
+    public bool selected = false;
     [field:SerializeField] public Button Button { get; set; }
 
     void OnEnable()
@@ -20,12 +21,22 @@ public class Carte : MonoBehaviour,ISelectHandler
         GameManager.OnPlayerTurnEnd -= GameManager_OnPlayerTurnEnd;
     }
 
-
-
-    private void GameManager_OnPlayerTurnEnd()
+    public virtual void PlayCard()
     {
-        Button.interactable = false;
+
+    }
+
+
+    public void GameManager_OnPlayerTurnEnd()
+    {
         
+        if (selected)
+        {
+            PlayCard();
+        }
+        Button.interactable = false;
+
+
     }
 
     private void GameManager_OnPlayerTurn()
@@ -35,6 +46,19 @@ public class Carte : MonoBehaviour,ISelectHandler
 
     public void OnSelect(BaseEventData eventData)
     {
-        GameManager.Instance.currentSelected = this;
+        if (this is CartePilotage)
+        {
+            GameManager.Instance.attackSelected = true;
+        }
+        selected = true;
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        if (this is CartePilotage)
+        {
+            GameManager.Instance.attackSelected = false;
+        }
+        selected = false;
     }
 }

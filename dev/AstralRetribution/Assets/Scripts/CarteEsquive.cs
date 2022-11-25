@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class CarteEsquive : Carte
 {
-    public float pourcentageEsquive = 0.25f;
+    public float pourcentageEsquive = 0.5f;
 
     public override void PlayCard()
     {
-        Debug.Log("salut");
-        //GameManager.Instance.VaisseauJoueur.GetComponent<Vaisseau>().AjoutEsquive(pourcentageEsquive);
+        GameManager.Instance.VaisseauJoueur.GetComponent<Vaisseau>().AjoutEsquive(pourcentageEsquive);
     }
 
 }

@@ -26,8 +26,13 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public Deck DeckJoueur { get; set; }
     public int cartesParTour = 4;
     private System.Random random = new();
-    public Carte currentSelected;
+    public bool attackSelected = false;
 
+
+    public void Awake()
+    {
+        Instance = this;
+    }
     public void DrawCards()
     {
         int compteur = 0;
@@ -73,8 +78,9 @@ public class GameManager : MonoBehaviour
 
     public void PlayerTurnEnd()
     {
-        Debug.Log(currentSelected);
+        Debug.Log("fini");
         OnPlayerTurnEnd?.Invoke();
+
         SetState(new EnemyTurnState(this));
     }
 
