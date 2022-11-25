@@ -75,7 +75,7 @@ public class ShipManager : MonoBehaviour
                             Sol obj = Instantiate(sol, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
                             obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                             obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
-                            obj.position = new Vector2(i, j);
+                            obj.Position = new Vector2(i, j);
                             obj.Vaisseau = vaisseau;
                             obj.name = $"Sol x:{i} y:{j}";
                             tiles.Add(obj);

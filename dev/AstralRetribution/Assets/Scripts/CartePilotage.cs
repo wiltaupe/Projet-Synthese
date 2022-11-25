@@ -9,5 +9,9 @@ public class CartePilotage : Carte
     public Sol cible;
 
 
-    
+    public override void PlayCard()
+    {
+        
+    }
+
 }
