@@ -17,9 +17,9 @@ MonoBehaviour:
     de vie n\u2019est pr\xE9sente, vous sembler voir au loin de la glace rouge, solide
     comme un blindage de vaisseau, peut-\xEAtre pouvez-vous en tirer avantage..."
   background:
-  - {fileID: 21300000, guid: 24bf9a94d11958748b959befb37ef1a2, type: 3}
+  - {fileID: 21300000, guid: 982834711d7686c4caab55b61765f4d7, type: 3}
   - {fileID: 21300000, guid: 64efde7fe88a13646b8367f9f61df6c7, type: 3}
-  - {fileID: 21300000, guid: 444c15caf52c5cd4caf17a474d8199ee, type: 3}
+  - {fileID: 21300000, guid: 8c816cda0a5214147bb9f82f13b8f369, type: 3}
   choix: 0
-  combat: 0
-  retourMenu: 0
+  combat: 1
+  hub: 00

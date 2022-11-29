@@ -12,8 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e2a8b9b53da7746912b560d487a721, type: 3}
   m_Name: eRavagee
   m_EditorClassIdentifier: 
-  description: []
-  background: []
+  description:
+  - " Un groupe occulte vous fais signe lors de votre arriv\xE9e, il souhaite apporter
+    des modifications \xE0 votre vaisseau, ils promettent d\u2019am\xE9liorer la
+    cadence de tir...mais \xE0 quel prix ?"
+  - "\xC0 c\u2019est vous que mes cousins ont arnaqu\xE9s, ils ont dit avoir intentionnellement
+    rendu des pi\xE8ces d\xE9fectueuses dans votre vaisseau. Laisser moi rem\xE9dier
+    \xE0 la situation"
+  background:
+  - {fileID: 21300000, guid: f8e9533e2828f23408501ad1bebd3523, type: 3}
+  - {fileID: 21300000, guid: f48fdff30d052e542bc3ca3fea64d79a, type: 3}
+  - {fileID: 21300000, guid: e693766761e19c7409f66a14152a30e8, type: 3}
+  - {fileID: 21300000, guid: e1cbe193f729fe84288850bf72999c0e, type: 3}
+  - {fileID: 21300000, guid: 3a096f0a19a81e941a517df1253b95f8, type: 3}
   choix: 0
   combat: 0
-  retourMenu: 0
+  hub: 01

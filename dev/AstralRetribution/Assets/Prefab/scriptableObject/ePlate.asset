@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e2a8b9b53da7746912b560d487a721, type: 3}
   m_Name: ePlate
   m_EditorClassIdentifier: 
-  description: []
-  background: []
+  description:
+  - "Cette plan\xE8te semble vous faire douter de vos cours de science, vous reficher
+    longuement a la logique autour de cette plan\xE8te. Il existe un certain dilemme
+    moral autour de la population de cette plan\xE8te qui pense que les autres plan\xE8tes
+    ne sont pas plates. Vous d\xE9cidez de ne pas vous en m\xEAler et repartez."
+  background:
+  - {fileID: 21300000, guid: 9ef1ba40a3b11ab44a143612aae310ca, type: 3}
+  - {fileID: 21300000, guid: d220151e1f5823e468b61eb0db71ac9c, type: 3}
+  - {fileID: 21300000, guid: f17284567d91ae641aee4e4ff1b47a5f, type: 3}
+  - {fileID: 21300000, guid: 6aa4497ab8324ba4089b855785dd2f92, type: 3}
   choix: 0
-  combat: 0
-  retourMenu: 0
+  combat: 1
+  hub: 00

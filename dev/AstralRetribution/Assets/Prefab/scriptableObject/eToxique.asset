@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e2a8b9b53da7746912b560d487a721, type: 3}
   m_Name: eToxique
   m_EditorClassIdentifier: 
-  description: []
-  background: []
+  description:
+  - "Ajoute un membre d\u2019\xE9quipage robotique."
+  background:
+  - {fileID: 21300000, guid: 08f51f12f2d0ae442b507def5331d43d, type: 3}
+  - {fileID: 21300000, guid: 7e439f7ba3800ee478991e331785b4d2, type: 3}
+  - {fileID: 21300000, guid: 38faa0401ee46ae4abfde8217945ede3, type: 3}
   choix: 0
-  combat: 0
-  retourMenu: 0
+  combat: 1
+  hub: 00

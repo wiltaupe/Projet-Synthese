@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e2a8b9b53da7746912b560d487a721, type: 3}
   m_Name: eAnneauMonde
   m_EditorClassIdentifier: 
-  evenement: 0
   description:
   - "Les habitant de cette m\xE9gastructure semble enfin avoir trouver un mat\xE9riau
     assez solide et flexible pour r\xE9ussir la cr\xE9ation d\u2019un projet d\u2019aussi
@@ -21,4 +20,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8e255bd1b2e64e24b9ecb0603738db76, type: 3}
   choix: 1
   combat: 0
-  retourMenu: 0
+  hub: 00

@@ -11,6 +11,7 @@ public class MenuEvenement : MonoBehaviour
     private bool vaisseauImportant = false;
     GameObject vaisseau;
     public TextMeshProUGUI messageEvenement;
+    public GameObject boutonOUI, boutonNON, boutonCombat, boutonHUB;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,6 @@ public class MenuEvenement : MonoBehaviour
         int choixDescription = Random.Range(0, PlaneteManager.Instance.currentEvent.evenementEvent.description.Length);
         background.sprite = PlaneteManager.Instance.currentEvent.evenementEvent.background[choix];
 
-
         messageEvenement.text = PlaneteManager.Instance.currentEvent.evenementEvent.description[choixDescription];
 
         if (!vaisseauImportant)
@@ -28,6 +28,24 @@ public class MenuEvenement : MonoBehaviour
             vaisseau = GameObject.Find("Vaisseau");
             vaisseau.SetActive(false);
         }
+
+        if (PlaneteManager.Instance.currentEvent.evenementEvent.choix)
+        {
+            boutonNON.SetActive(true);
+            boutonOUI.SetActive(true);
+        }
+
+        if (PlaneteManager.Instance.currentEvent.evenementEvent.combat)
+        {
+            boutonCombat.SetActive(true);
+        }
+
+        if (PlaneteManager.Instance.currentEvent.evenementEvent.hub[0])
+        {
+            boutonHUB.SetActive(true);
+        }
+
+
 
     }
 
@@ -39,7 +57,13 @@ public class MenuEvenement : MonoBehaviour
 
     public void RetourHub()
     {
-    vaisseau.SetActive(true);
-    SceneManager.LoadSceneAsync("MenuHub");
+        vaisseau.SetActive(true);
+        SceneManager.LoadSceneAsync("MenuHub");
+    }
+
+    public void Combat()
+    {
+        vaisseau.SetActive(true);
+        SceneManager.LoadSceneAsync("MenuCombat");
     }
 }
