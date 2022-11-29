@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e2a8b9b53da7746912b560d487a721, type: 3}
   m_Name: eNeutre
   m_EditorClassIdentifier: 
-  description: []
-  background: []
+  description:
+  - "Le suzerain du royaume vous invite dans son ch\xE2teau fait de topaze et d\u2019\xE9meraude.
+    Sa garde rapproch\xE9e vous invite \xE0 vous servir dans son entrep\xF4t personnel
+    : vous pouvez choisir parmi 3 objets. "
+  background:
+  - {fileID: 21300000, guid: 1d7da783dff87e5438c8b8c116b38d11, type: 3}
+  - {fileID: 21300000, guid: a77353231a7620e4189b9a2055833845, type: 3}
+  - {fileID: 21300000, guid: fe9fe888f66113940b4e92de0049d8be, type: 3}
   choix: 0
   combat: 0
-  retourMenu: 0
+  hub: 01

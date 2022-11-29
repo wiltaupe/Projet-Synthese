@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e2a8b9b53da7746912b560d487a721, type: 3}
   m_Name: eMecanique
   m_EditorClassIdentifier: 
-  description: []
-  background: []
+  description:
+  - " Vous arrivez sur une plan\xE8te ou r\xE8gne un empereur robotique : \u201CVotre
+    chair vous \xE9loigne de la perfection robotis\xE9e, offrez-moi le sang, et je
+    ferais de vous des \xEAtres de titane\u201D Acceptez-vous son offre ?"
+  background:
+  - {fileID: 21300000, guid: b44b9ca6314ce4c448da68f0922e5930, type: 3}
+  - {fileID: 21300000, guid: 639778529519a1e4598224efbb0510aa, type: 3}
+  - {fileID: 21300000, guid: 0bdf58510378acd4db8f20b3b70cc902, type: 3}
   choix: 0
-  combat: 0
-  retourMenu: 0
+  combat: 1
+  hub: 00

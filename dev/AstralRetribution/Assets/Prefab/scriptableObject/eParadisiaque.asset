@@ -12,8 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e2a8b9b53da7746912b560d487a721, type: 3}
   m_Name: eParadisiaque
   m_EditorClassIdentifier: 
-  description: []
-  background: []
-  choix: 0
+  description:
+  - "Vous et votre \xE9quipage profitez de l\u2019hospitalit\xE9 de cette plan\xE8te
+    pour vous reposer, en vous r\xE9veillant un membre de votre \xE9quipage semble
+    avoir eu des relations intime avec une personne importante de cette plan\xE8te,
+    son p\xE8re vous attaque violament. "
+  - "Vous et votre \xE9quipage profitez de l\u2019hospitalit\xE9 de cette plan\xE8te
+    pour vous reposer, en vous r\xE9veillant un membre de votre \xE9quipage semble
+    avoir eu des relations intime avec une personne importante de cette plan\xE8te,
+    vous perdez votre membre d\u2019\xE9quipage. Il s\u2019emble s\u2019\xEAtre sauv\xE9
+    avec la personne importante."
+  - "Vous arrivez de nouveau sur une plan\xE8te qui semble hospitali\xE8re, un individu
+    de la plan\xE8te semble reconnaitre votre \xE9quipage, il dit \xEAtre le fr\xE8re
+    du fianc\xE9 de votre ancien membre d\u2019\xE9quipage, il souhaite se joindre
+    \xE0 vous. "
+  background:
+  - {fileID: 21300000, guid: a55c455b09796044989b456b9a02fc6c, type: 3}
+  - {fileID: 21300000, guid: 6e73725cd249e7e43a14e99ef5c73389, type: 3}
+  - {fileID: 21300000, guid: f9c238d933b319742b64c922abbf2a2a, type: 3}
+  - {fileID: 21300000, guid: cd4dab9bf90c8504ab07bed0ff6157f5, type: 3}
+  choix: 1
   combat: 0
-  retourMenu: 0
+  hub: 00

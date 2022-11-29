@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e2a8b9b53da7746912b560d487a721, type: 3}
   m_Name: eHostile
   m_EditorClassIdentifier: 
-  description: []
-  background: []
+  description:
+  - "La l\xE9gion d\u2019honneur du suzerain est alli\xE9e depuis plusieurs d\xE9cennies
+    avec le tyran galactique, un de ses vaisseaux vous attaque"
+  background:
+  - {fileID: 21300000, guid: d648cd5e09fb93849b36cfcc39284dcd, type: 3}
+  - {fileID: 21300000, guid: e948aa5fe500efe46ac6fade607a0a8e, type: 3}
   choix: 0
   combat: 0
-  retourMenu: 0
+  hub: 01
