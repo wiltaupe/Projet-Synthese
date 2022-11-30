@@ -62,3 +62,9 @@ TagManager:
   - name: Planete
     uniqueID: 3930182119
     locked: 0
+  - name: Contenu
+    uniqueID: 739509289
+    locked: 0
+  - name: Vaisseau
+    uniqueID: 946223795
+    locked: 0

@@ -6,6 +6,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,9 +17,9 @@ public class GameManager : MonoBehaviour
     public static event PlayerTurnEndAction OnPlayerTurnEnd;
 
     private State currentState;
-    [field: SerializeField] public Transform posJoueur { get; set; }
-    [field: SerializeField] public Transform posEnnemi { get; set; }
-    [field: SerializeField] public GameObject deckContainer { get; set; }
+    [field: SerializeField] public Transform PosJoueur { get; set; }
+    [field: SerializeField] public Transform PosEnnemi { get; set; }
+    [field: SerializeField] public GameObject DeckContainer { get; set; }
 
     public GameObject VaisseauJoueur { get; set; }
     public GameObject VaisseauEnnemi { get; set; }
@@ -26,7 +27,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public Deck DeckJoueur { get; set; }
     public int cartesParTour = 4;
     private System.Random random = new();
-    public bool attackSelected = false;
+    public Sol solSelected;
+    public Carte carteSelected;
 
 
     public void Awake()
@@ -53,10 +55,9 @@ public class GameManager : MonoBehaviour
         foreach (GameObject carte in DeckJoueur.Main)
         {
 
-            Instantiate(carte, deckContainer.transform);
+            Instantiate(carte, DeckContainer.transform);
         }
     }
-
 
     // Start is called before the first frame update
     void Start()
@@ -78,16 +79,22 @@ public class GameManager : MonoBehaviour
 
     public void PlayerTurnEnd()
     {
-        Debug.Log("fini");
         OnPlayerTurnEnd?.Invoke();
+        PlayCard();
 
         SetState(new EnemyTurnState(this));
     }
 
-    // Update is called once per frame
-    void Update()
+    private void PlayCard()
     {
-        
+        if (solSelected != null)
+        {
+            currentState.PlayCard(carteSelected, solSelected);
+        }
+        else
+        {
+            currentState.PlayCard(carteSelected);
+        }
     }
 
     public void RetourHub()

@@ -6,12 +6,18 @@ public class CartePilotage : Carte
 {
     public float puissanceAttaque;
     public float precision;
-    public Sol cible;
 
 
-    public override void PlayCard()
+    public override void PlayCard(Sol cible)
     {
-        
+        if (Random.Range(0f,1f)<= precision)
+        {
+            cible.RecevoirDegats(puissanceAttaque);
+        }
+        else
+        {
+            Debug.Log("miss");
+        }
     }
 
 }

@@ -21,4 +21,17 @@ internal class PlayerTurnState : State
         gameManager.PlayerTurn();
     }
 
+    public override void PlayCard(Carte carte)
+    {
+        if (carte != null)
+        {
+            carte.PlayCard();
+        }
+    }
+
+    public override void PlayCard(Carte carte, Sol cible)
+    {
+        carte.PlayCard(cible);
+    }
+
 }

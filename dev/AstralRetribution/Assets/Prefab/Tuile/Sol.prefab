@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3060791211249741301}
-  - component: {fileID: 3060791211249741302}
+  - component: {fileID: -8658445163731457718}
   - component: {fileID: 6018543398861181450}
   - component: {fileID: 4593993545548129158}
   m_Layer: 3
@@ -35,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3060791211249741302
+--- !u!212 &-8658445163731457718
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -1768900236, guid: a8fa093007d7ffb47b3caf8e4bb00fe7, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -823589994, guid: a8fa093007d7ffb47b3caf8e4bb00fe7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,7 +107,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3060791211249741303}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7329222209151922147}
-  - component: {fileID: 1749729085051275620}
+  - component: {fileID: 3376775302009793322}
   m_Layer: 0
   m_Name: Cible
   m_TagString: Untagged
@@ -158,7 +158,7 @@ Transform:
   m_Father: {fileID: 3060791211249741301}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1749729085051275620
+--- !u!212 &3376775302009793322
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

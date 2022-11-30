@@ -747,10 +747,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edb9a4529ddadc45b73c245eecd48c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <posJoueur>k__BackingField: {fileID: 1371753956}
-  <posEnnemi>k__BackingField: {fileID: 2015409998}
-  <deckContainer>k__BackingField: {fileID: 1012448168}
+  <PosJoueur>k__BackingField: {fileID: 1371753956}
+  <PosEnnemi>k__BackingField: {fileID: 2015409998}
+  <DeckContainer>k__BackingField: {fileID: 1012448168}
   <Slider>k__BackingField: {fileID: 66056248}
+  cartesParTour: 4
+  attackSelected: 0
+  solSelected: {fileID: 0}
+  carteSelected: {fileID: 0}
 --- !u!1 &968332701
 GameObject:
   m_ObjectHideFlags: 0

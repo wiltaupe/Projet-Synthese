@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Carte : MonoBehaviour,ISelectHandler, IDeselectHandler
+public class Carte : MonoBehaviour,ISelectHandler
 {
     public string description;
     public bool selected = false;
@@ -26,17 +26,15 @@ public class Carte : MonoBehaviour,ISelectHandler, IDeselectHandler
 
     }
 
+    public virtual void PlayCard(Sol cible)
+    {
+
+    }
+
 
     public void GameManager_OnPlayerTurnEnd()
     {
-        
-        if (selected)
-        {
-            PlayCard();
-        }
         Button.interactable = false;
-
-
     }
 
     private void GameManager_OnPlayerTurn()
@@ -46,19 +44,8 @@ public class Carte : MonoBehaviour,ISelectHandler, IDeselectHandler
 
     public void OnSelect(BaseEventData eventData)
     {
-        if (this is CartePilotage)
-        {
-            GameManager.Instance.attackSelected = true;
-        }
-        selected = true;
+        GameManager.Instance.carteSelected = this;
     }
 
-    public void OnDeselect(BaseEventData eventData)
-    {
-        if (this is CartePilotage)
-        {
-            GameManager.Instance.attackSelected = false;
-        }
-        selected = false;
-    }
+    
 }

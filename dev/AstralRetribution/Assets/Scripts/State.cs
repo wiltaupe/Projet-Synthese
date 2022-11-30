@@ -16,4 +16,14 @@ public abstract class State
     {
 
     }
+
+    public virtual void PlayCard(Carte carte)
+    {
+
+    }
+
+    public virtual void PlayCard(Carte carte,Sol cible)
+    {
+
+    }
 }
