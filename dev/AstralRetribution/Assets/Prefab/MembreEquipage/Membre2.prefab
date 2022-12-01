@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Membre2
       objectReference: {fileID: 0}
+    - target: {fileID: 3610690170925164544, guid: 267c2625bdfed114b88fa98a1590f19f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4900575925154573892, guid: 267c2625bdfed114b88fa98a1590f19f, type: 3}
       propertyPath: m_RootOrder
       value: 0
