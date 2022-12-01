@@ -20,4 +20,17 @@ public class Salle
     public void RecevoirDegats(float puissance)
     {
     }
+
+    public Sol GetMiddleTile()
+    {
+        foreach (Sol sol in Tuiles)
+        {
+            if (sol.Position.x == (int)Width/2 && sol.Position.y == (int)Height/2)
+            {
+                return sol;
+            }
+            
+        }
+        return null;
+    }
 }

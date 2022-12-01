@@ -41,8 +41,7 @@ public class GameManager : MonoBehaviour
 
     public void LancerMissile(Salle cible)
     {
-        Debug.Log(cible.Width);
-        Debug.Log(cible.Height);
+        Debug.Log(cible.GetMiddleTile());
     }
     public void DrawCards()
     {
