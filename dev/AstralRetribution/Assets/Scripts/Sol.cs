@@ -4,7 +4,7 @@ using UnityEngine;
 public class Sol : Tile
 {
     private Color startcolor;
-    public GameObject cible;
+
     public float vie = 10;
     public Module Module { get; set; }
     public Objet Objet { get; set; }
@@ -12,55 +12,52 @@ public class Sol : Tile
     public Vaisseau Vaisseau { get; set; }
     public Vector2 Position { get; set; }
     public GameObject MembreEquipage{ get; set; }
-    public bool locked;
 
-    internal void RecevoirDegats(float montant)
+    private void OnEnable()
     {
-        vie -= montant;
-        Debug.Log(vie);
-        if (vie <=0)
-        {
-            DesactiverSol();
-        }
+        GameManager.OnPlayerTurnEnd += GameManager_OnPlayerTurnEnd;
     }
 
-    private void DesactiverSol()
+    private void GameManager_OnPlayerTurnEnd()
     {
-        gameObject.SetActive(false);
+        GetComponent<SpriteRenderer>().material.color = Color.white;
+        Parent.RoomSelected = false;
     }
 
-    void OnMouseEnter()
+    private void OnMouseOver()
     {
-        startcolor = GetComponent<SpriteRenderer>().material.color;
-        
         if (GameManager.Instance != null)
         {
-            if (GameManager.Instance.carteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi"))
+            if (GameManager.Instance.carteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi") && !Parent.RoomSelected && GameManager.Instance.RoomSelected == null)
             {
                 //GetComponent<SpriteRenderer>().material.color = Color.red;
-                cible.SetActive(true);
+                foreach (Sol sol in Parent.Tuiles)
+                {
+                    sol.GetComponent<SpriteRenderer>().material.color = Color.red;                
+                }
             }
-            else
+            else if (!Parent.RoomSelected)
             {
                 GetComponent<SpriteRenderer>().material.color = Color.yellow;
             }
+                
+
         }
         else
         {
             GetComponent<SpriteRenderer>().material.color = Color.yellow;
         }
-
-
-
     }
     void OnMouseExit()
     {
-        if (!locked)
+        if (!Parent.RoomSelected)
         {
-            cible.SetActive(false);
+            foreach (Sol sol in Parent.Tuiles)
+            {
+                sol.GetComponent<SpriteRenderer>().material.color = Color.white;
+            }
+
         }
-        
-        GetComponent<SpriteRenderer>().material.color = startcolor;
     }
 
     private void OnMouseDown()
@@ -69,9 +66,9 @@ public class Sol : Tile
         {
             if (GameManager.Instance.carteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi"))
             {
-                GameManager.Instance.solSelected = this;
-                locked = true;
-                cible.SetActive(true);
+                GameManager.Instance.RoomSelected = Parent;
+                Parent.RoomSelected = true;
+                GameManager.Instance.CardPlayed();
             }
         }
     }

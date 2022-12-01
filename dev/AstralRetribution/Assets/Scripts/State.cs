@@ -22,7 +22,7 @@ public abstract class State
 
     }
 
-    public virtual void PlayCard(Carte carte,Sol cible)
+    public virtual void PlayCard(Carte carte,Salle cible)
     {
 
     }

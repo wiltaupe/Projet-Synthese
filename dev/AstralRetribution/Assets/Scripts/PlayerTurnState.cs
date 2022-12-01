@@ -29,7 +29,7 @@ internal class PlayerTurnState : State
         }
     }
 
-    public override void PlayCard(Carte carte, Sol cible)
+    public override void PlayCard(Carte carte, Salle cible)
     {
         carte.PlayCard(cible);
     }

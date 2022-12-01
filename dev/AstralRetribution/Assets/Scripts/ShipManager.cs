@@ -51,6 +51,7 @@ public class ShipManager : MonoBehaviour
 
         foreach (RectInt rectInt in rectInts)
         {
+            Salle salle = new(rectInt.width, rectInt.height);
             List<Sol> tiles = new();
 
             for (int i = rectInt.xMin; i <= rectInt.xMax; i++)
@@ -76,6 +77,7 @@ public class ShipManager : MonoBehaviour
                             obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                             obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                             obj.Position = new Vector2(i, j);
+                            obj.Parent = salle;
                             obj.Vaisseau = vaisseau;
                             obj.name = $"Sol x:{i} y:{j}";
                             tiles.Add(obj);
@@ -87,7 +89,7 @@ public class ShipManager : MonoBehaviour
 
             if (tiles.Count != 0)
             {
-                Salle salle = new(rectInt.width, rectInt.height, tiles);
+                salle.AddTiles(tiles);  
                 salles.Add(salle);
             }
 

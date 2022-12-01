@@ -62,9 +62,18 @@ TagManager:
   - name: Planete
     uniqueID: 3930182119
     locked: 0
-  - name: Contenu
-    uniqueID: 739509289
-    locked: 0
   - name: Vaisseau
     uniqueID: 946223795
+    locked: 0
+  - name: Tuile
+    uniqueID: 739509289
+    locked: 0
+  - name: Cible
+    uniqueID: 1628700603
+    locked: 0
+  - name: Module
+    uniqueID: 462066839
+    locked: 0
+  - name: Membre
+    uniqueID: 4236308065
     locked: 0

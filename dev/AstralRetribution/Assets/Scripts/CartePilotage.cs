@@ -8,7 +8,7 @@ public class CartePilotage : Carte
     public float precision;
 
 
-    public override void PlayCard(Sol cible)
+    public override void PlayCard(Salle cible)
     {
         if (Random.Range(0f,1f)<= precision)
         {
@@ -18,6 +18,8 @@ public class CartePilotage : Carte
         {
             Debug.Log("miss");
         }
+
+        GameManager.Instance.LancerMissile(cible);
     }
 
 }

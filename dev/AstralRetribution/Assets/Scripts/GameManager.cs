@@ -14,7 +14,10 @@ public class GameManager : MonoBehaviour
     public delegate void PlayerTurnAction();
     public static event PlayerTurnAction OnPlayerTurn;
     public delegate void PlayerTurnEndAction();
+
     public static event PlayerTurnEndAction OnPlayerTurnEnd;
+    public delegate void CardPlayedAction(Carte carte);
+    public static event CardPlayedAction OnCardPlayed;
 
     private State currentState;
     [field: SerializeField] public Transform PosJoueur { get; set; }
@@ -27,13 +30,19 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public Deck DeckJoueur { get; set; }
     public int cartesParTour = 4;
     private System.Random random = new();
-    public Sol solSelected;
+    public Salle RoomSelected;
     public Carte carteSelected;
 
 
     public void Awake()
     {
         Instance = this;
+    }
+
+    public void LancerMissile(Salle cible)
+    {
+        Debug.Log(cible.Width);
+        Debug.Log(cible.Height);
     }
     public void DrawCards()
     {
@@ -66,6 +75,11 @@ public class GameManager : MonoBehaviour
         currentState.Start();
     }
 
+    internal void CardPlayed()
+    {
+        OnCardPlayed?.Invoke(carteSelected);
+    }
+
     public void PlayerTurn()
     {
         OnPlayerTurn?.Invoke();
@@ -81,15 +95,17 @@ public class GameManager : MonoBehaviour
     {
         OnPlayerTurnEnd?.Invoke();
         PlayCard();
+        RoomSelected = null;
+        carteSelected = null;
 
         SetState(new EnemyTurnState(this));
     }
 
     private void PlayCard()
     {
-        if (solSelected != null)
+        if (RoomSelected != null)
         {
-            currentState.PlayCard(carteSelected, solSelected);
+            currentState.PlayCard(carteSelected, RoomSelected);
         }
         else
         {

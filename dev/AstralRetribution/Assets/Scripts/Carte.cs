@@ -13,6 +13,12 @@ public class Carte : MonoBehaviour,ISelectHandler
     {
         GameManager.OnPlayerTurn += GameManager_OnPlayerTurn;
         GameManager.OnPlayerTurnEnd += GameManager_OnPlayerTurnEnd;
+        GameManager.OnCardPlayed += GameManage_OnCardPlayed;
+    }
+
+    private void GameManage_OnCardPlayed(Carte carte)
+    {
+        Button.interactable = false;
     }
 
     void OnDisable()
@@ -26,7 +32,7 @@ public class Carte : MonoBehaviour,ISelectHandler
 
     }
 
-    public virtual void PlayCard(Sol cible)
+    public virtual void PlayCard(Salle cible)
     {
 
     }
