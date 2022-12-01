@@ -62,7 +62,7 @@ public class ShipManager : MonoBehaviour
                     {
                         if (!use.Contains(new Vector3(i,j)))
                         {
-                            var obj = Instantiate(mur, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
+                            var obj = Instantiate(mur, new Vector3(i * ajusterTileHW - (Taille / 2) * ajusterTileHW, j * ajusterTileHW - (Taille / 2) * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
                             obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                             obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                             use.Add(new Vector3(i, j));
@@ -72,7 +72,7 @@ public class ShipManager : MonoBehaviour
                     {
                         if (!use.Contains(new Vector3(i, j)))
                         {
-                            Sol obj = Instantiate(sol, new Vector3(i * ajusterTileHW, j * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
+                            Sol obj = Instantiate(sol,new Vector3(i * ajusterTileHW - (Taille / 2)*ajusterTileHW, j * ajusterTileHW - (Taille / 2) * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
                             obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                             obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
                             obj.Position = new Vector2(i, j);
@@ -82,43 +82,12 @@ public class ShipManager : MonoBehaviour
                             use.Add(new Vector3(i, j));
                         }
                     }
-
-                    /*if (rectInt.xMin != 0)
-                    {
-
-                        var obj = Instantiate(porte, new Vector3(rectInt.xMin * ajusterTileHW, (int)rectInt.center.y * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
-                        obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
-                        obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
-                        obj.transform.Rotate(0, 0, 90, Space.Self);
-                    }
-
-                    if (rectInt.xMax != Taille)
-                    {
-                        var obj = Instantiate(porte, new Vector3(rectInt.xMax * ajusterTileHW, (int)rectInt.center.y * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
-                        obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
-                        obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
-                        obj.transform.Rotate(0, 0, 90, Space.Self);
-                    }
-
-                    if (rectInt.yMin != 0)
-                    {
-                        var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * ajusterTileHW, rectInt.yMin * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
-                        obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
-                        obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
-                    }
-
-                    if (rectInt.yMax != Taille)
-                    {
-                        var obj = Instantiate(porte, new Vector3((int)rectInt.center.x * ajusterTileHW, rectInt.yMax * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
-                        obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
-                        obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
-                    }*/
                 }
             }
 
             if (tiles.Count != 0)
             {
-                Salle salle = new(rectInt.width /** (int)ajusterTile*/, rectInt.height /** (int)ajusterTile*/, tiles);
+                Salle salle = new(rectInt.width, rectInt.height, tiles);
                 salles.Add(salle);
             }
 
