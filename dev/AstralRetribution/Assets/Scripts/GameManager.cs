@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    [field:SerializeField]public GameObject Bullet { get; set; }
     public delegate void PlayerTurnAction();
     public static event PlayerTurnAction OnPlayerTurn;
     public delegate void PlayerTurnEndAction();
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
     public int cartesParTour = 4;
     private System.Random random = new();
     public Salle RoomSelected;
-    public Carte carteSelected;
+    [HideInInspector]public Carte CarteSelected { get; set; }
 
 
     public void Awake()
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     public void LancerMissile(Salle cible)
     {
-        Debug.Log(cible.GetMiddleTile());
+        Instantiate(Bullet, cible.GetMiddleSol().transform.position, Quaternion.identity);
     }
     public void DrawCards()
     {
@@ -76,7 +77,7 @@ public class GameManager : MonoBehaviour
 
     internal void CardPlayed()
     {
-        OnCardPlayed?.Invoke(carteSelected);
+        OnCardPlayed?.Invoke(CarteSelected);
     }
 
     public void PlayerTurn()
@@ -95,7 +96,7 @@ public class GameManager : MonoBehaviour
         OnPlayerTurnEnd?.Invoke();
         PlayCard();
         RoomSelected = null;
-        carteSelected = null;
+        CarteSelected = null;
 
         SetState(new EnemyTurnState(this));
     }
@@ -104,11 +105,11 @@ public class GameManager : MonoBehaviour
     {
         if (RoomSelected != null)
         {
-            currentState.PlayCard(carteSelected, RoomSelected);
+            currentState.PlayCard(CarteSelected, RoomSelected);
         }
         else
         {
-            currentState.PlayCard(carteSelected);
+            currentState.PlayCard(CarteSelected);
         }
     }
 

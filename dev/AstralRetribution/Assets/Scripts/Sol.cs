@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class Sol : Tile
 {
-    private Color startcolor;
-
-    public float vie = 10;
     public Module Module { get; set; }
     public Objet Objet { get; set; }
     public Salle Parent { get; set; }
@@ -27,7 +24,7 @@ public class Sol : Tile
     {
         if (GameManager.Instance != null)
         {
-            if (GameManager.Instance.carteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi") && !Parent.RoomSelected && GameManager.Instance.RoomSelected == null)
+            if (GameManager.Instance.CarteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi") && !Parent.RoomSelected && GameManager.Instance.RoomSelected == null)
             {
                 //GetComponent<SpriteRenderer>().material.color = Color.red;
                 foreach (Sol sol in Parent.Tuiles)
@@ -63,7 +60,7 @@ public class Sol : Tile
     {
         if (GameManager.Instance != null)
         {
-            if (GameManager.Instance.carteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi"))
+            if (GameManager.Instance.CarteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi"))
             {
                 GameManager.Instance.RoomSelected = Parent;
                 Parent.RoomSelected = true;

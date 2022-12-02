@@ -51,7 +51,7 @@ public class ShipManager : MonoBehaviour
 
         foreach (RectInt rectInt in rectInts)
         {
-            Salle salle = new(rectInt.width, rectInt.height);
+            Salle salle = new(rectInt.width, rectInt.height,rectInt);
             List<Sol> tiles = new();
 
             for (int i = rectInt.xMin; i <= rectInt.xMax; i++)
