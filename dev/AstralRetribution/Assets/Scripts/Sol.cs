@@ -10,7 +10,6 @@ public class Sol : Tile
     public Objet Objet { get; set; }
     public Salle Parent { get; set; }
     public Vaisseau Vaisseau { get; set; }
-    public Vector2 Position { get; set; }
     public GameObject MembreEquipage{ get; set; }
 
     private void OnEnable()

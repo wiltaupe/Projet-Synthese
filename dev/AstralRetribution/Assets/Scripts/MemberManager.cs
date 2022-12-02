@@ -27,6 +27,9 @@ public class MemberManager : MonoBehaviour
 
         membreEquipage.transform.SetParent(tuile.transform);
         membreEquipage.transform.position = tuile.transform.position;
+
+        membreEquipage.GetComponent<MembreEquipage>().tuile = tuile;
+
         tuile.MembreEquipage = membreEquipage;
         return membreEquipage;
     }

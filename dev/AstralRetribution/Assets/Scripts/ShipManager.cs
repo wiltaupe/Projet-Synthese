@@ -63,9 +63,12 @@ public class ShipManager : MonoBehaviour
                     {
                         if (!use.Contains(new Vector3(i,j)))
                         {
-                            var obj = Instantiate(mur, new Vector3(i * ajusterTileHW - (Taille / 2) * ajusterTileHW, j * ajusterTileHW - (Taille / 2) * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
+                            Tile obj = Instantiate(mur, new Vector3(i * ajusterTileHW - (Taille / 2) * ajusterTileHW, j * ajusterTileHW - (Taille / 2) * ajusterTileHW) + vaisseau.transform.position, Quaternion.identity);
                             obj.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
                             obj.transform.SetParent(vaisseau.transform.Find("Tuiles"));
+                            obj.Position = new Vector2(i, j);
+                            obj.name = $"Mur x:{i} y:{j}";
+                            obj.Sol = false;
                             use.Add(new Vector3(i, j));
                         }
                     }
@@ -80,6 +83,7 @@ public class ShipManager : MonoBehaviour
                             obj.Parent = salle;
                             obj.Vaisseau = vaisseau;
                             obj.name = $"Sol x:{i} y:{j}";
+                            obj.Sol = true;
                             tiles.Add(obj);
                             use.Add(new Vector3(i, j));
                         }
