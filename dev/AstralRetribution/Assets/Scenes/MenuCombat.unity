@@ -747,12 +747,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edb9a4529ddadc45b73c245eecd48c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Bullet>k__BackingField: {fileID: 434867226320382236, guid: b038f3314783ea84daeeeae723ed9f5e, type: 3}
   <PosJoueur>k__BackingField: {fileID: 1371753956}
   <PosEnnemi>k__BackingField: {fileID: 2015409998}
   <DeckContainer>k__BackingField: {fileID: 1012448168}
   <Slider>k__BackingField: {fileID: 66056248}
   cartesParTour: 4
-  carteSelected: {fileID: 0}
 --- !u!1 &968332701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,7 +1255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371753955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -248, y: 101, z: 1.045164}
+  m_LocalPosition: {x: -248, y: 70, z: 1.045164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1605,7 +1605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015409997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 266, y: 97, z: 1.045164}
+  m_LocalPosition: {x: 248, y: 70, z: 1.045164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

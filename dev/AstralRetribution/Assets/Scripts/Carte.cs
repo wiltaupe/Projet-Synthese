@@ -51,7 +51,7 @@ public class Carte : MonoBehaviour,ISelectHandler, IPointerEnterHandler,IPointer
 
     public void OnSelect(BaseEventData eventData)
     {
-        GameManager.Instance.carteSelected = this;
+        GameManager.Instance.CarteSelected = this;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -47,9 +47,11 @@ public class BeginState : State
     {
         gameManager.VaisseauJoueur = GameObject.Find("Vaisseau");
         gameManager.VaisseauJoueur.transform.position = gameManager.PosJoueur.position;
+        gameManager.VaisseauJoueur.transform.localScale = new Vector3(0.9f, 0.9f, 1);
 
 
 
         gameManager.VaisseauEnnemi = MainManager.Instance.ShipManager.GenererVaisseau(gameManager.PosEnnemi.position, true).gameObject;
+        gameManager.VaisseauEnnemi.transform.localScale = new Vector3(0.9f, 0.9f, 1);
     }
 }
