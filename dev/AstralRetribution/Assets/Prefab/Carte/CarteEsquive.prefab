@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1233887880228402596, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233887880228402596, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233887880228402596, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 130
+      objectReference: {fileID: 0}
     - target: {fileID: 4598653469365800689, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_Transition
       value: 1
@@ -70,6 +82,27 @@ PrefabInstance:
     - target: {fileID: 4598653469365800689, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_SpriteState.m_SelectedSprite
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615452990420818837, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_text
+      value: Ce Dilemme augmente temporairement la propulsion des reacteurs lateraux,
+        ce qui augmente sa chance d'eviter un projectile.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615452990420818837, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_fontSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615452990420818837, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_fontStyle
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615452990420818837, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099588507919625174, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8194989271316747000, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_Pivot.x
@@ -202,10 +235,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb141bccc74435341ac9d943449c5b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
-  selected: 0
+  description: {fileID: 102183179117702794}
   <Button>k__BackingField: {fileID: 5682752377553980333}
   pourcentageEsquive: 0.5
+--- !u!1 &102183179117702794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8099588507919625174, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+  m_PrefabInstance: {fileID: 8146030802563892572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5682752377553980333 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4598653469365800689, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}

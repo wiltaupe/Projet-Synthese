@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Oxygene : Module
 {
-    public override Etat Type { get; set; } = Etat.passif;
+    public override Etat Type { get; set; } = Etat.actif;
 }

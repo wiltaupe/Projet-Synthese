@@ -3,11 +3,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Carte : MonoBehaviour,ISelectHandler
+public class Carte : MonoBehaviour,ISelectHandler, IPointerEnterHandler,IPointerExitHandler
 {
-    public string description;
-    public bool selected = false;
-    [field:SerializeField] public Button Button { get; set; }
+    public GameObject description;
+    [field:SerializeField] public Button Button { get; set; } 
 
     void OnEnable()
     {
@@ -37,6 +36,8 @@ public class Carte : MonoBehaviour,ISelectHandler
 
     }
 
+    
+
 
     public void GameManager_OnPlayerTurnEnd()
     {
@@ -53,5 +54,20 @@ public class Carte : MonoBehaviour,ISelectHandler
         GameManager.Instance.carteSelected = this;
     }
 
-    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (Button.IsInteractable())
+        {
+            description.SetActive(true);
+        }
+        
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (Button.IsInteractable())
+        {
+            description.SetActive(false);
+        }
+    }
 }
