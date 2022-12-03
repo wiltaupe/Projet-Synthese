@@ -1,12 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,8 +24,8 @@ public class GameManager : MonoBehaviour
     [field:SerializeField] public SliderScript Slider { get; set; }
     [HideInInspector] public Deck DeckJoueur { get; set; }
     public int cartesParTour = 4;
-    private System.Random random = new();
-    public Salle RoomSelected;
+    private readonly System.Random random = new();
+    [HideInInspector]public Salle RoomSelected { get; set; }
     [HideInInspector]public Carte CarteSelected { get; set; }
 
 
@@ -72,7 +66,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         currentState = new BeginState(this);
-        currentState.Start();
+        StartCoroutine(currentState.Start());
+        
     }
 
     internal void CardPlayed()
@@ -88,7 +83,7 @@ public class GameManager : MonoBehaviour
     public void SetState(State gameState)
     {
         currentState = gameState;
-        currentState.Start();
+        StartCoroutine(currentState.Start());
     }
 
     public void PlayerTurnEnd()
@@ -97,9 +92,26 @@ public class GameManager : MonoBehaviour
         PlayCard();
         RoomSelected = null;
         CarteSelected = null;
+        //DiscardHand();
 
         SetState(new EnemyTurnState(this));
     }
+
+    /*private void DiscardHand()
+    {
+        var cartes = GameObject.FindGameObjectsWithTag("Carte");
+
+        foreach (GameObject carte in cartes)
+        {
+            Destroy(carte);
+        }
+
+        foreach (GameObject carte in DeckJoueur.Main)
+        {
+            DeckJoueur.Defausse.Add(carte);
+            DeckJoueur.Main.Remove(carte);
+        }
+    }*/
 
     private void PlayCard()
     {

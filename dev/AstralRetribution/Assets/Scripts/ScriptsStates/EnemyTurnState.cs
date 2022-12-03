@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections;
+using UnityEngine;
+
+public class EnemyTurnState : State
+{
+    private GameManager gameManager;
+    private float repairChance = 50f;
+    private float attackChanceWhileDammaged = 20f;
+
+    public EnemyTurnState(GameManager gameManager)
+    {
+        this.gameManager = gameManager;
+    }
+
+    public override IEnumerator Start()
+    {
+        Debug.Log("EnemyTurnState");
+        yield return new WaitForSeconds(3f);
+        CheckCurrentState();
+    }
+
+    private void CheckCurrentState()
+    {
+        if (gameManager.VaisseauEnnemi.GetComponent<Vaisseau>().SalleEndommagee())
+        {
+            if (UnityEngine.Random.Range(0, 100) <= repairChance)
+            {
+                gameManager.SetState(new RepairEnemyState(gameManager));
+            }
+            else if (UnityEngine.Random.Range(0, 100) <= attackChanceWhileDammaged)
+            {
+                gameManager.SetState(new AttackEnemyState(gameManager));
+            }
+            else
+            {
+                gameManager.SetState(new DefendEnemyState(gameManager));
+            }
+
+
+        }
+        else
+        {
+            gameManager.SetState(new AttackEnemyState(gameManager));
+        }
+
+    }
+
+
+
+
+}

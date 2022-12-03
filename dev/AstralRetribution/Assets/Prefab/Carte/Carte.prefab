@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 4598653469365800689}
   m_Layer: 5
   m_Name: Carte
-  m_TagString: Untagged
+  m_TagString: Carte
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

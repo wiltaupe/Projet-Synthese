@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,13 +14,17 @@ internal class PlayerTurnState : State
 
     }
 
-    public override void Start()
+    public override IEnumerator Start()
     {
-        
+        Debug.Log("PlayerTurnState");
         gameManager.Slider.PlayerTurn = true;
         gameManager.DrawCards();
         gameManager.PlayerTurn();
+
+        yield break;
     }
+        
+        
 
     public override void PlayCard(Carte carte)
     {

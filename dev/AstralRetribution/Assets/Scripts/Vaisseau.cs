@@ -7,11 +7,64 @@ public class Vaisseau : MonoBehaviour
     public List<GameObject> MembresEquipage { get; set; }
     public List<Module> ModulesActifs { get; set; }
     public float esquive = 0;
+    
     internal void AjoutEsquive(float pourcentageEsquive)
     {
         Debug.Log(pourcentageEsquive);
         esquive += pourcentageEsquive;
         Debug.Log(esquive);
+    }
+
+    internal Salle GetMostDamagedSalle()
+    {
+
+        float mostDamaged = Salles[0].CurrentVie / Salles[0].MaxVie;
+        Salle mostDamagedSalle = Salles[0];
+
+        foreach (Salle salle in Salles)
+        {
+            float ratioVie = salle.CurrentVie / salle.MaxVie;
+            if ( ratioVie < mostDamaged)
+            {
+                mostDamaged = ratioVie;
+                mostDamagedSalle = salle;
+            }
+
+        }
+
+        return mostDamagedSalle;
+    }
+
+    internal GameObject GetRandomMembre()
+    {
+        return MembresEquipage[Random.Range(0, MembresEquipage.Count)];
+    }
+
+    internal Salle GetRandomDamagedSalle()
+    {
+        foreach (Salle salle in Salles)
+        {
+            if (salle.CurrentVie < salle.MaxVie)
+            {
+                return salle;
+            }
+        }
+
+        return null;
+        
+
+    }
+
+    internal bool SalleEndommagee()
+    {
+        foreach (Salle salle in Salles)
+        {
+            if (salle.CurrentVie < salle.MaxVie)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     // Start is called before the first frame update
