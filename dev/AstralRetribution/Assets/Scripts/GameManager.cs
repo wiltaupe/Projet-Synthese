@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -91,9 +92,26 @@ public class GameManager : MonoBehaviour
         PlayCard();
         RoomSelected = null;
         CarteSelected = null;
+        //DiscardHand();
 
         SetState(new EnemyTurnState(this));
     }
+
+    /*private void DiscardHand()
+    {
+        var cartes = GameObject.FindGameObjectsWithTag("Carte");
+
+        foreach (GameObject carte in cartes)
+        {
+            Destroy(carte);
+        }
+
+        foreach (GameObject carte in DeckJoueur.Main)
+        {
+            DeckJoueur.Defausse.Add(carte);
+            DeckJoueur.Main.Remove(carte);
+        }
+    }*/
 
     private void PlayCard()
     {
