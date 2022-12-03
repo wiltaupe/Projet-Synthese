@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class BeginState : State
@@ -11,15 +12,17 @@ public class BeginState : State
     }
 
 
-    public override void Start()
+    public override IEnumerator Start()
     {
-
+        Debug.Log("BeginState");
         InitVaisseaux();
         GenererDeck();
 
+        
+
         gameManager.SetState(new PlayerTurnState(gameManager));
 
-        
+        yield break;
     }
 
     private void GenererDeck()
@@ -52,6 +55,7 @@ public class BeginState : State
 
 
         gameManager.VaisseauEnnemi = MainManager.Instance.ShipManager.GenererVaisseau(gameManager.PosEnnemi.position, true).gameObject;
+        MainManager.Instance.MemberManager.GenererMembres(UnityEngine.Random.Range(4,8), gameManager.VaisseauEnnemi.GetComponent<Vaisseau>());
         gameManager.VaisseauEnnemi.transform.localScale = new Vector3(0.9f, 0.9f, 1);
     }
 }

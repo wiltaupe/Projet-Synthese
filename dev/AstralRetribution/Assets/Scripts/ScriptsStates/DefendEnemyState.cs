@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using UnityEngine;
 
 internal class DefendEnemyState : State
 {
@@ -9,15 +11,15 @@ internal class DefendEnemyState : State
         this.gameManager = gameManager;
     }
 
-    public override void Start()
+    public override IEnumerator Start()
     {
-
+        Debug.Log("DefendEnemyState");
         ProtectSalle(gameManager.VaisseauEnnemi.GetComponent<Vaisseau>().GetMostDamagedSalle());
-
+        yield break;
     }
 
     private void ProtectSalle(Salle salle)
     {
-
+        
     }
 }

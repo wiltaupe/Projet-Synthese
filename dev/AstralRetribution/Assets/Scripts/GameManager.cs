@@ -65,7 +65,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         currentState = new BeginState(this);
-        currentState.Start();
+        StartCoroutine(currentState.Start());
+        
     }
 
     internal void CardPlayed()
@@ -81,7 +82,7 @@ public class GameManager : MonoBehaviour
     public void SetState(State gameState)
     {
         currentState = gameState;
-        currentState.Start();
+        StartCoroutine(currentState.Start());
     }
 
     public void PlayerTurnEnd()

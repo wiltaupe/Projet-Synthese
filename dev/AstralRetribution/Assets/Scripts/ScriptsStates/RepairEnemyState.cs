@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class RepairEnemyState : State
@@ -10,12 +11,17 @@ public class RepairEnemyState : State
     {
         this.gameManager = gameManager;
     }
-    public override void Start()
+
+    public override IEnumerator Start()
     {
+        Debug.Log("repairEnemyState");
         SelectRandomMembre();
         SelectRandomSalle();
+        yield break;
 
     }
+
+
 
     private void SelectRandomMembre()
     {

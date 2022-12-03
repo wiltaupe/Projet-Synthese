@@ -1,21 +1,23 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class EnemyTurnState : State
 {
     private GameManager gameManager;
-    private State currentState = null;
     private float repairChance = 50f;
+    private float attackChanceWhileDammaged = 20f;
 
     public EnemyTurnState(GameManager gameManager)
     {
         this.gameManager = gameManager;
     }
 
-    public override void Start()
+    public override IEnumerator Start()
     {
-
-        CheckCurrentState();   
+        Debug.Log("EnemyTurnState");
+        yield return new WaitForSeconds(3f);
+        CheckCurrentState();
     }
 
     private void CheckCurrentState()
@@ -24,26 +26,24 @@ public class EnemyTurnState : State
         {
             if (UnityEngine.Random.Range(0, 100) <= repairChance)
             {
-                SetState(new RepairEnemyState(gameManager));
+                gameManager.SetState(new RepairEnemyState(gameManager));
+            }
+            else if (UnityEngine.Random.Range(0, 100) <= attackChanceWhileDammaged)
+            {
+                gameManager.SetState(new AttackEnemyState(gameManager));
             }
             else
             {
-                SetState(new DefendEnemyState(gameManager));
+                gameManager.SetState(new DefendEnemyState(gameManager));
             }
 
 
         }
         else
         {
-            SetState(new AttackEnemyState(gameManager));
+            gameManager.SetState(new AttackEnemyState(gameManager));
         }
 
-    }
-
-    private void SetState(State state)
-    {
-
-        currentState.Start();
     }
 
 
