@@ -1,12 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,8 +23,8 @@ public class GameManager : MonoBehaviour
     [field:SerializeField] public SliderScript Slider { get; set; }
     [HideInInspector] public Deck DeckJoueur { get; set; }
     public int cartesParTour = 4;
-    private System.Random random = new();
-    public Salle RoomSelected;
+    private readonly System.Random random = new();
+    [HideInInspector]public Salle RoomSelected { get; set; }
     [HideInInspector]public Carte CarteSelected { get; set; }
 
 
