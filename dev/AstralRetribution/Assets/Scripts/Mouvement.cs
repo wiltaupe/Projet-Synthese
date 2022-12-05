@@ -10,18 +10,30 @@ public class Mouvement : MonoBehaviour
     private float vitesse = 10.0f;
     private Rigidbody2D body;
     private bool verif = false;
-    private List<HPT> OPEN;
-    private List<HPT> CLOSE;
+    private Dictionary<int, (HPT, int)> dicOPEN;
+    private Dictionary<int, (HPT, int)> dicCLOSE;
+    public List<HPT> OPEN;
+    public List<HPT> CLOSE;
     private List<Tile> tilepath = new List<Tile>();
-
+    private List<Vector2> vecteurDeplacement = new List<Vector2>();
+    GameObject vaisseau;
+    Vaisseau Test;
+    int compteur = 2;
+    bool trouver = false;
+    bool enPAth = false;
+    int indexPath = 0;
+    //private float desiredDuration = 3f;
+    //private float elapseTime;
     private bool fini = true;
+
 
     public enum EnumEquipages
     {
         eInactif = 1,
         ePassif = 2,
         eDeplacement = 3,
-        ePathFinding = 4
+        ePathFinding = 4,
+        eDeplacementPathfindin = 5
     };
 
     public EnumEquipages etat;
@@ -31,13 +43,15 @@ public class Mouvement : MonoBehaviour
     {
 
         Component[] tuiles = GameObject.Find("Tuiles").GetComponentsInChildren<Tile>();
+        vaisseau = GameObject.Find("Vaisseau");
+        Test = vaisseau.GetComponent<Vaisseau>();
 
         foreach (Tile tuile in tuiles)
         {
             tilepath.Add(tuile);
         }
-        
-       
+
+
         anim = this.GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
         etat = EnumEquipages.ePassif;
@@ -52,7 +66,6 @@ public class Mouvement : MonoBehaviour
             anim.SetFloat("Vertical", direction.y);
             anim.SetFloat("Vitesse", direction.sqrMagnitude);
 
-            //float vitesse = etat == EnumEquipages.eDeplacement ? vitesseChasse : vitessePatrouille;
             body.velocity = direction * vitesse;
 
             if (direction.sqrMagnitude > 0.1f)
@@ -63,6 +76,67 @@ public class Mouvement : MonoBehaviour
             direction.Normalize();
         }
 
+
+        if (deplacementpathFinding() && trouver && enPAth)
+        {
+            // https://www.youtube.com/watch?v=alU04hvz6L4 // temps 22:25
+            if (vecteurDeplacement != null)
+            {
+                Vector3 targetPosition = vecteurDeplacement[indexPath];
+                if (Vector3.Distance(transform.position,targetPosition) > 1f)
+                {
+
+
+                    Vector3 moveDir = (targetPosition - transform.position);//.normalized;
+
+                    float distanceBefore = Vector3.Distance(transform.position, targetPosition);
+                    anim.SetFloat("Horizontal", moveDir.x);
+                    anim.SetFloat("Vertical", moveDir.y);
+                    anim.SetFloat("Vitesse", moveDir.sqrMagnitude);
+
+                    //transform.position = Vector3.Lerp(transform.position, targetPosition, vitesse * Time.deltaTime);
+                    transform.position = transform.position + moveDir * 1f * Time.deltaTime;
+                }
+
+                else
+                {
+                    indexPath++;
+
+                    if (indexPath >= vecteurDeplacement.Count)
+                    {
+                        StopMoving();
+                        etat = EnumEquipages.ePassif;
+                        enPAth = false;
+                        //body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position =
+                    }
+                }
+            }
+            
+        }
+            /*elapseTime += Time.deltaTime;
+            float percent = elapseTime / desiredDuration;
+            //while(vecteurDeplacement.Count != 1)
+            //{
+            int dernier = vecteurDeplacement.Count();
+
+            body.position = Vector2.Lerp(body.position, vecteurDeplacement[dernier -1], percent);
+            vecteurDeplacement.RemoveAt(dernier -1);
+            //}
+            if (vecteurDeplacement.Count != 1)
+            {
+                enPAth = false;
+           }*/
+    }
+
+    private void StopMoving()
+    {
+        vecteurDeplacement = null;
+        indexPath = 0;
+    }
+
+    private bool deplacementpathFinding()
+    {
+        return (etat & (EnumEquipages.eDeplacementPathfindin | EnumEquipages.ePathFinding)) != 0;
     }
 
     private bool deplacement()
@@ -78,23 +152,21 @@ public class Mouvement : MonoBehaviour
         if (etat == EnumEquipages.ePassif && !verif)
         {
             verif = false;
-            StartCoroutine(CoroutinePassif());
 
-            if (Random.Range(0, 2) == 1)
-            {
-                etat = EnumEquipages.ePathFinding;
-            }
+            StartCoroutine(CoroutinePassif());
 
             verif = true;
         }
 
-        if (etat == EnumEquipages.ePathFinding && fini)
+        if (Random.Range(0, 1000) == 1)
         {
-            //Debug.Log(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position);
+            etat = EnumEquipages.ePathFinding;
+        }
 
-            //Debug.Log(MainManager.Instance.VaisseauJoueur.GetRandomAvailableTile().Position);
+        if (etat == EnumEquipages.ePathFinding && fini && !enPAth)
+        {
+            Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, Test.GetRandomAvailableTile().Position);
             fini = false;
-            Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position);
         }
 
     }
@@ -104,7 +176,7 @@ public class Mouvement : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1.0f);
-            direction = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+           // direction = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
             direction.Normalize();
             yield return new WaitForSeconds(Random.Range(1.5f, 3f));
             direction = Vector2.zero;
@@ -117,69 +189,106 @@ public class Mouvement : MonoBehaviour
         OPEN = new List<HPT>();
         CLOSE = new List<HPT>();
 
-        bool trouver = false;
+        dicOPEN = new Dictionary<int, (HPT, int)>();
+        dicCLOSE = new Dictionary<int, (HPT, int)>();
 
+        trouver = false;
         List<HPT> pathHPT = new List<HPT>();
         pathHPT = GenererHPT(positionDepart, positionFin);
 
         while (!trouver)
         {
-
             List<float> Tvalue = new List<float>();
             HPT current = new HPT();
 
-            foreach (HPT i in pathHPT)
+            foreach (HPT hpt in OPEN)
             {
-                Tvalue.Add(i.setT());
+                Tvalue.Add(hpt.setT());
             }
 
             float minVal = Tvalue.Min();
-            bool juste1 = true;
 
-            foreach (HPT T in pathHPT)
-            {
-                if (T.setT() == minVal && juste1)
-                {
-                    current = T;
-                    OPEN.Remove(current);
-                    CLOSE.Add(current);
-                    juste1 = false;
-                }
-            }
+            ////////////////////////////////////////////////////////////////////////////////////////
 
+            var min = dicOPEN.Aggregate((l, r) => l.Value.Item2 < r.Value.Item2 ? l : r).Key;
+
+            current = dicOPEN[min].Item1;
+
+            dicOPEN.Remove(min);
+
+
+            dicCLOSE.Add(compteur,(current,current.setT()));
+            compteur++;
 
             if (current.maPosition == positionFin)
             {
-                Debug.Log("position trouver");
+                Debug.Log("trouver");
+                TrouverListeChemin(current);
                 trouver = true;
+                enPAth = true;
             }
 
-            Debug.Log("4");
+            List<HPT> mesVoisinsdic = TrouverVoisin(current, pathHPT);
 
-            List<HPT> mesVoisins = TrouverVoisin(current, pathHPT);
-
-            foreach (HPT voisin in mesVoisins)
+            foreach (HPT voisin in mesVoisinsdic)
             {
-                if (!voisin.traversable || CLOSE.Contains(voisin))
+                bool contientmaispluspetit = false;
+                bool estdejala = false;
+
+                List<int> keysCLOSE = (from kvp in dicCLOSE where kvp.Value.Item1 == voisin select kvp.Key).ToList();
+                foreach (int cle in keysCLOSE)
+                {
+                    if (!voisin.traversable || dicCLOSE.ContainsKey(cle))
+                    {
+                        estdejala = true;
+                    }
+                }
+
+                if(!voisin.traversable || estdejala)
                 {
                     continue;
                 }
 
-                if (!OPEN.Contains(voisin) || voisin.setT() < current.setT()) // path voisin is shorter a voir
+                List<int> keysOPEN = (from kvp in dicOPEN where kvp.Value.Item1 == voisin select kvp.Key).ToList();
+                
+                if (keysOPEN.Count > 0)
+                {
+                    foreach (int cle in keysOPEN)
+                    {
+                        if (dicOPEN[cle].Item2 > voisin.setT())
+                        {
+                            contientmaispluspetit = true;
+                        }
+                    }
+
+                }
+
+                if (keysOPEN.Count == 0 || contientmaispluspetit) // path voisin is shorter a voir
                 {
                     // set parent of voisin to current
                     voisin.parent = current;
-
-                    if (!OPEN.Contains(voisin))
-                    {
-                        OPEN.Add(voisin);
-                    }
+                    dicOPEN.Add(compteur, (voisin, voisin.setT()));
+                    compteur++;
                 }
             }
 
-            trouver = true;
         }
 
+    }
+
+    private void TrouverListeChemin(HPT chemin)
+    {
+        if(!chemin.debut)
+        {
+            TrouverListeChemin(chemin.parent);
+            vecteurDeplacement.Add(chemin.tileposition);
+        }
+
+        else
+        {
+           body.transform.SetParent(GameObject.Find(chemin.tilefinal).transform);
+           Debug.Log("voici la liste");
+        }
     }
 
     private List<HPT> TrouverVoisin(HPT current, List<HPT> tout)
@@ -189,23 +298,32 @@ public class Mouvement : MonoBehaviour
         {
             bool un = false;
             bool deux = false;
-            if (((current.maPosition.x - v.maPosition.x) > 17 && (current.maPosition.x - v.maPosition.x) < 18) || ((current.maPosition.x - v.maPosition.x) > -17 && (current.maPosition.x - v.maPosition.x) < -18))
+            bool trois = false;
+
+
+            if (((current.maPosition.x - v.maPosition.x) == 1  || (current.maPosition.x - v.maPosition.x) == -1) && ((current.maPosition.y - v.maPosition.y) == 1 || (current.maPosition.y - v.maPosition.y) == -1))
             {
                 un = true;
             }
 
-            if (((current.maPosition.y - v.maPosition.y) > 17 && (current.maPosition.y - v.maPosition.y) < 18) || ((current.maPosition.y - v.maPosition.y) > -17 && (current.maPosition.y - v.maPosition.y) < -18))
+            if (((current.maPosition.x - v.maPosition.x) == 1 || (current.maPosition.x - v.maPosition.x) == -1) && ((current.maPosition.y - v.maPosition.y) == 0 || (current.maPosition.y - v.maPosition.y) == 0))
             {
                 deux = true;
             }
 
-            if ((un || deux) && !(un && deux))
+            if (((current.maPosition.x - v.maPosition.x) == 0 || (current.maPosition.x - v.maPosition.x) == 0) && ((current.maPosition.y - v.maPosition.y) == 1 || (current.maPosition.y - v.maPosition.y) == -1))
+            {
+                trois = true;
+            }
+
+
+            if ((deux || trois))
             {
                 v.H = 10 + current.H;
                 mesvoisins.Add(v);
             }
 
-            if (un && deux)
+            if (un)
             {
                 v.H = 14 + current.H;
                 mesvoisins.Add(v);
@@ -214,6 +332,7 @@ public class Mouvement : MonoBehaviour
             MettreAJOURPTVoisin(mesvoisins, tout);
 
         }
+
         return mesvoisins;
     }
 
@@ -247,26 +366,20 @@ public class Mouvement : MonoBehaviour
 
             if (floorx > floory)
             {
-                double howmany = (floorx / floory);
-                int f1 = (int)howmany;
-                ajoutP = f1 * 14;
-                ajoutP += 10;
-                
+                int howmany = floorx - floory;
+                ajoutP = (howmany * 10) + (14 * floory);
             }
 
-            else if (floorx > floory)
+            else if (floory > floorx)
             {
-                double howmany = (floory / floorx);
-                int f2 = (int)howmany;
-                ajoutP = f2 * 14;
-                ajoutP += 10;
+                int howmany = floory - floorx;
+                ajoutP = (howmany * 10) + (14 * floorx);
             }
 
             else if (floorx == floory)
             {
-                double howmany = (floory / floorx);
-                int f2 = (int)howmany;
-                ajoutP = f2 * 14;
+                int howmany = floorx;
+                ajoutP = howmany * 14;
             }
 
             PT.P = ajoutP;
@@ -274,7 +387,7 @@ public class Mouvement : MonoBehaviour
         }
     }
 
-    private List<HPT> GenererHPT(Vector2 positionDepart,Vector2 positionFin)
+    private List<HPT> GenererHPT(Vector2 positionDepart, Vector2 positionFin)
     {
         List<HPT> listHPT = new List<HPT>();
         List<Tile> copy = tilepath;
@@ -286,9 +399,13 @@ public class Mouvement : MonoBehaviour
             {
                 HPT depart = new HPT();
                 depart.maPosition = iteration.Position;
+                depart.tileposition = iteration.gameObject.transform.position;
                 depart.H = 0;
                 depart.P = 0;
                 depart.debut = true;
+                depart.parent = null;
+                depart.tilefinal = iteration.name;
+                Debug.Log(iteration.name);
 
                 if (iteration.Sol)
                 {
@@ -301,6 +418,8 @@ public class Mouvement : MonoBehaviour
                 }
 
                 listHPT.Add(depart);
+                //dicOPEN[1] = (depart, depart.setT());
+                dicOPEN.Add(1, (depart, depart.setT()));
                 OPEN.Add(depart);
             }
 
@@ -308,7 +427,9 @@ public class Mouvement : MonoBehaviour
             {
                 HPT fin = new HPT();
                 fin.maPosition = iteration.Position;
+                fin.tileposition = iteration.gameObject.transform.position;
                 fin.fin = true;
+                fin.tilefinal = iteration.name;
 
                 if (iteration.Sol)
                 {
@@ -327,6 +448,8 @@ public class Mouvement : MonoBehaviour
             {
                 HPT ajout = new HPT();
                 ajout.maPosition = iteration.Position;
+                ajout.tileposition = iteration.gameObject.transform.position;
+                ajout.tilefinal = iteration.name;
                 if (iteration.Sol)
                 {
                     ajout.traversable = true;
@@ -343,16 +466,14 @@ public class Mouvement : MonoBehaviour
         return listHPT;
     }
 
-    private void ResteHPT()
-    {
-        throw new System.NotImplementedException();
-    }
-
 }
 
-internal class HPT
+public class HPT : System.IComparable
 {
     public Vector2 maPosition { get; set; }
+    public Vector2 tileposition { get; set; }
+
+    public string tilefinal { get; set; }
     public int H { get; set; }
     public int P { get; set; }
     private int T;
@@ -369,4 +490,9 @@ internal class HPT
         return T;
     }
 
+    public int CompareTo(object obj)
+    {
+        Debug.Log(obj);
+        return ((System.IComparable)parent).CompareTo(obj);
+    }
 }
