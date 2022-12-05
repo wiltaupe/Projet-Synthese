@@ -7,7 +7,7 @@ public class Mouvement : MonoBehaviour
 {
     private Animator anim;
     private Vector2 direction = new Vector2();
-    private float vitesse = 10.0f;
+    private float vitesse = 5.0f;
     private Rigidbody2D body;
     private bool verif = false;
     private Dictionary<int, (HPT, int)> dicOPEN;
@@ -85,8 +85,6 @@ public class Mouvement : MonoBehaviour
                 Vector3 targetPosition = vecteurDeplacement[indexPath];
                 if (Vector3.Distance(transform.position,targetPosition) > 1f)
                 {
-
-
                     Vector3 moveDir = (targetPosition - transform.position);//.normalized;
 
                     float distanceBefore = Vector3.Distance(transform.position, targetPosition);
@@ -94,8 +92,7 @@ public class Mouvement : MonoBehaviour
                     anim.SetFloat("Vertical", moveDir.y);
                     anim.SetFloat("Vitesse", moveDir.sqrMagnitude);
 
-                    //transform.position = Vector3.Lerp(transform.position, targetPosition, vitesse * Time.deltaTime);
-                    transform.position = transform.position + moveDir * 1f * Time.deltaTime;
+                    transform.position = transform.position + moveDir * vitesse * Time.deltaTime;
                 }
 
                 else
@@ -107,25 +104,11 @@ public class Mouvement : MonoBehaviour
                         StopMoving();
                         etat = EnumEquipages.ePassif;
                         enPAth = false;
-                        //body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position =
                     }
                 }
             }
             
         }
-            /*elapseTime += Time.deltaTime;
-            float percent = elapseTime / desiredDuration;
-            //while(vecteurDeplacement.Count != 1)
-            //{
-            int dernier = vecteurDeplacement.Count();
-
-            body.position = Vector2.Lerp(body.position, vecteurDeplacement[dernier -1], percent);
-            vecteurDeplacement.RemoveAt(dernier -1);
-            //}
-            if (vecteurDeplacement.Count != 1)
-            {
-                enPAth = false;
-           }*/
     }
 
     private void StopMoving()
@@ -158,7 +141,7 @@ public class Mouvement : MonoBehaviour
             verif = true;
         }
 
-        if (Random.Range(0, 1000) == 1)
+        if (Random.Range(0, 5000) == 1)
         {
             etat = EnumEquipages.ePathFinding;
         }
@@ -176,7 +159,7 @@ public class Mouvement : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1.0f);
-           // direction = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+            direction = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
             direction.Normalize();
             yield return new WaitForSeconds(Random.Range(1.5f, 3f));
             direction = Vector2.zero;
@@ -207,8 +190,6 @@ public class Mouvement : MonoBehaviour
             }
 
             float minVal = Tvalue.Min();
-
-            ////////////////////////////////////////////////////////////////////////////////////////
 
             var min = dicOPEN.Aggregate((l, r) => l.Value.Item2 < r.Value.Item2 ? l : r).Key;
 
@@ -263,9 +244,8 @@ public class Mouvement : MonoBehaviour
 
                 }
 
-                if (keysOPEN.Count == 0 || contientmaispluspetit) // path voisin is shorter a voir
+                if (keysOPEN.Count == 0 || contientmaispluspetit)
                 {
-                    // set parent of voisin to current
                     voisin.parent = current;
                     dicOPEN.Add(compteur, (voisin, voisin.setT()));
                     compteur++;
@@ -418,7 +398,6 @@ public class Mouvement : MonoBehaviour
                 }
 
                 listHPT.Add(depart);
-                //dicOPEN[1] = (depart, depart.setT());
                 dicOPEN.Add(1, (depart, depart.setT()));
                 OPEN.Add(depart);
             }
