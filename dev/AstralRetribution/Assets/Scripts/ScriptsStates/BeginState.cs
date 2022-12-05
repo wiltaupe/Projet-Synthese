@@ -55,7 +55,7 @@ public class BeginState : State
 
 
         gameManager.VaisseauEnnemi = MainManager.Instance.ShipManager.GenererVaisseau(gameManager.PosEnnemi.position, true).gameObject;
-        MainManager.Instance.MemberManager.GenererMembres(UnityEngine.Random.Range(4,8), gameManager.VaisseauEnnemi.GetComponent<Vaisseau>());
+        MainManager.Instance.MemberManager.GenererMembres(UnityEngine.Random.Range(4,8), gameManager.VaisseauEnnemi.GetComponent<Vaisseau>(),true);
         gameManager.VaisseauEnnemi.transform.localScale = new Vector3(0.9f, 0.9f, 1);
     }
 }

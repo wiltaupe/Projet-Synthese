@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4717405969522983765, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_Name
+      value: Tuiles
+      objectReference: {fileID: 0}
     - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
       propertyPath: m_RootOrder
       value: 0

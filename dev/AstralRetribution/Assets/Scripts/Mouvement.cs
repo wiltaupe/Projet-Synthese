@@ -13,11 +13,12 @@ public class Mouvement : MonoBehaviour
     private Dictionary<int, (HPT, int)> dicOPEN;
     private Dictionary<int, (HPT, int)> dicCLOSE;
     public List<HPT> OPEN;
-    public List<HPT> CLOSE;
+    //public List<HPT> CLOSE;
     private List<Tile> tilepath = new List<Tile>();
+    private List<Tile> tilepathEnnemi = new List<Tile>();
     private List<Vector2> vecteurDeplacement = new List<Vector2>();
-    GameObject vaisseau;
-    Vaisseau Test;
+    GameObject vaisseau, vaisseauEnnemi;
+    Vaisseau Test, TestEnnemi;
     int compteur = 2;
     bool trouver = false;
     bool enPAth = false;
@@ -41,25 +42,45 @@ public class Mouvement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        Component[] tuiles = GameObject.Find("Tuiles").GetComponentsInChildren<Tile>();
-        vaisseau = GameObject.Find("Vaisseau");
-        Test = vaisseau.GetComponent<Vaisseau>();
-
-        foreach (Tile tuile in tuiles)
-        {
-            tilepath.Add(tuile);
-        }
-
+        Component[] tuilesMechant;
+        Component[] tuiles;
 
         anim = this.GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
         etat = EnumEquipages.ePassif;
+
+        if (body.transform.gameObject.GetComponent<MembreEquipage>().ennemi)
+        {
+            vaisseauEnnemi = GameObject.Find("VaisseauEnnemi");
+            tuilesMechant = vaisseauEnnemi.transform.GetChild(0).gameObject.GetComponentsInChildren<Tile>();
+
+            foreach (Tile tuile in tuilesMechant)
+            {
+                tilepathEnnemi.Add(tuile);
+            }
+
+            TestEnnemi = vaisseauEnnemi.GetComponent<Vaisseau>();
+        }
+        
+        else
+        {
+            vaisseau = GameObject.Find("Vaisseau");
+            tuiles = GameObject.Find("Tuiles").GetComponentsInChildren<Tile>();
+
+            foreach (Tile tuile in tuiles)
+            {
+                tilepath.Add(tuile);
+            }
+
+            Test = vaisseau.GetComponent<Vaisseau>();
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (deplacement())
         {
             anim.SetFloat("Horizontal", direction.x);
@@ -148,7 +169,18 @@ public class Mouvement : MonoBehaviour
 
         if (etat == EnumEquipages.ePathFinding && fini && !enPAth)
         {
-            Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, Test.GetRandomAvailableTile().Position);
+
+            if (body.transform.gameObject.GetComponent<MembreEquipage>().ennemi)
+            {
+                Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, TestEnnemi.GetRandomAvailableTile().Position);
+                Debug.Log("Ennemi yeah SHeshhh");
+            }
+
+            if (!body.transform.gameObject.GetComponent<MembreEquipage>().ennemi)
+            {
+                Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, Test.GetRandomAvailableTile().Position);
+                Debug.Log("Gentil pas cancer je joue pas a lol");
+            }
             fini = false;
         }
 
@@ -170,7 +202,7 @@ public class Mouvement : MonoBehaviour
     private void Pathfinder(Vector2 positionDepart, Vector2 positionFin)
     {
         OPEN = new List<HPT>();
-        CLOSE = new List<HPT>();
+        //CLOSE = new List<HPT>();
 
         dicOPEN = new Dictionary<int, (HPT, int)>();
         dicCLOSE = new Dictionary<int, (HPT, int)>();
@@ -203,7 +235,6 @@ public class Mouvement : MonoBehaviour
 
             if (current.maPosition == positionFin)
             {
-                Debug.Log("trouver");
                 TrouverListeChemin(current);
                 trouver = true;
                 enPAth = true;
@@ -267,7 +298,6 @@ public class Mouvement : MonoBehaviour
         else
         {
            body.transform.SetParent(GameObject.Find(chemin.tilefinal).transform);
-           Debug.Log("voici la liste");
         }
     }
 
@@ -370,7 +400,18 @@ public class Mouvement : MonoBehaviour
     private List<HPT> GenererHPT(Vector2 positionDepart, Vector2 positionFin)
     {
         List<HPT> listHPT = new List<HPT>();
-        List<Tile> copy = tilepath;
+        List<Tile> copy = new();
+
+        if (body.transform.gameObject.GetComponent<MembreEquipage>().ennemi)
+        {
+            copy = tilepathEnnemi;
+        }
+
+        if (!body.transform.gameObject.GetComponent<MembreEquipage>().ennemi)
+        {
+            copy = tilepath;
+        }
+
 
         foreach (Tile iteration in copy)
         {
@@ -385,7 +426,6 @@ public class Mouvement : MonoBehaviour
                 depart.debut = true;
                 depart.parent = null;
                 depart.tilefinal = iteration.name;
-                Debug.Log(iteration.name);
 
                 if (iteration.Sol)
                 {

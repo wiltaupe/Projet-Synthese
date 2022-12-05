@@ -23,7 +23,7 @@ public class MenuSelection : MonoBehaviour
 
     private void GenererMembreEquipage(Vaisseau vaisseau)
     {
-        MainManager.Instance.MemberManager.GenererMembres(10,vaisseau);
+        MainManager.Instance.MemberManager.GenererMembres(10,vaisseau,false);
     }
 
     private void GenererBackground()

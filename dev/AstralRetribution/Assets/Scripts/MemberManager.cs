@@ -6,18 +6,18 @@ public class MemberManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> membresPossible;
 
-    public void GenererMembres(int v,Vaisseau vaisseau)
+    public void GenererMembres(int v,Vaisseau vaisseau, bool ennemi)
     {
         List<GameObject> membresEquipage = new();
         while(membresEquipage.Count != v)
         {
-            membresEquipage.Add(PlacerMembre(GenererMembre(),vaisseau));
+            membresEquipage.Add(PlacerMembre(GenererMembre(),vaisseau,ennemi));
         }
 
         vaisseau.MembresEquipage = membresEquipage;
     }
 
-    private GameObject PlacerMembre(GameObject membreEquipage, Vaisseau vaisseau)
+    private GameObject PlacerMembre(GameObject membreEquipage, Vaisseau vaisseau,bool ennemi)
     {
         Sol tuile = null;
         while(tuile == null)
@@ -29,6 +29,7 @@ public class MemberManager : MonoBehaviour
         membreEquipage.transform.position = tuile.transform.position;
 
         membreEquipage.GetComponent<MembreEquipage>().tuile = tuile;
+        membreEquipage.GetComponent<MembreEquipage>().ennemi = ennemi;
 
         tuile.MembreEquipage = membreEquipage;
         return membreEquipage;
