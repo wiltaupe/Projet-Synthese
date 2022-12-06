@@ -4,6 +4,8 @@ public class MembreEquipage : MonoBehaviour
 {
     public Sol tuile { get; set; }
     public bool ennemi { get; set; }
+    
+    public Vector2 cible;
 
     public enum EnumEquipages
     {
@@ -16,4 +18,7 @@ public class MembreEquipage : MonoBehaviour
 
     public EnumEquipages etat;
 
+    public virtual void actionEquipage()
+    {
+    }
 }
