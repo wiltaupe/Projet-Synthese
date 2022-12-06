@@ -14,7 +14,6 @@ public class BeginState : State
 
     public override IEnumerator Start()
     {
-        Debug.Log("BeginState");
         InitVaisseaux();
         GenererDeck();
 

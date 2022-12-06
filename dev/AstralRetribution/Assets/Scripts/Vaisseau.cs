@@ -15,6 +15,11 @@ public class Vaisseau : MonoBehaviour
         Debug.Log(esquive);
     }
 
+    internal Salle GetRandomSalle()
+    {
+        return Salles[Random.Range(0, Salles.Count)];
+    }
+
     internal Salle GetMostDamagedSalle()
     {
 

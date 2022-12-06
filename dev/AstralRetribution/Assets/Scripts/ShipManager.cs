@@ -29,6 +29,7 @@ public class ShipManager : MonoBehaviour
         if (ennemi)
         {
             goVaisseau = Instantiate(prefabEnnemi, position, Quaternion.identity);
+            Destroy(goVaisseau.GetComponent<DontDestroyVaisseau>());
             goVaisseau.name = "VaisseauEnnemi";
         }
         else
