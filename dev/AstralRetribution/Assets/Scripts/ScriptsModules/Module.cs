@@ -94,6 +94,7 @@ public class Module : MonoBehaviour
                 transform.SetParent(sol.transform);
 
                 lastPos = sol.transform.position;
+                sol.Traversable = false;
                 sol.Vaisseau.AddModule(this);
                 draggable = false;
             }
