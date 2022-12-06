@@ -28,6 +28,19 @@ public class Salle
     public void RecevoirDegats(float puissance)
     {
         Debug.Log(CurrentVie);
+
+        foreach (Sol sol in Tuiles)
+        {
+            if (sol.Module != null)
+            {
+                sol.Module.RecevoirDegats(puissance);
+            }
+
+            if (sol.MembreEquipage != null)
+            {
+                sol.MembreEquipage.GetComponent<MembreEquipage>().RecevoirDegats(puissance);
+            }
+        }
         CurrentVie -= puissance;
         Debug.Log(CurrentVie);
         if (CurrentVie <= 0)

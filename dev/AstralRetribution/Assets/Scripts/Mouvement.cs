@@ -12,23 +12,20 @@ public class Mouvement : MonoBehaviour
     private bool verif = false;
     private Dictionary<int, (HPT, int)> dicOPEN;
     private Dictionary<int, (HPT, int)> dicCLOSE;
-    public List<HPT> OPEN;
-    //public List<HPT> CLOSE;
     private List<Tile> tilepath = new List<Tile>();
     private List<Tile> tilepathEnnemi = new List<Tile>();
     private List<Vector2> vecteurDeplacement = new List<Vector2>();
-    GameObject vaisseau, vaisseauEnnemi;
-    Vaisseau Test, TestEnnemi;
-    int compteur = 2;
-    bool trouver = false;
-    bool enPAth = false;
-    int indexPath = 0;
-    //private float desiredDuration = 3f;
-    //private float elapseTime;
+    private GameObject vaisseau, vaisseauEnnemi;
+    private Vaisseau Test, TestEnnemi;
+    private int compteur = 2;
+    private bool trouver = false;
+    private bool enPAth = false;
+    private int indexPath = 0;
     private bool fini = true;
+    private bool vEnnemi;
+    private MembreEquipage membre;
 
-
-    public enum EnumEquipages
+    /*public enum EnumEquipages
     {
         eInactif = 1,
         ePassif = 2,
@@ -37,47 +34,20 @@ public class Mouvement : MonoBehaviour
         eDeplacementPathfindin = 5
     };
 
-    public EnumEquipages etat;
+    public EnumEquipages etat;*/
 
     // Start is called before the first frame update
     void Start()
     {
-        Component[] tuilesMechant;
-        Component[] tuiles;
 
         anim = this.GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
-        etat = EnumEquipages.ePassif;
+        membre = body.transform.gameObject.GetComponent<MembreEquipage>();
+        membre.etat = MembreEquipage.EnumEquipages.ePassif;
 
-        if (body.transform.gameObject.GetComponent<MembreEquipage>().ennemi)
-        {
-            vaisseauEnnemi = GameObject.Find("VaisseauEnnemi");
-            tuilesMechant = vaisseauEnnemi.transform.GetChild(0).gameObject.GetComponentsInChildren<Tile>();
-
-            foreach (Tile tuile in tuilesMechant)
-            {
-                tilepathEnnemi.Add(tuile);
-            }
-
-            TestEnnemi = vaisseauEnnemi.GetComponent<Vaisseau>();
-        }
-        
-        else
-        {
-            vaisseau = GameObject.Find("Vaisseau");
-            tuiles = GameObject.Find("Tuiles").GetComponentsInChildren<Tile>();
-
-            foreach (Tile tuile in tuiles)
-            {
-                tilepath.Add(tuile);
-            }
-
-            Test = vaisseau.GetComponent<Vaisseau>();
-        }
-
+        vEnnemi = body.transform.gameObject.GetComponent<MembreEquipage>().ennemi;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -106,7 +76,7 @@ public class Mouvement : MonoBehaviour
                 Vector3 targetPosition = vecteurDeplacement[indexPath];
                 if (Vector3.Distance(transform.position,targetPosition) > 1f)
                 {
-                    Vector3 moveDir = (targetPosition - transform.position);//.normalized;
+                    Vector3 moveDir = (targetPosition - transform.position);
 
                     float distanceBefore = Vector3.Distance(transform.position, targetPosition);
                     anim.SetFloat("Horizontal", moveDir.x);
@@ -123,7 +93,7 @@ public class Mouvement : MonoBehaviour
                     if (indexPath >= vecteurDeplacement.Count)
                     {
                         StopMoving();
-                        etat = EnumEquipages.ePassif;
+                        membre.etat = MembreEquipage.EnumEquipages.ePassif;
                         enPAth = false;
                     }
                 }
@@ -140,20 +110,19 @@ public class Mouvement : MonoBehaviour
 
     private bool deplacementpathFinding()
     {
-        return (etat & (EnumEquipages.eDeplacementPathfindin | EnumEquipages.ePathFinding)) != 0;
+        return (membre.etat & (MembreEquipage.EnumEquipages.eDeplacementPathfindin | MembreEquipage.EnumEquipages.ePathFinding)) != 0;
     }
 
     private bool deplacement()
     {
-        // ePatrouille et eChasse
-        return (etat & (EnumEquipages.eDeplacement | EnumEquipages.ePassif)) != 0;
+        return (membre.etat & (MembreEquipage.EnumEquipages.eDeplacement | MembreEquipage.EnumEquipages.ePassif)) != 0;
     }
 
 
     void FixedUpdate()
     {
 
-        if (etat == EnumEquipages.ePassif && !verif)
+        if (membre.etat == MembreEquipage.EnumEquipages.ePassif && !verif)
         {
             verif = false;
 
@@ -164,21 +133,25 @@ public class Mouvement : MonoBehaviour
 
         if (Random.Range(0, 5000) == 1)
         {
-            etat = EnumEquipages.ePathFinding;
+            membre.etat = MembreEquipage.EnumEquipages.ePathFinding;
         }
 
-        if (etat == EnumEquipages.ePathFinding && fini && !enPAth)
+        if (membre.etat == MembreEquipage.EnumEquipages.ePathFinding && fini && !enPAth)
         {
 
-            if (body.transform.gameObject.GetComponent<MembreEquipage>().ennemi)
+            if (vEnnemi)
             {
-                Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, TestEnnemi.GetRandomAvailableTile().Position);
+                MettreAJourVaisseau();
+                //Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, TestEnnemi.GetRandomAvailableTile().Position);
+                Pathfinder(membre.tuile.Position, membre.cible);
                 Debug.Log("Ennemi yeah SHeshhh");
             }
 
-            if (!body.transform.gameObject.GetComponent<MembreEquipage>().ennemi)
+            if (!vEnnemi)
             {
-                Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, Test.GetRandomAvailableTile().Position);
+                MettreAJourVaisseau();
+                //Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, Test.GetRandomAvailableTile().Position);
+                Pathfinder(membre.tuile.Position, Test.GetRandomAvailableTile().Position);
                 Debug.Log("Gentil pas cancer je joue pas a lol");
             }
             fini = false;
@@ -201,8 +174,6 @@ public class Mouvement : MonoBehaviour
 
     private void Pathfinder(Vector2 positionDepart, Vector2 positionFin)
     {
-        OPEN = new List<HPT>();
-        //CLOSE = new List<HPT>();
 
         dicOPEN = new Dictionary<int, (HPT, int)>();
         dicCLOSE = new Dictionary<int, (HPT, int)>();
@@ -213,22 +184,13 @@ public class Mouvement : MonoBehaviour
 
         while (!trouver)
         {
-            List<float> Tvalue = new List<float>();
             HPT current = new HPT();
-
-            foreach (HPT hpt in OPEN)
-            {
-                Tvalue.Add(hpt.setT());
-            }
-
-            float minVal = Tvalue.Min();
 
             var min = dicOPEN.Aggregate((l, r) => l.Value.Item2 < r.Value.Item2 ? l : r).Key;
 
             current = dicOPEN[min].Item1;
 
             dicOPEN.Remove(min);
-
 
             dicCLOSE.Add(compteur,(current,current.setT()));
             compteur++;
@@ -272,7 +234,6 @@ public class Mouvement : MonoBehaviour
                             contientmaispluspetit = true;
                         }
                     }
-
                 }
 
                 if (keysOPEN.Count == 0 || contientmaispluspetit)
@@ -282,9 +243,12 @@ public class Mouvement : MonoBehaviour
                     compteur++;
                 }
             }
-
+            if (dicOPEN.Count() == 0)
+            {
+                trouver = true;
+                Debug.Log("chemin impossible");
+            }
         }
-
     }
 
     private void TrouverListeChemin(HPT chemin)
@@ -310,7 +274,6 @@ public class Mouvement : MonoBehaviour
             bool deux = false;
             bool trois = false;
 
-
             if (((current.maPosition.x - v.maPosition.x) == 1  || (current.maPosition.x - v.maPosition.x) == -1) && ((current.maPosition.y - v.maPosition.y) == 1 || (current.maPosition.y - v.maPosition.y) == -1))
             {
                 un = true;
@@ -326,7 +289,6 @@ public class Mouvement : MonoBehaviour
                 trois = true;
             }
 
-
             if ((deux || trois))
             {
                 v.H = 10 + current.H;
@@ -338,11 +300,8 @@ public class Mouvement : MonoBehaviour
                 v.H = 14 + current.H;
                 mesvoisins.Add(v);
             }
-
             MettreAJOURPTVoisin(mesvoisins, tout);
-
         }
-
         return mesvoisins;
     }
 
@@ -357,7 +316,6 @@ public class Mouvement : MonoBehaviour
                 distanceFin = t;
             }
         }
-
 
         foreach (HPT PT in voisin)
         {
@@ -399,23 +357,16 @@ public class Mouvement : MonoBehaviour
 
     private List<HPT> GenererHPT(Vector2 positionDepart, Vector2 positionFin)
     {
+
         List<HPT> listHPT = new List<HPT>();
         List<Tile> copy = new();
 
-        if (body.transform.gameObject.GetComponent<MembreEquipage>().ennemi)
-        {
-            copy = tilepathEnnemi;
-        }
+        if (vEnnemi) { copy = tilepathEnnemi;}
 
-        if (!body.transform.gameObject.GetComponent<MembreEquipage>().ennemi)
-        {
-            copy = tilepath;
-        }
-
+        if (!vEnnemi) { copy = tilepath;}
 
         foreach (Tile iteration in copy)
         {
-
             if (iteration.Position == positionDepart)
             {
                 HPT depart = new HPT();
@@ -427,7 +378,7 @@ public class Mouvement : MonoBehaviour
                 depart.parent = null;
                 depart.tilefinal = iteration.name;
 
-                if (iteration.Sol)
+                if (iteration.Traversable)
                 {
                     depart.traversable = true;
                 }
@@ -438,8 +389,8 @@ public class Mouvement : MonoBehaviour
                 }
 
                 listHPT.Add(depart);
-                dicOPEN.Add(1, (depart, depart.setT()));
-                OPEN.Add(depart);
+                dicOPEN.Add(compteur, (depart, depart.setT()));
+                compteur++;
             }
 
             if (iteration.Position == positionFin)
@@ -450,7 +401,7 @@ public class Mouvement : MonoBehaviour
                 fin.fin = true;
                 fin.tilefinal = iteration.name;
 
-                if (iteration.Sol)
+                if (iteration.Traversable)
                 {
                     fin.traversable = true;
                 }
@@ -469,7 +420,7 @@ public class Mouvement : MonoBehaviour
                 ajout.maPosition = iteration.Position;
                 ajout.tileposition = iteration.gameObject.transform.position;
                 ajout.tilefinal = iteration.name;
-                if (iteration.Sol)
+                if (iteration.Traversable)
                 {
                     ajout.traversable = true;
                 }
@@ -481,37 +432,57 @@ public class Mouvement : MonoBehaviour
                 listHPT.Add(ajout);
             }
         }
-
         return listHPT;
     }
 
+    public void MettreAJourVaisseau()
+    {
+        Component[] tuilesMechant;
+        Component[] tuiles;
+
+        if (vEnnemi)
+        {
+            vaisseauEnnemi = GameObject.Find("VaisseauEnnemi");
+            tuilesMechant = vaisseauEnnemi.transform.GetChild(0).gameObject.GetComponentsInChildren<Tile>();
+
+            foreach (Tile tuile in tuilesMechant)
+            {
+                tilepathEnnemi.Add(tuile);
+            }
+
+            TestEnnemi = vaisseauEnnemi.GetComponent<Vaisseau>();
+        }
+
+        else
+        {
+            vaisseau = GameObject.Find("Vaisseau");
+            tuiles = GameObject.Find("Tuiles").GetComponentsInChildren<Tile>();
+
+            foreach (Tile tuile in tuiles)
+            {
+                tilepath.Add(tuile);
+            }
+
+            Test = vaisseau.GetComponent<Vaisseau>();
+        }
+    }
 }
 
-public class HPT : System.IComparable
+internal class HPT
 {
     public Vector2 maPosition { get; set; }
     public Vector2 tileposition { get; set; }
-
     public string tilefinal { get; set; }
     public int H { get; set; }
     public int P { get; set; }
     private int T;
     public bool debut { get; set; }
     public bool fin { get; set; }
-
     public HPT parent { get; set; }
-
     public bool traversable { get; set; }
-
     public int setT()
     {
         T = H + P;
         return T;
-    }
-
-    public int CompareTo(object obj)
-    {
-        Debug.Log(obj);
-        return ((System.IComparable)parent).CompareTo(obj);
     }
 }
