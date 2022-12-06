@@ -37,13 +37,13 @@ public class SliderScript : MonoBehaviour
 
             if (tour == 0)
             {
-                bar.localScale = new Vector3(0, bar.localScale.y, bar.localScale.z);
+                bar.localScale = new Vector3(0,1, bar.localScale.z);
                 
             }
             else
             {
                 Debug.Log("bar");
-                bar.localScale = new Vector3(tour / tourMax, bar.transform.localScale.y, bar.transform.localScale.z);
+                bar.localScale = new Vector3(tour / tourMax, 1, bar.transform.localScale.z);
             }
         }
         else

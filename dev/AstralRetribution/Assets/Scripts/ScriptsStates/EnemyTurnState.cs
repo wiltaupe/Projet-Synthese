@@ -16,8 +16,12 @@ public class EnemyTurnState : State
     public override IEnumerator Start()
     {
         GameObject[] cartes = GameObject.FindGameObjectsWithTag("Carte");
-        foreach (GameObject carte in cartes)
-            UnityEngine.Object.Destroy(carte);
+        foreach (GameObject item in cartes)
+        {
+            gameManager.DeckJoueur.Main.Remove(item);
+            UnityEngine.Object.Destroy(item);
+        }
+            
         yield return new WaitForSeconds(3f);
         CheckCurrentState();
     }
