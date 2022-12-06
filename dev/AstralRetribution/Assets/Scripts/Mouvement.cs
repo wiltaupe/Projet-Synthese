@@ -142,7 +142,8 @@ public class Mouvement : MonoBehaviour
             if (vEnnemi)
             {
                 MettreAJourVaisseau();
-                Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, TestEnnemi.GetRandomAvailableTile().Position);
+                //Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, TestEnnemi.GetRandomAvailableTile().Position);
+                Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, membre.cible);
                 Debug.Log("Ennemi yeah SHeshhh");
             }
 
