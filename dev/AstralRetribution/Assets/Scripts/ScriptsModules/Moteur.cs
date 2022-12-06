@@ -6,5 +6,4 @@ public class Moteur : Module
 {
     public override Etat Type { get; set; } = Etat.actif;
 
-
 }

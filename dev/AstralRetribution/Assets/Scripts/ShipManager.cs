@@ -69,6 +69,7 @@ public class ShipManager : MonoBehaviour
                             obj.Position = new Vector2(i, j);
                             obj.name = $"Mur x:{i} y:{j}";
                             obj.Sol = false;
+                            obj.Traversable = false;
                             use.Add(new Vector3(i, j));
                         }
                     }
@@ -83,6 +84,7 @@ public class ShipManager : MonoBehaviour
                             obj.Parent = salle;
                             obj.Vaisseau = vaisseau;
                             obj.name = $"Sol x:{i} y:{j}";
+                            obj.Traversable = true;
                             obj.Sol = true;
                             tiles.Add(obj);
                             use.Add(new Vector3(i, j));
@@ -96,12 +98,6 @@ public class ShipManager : MonoBehaviour
                 salle.AddTiles(tiles);  
                 salles.Add(salle);
             }
-
-
-
-
-
-            
         }
 
         vaisseau.Salles = salles;
