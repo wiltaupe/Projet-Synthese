@@ -143,14 +143,15 @@ public class Mouvement : MonoBehaviour
             {
                 MettreAJourVaisseau();
                 //Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, TestEnnemi.GetRandomAvailableTile().Position);
-                Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, membre.cible);
+                Pathfinder(membre.tuile.Position, membre.cible);
                 Debug.Log("Ennemi yeah SHeshhh");
             }
 
             if (!vEnnemi)
             {
                 MettreAJourVaisseau();
-                Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, Test.GetRandomAvailableTile().Position);
+                //Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, Test.GetRandomAvailableTile().Position);
+                Pathfinder(membre.tuile.Position, Test.GetRandomAvailableTile().Position);
                 Debug.Log("Gentil pas cancer je joue pas a lol");
             }
             fini = false;

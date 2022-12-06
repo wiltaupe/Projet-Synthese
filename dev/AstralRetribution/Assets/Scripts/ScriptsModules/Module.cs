@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Module : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class Module : MonoBehaviour
     public GameObject Prefab;
     public int nbCartes;
     public virtual Etat Type { get; set; }
+
+    public float MaxVie { get; set; } = 30;
+    public float CurrentVie { get; set; }
+
+    private void Start()
+    {
+        CurrentVie = MaxVie;
+    }
 
     private void Awake()
     {
@@ -43,6 +52,20 @@ public class Module : MonoBehaviour
         }
         
 
+    }
+
+    internal void RecevoirDegats(float puissance)
+    {
+        CurrentVie -= puissance;
+        if (CurrentVie <= 0)
+        {
+            ModuleDetruit();
+        }
+    }
+
+    private void ModuleDetruit()
+    {
+        throw new NotImplementedException();
     }
 
     private void OnMouseDrag()
