@@ -17,6 +17,7 @@ internal class PlayerTurnState : State
     public override IEnumerator Start()
     {
         Debug.Log("PlayerTurnState");
+        gameManager.Slider.tour = 0;
         gameManager.Slider.PlayerTurn = true;
         gameManager.DrawCards();
         gameManager.PlayerTurn();

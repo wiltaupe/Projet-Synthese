@@ -6,7 +6,7 @@ public class Module : MonoBehaviour
     private Vector3 dragOffset;
     private Camera cam;
     private Vector3 lastPos;
-    public Sol currentTile;
+    private Sol currentTile = null;
     private bool redo = false;
     private bool aBouger = false;
     private bool draggable = true;

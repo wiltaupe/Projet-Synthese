@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     public void LancerMissile(Salle cible)
     {
-        Instantiate(Bullet, cible.GetMiddleSol().transform.position, Quaternion.identity);
+            Instantiate(Bullet, cible.GetMiddleSol().transform.position, Quaternion.identity);
     }
     public void DrawCards()
     {
