@@ -9,7 +9,7 @@ public class Deck
         Main = new();
         Defausse = new();
     }
-    public List<GameObject> Cartes { get; set; }
-    public List<GameObject> Defausse { get; set; }
-    public List<GameObject> Main { get; set; }
+    public Dictionary<int,GameObject> Cartes { get; set; }
+    public Dictionary<int, GameObject> Defausse { get; set; }
+    public Dictionary<int,GameObject> Main { get; set; }
 }

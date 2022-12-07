@@ -27,6 +27,7 @@ public class BeginState : State
     private void GenererDeck()
     {
         Deck deck = new();
+        int compteur = 0;
         Vaisseau vaisseauJoueur = gameManager.VaisseauJoueur.GetComponent<Vaisseau>();
         foreach (Module module in vaisseauJoueur.ModulesActifs)
         {
@@ -35,8 +36,9 @@ public class BeginState : State
                 GameObject prefabCarte = module.Prefab;
                 for (int i = 0; i < module.nbCartes; i++)
                 {
-
-                    deck.Cartes.Add(prefabCarte);
+                    
+                    deck.Cartes.Add(compteur, UnityEngine.Object.Instantiate(prefabCarte,gameManager.DeckContainer.transform));
+                    compteur++;
                 }
             }
             

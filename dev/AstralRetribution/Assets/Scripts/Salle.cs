@@ -27,8 +27,6 @@ public class Salle
     }
     public void RecevoirDegats(float puissance)
     {
-        Debug.Log(CurrentVie);
-
         foreach (Sol sol in Tuiles)
         {
             if (sol.Module != null)
@@ -42,7 +40,6 @@ public class Salle
             }
         }
         CurrentVie -= puissance;
-        Debug.Log(CurrentVie);
         if (CurrentVie <= 0)
         {
             SalleDetruit();
