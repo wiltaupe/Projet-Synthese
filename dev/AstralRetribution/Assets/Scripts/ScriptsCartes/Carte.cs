@@ -24,6 +24,7 @@ public class Carte : MonoBehaviour,ISelectHandler, IPointerEnterHandler,IPointer
     {
         GameManager.OnPlayerTurn -= GameManager_OnPlayerTurn;
         GameManager.OnPlayerTurnEnd -= GameManager_OnPlayerTurnEnd;
+        GameManager.OnCardPlayed -= GameManage_OnCardPlayed;
     }
 
     public virtual void PlayCard()

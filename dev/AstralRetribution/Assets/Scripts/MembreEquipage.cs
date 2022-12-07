@@ -4,11 +4,12 @@ using UnityEngine.Events;
 
 public class MembreEquipage : MonoBehaviour
 {
-    public membreBlesser­ bless;
+    public UnityEvent­<MembreEquipage> bless;
     public Sol tuile { get; set; }
     public bool ennemi { get; set; }
     
     public Vector2 cible;
+    public bool action;
 
     public float MaxVie { get; set; } = 30;
     public float CurrentVie { get; set; }
@@ -39,6 +40,11 @@ public class MembreEquipage : MonoBehaviour
 
     }
 
+    public virtual void actionEquipage(Module m)
+    {
+
+    }
+
     internal void RecevoirDegats(float puissance)
     {
         CurrentVie -= puissance;
@@ -57,10 +63,4 @@ public class MembreEquipage : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-}
-
-[System.Serializable]
-public class membreBlesser­: UnityEvent­<MembreEquipage>
-{
-
 }

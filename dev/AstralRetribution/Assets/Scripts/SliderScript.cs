@@ -20,7 +20,6 @@ public class SliderScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(PlayerTurn);
         if (PlayerTurn)
         {
             if (tour < tourMax)
@@ -42,7 +41,6 @@ public class SliderScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("bar");
                 bar.localScale = new Vector3(tour / tourMax, 1, bar.transform.localScale.z);
             }
         }

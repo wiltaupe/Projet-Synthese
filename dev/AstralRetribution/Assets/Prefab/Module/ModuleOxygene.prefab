@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1549601055636736994, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
       propertyPath: m_Name
-      value: Oxygene
+      value: ModuleOxygene
       objectReference: {fileID: 0}
     - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
       propertyPath: m_RootOrder
@@ -75,5 +75,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d29a764655f447408d467d23cebe13b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bless:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1543748398709446681, guid: d1c8d61232f2c6c4eb226c405b69a313, type: 3}
+        m_TargetAssemblyTypeName: Mecanicien, Assembly-CSharp
+        m_MethodName: actionEquipage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  currentTile: {fileID: 0}
   Prefab: {fileID: 4959585198035422896, guid: 25c06f3cd77b4e746844c6f42854585f, type: 3}
   nbCartes: 1

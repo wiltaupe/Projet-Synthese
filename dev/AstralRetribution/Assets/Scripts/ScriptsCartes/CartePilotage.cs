@@ -12,13 +12,12 @@ public class CartePilotage : Carte
         if (Random.Range(0f,1f)<= precision)
         {
             cible.RecevoirDegats(puissanceAttaque);
+            GameManager.Instance.LancerMissile(cible);
         }
         else
         {
             Debug.Log("miss");
         }
-
-        GameManager.Instance.LancerMissile(cible);
     }
 
 }

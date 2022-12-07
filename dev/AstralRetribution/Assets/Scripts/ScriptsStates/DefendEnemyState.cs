@@ -15,7 +15,8 @@ internal class DefendEnemyState : State
     {
         Debug.Log("DefendEnemyState");
         ProtectSalle(gameManager.VaisseauEnnemi.GetComponent<Vaisseau>().GetMostDamagedSalle());
-        yield break;
+        yield return new WaitForSeconds(1.0f);
+        gameManager.SetState(new PlayerTurnState(gameManager));
     }
 
     private void ProtectSalle(Salle salle)

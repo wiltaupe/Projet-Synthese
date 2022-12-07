@@ -83,5 +83,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6255f692d919904c95fc84bb50337e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bless:
+    m_PersistentCalls:
+      m_Calls: []
   cible: {x: 0, y: 0}
+  action: 0
   etat: 0

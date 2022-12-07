@@ -1,19 +1,20 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Module : MonoBehaviour
 {
+    public UnityEvent­<Module> module;
     private Vector3 dragOffset;
     private Camera cam;
     private Vector3 lastPos;
-    private Sol currentTile = null;
+    public Sol currentTile = null;
     private bool redo = false;
     private bool aBouger = false;
     private bool draggable = true;
     public GameObject Prefab;
     public int nbCartes;
     public virtual Etat Type { get; set; }
-
     public float MaxVie { get; set; } = 30;
     public float CurrentVie { get; set; }
 
@@ -60,6 +61,11 @@ public class Module : MonoBehaviour
         if (CurrentVie <= 0)
         {
             ModuleDetruit();
+        }
+
+        else
+        {
+            module?.Invoke(this);
         }
     }
 

@@ -131,10 +131,10 @@ public class Mouvement : MonoBehaviour
             verif = true;
         }
 
-        if (Random.Range(0, 5000) == 1)
+        /*if (Random.Range(0, 5000) == 1)
         {
             membre.etat = MembreEquipage.EnumEquipages.ePathFinding;
-        }
+        }*/
 
         if (membre.etat == MembreEquipage.EnumEquipages.ePathFinding && fini && !enPAth)
         {
@@ -151,7 +151,7 @@ public class Mouvement : MonoBehaviour
             {
                 MettreAJourVaisseau();
                 //Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, Test.GetRandomAvailableTile().Position);
-                Pathfinder(membre.tuile.Position, Test.GetRandomAvailableTile().Position);
+                Pathfinder(membre.tuile.Position, membre.cible);
                 Debug.Log("Gentil pas cancer je joue pas a lol");
             }
             fini = false;

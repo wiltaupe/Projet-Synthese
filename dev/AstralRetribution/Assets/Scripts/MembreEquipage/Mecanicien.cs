@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Mecanicien : MembreEquipage
 {
-    private Module moduleCible;
-
-    override public void actionEquipage()
+    override public void actionEquipage(Module m)
     {
-        etat = MembreEquipage.EnumEquipages.ePathFinding;
-        cible = moduleCible.currentTile.Position;
+        Debug.Log("Reparage");
+        if(!action)
+        {
+            etat = MembreEquipage.EnumEquipages.ePathFinding;
+            cible = m.currentTile.Position;
+        }
+
     }
 }

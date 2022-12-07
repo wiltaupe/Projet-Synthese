@@ -6,8 +6,11 @@ public class Soigneur : MembreEquipage
 {
     override public void actionEquipage(MembreEquipage m)
     {
-        
-        etat = MembreEquipage.EnumEquipages.ePathFinding;
-        cible = m.tuile.Position;
+        if(!action)
+        {
+            Debug.Log("soigneur");
+            etat = MembreEquipage.EnumEquipages.ePathFinding;
+            cible = m.tuile.Position;
+        }
     }
 }

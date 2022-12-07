@@ -17,7 +17,8 @@ public class RepairEnemyState : State
         Debug.Log("repairEnemyState");
         SelectRandomMembre();
         SelectRandomSalle();
-        yield break;
+        yield return new WaitForSeconds(1.0f);
+        gameManager.SetState(new PlayerTurnState(gameManager));
 
     }
 
