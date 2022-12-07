@@ -9,8 +9,8 @@ public class Soigneur : MembreEquipage
         if(!action)
         {
             Debug.Log("soigneur");
-            etat = MembreEquipage.EnumEquipages.ePathFinding;
-            cible = m.tuile.Position;
+            this.etat = MembreEquipage.EnumEquipages.ePathFinding;
+            this.cible = m.tuile.Position;
         }
     }
 }

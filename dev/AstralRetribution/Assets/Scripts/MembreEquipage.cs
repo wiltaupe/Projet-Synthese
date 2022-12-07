@@ -13,10 +13,13 @@ public class MembreEquipage : MonoBehaviour
 
     public float MaxVie { get; set; } = 30;
     public float CurrentVie { get; set; }
+    public EnumEquipages etat;
 
     private void Start()
     {
         CurrentVie = MaxVie;
+        etat = EnumEquipages.ePassif;
+        Debug.Log(etat);
     }
 
     public enum EnumEquipages
@@ -28,7 +31,7 @@ public class MembreEquipage : MonoBehaviour
         eDeplacementPathfindin = 5
     };
 
-    public EnumEquipages etat;
+    
 
     public virtual void actionEquipage()
     {
