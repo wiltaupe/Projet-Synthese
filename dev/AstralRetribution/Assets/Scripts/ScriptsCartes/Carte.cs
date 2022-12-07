@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Carte : MonoBehaviour,ISelectHandler, IPointerEnterHandler,IPointerExitHandler
 {
     public GameObject description;
+    public int Idx { get; set; }
     [field:SerializeField] public Button Button { get; set; } 
 
     void OnEnable()

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [field:SerializeField]public GameObject Bullet { get; set; }
+
     public delegate void PlayerTurnAction();
     public static event PlayerTurnAction OnPlayerTurn;
     public delegate void PlayerTurnEndAction();
@@ -26,6 +28,18 @@ public class GameManager : MonoBehaviour
     public int cartesParTour = 4;
     private readonly System.Random random = new();
     [HideInInspector]public Salle RoomSelected { get; set; }
+
+    public void GenererDeck()
+    {
+
+        foreach (GameObject carte in DeckJoueur.Cartes.Values)
+        {
+            Instantiate(carte, DeckContainer.transform);
+        }
+
+        
+    }
+
     [HideInInspector]public Carte CarteSelected { get; set; }
 
 
@@ -36,7 +50,7 @@ public class GameManager : MonoBehaviour
 
     public void LancerMissile(Salle cible)
     {
-            Instantiate(Bullet, cible.GetMiddleSol().transform.position, Quaternion.identity);
+        Instantiate(Bullet, cible.GetMiddleSol().transform.position, Quaternion.identity);
     }
     public void DrawCards()
     {
@@ -49,16 +63,19 @@ public class GameManager : MonoBehaviour
 
         while (compteur != cartesParTour)
         {
-            int index = random.Next(DeckJoueur.Cartes.Count);
-            DeckJoueur.Main.Add(DeckJoueur.Cartes[index]);
-            DeckJoueur.Cartes.RemoveAt(index);
+            int index = DeckJoueur.Cartes.ElementAt(random.Next(0, DeckJoueur.Cartes.Count)).Key;
+            DeckJoueur.Main[index] = DeckJoueur.Cartes[index];
+            DeckJoueur.Cartes.Remove(index);
             compteur++;
         }
 
-        foreach (GameObject carte in DeckJoueur.Main)
-        {
+        
 
-            Instantiate(carte, DeckContainer.transform);
+        foreach (int key in DeckJoueur.Main.Keys)
+        {
+            Debug.Log(key);
+            DeckJoueur.Main[key].SetActive(true);
+            DeckJoueur.Main[key].GetComponent<Carte>().Idx = key;
         }
     }
 
