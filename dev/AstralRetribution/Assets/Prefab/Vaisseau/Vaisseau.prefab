@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4396725286189259311}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tuiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4717405969522983765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4985988470680792900}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4985988470680792891}
   - component: {fileID: 4985988470680792890}
   - component: {fileID: 8372222916833113229}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Vaisseau
   m_TagString: VaisseauJoueur
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 4985988470680792901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4396725286189259311}
@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   esquive: 0
+  tuiles: {fileID: 4717405969522983765}
 --- !u!114 &4985988470680792890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +138,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 336, y: 343.6}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

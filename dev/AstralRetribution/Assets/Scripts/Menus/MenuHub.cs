@@ -19,7 +19,7 @@ public class MenuHub : MonoBehaviour
         vaisseau = GameObject.Find("Vaisseau");
         background.sprite = MainManager.Instance.Background;
 
-        vaisseau.transform.localScale = new Vector3((Screen.width / 1920) * 0.705f, (Screen.height / 1080) * 0.705f, 0);
+        vaisseau.transform.localScale = new Vector3((Screen.width / 1920) * 3.65f, (Screen.height / 1080) * 3.65f, 0);
         vaisseau.transform.position = positionVaisseau.position;
 
         if (PlaneteManager.Instance.GetFait() == false)

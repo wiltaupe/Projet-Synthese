@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1639403370617346628
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792900, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985988470680792901, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_Name
+      value: Vaisseau Variant 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372222916833113229, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 503b3414e077abd49b2bb85047a68054, type: 3}
+    - target: {fileID: 8372222916833113229, guid: 138b62b49638db8428208148128b7a40, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 138b62b49638db8428208148128b7a40, type: 3}
+--- !u!1 &6048790275233854721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4985988470680792901, guid: 138b62b49638db8428208148128b7a40, type: 3}
+  m_PrefabInstance: {fileID: 1639403370617346628}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &7080170555506470608
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048790275233854721}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.13645935, y: 6.8232}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 128, y: 128}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 61.132637, y: 84.87739}
+  m_EdgeRadius: 0
