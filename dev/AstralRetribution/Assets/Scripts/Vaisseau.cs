@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Vaisseau : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class Vaisseau : MonoBehaviour
     public List<GameObject> MembresEquipage { get; set; }
     public List<Module> ModulesActifs { get; set; }
     public float esquive = 0;
+    public GameObject tuiles;
     
     internal void AjoutEsquive(float pourcentageEsquive)
     {
@@ -114,5 +116,17 @@ public class Vaisseau : MonoBehaviour
         }
 
         ModulesActifs.Add(module);
+    }
+
+    private void OnMouseDown()
+    {
+        if (tuiles.activeInHierarchy)
+        {
+            tuiles.SetActive(false);
+        }
+        else
+        {
+            tuiles.SetActive(true);
+        }
     }
 }

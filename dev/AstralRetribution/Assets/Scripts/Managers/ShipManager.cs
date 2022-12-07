@@ -11,8 +11,8 @@ public class ShipManager : MonoBehaviour
     public static int Taille { get; private set; }
     //[SerializeField] public int taille { get; set; }
     [SerializeField] private int nbIterations;
-    [SerializeField] private GameObject prefabVaisseau;
-    [SerializeField] private GameObject prefabEnnemi;
+    [SerializeField] private GameObject[] prefabVaisseau;
+    [SerializeField] private GameObject[] prefabEnnemi;
 
     private List<RectInt> rectInts;
 
@@ -28,13 +28,12 @@ public class ShipManager : MonoBehaviour
         GameObject goVaisseau;
         if (ennemi)
         {
-            goVaisseau = Instantiate(prefabEnnemi, position, Quaternion.identity);
-            Destroy(goVaisseau.GetComponent<DontDestroyVaisseau>());
+            goVaisseau = Instantiate(prefabEnnemi[UnityEngine.Random.Range(0, prefabEnnemi.Length)], position, Quaternion.identity);
             goVaisseau.name = "VaisseauEnnemi";
         }
         else
         {
-            goVaisseau = Instantiate(prefabVaisseau, position, Quaternion.identity);
+            goVaisseau = Instantiate(prefabVaisseau[UnityEngine.Random.Range(0, prefabVaisseau.Length)], position, Quaternion.identity);
             goVaisseau.name = "Vaisseau";
         }
 

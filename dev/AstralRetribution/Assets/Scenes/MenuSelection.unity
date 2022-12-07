@@ -321,6 +321,74 @@ PrefabInstance:
       propertyPath: prefabVaisseau
       value: 
       objectReference: {fileID: 4985988470680792901, guid: 138b62b49638db8428208148128b7a40, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabEnnemi.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabVaisseau.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabEnnemi.Array.data[0]
+      value: 
+      objectReference: {fileID: 353161195770714874, guid: add5650cc0a7099439abb41b500f598f, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabEnnemi.Array.data[1]
+      value: 
+      objectReference: {fileID: 2231525426396657285, guid: ced5704c60b18174a8b472f86d3a3072, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabEnnemi.Array.data[2]
+      value: 
+      objectReference: {fileID: 6417419010075728674, guid: 992e81ea2cacfdb488053a42f2d84628, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabEnnemi.Array.data[3]
+      value: 
+      objectReference: {fileID: 9203448374668990362, guid: 80ef5591876b07945902cdc4457ec28c, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabEnnemi.Array.data[4]
+      value: 
+      objectReference: {fileID: 6426092616553171687, guid: 8d041329d8da33e48b99bbde055acaaa, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabEnnemi.Array.data[5]
+      value: 
+      objectReference: {fileID: 7469961668752668731, guid: 71ad79faa5187e14da455a78e370e4ba, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabEnnemi.Array.data[6]
+      value: 
+      objectReference: {fileID: 7314645927069413709, guid: 8d2a6a40badf36645bdb64d0706ec160, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabVaisseau.Array.data[0]
+      value: 
+      objectReference: {fileID: 7968320650694263651, guid: d33b8653569fe9d44bf7483365ec71e7, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabVaisseau.Array.data[1]
+      value: 
+      objectReference: {fileID: 6048790275233854721, guid: 97f5ce8f4ea818c47a3a8b73dae5b06f, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabVaisseau.Array.data[2]
+      value: 
+      objectReference: {fileID: 5126682098336406355, guid: 4a8ee1ed4c8252248853605a75affd81, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabVaisseau.Array.data[3]
+      value: 
+      objectReference: {fileID: 487714090894974553, guid: 342b247469d9af949af2eee54f1a83e8, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabVaisseau.Array.data[4]
+      value: 
+      objectReference: {fileID: 4323097555755593511, guid: e0a563b72d8bc4a479c17e525863382e, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabVaisseau.Array.data[5]
+      value: 
+      objectReference: {fileID: 7314645927069413709, guid: 8d2a6a40badf36645bdb64d0706ec160, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabVaisseau.Array.data[6]
+      value: 
+      objectReference: {fileID: 4323097555755593511, guid: e0a563b72d8bc4a479c17e525863382e, type: 3}
+    - target: {fileID: 1414262486844723275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: prefabVaisseau.Array.data[7]
+      value: 
+      objectReference: {fileID: 7314645927069413709, guid: 8d2a6a40badf36645bdb64d0706ec160, type: 3}
     - target: {fileID: 2362141340021134272, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -368,6 +436,10 @@ PrefabInstance:
     - target: {fileID: 2362141340021134273, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
       propertyPath: m_Name
       value: MainManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453712575147579552, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5348189208926491008, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
       propertyPath: m_LocalPosition.z
