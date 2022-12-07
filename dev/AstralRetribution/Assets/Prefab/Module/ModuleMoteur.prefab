@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5df8bb5a192c0c4aa638af0bd782ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bless:
+  module:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1543748398709446681, guid: d1c8d61232f2c6c4eb226c405b69a313, type: 3}
