@@ -7,13 +7,23 @@ public class MenuSelection : MonoBehaviour
     [SerializeField] private Image image;
     [SerializeField] private Sprite[] textures;
     [SerializeField] private Transform positionJoueur;
+    public GameObject boutonMenu;
+    Vaisseau vaisseaujoueur;
     // Start is called before the first frame update
     void Start()
     {
-        
-        GenererMembreEquipage(GenererVaisseauJoueur());
+        vaisseaujoueur = GenererVaisseauJoueur();
+        GenererMembreEquipage(vaisseaujoueur);
         GenererBackground();
-        
+        boutonMenu.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (vaisseaujoueur.ModulesActifs.Count == 3)
+        {
+            boutonMenu.SetActive(true);
+        }
     }
 
     private Vaisseau GenererVaisseauJoueur()

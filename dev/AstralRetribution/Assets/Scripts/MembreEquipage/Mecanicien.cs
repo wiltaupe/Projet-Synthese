@@ -7,10 +7,11 @@ public class Mecanicien : MembreEquipage
     override public void actionEquipage(Module m)
     {
         Debug.Log("Reparage");
-        if(!action)
+        
+        if(!this.action)
         {
-            etat = MembreEquipage.EnumEquipages.ePathFinding;
-            cible = m.currentTile.Position;
+            this.etat = MembreEquipage.EnumEquipages.ePathFinding;
+            this.cible = m.currentTile.Position;
         }
 
     }

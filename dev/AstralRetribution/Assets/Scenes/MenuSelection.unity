@@ -437,10 +437,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainManager
       objectReference: {fileID: 0}
+
     - target: {fileID: 3453712575147579552, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2362141340021134275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: moduleObligatoire.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362141340021134275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: moduleObligatoire.Array.data[0]
+      value: 
+      objectReference: {fileID: 5316413661705423441, guid: 3f96bc7f149a6824088cbe4a2e241335, type: 3}
+    - target: {fileID: 2362141340021134275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: moduleObligatoire.Array.data[1]
+      value: 
+      objectReference: {fileID: 4492207037558769452, guid: 456cdfe513132904282f379d185f86cf, type: 3}
+    - target: {fileID: 2362141340021134275, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
+      propertyPath: moduleObligatoire.Array.data[2]
+      value: 
+      objectReference: {fileID: 5449991597694959725, guid: 3620cc860f95b084c96bd5e3c47fb06a, type: 3}
     - target: {fileID: 5348189208926491008, guid: 21656f982d77df94b9434be2fae5ddc5, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -741,6 +758,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7142108d3f9915841923056ca9eb356b, type: 3}
   - {fileID: 21300000, guid: d34a0fa7869f29d45ae23894df01c09d, type: 3}
   positionJoueur: {fileID: 992388214}
+  boutonMenu: {fileID: 1841623906}
 --- !u!4 &1370440565
 Transform:
   m_ObjectHideFlags: 0
@@ -831,7 +849,7 @@ GameObject:
   - component: {fileID: 1841623909}
   - component: {fileID: 1841623908}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Miseenplace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

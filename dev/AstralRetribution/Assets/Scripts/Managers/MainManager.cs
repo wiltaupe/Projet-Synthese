@@ -47,7 +47,7 @@ public class MainManager : MonoBehaviour
     {
         if (v2)
         {
-            float ajustersize = (float)8 / (float)ShipManager.Taille;
+            float ajustersize = (float)10 / (float)ShipManager.Taille;
 
             foreach (GameObject module in moduleObligatoire)
             {
