@@ -60,7 +60,7 @@ public class Sol : Tile
     {
         if (GameManager.Instance != null)
         {
-            if (GameManager.Instance.CarteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi"))
+            if (GameManager.Instance.CarteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi") && GameManager.Instance.RoomSelected == null)
             {
                 GameManager.Instance.RoomSelected = Parent;
                 Parent.RoomSelected = true;
