@@ -7,13 +7,13 @@ public class Mouvement : MonoBehaviour
 {
     private Animator anim;
     private Vector2 direction = new Vector2();
-    private float vitesse = 5.0f;
+    private float vitesse = 10.0f;
     private Rigidbody2D body;
     private bool verif = false;
     private Dictionary<int, (HPT, int)> dicOPEN;
     private Dictionary<int, (HPT, int)> dicCLOSE;
     private List<Tile> tilepath, tilepathEnnemi;
-    private List<(Vector2,string)> vecteurDeplacement;
+    private List<(Vector2,string,Sol)> vecteurDeplacement;
     private GameObject vaisseau, vaisseauEnnemi;
     private Vaisseau Test, TestEnnemi;
     private int compteur = 2;
@@ -22,6 +22,7 @@ public class Mouvement : MonoBehaviour
     private int indexPath = 0;
     private bool vEnnemi;
     private MembreEquipage membre;
+    private bool parentFinalTrouver = false;
 
     void Start()
     {
@@ -57,21 +58,23 @@ public class Mouvement : MonoBehaviour
         if (deplacementpathFinding() && trouver && enPAth)
         {
             // https://www.youtube.com/watch?v=alU04hvz6L4 // temps 22:25
-            if (vecteurDeplacement != null)
+            if (vecteurDeplacement != null && parentFinalTrouver)
             {
                 Vector3 targetPosition = vecteurDeplacement[indexPath].Item1;
                 if (Vector3.Distance(transform.position,targetPosition) > 1f)
                 {
                     Vector3 moveDir = (targetPosition - transform.position);
 
-                    float distanceBefore = Vector3.Distance(transform.position, targetPosition);
+                    //float distanceBefore = Vector3.Distance(transform.position, targetPosition.normalized);
                     anim.SetFloat("Horizontal", moveDir.x);
                     anim.SetFloat("Vertical", moveDir.y);
                     anim.SetFloat("Vitesse", moveDir.sqrMagnitude);
                     // pour ajuster le tile present
                     body.transform.SetParent(GameObject.Find(vecteurDeplacement[indexPath].Item2).transform);
+                    membre.tuile = vecteurDeplacement[indexPath].Item3;
 
                     transform.position = transform.position + moveDir * vitesse * Time.deltaTime;
+                    moveDir.Normalize();
                 }
 
                 else
@@ -94,6 +97,7 @@ public class Mouvement : MonoBehaviour
     {
         vecteurDeplacement = null;
         indexPath = 0;
+        parentFinalTrouver = false;
     }
 
     private bool deplacementpathFinding()
@@ -179,6 +183,7 @@ public class Mouvement : MonoBehaviour
 
             if (current.maPosition == positionFin)
             {
+                Debug.Log("chemin trouver");
                 TrouverListeChemin(current);
                 trouver = true;
                 enPAth = true;
@@ -235,14 +240,18 @@ public class Mouvement : MonoBehaviour
 
     private void TrouverListeChemin(HPT chemin)
     {
-        if(!chemin.debut)
+        if (!chemin.debut)
         {
             if (vecteurDeplacement == null)
             {
-                vecteurDeplacement = new List<(Vector2, string)>();
+                vecteurDeplacement = new List<(Vector2, string,Sol)>();
             }
             TrouverListeChemin(chemin.parent);
-            vecteurDeplacement.Add((chemin.tileposition,chemin.nom));
+            vecteurDeplacement.Add((chemin.tileposition, chemin.nom,chemin.solpresent));
+        }
+        else
+        {
+            parentFinalTrouver = true;
         }
     }
 
@@ -358,6 +367,10 @@ public class Mouvement : MonoBehaviour
                 depart.debut = true;
                 depart.parent = null;
                 depart.nom = iteration.name;
+                if (iteration.Sol)
+                {
+                    depart.solpresent = iteration.GetComponent­<Sol>();
+                }
 
                 if (iteration.Traversable)
                 {
@@ -382,6 +395,11 @@ public class Mouvement : MonoBehaviour
                 fin.fin = true;
                 fin.nom = iteration.name;
 
+                if (iteration.Sol)
+                {
+                    fin.solpresent = iteration.GetComponent­<Sol>();
+                }
+
                 if (iteration.Traversable)
                 {
                     fin.traversable = true;
@@ -401,6 +419,12 @@ public class Mouvement : MonoBehaviour
                 ajout.maPosition = iteration.Position;
                 ajout.tileposition = iteration.gameObject.transform.position;
                 ajout.nom = iteration.name;
+
+                if (iteration.Sol)
+                {
+                    ajout.solpresent = iteration.GetComponent­<Sol>();
+                }
+
                 if (iteration.Traversable)
                 {
                     ajout.traversable = true;
@@ -463,6 +487,7 @@ internal class HPT
     private int T;
     public bool debut { get; set; }
     public bool fin { get; set; }
+    public Sol solpresent { get; set; }
     public HPT parent { get; set; }
     public bool traversable { get; set; }
     public int setT()
