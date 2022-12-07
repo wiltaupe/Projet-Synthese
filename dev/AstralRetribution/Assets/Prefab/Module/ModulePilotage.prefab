@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb45542f0487c9e4ab144d36ec109999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bless:
+  module:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1543748398709446681, guid: d1c8d61232f2c6c4eb226c405b69a313, type: 3}
