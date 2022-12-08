@@ -61,7 +61,7 @@ public class Mouvement : MonoBehaviour
             if (vecteurDeplacement != null && parentFinalTrouver)
             {
                 Vector3 targetPosition = vecteurDeplacement[indexPath].Item1;
-                if (Vector3.Distance(transform.position,targetPosition) > 1f)
+                if (Vector3.Distance(transform.position,targetPosition) > 1.2f)
                 {
                     Vector3 moveDir = (targetPosition - transform.position);
 
@@ -73,7 +73,7 @@ public class Mouvement : MonoBehaviour
                     body.transform.SetParent(GameObject.Find(vecteurDeplacement[indexPath].Item2).transform);
                     membre.tuile = vecteurDeplacement[indexPath].Item3;
 
-                    transform.position = transform.position + moveDir * vitesse * Time.deltaTime;
+                    transform.position = transform.position + moveDir.normalized * vitesse * 6 * Time.deltaTime;
                     moveDir.Normalize();
                 }
 
@@ -205,7 +205,7 @@ public class Mouvement : MonoBehaviour
                     }
                 }
 
-                if(!voisin.traversable || estdejala)
+                if((!voisin.traversable && !voisin.fin) || estdejala)
                 {
                     continue;
                 }
@@ -234,6 +234,7 @@ public class Mouvement : MonoBehaviour
             {
                 trouver = true;
                 Debug.Log("chemin impossible");
+                membre.etat = MembreEquipage.EnumEquipages.ePassif;
             }
         }
     }
@@ -285,11 +286,11 @@ public class Mouvement : MonoBehaviour
                 mesvoisins.Add(v);
             }
 
-            if (un)
+            /*if (un)
             {
                 v.H = 14 + current.H;
                 mesvoisins.Add(v);
-            }
+            }*/
             MettreAJOURPTVoisin(mesvoisins, tout);
         }
         return mesvoisins;
