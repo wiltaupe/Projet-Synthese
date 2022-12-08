@@ -261,14 +261,11 @@ public class Mouvement : MonoBehaviour
         List<HPT> mesvoisins = new List<HPT>();
         foreach (HPT v in tout)
         {
-            bool un = false;
+            // bool un = false;
             bool deux = false;
             bool trois = false;
 
-            if (((current.maPosition.x - v.maPosition.x) == 1  || (current.maPosition.x - v.maPosition.x) == -1) && ((current.maPosition.y - v.maPosition.y) == 1 || (current.maPosition.y - v.maPosition.y) == -1))
-            {
-                un = true;
-            }
+            //if (((current.maPosition.x - v.maPosition.x) == 1  || (current.maPosition.x - v.maPosition.x) == -1) && ((current.maPosition.y - v.maPosition.y) == 1 || (current.maPosition.y - v.maPosition.y) == -1)) { un = true;}
 
             if (((current.maPosition.x - v.maPosition.x) == 1 || (current.maPosition.x - v.maPosition.x) == -1) && ((current.maPosition.y - v.maPosition.y) == 0 || (current.maPosition.y - v.maPosition.y) == 0))
             {
@@ -286,11 +283,7 @@ public class Mouvement : MonoBehaviour
                 mesvoisins.Add(v);
             }
 
-            /*if (un)
-            {
-                v.H = 14 + current.H;
-                mesvoisins.Add(v);
-            }*/
+            /*if (un) { v.H = 14 + current.H; mesvoisins.Add(v); }*/
             MettreAJOURPTVoisin(mesvoisins, tout);
         }
         return mesvoisins;
