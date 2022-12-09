@@ -39,6 +39,7 @@ public class MainManager : MonoBehaviour
         module.transform.position = tuile.transform.position;
 
         module.GetComponent<Module>().currentTile = tuile;
+        module.GetComponent<Module>().ennemi = true;
 
         tuile.Module = module.GetComponent<Module>();
     }

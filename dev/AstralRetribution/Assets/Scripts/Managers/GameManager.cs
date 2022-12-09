@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour
 
     public void RetourHub()
     {
+        Destroy(VaisseauEnnemi.gameObject);
         SceneManager.LoadSceneAsync("MenuHub");
     }
 }

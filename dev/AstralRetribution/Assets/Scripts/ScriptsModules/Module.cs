@@ -15,6 +15,8 @@ public class Module : MonoBehaviour
     private bool draggable = true;
     public GameObject Prefab;
     public int nbCartes;
+    public bool ennemi { get; set; } = false;
+
     public virtual Etat Type { get; set; }
     public float MaxVie { get; set; } = 30;
     public float CurrentVie { get; set; }

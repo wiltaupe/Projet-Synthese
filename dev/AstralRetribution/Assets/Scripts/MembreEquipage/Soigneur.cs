@@ -17,7 +17,13 @@ public class Soigneur : MembreEquipage
 
     private void MembreEquipage_OnMemberHit(MembreEquipage obj)
     {
-        if (!action)
+        if (!action && obj.ennemi)
+        {
+            this.etat = MembreEquipage.EnumEquipages.ePathFindingEnnemi;
+            this.cible = obj.tuile.Position;
+        }
+
+        else
         {
             this.etat = MembreEquipage.EnumEquipages.ePathFinding;
             this.cible = obj.tuile.Position;

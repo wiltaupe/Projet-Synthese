@@ -28,9 +28,9 @@ public class MembreEquipage : MonoBehaviour
         ePassif = 2,
         eDeplacement = 3,
         ePathFinding = 4,
-        eDeplacementPathfindin = 5
-    };
-
+        eDeplacementPathfindin = 5,
+        ePathFindingEnnemi = 6
+    }
     internal void RecevoirDegats(float puissance)
     {
         CurrentVie -= puissance;

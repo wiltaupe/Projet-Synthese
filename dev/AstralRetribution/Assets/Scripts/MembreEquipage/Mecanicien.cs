@@ -17,8 +17,16 @@ public class Mecanicien : MembreEquipage
 
     private void Module_OnModuleHit(Module obj)
     {
-        Debug.Log("Reparage");
-        this.etat = MembreEquipage.EnumEquipages.ePathFinding;
-        this.cible = obj.currentTile.Position;
+        if (obj.ennemi)
+        {
+            this.etat = MembreEquipage.EnumEquipages.ePathFindingEnnemi;
+            this.cible = obj.currentTile.Position;
+        }
+        else
+        {
+            this.etat = MembreEquipage.EnumEquipages.ePathFinding;
+            this.cible = obj.currentTile.Position;
+        }
+
     }
 }

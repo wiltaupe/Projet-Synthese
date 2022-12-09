@@ -102,7 +102,7 @@ public class Mouvement : MonoBehaviour
 
     private bool deplacementpathFinding()
     {
-        return (membre.etat & (MembreEquipage.EnumEquipages.eDeplacementPathfindin | MembreEquipage.EnumEquipages.ePathFinding)) != 0;
+        return (membre.etat & (MembreEquipage.EnumEquipages.eDeplacementPathfindin | MembreEquipage.EnumEquipages.ePathFindingEnnemi | MembreEquipage.EnumEquipages.ePathFindingEnnemi)) != 0;
     }
 
     private bool deplacement()
@@ -123,10 +123,10 @@ public class Mouvement : MonoBehaviour
             verif = true;
         }
 
-        if (membre.etat == MembreEquipage.EnumEquipages.ePathFinding && !enPAth)
+        if ((membre.etat == MembreEquipage.EnumEquipages.ePathFindingEnnemi || membre.etat == MembreEquipage.EnumEquipages.ePathFinding) && !enPAth)
         {
 
-            if (vEnnemi)
+            if (vEnnemi && membre.etat == MembreEquipage.EnumEquipages.ePathFindingEnnemi)
             {
                 MettreAJourVaisseau();
                 StartCoroutine(Pathfinder(membre.tuile.Position, membre.cible));
@@ -134,7 +134,7 @@ public class Mouvement : MonoBehaviour
                 Debug.Log("Ennemi yeah SHeshhh");
             }
 
-            if (!vEnnemi)
+            if (!vEnnemi && membre.etat == MembreEquipage.EnumEquipages.ePathFinding)
             {
                 MettreAJourVaisseau();
                 StartCoroutine(Pathfinder(membre.tuile.Position, membre.cible));
