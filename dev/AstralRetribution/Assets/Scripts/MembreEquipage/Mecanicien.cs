@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Mecanicien : MembreEquipage
 {
-    override public void actionEquipage(Module m)
+
+    private void OnEnable()
+    {
+        Module.OnModuleHit += Module_OnModuleHit;
+    }
+
+    private void OnDisable()
+    {
+        Module.OnModuleHit -= Module_OnModuleHit;
+    }
+
+    private void Module_OnModuleHit(Module obj)
     {
         Debug.Log("Reparage");
-        
-        if(!this.action)
-        {
-            this.etat = MembreEquipage.EnumEquipages.ePathFinding;
-            this.cible = m.currentTile.Position;
-        }
-
+        this.etat = MembreEquipage.EnumEquipages.ePathFinding;
+        this.cible = obj.currentTile.Position;
     }
 }

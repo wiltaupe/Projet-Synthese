@@ -129,16 +129,15 @@ public class Mouvement : MonoBehaviour
             if (vEnnemi)
             {
                 MettreAJourVaisseau();
-                //Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, TestEnnemi.GetRandomAvailableTile().Position);
-                Pathfinder(membre.tuile.Position, membre.cible);
+                StartCoroutine(Pathfinder(membre.tuile.Position, membre.cible));
+                
                 Debug.Log("Ennemi yeah SHeshhh");
             }
 
             if (!vEnnemi)
             {
                 MettreAJourVaisseau();
-                //Pathfinder(body.transform.gameObject.GetComponent<MembreEquipage>().tuile.Position, Test.GetRandomAvailableTile().Position);
-                Pathfinder(membre.tuile.Position, membre.cible);
+                StartCoroutine(Pathfinder(membre.tuile.Position, membre.cible));
                 Debug.Log("Gentil pas cancer je joue pas a lol");
             }
         }
@@ -158,7 +157,7 @@ public class Mouvement : MonoBehaviour
         }
     }
 
-    private void Pathfinder(Vector2 positionDepart, Vector2 positionFin)
+    private IEnumerator Pathfinder(Vector2 positionDepart, Vector2 positionFin)
     {
 
         dicOPEN = new Dictionary<int, (HPT, int)>();
@@ -184,7 +183,7 @@ public class Mouvement : MonoBehaviour
             if (current.maPosition == positionFin)
             {
                 Debug.Log("chemin trouver");
-                TrouverListeChemin(current);
+                StartCoroutine(TrouverListeChemin(current));
                 trouver = true;
                 enPAth = true;
             }
@@ -237,9 +236,11 @@ public class Mouvement : MonoBehaviour
                 membre.etat = MembreEquipage.EnumEquipages.ePassif;
             }
         }
+
+        yield break;
     }
 
-    private void TrouverListeChemin(HPT chemin)
+    private IEnumerator TrouverListeChemin(HPT chemin)
     {
         if (!chemin.debut)
         {
@@ -247,13 +248,15 @@ public class Mouvement : MonoBehaviour
             {
                 vecteurDeplacement = new List<(Vector2, string,Sol)>();
             }
-            TrouverListeChemin(chemin.parent);
+            StartCoroutine(TrouverListeChemin(chemin.parent));
             vecteurDeplacement.Add((chemin.tileposition, chemin.nom,chemin.solpresent));
         }
         else
         {
             parentFinalTrouver = true;
         }
+
+        yield break;
     }
 
     private List<HPT> TrouverVoisin(HPT current, List<HPT> tout)

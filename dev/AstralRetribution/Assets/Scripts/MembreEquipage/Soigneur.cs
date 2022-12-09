@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Soigneur : MembreEquipage
 {
-    override public void actionEquipage(MembreEquipage m)
+
+    private void OnEnable()
     {
-        if(!action)
+        MembreEquipage.OnMemberHit += MembreEquipage_OnMemberHit;
+    }
+
+    private void OnDisable()
+    {
+        MembreEquipage.OnMemberHit -= MembreEquipage_OnMemberHit;
+    }
+
+    private void MembreEquipage_OnMemberHit(MembreEquipage obj)
+    {
+        if (!action)
         {
-            Debug.Log("soigneur");
             this.etat = MembreEquipage.EnumEquipages.ePathFinding;
-            this.cible = m.tuile.Position;
+            this.cible = obj.tuile.Position;
         }
     }
 }

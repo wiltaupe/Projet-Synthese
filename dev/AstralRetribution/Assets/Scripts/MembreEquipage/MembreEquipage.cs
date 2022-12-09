@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class MembreEquipage : MonoBehaviour
 {
-    public UnityEvent­<MembreEquipage> bless;
+    public static event Action­<MembreEquipage> OnMemberHit;
     public Sol tuile { get; set; }
     public bool ennemi { get; set; }
     
@@ -31,23 +31,6 @@ public class MembreEquipage : MonoBehaviour
         eDeplacementPathfindin = 5
     };
 
-    
-
-    public virtual void actionEquipage()
-    {
-
-    }
-
-    public virtual void actionEquipage(MembreEquipage m)
-    {
-
-    }
-
-    public virtual void actionEquipage(Module m)
-    {
-
-    }
-
     internal void RecevoirDegats(float puissance)
     {
         CurrentVie -= puissance;
@@ -58,7 +41,7 @@ public class MembreEquipage : MonoBehaviour
 
         else
         {
-            bless?.Invoke(this);
+            OnMemberHit?.Invoke(this);
         }
     }
 

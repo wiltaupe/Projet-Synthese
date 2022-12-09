@@ -4,7 +4,8 @@ using UnityEngine.Events;
 
 public class Module : MonoBehaviour
 {
-    public UnityEvent­<Module> module;
+    //public UnityEvent­<Module> module;
+    public static event Action<Module> OnModuleHit;
     private Vector3 dragOffset;
     private Camera cam;
     private Vector3 lastPos;
@@ -65,7 +66,7 @@ public class Module : MonoBehaviour
 
         else
         {
-            module?.Invoke(this);
+            OnModuleHit?.Invoke(this);
         }
     }
 
