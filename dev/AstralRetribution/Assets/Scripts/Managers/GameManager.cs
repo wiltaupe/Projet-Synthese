@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
         PlayCard();
         RoomSelected = null;
         CarteSelected = null;
+
         //DiscardHand();
 
         SetState(new EnemyTurnState(this));
