@@ -9,7 +9,12 @@ public class Vaisseau : MonoBehaviour
     public List<Module> ModulesActifs { get; set; }
     public float esquive = 0;
     public GameObject tuiles;
-    
+    public bool possedeTeleporteur { get; set; } = false;
+    public bool possedeRecepteur { get; set; } = false;
+    public bool possedeTeleporteurRecepteur { get; set; } = false;
+    public Vector2 solRecepteur { get; set; } = new Vector2();
+    public Vector2 positionRecepteur { get; set; } = new Vector2();
+    public Vector2 solTeleporteur { get; set; } = new Vector2();
     internal void AjoutEsquive(float pourcentageEsquive)
     {
         Debug.Log(pourcentageEsquive);
@@ -127,6 +132,14 @@ public class Vaisseau : MonoBehaviour
         else
         {
             tuiles.SetActive(true);
+        }
+    }
+
+    public void VerifTelRec()
+    {
+        if (possedeTeleporteur && possedeRecepteur)
+        {
+            possedeTeleporteurRecepteur = true;
         }
     }
 }
