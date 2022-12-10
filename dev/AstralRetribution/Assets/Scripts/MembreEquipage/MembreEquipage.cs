@@ -19,7 +19,7 @@ public class MembreEquipage : MonoBehaviour
     {
         CurrentVie = MaxVie;
         etat = EnumEquipages.ePassif;
-        Debug.Log(etat);
+        //Debug.Log(etat);
     }
 
     public enum EnumEquipages
