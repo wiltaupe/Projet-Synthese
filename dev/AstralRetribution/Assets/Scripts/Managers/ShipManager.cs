@@ -16,29 +16,28 @@ public class ShipManager : MonoBehaviour
 
     private List<RectInt> rectInts;
 
-    public Vaisseau GenererVaisseau(Vector2 position,bool ennemi)
+    public Vaisseau GenererVaisseau(Vector3 position,bool ennemi)
     {
         Taille = 18; 
         GenererSalles(Taille, nbIterations);
         return CreerTuiles(CreerVaisseau(position,ennemi));
     }
 
-    private Vaisseau CreerVaisseau(Vector2 position,bool ennemi)
+    Vaisseau CreerVaisseau(Vector3 position,bool ennemi)
     {
-        GameObject goVaisseau;
+        GameObject govaisseau;
         if (ennemi)
         {
-            goVaisseau = Instantiate(prefabEnnemi[UnityEngine.Random.Range(0, prefabEnnemi.Length)], position, Quaternion.identity);
-            goVaisseau.name = "VaisseauEnnemi";
+            govaisseau = Instantiate(prefabEnnemi[UnityEngine.Random.Range(0, prefabVaisseau.Length)], position, Quaternion.identity);
+            govaisseau.name = "VaisseauEnnemi";
         }
         else
         {
-            goVaisseau = Instantiate(prefabVaisseau[UnityEngine.Random.Range(0, prefabVaisseau.Length)], position, Quaternion.identity);
-            goVaisseau.name = "Vaisseau";
+            govaisseau = Instantiate(prefabVaisseau[UnityEngine.Random.Range(0, prefabEnnemi.Length)], position, Quaternion.identity);
+            govaisseau.name = "Vaisseau";
         }
 
-        
-        return goVaisseau.GetComponent<Vaisseau>();
+        return govaisseau.GetComponent<Vaisseau>();
     }
 
     internal Vaisseau CreerTuiles(Vaisseau vaisseau)

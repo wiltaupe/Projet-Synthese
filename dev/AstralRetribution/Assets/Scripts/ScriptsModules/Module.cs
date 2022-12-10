@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +8,10 @@ public class Module : MonoBehaviour
     //public UnityEvent­<Module> module;
     public static event Action<Module> OnModuleHit;
     private Vector3 dragOffset;
+    public float Shield { get; set; }
+    public GameObject coeur;
+    public Sprite halfHeart;
+    public Sprite noHeart;
     private Camera cam;
     private Vector3 lastPos;
     public Sol currentTile = null;
@@ -19,7 +24,7 @@ public class Module : MonoBehaviour
     public virtual bool teleporteur { get; set; } = false;
     public virtual bool recepteur { get; set; } = false;
     public virtual Etat Type { get; set; }
-    public float MaxVie { get; set; } = 30;
+    public float MaxVie { get; set; } = 45;
     public float CurrentVie { get; set; }
 
     private void Start()
@@ -59,21 +64,49 @@ public class Module : MonoBehaviour
 
     internal void RecevoirDegats(float puissance)
     {
-        CurrentVie -= puissance;
-        if (CurrentVie <= 0)
+        Shield -= puissance;
+        if (Shield > 0)
         {
-            ModuleDetruit();
+            return;
         }
-
         else
         {
-            OnModuleHit?.Invoke(this);
+            float degatRecu = Math.Abs(Shield);
+            CurrentVie -= degatRecu;
+            StartCoroutine(AfficherCoeur());
+            if (CurrentVie <= 0)
+            {
+                ModuleDetruit();
+            }
+
+            else
+            {
+                OnModuleHit?.Invoke(this);
+            }
+            Shield = 0;
         }
+        
+    }
+
+    private IEnumerator AfficherCoeur()
+    {
+        float ratio = CurrentVie / MaxVie;
+
+        if (ratio <= 0.5 && ratio > 0)
+        {
+            coeur.GetComponent<SpriteRenderer>().sprite = halfHeart;
+        }
+
+        coeur.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        coeur.SetActive(false);
+
     }
 
     private void ModuleDetruit()
     {
-        throw new NotImplementedException();
+        coeur.GetComponent<SpriteRenderer>().sprite = noHeart;
+        GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     private void OnMouseDrag()

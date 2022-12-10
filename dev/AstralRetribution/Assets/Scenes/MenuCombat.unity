@@ -748,6 +748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Bullet>k__BackingField: {fileID: 434867226320382236, guid: b038f3314783ea84daeeeae723ed9f5e, type: 3}
+  prefabParticle: {fileID: 6889676053574524597, guid: 1244a9e4f6193654989497ad418a287b, type: 3}
   <PosJoueur>k__BackingField: {fileID: 1371753956}
   <PosEnnemi>k__BackingField: {fileID: 2015409998}
   <DeckContainer>k__BackingField: {fileID: 1012448168}

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [field:SerializeField]public GameObject Bullet { get; set; }
+    [SerializeField] private GameObject prefabParticle;
 
     public delegate void PlayerTurnAction();
     public static event PlayerTurnAction OnPlayerTurn;
@@ -14,6 +15,12 @@ public class GameManager : MonoBehaviour
 
     public static event PlayerTurnEndAction OnPlayerTurnEnd;
     public delegate void CardPlayedAction(Carte carte);
+
+    public void MissParticleSpawn(Salle cible)
+    {
+        Instantiate(prefabParticle, cible.GetMiddleSol().transform.position, Quaternion.identity);
+    }
+
     public static event CardPlayedAction OnCardPlayed;
 
     private State currentState;
@@ -73,7 +80,6 @@ public class GameManager : MonoBehaviour
 
         foreach (int key in DeckJoueur.Main.Keys)
         {
-            Debug.Log(key);
             DeckJoueur.Main[key].SetActive(true);
             DeckJoueur.Main[key].GetComponent<Carte>().Idx = key;
         }
@@ -109,6 +115,7 @@ public class GameManager : MonoBehaviour
         PlayCard();
         RoomSelected = null;
         CarteSelected = null;
+
         //DiscardHand();
 
         SetState(new EnemyTurnState(this));

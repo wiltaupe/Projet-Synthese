@@ -16,7 +16,7 @@ public class CartePilotage : Carte
         }
         else
         {
-            Debug.Log("miss");
+            GameManager.Instance.MissParticleSpawn(cible);
         }
     }
 

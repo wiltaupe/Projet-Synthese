@@ -13,14 +13,23 @@ internal class DefendEnemyState : State
 
     public override IEnumerator Start()
     {
+        yield return new WaitForSeconds(2.0f);
         Debug.Log("DefendEnemyState");
         ProtectSalle(gameManager.VaisseauEnnemi.GetComponent<Vaisseau>().GetMostDamagedSalle());
-        yield return new WaitForSeconds(1.0f);
+        
         gameManager.SetState(new PlayerTurnState(gameManager));
     }
 
     private void ProtectSalle(Salle salle)
     {
-        
+        salle.isProtected = true;
+        foreach (Sol sol in salle.Tuiles)
+        {
+            sol.GetComponent<SpriteRenderer>().material.color = Color.blue;
+            if (sol.Module != null)
+            {
+                sol.Module.Shield += 15;
+            }
+        }
     }
 }

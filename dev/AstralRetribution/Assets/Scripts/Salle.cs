@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Salle
 {
+    internal bool isProtected;
+
     public int Width { get; set; }
     public float MaxVie { get; set; }
     public float CurrentVie { get; set; }
