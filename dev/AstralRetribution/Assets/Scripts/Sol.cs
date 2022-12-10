@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Sol : Tile
 {
+
     public Module Module { get; set; }
     public Objet Objet { get; set; }
     public Salle Parent { get; set; }
@@ -16,23 +17,25 @@ public class Sol : Tile
 
     private void GameManager_OnPlayerTurnEnd()
     {
-        GetComponent<SpriteRenderer>().material.color = Color.white;
+        
+       
         Parent.RoomSelected = false;
+        Parent.isProtected = false;
     }
 
     private void OnMouseOver()
     {
         if (GameManager.Instance != null)
         {
-            if (GameManager.Instance.CarteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi") && !Parent.RoomSelected && GameManager.Instance.RoomSelected == null)
+            if (GameManager.Instance.CarteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi") && !Parent.RoomSelected && GameManager.Instance.RoomSelected == null && !Parent.isProtected)
             {
-                //GetComponent<SpriteRenderer>().material.color = Color.red;
+                //GetComponent<SpriteRenderer>().material.color = Color.red
                 foreach (Sol sol in Parent.Tuiles)
                 {
                     sol.GetComponent<SpriteRenderer>().material.color = Color.red;                
                 }
             }
-            else if (!Parent.RoomSelected)
+            else if (!Parent.RoomSelected && !Parent.isProtected)
             {
                 GetComponent<SpriteRenderer>().material.color = Color.yellow;
             }
@@ -46,7 +49,7 @@ public class Sol : Tile
     }
     void OnMouseExit()
     {
-        if (!Parent.RoomSelected)
+        if (!Parent.RoomSelected && !Parent.isProtected)
         {
             foreach (Sol sol in Parent.Tuiles)
             {
