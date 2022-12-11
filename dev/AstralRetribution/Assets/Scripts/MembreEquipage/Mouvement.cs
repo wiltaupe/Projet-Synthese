@@ -30,15 +30,20 @@ public class Mouvement : MonoBehaviour
     private bool parentFinalTrouver = false;
     private bool telpo = false;
     private bool membreTeleporter = false;
+    private bool clone = false;
 
     void Start()
     {
-
         anim = this.GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
         membre = body.transform.gameObject.GetComponent<MembreEquipage>();
         membre.etat = MembreEquipage.EnumEquipages.ePassif;
         vEnnemi = body.transform.gameObject.GetComponent<MembreEquipage>().ennemi;
+
+        if (membre is Clone)
+        {
+            clone = true;
+        }
     }
 
     void Update()
@@ -85,8 +90,15 @@ public class Mouvement : MonoBehaviour
 
                 if(testtele)
                 {
+
+                    if (clone && body.transform.GetComponentInParent<MembreEquipage>().tuile.Position == Test.solTeleporteur && !membreTeleporter)
+                    {
+                        this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                        membreTeleporter = true;
+                    }
+
                     Vector3 targetPosition = vecteurDeplacement[indexPath].Item1;
-                    if (Vector3.Distance(transform.position, targetPosition) > 1.2f)
+                    if (Vector3.Distance(transform.position, targetPosition) > 1.2f && !membre.cloneTeleporter)
                     {
                         Vector3 moveDir = (targetPosition - transform.position);
 
@@ -106,11 +118,24 @@ public class Mouvement : MonoBehaviour
                     {
                         indexPath++;
 
-                        if (indexPath + 1 >= vecteurDeplacement.Count)
+                        if (membre is Clone)
                         {
-                            StopMoving();
-                            membre.etat = MembreEquipage.EnumEquipages.ePassif;
-                            enPAth = false;
+                            if (indexPath >= vecteurDeplacement.Count)
+                            {
+                                StopMoving();
+                                membre.etat = MembreEquipage.EnumEquipages.ePassif;
+                                enPAth = false;
+                            }
+                        }
+
+                        else
+                        {
+                            if (indexPath + 1 >= vecteurDeplacement.Count)
+                            {
+                                StopMoving();
+                                membre.etat = MembreEquipage.EnumEquipages.ePassif;
+                                enPAth = false;
+                            }
                         }
                     }
 
@@ -123,7 +148,6 @@ public class Mouvement : MonoBehaviour
                     {
                         this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
                         membreTeleporter = true;
-
                     }
 
                     if (Vector3.Distance(transform.position, targetPositionTeleporteur) > 1.2f)
@@ -271,7 +295,7 @@ public class Mouvement : MonoBehaviour
                 StartCoroutine(TrouverListeChemin(current));
                 if (vEnnemi)
                 {
-                    if (TestEnnemi.possedeTeleporteurRecepteur)
+                    if (TestEnnemi.possedeTeleporteurRecepteur && !clone)
                     {
                         StartCoroutine(PathfinderTeleportation(positionDepart, positionFin, true,true));
                     }
@@ -283,7 +307,7 @@ public class Mouvement : MonoBehaviour
 
                 else
                 {
-                    if (Test.possedeTeleporteurRecepteur)
+                    if (Test.possedeTeleporteurRecepteur && !clone)
                     {
                         StartCoroutine(PathfinderTeleportation(positionDepart, positionFin, true,true));
                     }
@@ -354,7 +378,7 @@ public class Mouvement : MonoBehaviour
 
                 else
                 {
-                    if (Test.possedeTeleporteurRecepteur)
+                    if (Test.possedeTeleporteurRecepteur && !clone)
                     {
                         StartCoroutine(PathfinderTeleportation(positionDepart, positionFin, true,false));
                     }
@@ -738,102 +762,6 @@ public class Mouvement : MonoBehaviour
         }
         return listHPT;
     }
-
-    /*private List<HPT> GenererHPTTeleporteur(Vector2 positionDepart, Vector2 positionFin)
-    {
-
-        List<HPT> listHPT = new List<HPT>();
-        List<Tile> copy = new();
-
-
-        if (vEnnemi) { copy = tilepathEnnemi; }
-
-        if (!vEnnemi) { copy = tilepath; }
-
-        foreach (Tile iteration in copy)
-        {
-            if (iteration.Position == positionDepart)
-            {
-                HPT depart = new HPT();
-                depart.maPosition = iteration.Position;
-                depart.tileposition = iteration.gameObject.transform.position;
-                depart.H = 0;
-                depart.P = 0;
-                depart.debut = true;
-                depart.parent = null;
-                depart.nom = iteration.name;
-                if (iteration.Sol)
-                {
-                    depart.solpresent = iteration.GetComponent­<Sol>();
-                }
-
-                if (iteration.Traversable)
-                {
-                    depart.traversable = true;
-                }
-
-                else
-                {
-                    depart.traversable = false;
-                }
-
-                listHPT.Add(depart);
-                dicOPENTeleporteur.Add(compteur, (depart, depart.setT()));
-                compteur++;
-            }
-
-            if (iteration.Position == positionFin)
-            {
-                HPT fin = new HPT();
-                fin.maPosition = iteration.Position;
-                fin.tileposition = iteration.gameObject.transform.position;
-                fin.fin = true;
-                fin.nom = iteration.name;
-
-                if (iteration.Sol)
-                {
-                    fin.solpresent = iteration.GetComponent­<Sol>();
-                }
-
-                if (iteration.Traversable)
-                {
-                    fin.traversable = true;
-                }
-
-                else
-                {
-                    fin.traversable = false;
-                }
-
-                listHPT.Add(fin);
-            }
-
-            if (iteration.Position != positionDepart && iteration.Position != positionFin)
-            {
-                HPT ajout = new HPT();
-                ajout.maPosition = iteration.Position;
-                ajout.tileposition = iteration.gameObject.transform.position;
-                ajout.nom = iteration.name;
-
-                if (iteration.Sol)
-                {
-                    ajout.solpresent = iteration.GetComponent­<Sol>();
-                }
-
-                if (iteration.Traversable)
-                {
-                    ajout.traversable = true;
-                }
-
-                else
-                {
-                    ajout.traversable = false;
-                }
-                listHPT.Add(ajout);
-            }
-        }
-        return listHPT;
-    }*/
 
     public IEnumerator MettreAJourVaisseau()
     {
