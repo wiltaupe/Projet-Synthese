@@ -7,6 +7,7 @@ public class Vaisseau : MonoBehaviour
     public List<Salle> Salles { get; set; }
     public List<GameObject> MembresEquipage { get; set; }
     public List<Module> ModulesActifs { get; set; }
+
     public float esquive = 0;
     public GameObject tuiles;
     public bool possedeTeleporteur { get; set; } = false;
@@ -15,6 +16,11 @@ public class Vaisseau : MonoBehaviour
     public Vector2 solRecepteur { get; set; } = new Vector2();
     public Vector2 positionRecepteur { get; set; } = new Vector2();
     public Vector2 solTeleporteur { get; set; } = new Vector2();
+    public Vector2 positionTeleporteur { get; set; } = new Vector2();
+
+    public Module Teleporteur { get; set; }
+    public Module Recepteur { get; set; }
+
     internal void AjoutEsquive(float pourcentageEsquive)
     {
         Debug.Log(pourcentageEsquive);
@@ -141,5 +147,56 @@ public class Vaisseau : MonoBehaviour
         {
             possedeTeleporteurRecepteur = true;
         }
+
+        else
+        {
+            possedeTeleporteurRecepteur = false;
+        }
+
+    }
+
+    internal void SwitchTeleporteur()
+    {
+        VerifTelRec();
+        if (possedeTeleporteurRecepteur)
+        {
+            Vector3 posRecepteur = Recepteur.gameObject.transform.position;
+            Vector3 posTeleporteur = Teleporteur.gameObject.transform.position;
+            Teleporteur.gameObject.transform.position = posRecepteur;
+            Recepteur.gameObject.transform.position = posTeleporteur;
+
+            GameObject TileRecepteur = Recepteur.currentTile.gameObject;
+            GameObject TileTeleporteur = Teleporteur.currentTile.gameObject;
+            Teleporteur.gameObject.transform.SetParent(TileRecepteur.transform);
+            Recepteur.gameObject.transform.SetParent(TileTeleporteur.transform);
+
+            Vector2 solRec = Recepteur.currentTile.Position;
+            Vector2 solTel = Teleporteur.currentTile.Position;
+            solTeleporteur = solRec;
+            solRecepteur = solTel;
+
+            Vector2 vecRecepteur = positionRecepteur;
+            Vector2 vecTeleporteur = positionTeleporteur;
+            positionRecepteur = vecTeleporteur;
+            positionTeleporteur = vecRecepteur;
+        }
+    }
+
+    internal void ajoutModuleRecepteur(Sol sol,Module module)
+    {
+        possedeRecepteur = true;
+        VerifTelRec();
+        positionRecepteur = sol.transform.position;
+        solRecepteur = sol.Position;
+        Recepteur = module;
+    }
+
+    internal void ajoutModuleTeleporteur(Sol sol,Module module)
+    {
+        possedeTeleporteur = true;
+        VerifTelRec();
+        positionTeleporteur = sol.transform.position;
+        solTeleporteur = sol.Position;
+        Teleporteur = module;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Teleporteur : Module
 {
-    public override Etat Type { get; set; } = Etat.passif;
+    public override Etat Type { get; set; } = Etat.actif;
     public override bool teleporteur { get; set; } = true;
     Vaisseau vaisseau;
 

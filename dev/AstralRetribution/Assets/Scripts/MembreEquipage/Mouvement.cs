@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Mouvement : MonoBehaviour
 {
-    public static event System.Action<Teleporteur> OnmidlePosition;
+    //public static event System.Action<Teleporteur> OnmidlePosition;
     private Animator anim;
     private Vector2 direction = new Vector2();
     private float vitesse = 10.0f;
@@ -39,7 +39,6 @@ public class Mouvement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         membre = body.transform.gameObject.GetComponent<MembreEquipage>();
         membre.etat = MembreEquipage.EnumEquipages.ePassif;
-
         vEnnemi = body.transform.gameObject.GetComponent<MembreEquipage>().ennemi;
     }
 
@@ -205,17 +204,14 @@ public class Mouvement : MonoBehaviour
 
             if (vEnnemi && membre.etat == MembreEquipage.EnumEquipages.ePathFindingEnnemi)
             {
-                MettreAJourVaisseau();
+                StartCoroutine(MettreAJourVaisseau());
                 StartCoroutine(Pathfinder(membre.tuile.Position, membre.cible));
-                
-                Debug.Log("Ennemi yeah SHeshhh");
             }
 
             if (!vEnnemi && membre.etat == MembreEquipage.EnumEquipages.ePathFinding)
             {
-                MettreAJourVaisseau();
+                StartCoroutine(MettreAJourVaisseau());
                 StartCoroutine(Pathfinder(membre.tuile.Position, membre.cible));
-                Debug.Log("Gentil pas cancer je joue pas a lol");
             }
         }
 
@@ -242,7 +238,7 @@ public class Mouvement : MonoBehaviour
 
         trouver = false;
         List<HPT> pathHPT = new List<HPT>();
-        pathHPT = GenererHPT(positionDepart, positionFin);
+        pathHPT = GenererHPT(positionDepart, positionFin,dicOPEN);
 
         while (!trouver)
         {
@@ -256,6 +252,7 @@ public class Mouvement : MonoBehaviour
 
             dicCLOSE.Add(compteur,(current,current.setT()));
             compteur++;
+
 
             if (vEnnemi)
             {
@@ -271,7 +268,6 @@ public class Mouvement : MonoBehaviour
 
             if (current.maPosition == positionFin)
             {
-                Debug.Log("chemin trouver");
                 StartCoroutine(TrouverListeChemin(current));
                 if (vEnnemi)
                 {
@@ -344,7 +340,6 @@ public class Mouvement : MonoBehaviour
             if (dicOPEN.Count() == 0)
             {
                 trouver = true;
-                Debug.Log("chemin impossible sans teleporteur");
                 if (vEnnemi)
                 {
                     if (TestEnnemi.possedeTeleporteurRecepteur)
@@ -390,11 +385,11 @@ public class Mouvement : MonoBehaviour
 
             if (premierePartie)
             {
-                pathHPT = GenererHPTTeleporteur(positionDepart, TestEnnemi.solTeleporteur);
+                pathHPT = GenererHPT(positionDepart, TestEnnemi.solTeleporteur,dicOPENTeleporteur);
             }
             else
             {
-                pathHPT = GenererHPTTeleporteur(TestEnnemi.solRecepteur,positionFin);
+                pathHPT = GenererHPT(TestEnnemi.solRecepteur,positionFin,dicOPENTeleporteur);
             }
         }
 
@@ -404,11 +399,11 @@ public class Mouvement : MonoBehaviour
             Test = vaisseau.GetComponent<Vaisseau>();
             if (premierePartie)
             {
-                pathHPT = GenererHPTTeleporteur(positionDepart, Test.solTeleporteur);
+                pathHPT = GenererHPT(positionDepart, Test.solTeleporteur,dicOPENTeleporteur);
             }
             else
             {
-                pathHPT = GenererHPTTeleporteur(Test.solRecepteur, positionFin);
+                pathHPT = GenererHPT(Test.solRecepteur, positionFin,dicOPENTeleporteur);
             }
         }
 
@@ -431,8 +426,7 @@ public class Mouvement : MonoBehaviour
                 {
                     if (current.maPosition == TestEnnemi.solTeleporteur)
                     {
-                        Debug.Log("premiere partie faite");
-                        TrouverListeCheminTeleporteur(current, true);
+                        StartCoroutine(TrouverListeCheminTeleporteur(current, true));
                         StartCoroutine(PathfinderTeleportation(TestEnnemi.solRecepteur, positionFin, false, pathNormal));
                         trouverTeleportation = true;
                     }
@@ -442,8 +436,7 @@ public class Mouvement : MonoBehaviour
                 {
                     if (current.maPosition == Test.solTeleporteur)
                     {
-                        Debug.Log("premiere partie faite");
-                        TrouverListeCheminTeleporteur(current, true);
+                        StartCoroutine(TrouverListeCheminTeleporteur(current, true));
                         StartCoroutine(PathfinderTeleportation(Test.solRecepteur, positionFin, false, pathNormal));
                         trouverTeleportation = true;
                     }
@@ -454,8 +447,7 @@ public class Mouvement : MonoBehaviour
             {
                 if (current.maPosition == positionFin)
                 {
-                    Debug.Log("deuxieme partie faite");
-                    TrouverListeCheminTeleporteur(current,false);
+                    StartCoroutine(TrouverListeCheminTeleporteur(current,false));
                     trouverTeleportation = true;
                     enPAth = true;
                 }
@@ -513,17 +505,15 @@ public class Mouvement : MonoBehaviour
 
                 else
                 {
-                    Debug.Log("chemin impossible avec teleporteur");
                     vecteurDeplacementTeleporteur = null;
                     membre.etat = MembreEquipage.EnumEquipages.ePassif;
                 }
             }
         }
-
         yield break;
     }
 
-    private void TrouverListeCheminTeleporteur(HPT current, bool premierePartie)
+    private IEnumerator TrouverListeCheminTeleporteur(HPT current, bool premierePartie)
     {
         if (!current.debut)
         {
@@ -533,29 +523,24 @@ public class Mouvement : MonoBehaviour
             }
             if (premierePartie)
             {
-                TrouverListeCheminTeleporteur(current.parent, premierePartie);
+                StartCoroutine(TrouverListeCheminTeleporteur(current.parent, premierePartie));
                 vecteurDeplacementTeleporteur.Add((current.tileposition, current.nom, current.solpresent));
             }
             else
             {
-                //vecteurDeplacementTeleporteur.Add((current.tileposition, current.nom, current.solpresent));
-                //StartCoroutine(TrouverListeCheminTeleporteur(current.parent, inversion));
-                //vecteurDeplacementTeleporteur.Add((current.tileposition, current.nom, current.solpresent));
-                TrouverListeCheminTeleporteur(current.parent, premierePartie);
+                StartCoroutine(TrouverListeCheminTeleporteur(current.parent, premierePartie));
                 vecteurDeplacementTeleporteur.Add((current.tileposition, current.nom, current.solpresent));
                 telpo = true;
             }
         }
 
-        /*else
-        {*/
-            if (!premierePartie && telpo)
-            {
-                Debug.Log("deuxieme partie du vecteur deplacement faite");
-                telpo = false;
-                parentFinalTrouver = true;
-            }
-       //}
+        if (!premierePartie && telpo)
+        {
+            telpo = false;
+            parentFinalTrouver = true;
+        }
+
+        yield break;
     }
 
     private IEnumerator TrouverListeChemin(HPT chemin)
@@ -582,11 +567,9 @@ public class Mouvement : MonoBehaviour
         List<HPT> mesvoisins = new List<HPT>();
         foreach (HPT v in tout)
         {
-            // bool un = false;
             bool deux = false;
             bool trois = false;
 
-            //if (((current.maPosition.x - v.maPosition.x) == 1  || (current.maPosition.x - v.maPosition.x) == -1) && ((current.maPosition.y - v.maPosition.y) == 1 || (current.maPosition.y - v.maPosition.y) == -1)) { un = true;}
 
             if (((current.maPosition.x - v.maPosition.x) == 1 || (current.maPosition.x - v.maPosition.x) == -1) && ((current.maPosition.y - v.maPosition.y) == 0 || (current.maPosition.y - v.maPosition.y) == 0))
             {
@@ -604,13 +587,12 @@ public class Mouvement : MonoBehaviour
                 mesvoisins.Add(v);
             }
 
-            /*if (un) { v.H = 14 + current.H; mesvoisins.Add(v); }*/
-            MettreAJOURPTVoisin(mesvoisins, tout);
+            StartCoroutine(MettreAJOURPTVoisin(mesvoisins, tout));
         }
         return mesvoisins;
     }
 
-    private void MettreAJOURPTVoisin(List<HPT> voisin, List<HPT> fin)
+    private IEnumerator MettreAJOURPTVoisin(List<HPT> voisin, List<HPT> fin)
     {
         HPT distanceFin = new HPT();
 
@@ -658,9 +640,10 @@ public class Mouvement : MonoBehaviour
             PT.P = ajoutP;
             PT.setT();
         }
+        yield break;
     }
 
-    private List<HPT> GenererHPT(Vector2 positionDepart, Vector2 positionFin)
+    private List<HPT> GenererHPT(Vector2 positionDepart, Vector2 positionFin, Dictionary<int, (HPT, int)> dictionnaire)
     {
 
         List<HPT> listHPT = new List<HPT>();
@@ -699,7 +682,7 @@ public class Mouvement : MonoBehaviour
                 }
 
                 listHPT.Add(depart);
-                dicOPEN.Add(compteur, (depart, depart.setT()));
+                dictionnaire.Add(compteur, (depart, depart.setT()));
                 compteur++;
             }
 
@@ -756,7 +739,7 @@ public class Mouvement : MonoBehaviour
         return listHPT;
     }
 
-    private List<HPT> GenererHPTTeleporteur(Vector2 positionDepart, Vector2 positionFin)
+    /*private List<HPT> GenererHPTTeleporteur(Vector2 positionDepart, Vector2 positionFin)
     {
 
         List<HPT> listHPT = new List<HPT>();
@@ -850,9 +833,9 @@ public class Mouvement : MonoBehaviour
             }
         }
         return listHPT;
-    }
+    }*/
 
-    public void MettreAJourVaisseau()
+    public IEnumerator MettreAJourVaisseau()
     {
         Component[] tuilesMechant;
         Component[] tuiles;
@@ -886,6 +869,7 @@ public class Mouvement : MonoBehaviour
 
             Test = vaisseau.GetComponent<Vaisseau>();
         }
+        yield break;
     }
 }
 

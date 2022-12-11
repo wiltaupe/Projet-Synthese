@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Recepteur : Module
 {
-    public override Etat Type { get; set; } = Etat.passif;
+    public override Etat Type { get; set; } = Etat.actif;
     public override bool recepteur { get; set; } = true;
 
 }

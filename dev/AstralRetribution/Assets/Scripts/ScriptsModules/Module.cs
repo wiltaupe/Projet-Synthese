@@ -9,9 +9,6 @@ public class Module : MonoBehaviour
     public static event Action<Module> OnModuleHit;
     private Vector3 dragOffset;
     public float Shield { get; set; }
-    public GameObject coeur;
-    public Sprite halfHeart;
-    public Sprite noHeart;
     private Camera cam;
     private Vector3 lastPos;
     public Sol currentTile = null;
@@ -73,7 +70,6 @@ public class Module : MonoBehaviour
         {
             float degatRecu = Math.Abs(Shield);
             CurrentVie -= degatRecu;
-            StartCoroutine(AfficherCoeur());
             if (CurrentVie <= 0)
             {
                 ModuleDetruit();
@@ -88,24 +84,8 @@ public class Module : MonoBehaviour
         
     }
 
-    private IEnumerator AfficherCoeur()
-    {
-        float ratio = CurrentVie / MaxVie;
-
-        if (ratio <= 0.5 && ratio > 0)
-        {
-            coeur.GetComponent<SpriteRenderer>().sprite = halfHeart;
-        }
-
-        coeur.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        coeur.SetActive(false);
-
-    }
-
     private void ModuleDetruit()
     {
-        coeur.GetComponent<SpriteRenderer>().sprite = noHeart;
         GetComponent<SpriteRenderer>().color = Color.red;
     }
 
@@ -156,43 +136,66 @@ public class Module : MonoBehaviour
                 sol.Module = this;
                 transform.position = sol.transform.position;
                 transform.SetParent(sol.transform);
+                this.currentTile = sol;
 
                 lastPos = sol.transform.position;
+                /*
+                if (this.teleporteur)
+                {
+                    GameManager.Instance.VaisseauJoueur.GetComponent<Vaisseau>().ajoutModuleTeleporteur(sol,this);
+                    sol.Traversable = true;
+                }
+
+                else if (this.recepteur)
+                {
+                    GameManager.Instance.VaisseauJoueur.GetComponent<Vaisseau>().ajoutModuleRecepteur(sol,this);
+                    sol.Traversable = true;
+                }
+                */
+                
                 if (this.teleporteur)
                 {
                     if (this.ennemi)
-                    {
-                        Debug.Log("a ajouter");
+                    { 
+                        GameObject.Find("VaisseauEnnemi").GetComponent<Vaisseau>().possedeTeleporteur = true;
+                        GameObject.Find("VaisseauEnnemi").GetComponent<Vaisseau>().VerifTelRec();
+                        GameObject.Find("VaisseauEnnemi").GetComponent<Vaisseau>().positionTeleporteur = sol.transform.position;
+                        GameObject.Find("VaisseauEnnemi").GetComponent<Vaisseau>().solTeleporteur = sol.Position;
+                        GameObject.Find("VaisseauEnnemi").GetComponent<Vaisseau>().Teleporteur = this;
                     }
 
                     else
                     {
-
                         GameObject.Find("Vaisseau").GetComponent<Vaisseau>().possedeTeleporteur = true;
                         GameObject.Find("Vaisseau").GetComponent<Vaisseau>().VerifTelRec();
                         GameObject.Find("Vaisseau").GetComponent<Vaisseau>().solTeleporteur = sol.Position;
+                        GameObject.Find("Vaisseau").GetComponent<Vaisseau>().positionTeleporteur = sol.transform.position;
+                        GameObject.Find("Vaisseau").GetComponent<Vaisseau>().Teleporteur = this;
                     }
-                    Debug.Log(GameObject.Find("Vaisseau").GetComponent<Vaisseau>().possedeTeleporteurRecepteur);
                 }
 
                 else if (this.recepteur)
                 {
                     if (this.ennemi)
                     {
-                        Debug.Log("a ajouter");
+                        GameObject.Find("VaisseauEnnemi").GetComponent<Vaisseau>().possedeRecepteur = true;
+                        GameObject.Find("VaisseauEnnemi").GetComponent<Vaisseau>().VerifTelRec();
+                        GameObject.Find("VaisseauEnnemi").GetComponent<Vaisseau>().positionRecepteur = sol.transform.position;
+                        GameObject.Find("VaisseauEnnemi").GetComponent<Vaisseau>().solRecepteur = sol.Position;
+                        GameObject.Find("VaisseauEnnemi").GetComponent<Vaisseau>().Recepteur = this;
                     }
 
                     else 
                     {
-
                         GameObject.Find("Vaisseau").GetComponent<Vaisseau>().possedeRecepteur = true;
                         GameObject.Find("Vaisseau").GetComponent<Vaisseau>().VerifTelRec();
                         GameObject.Find("Vaisseau").GetComponent<Vaisseau>().positionRecepteur = sol.transform.position;
                         GameObject.Find("Vaisseau").GetComponent<Vaisseau>().solRecepteur = sol.Position;
+                        GameObject.Find("Vaisseau").GetComponent<Vaisseau>().Recepteur = this;
                     }
                     sol.Traversable = true;
-                    Debug.Log(GameObject.Find("Vaisseau").GetComponent<Vaisseau>().possedeTeleporteurRecepteur);
                 }
+                
 
                 else
                 {
