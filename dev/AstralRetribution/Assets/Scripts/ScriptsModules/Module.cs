@@ -14,15 +14,17 @@ public class Module : MonoBehaviour
     public Sol currentTile = null;
     private bool redo = false;
     private bool aBouger = false;
-    private bool draggable = true;
+    public bool Draggable { get; set; } = true;
     public GameObject Prefab;
     public int nbCartes;
-    public bool ennemi { get; set; } = false;
+    public bool Ennemi { get; set; } = false;
     public virtual bool teleporteur { get; set; } = false;
     public virtual bool recepteur { get; set; } = false;
     public virtual Etat Type { get; set; }
     public float MaxVie { get; set; } = 45;
     public float CurrentVie { get; set; }
+
+    [SerializeField] private GameObject prefabShield;
 
     private void Start()
     {
@@ -42,21 +44,29 @@ public class Module : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (draggable)
+        if (Draggable)
         {
-            float ajuster = (float)10 / (float)ShipManager.Taille;
+            float ajuster = 10 / (float)ShipManager.Taille;
 
             dragOffset = transform.position - GetMousePos();
             lastPos = GetMousePos();
 
             if (redo == false || aBouger == false)
             {
-                this.transform.localScale = new Vector3(ajuster, ajuster, 0);
+                transform.localScale = new Vector3(ajuster, ajuster, 0);
                 redo = true;
             }
 
             GetComponent<SpriteRenderer>().sortingOrder += 2;
         }
+    }
+
+    internal void Protection()
+    {
+        prefabShield.SetActive(true);
+        Shield = 15;
+
+        GetComponent<SpriteRenderer>().color = Color.cyan;
     }
 
     internal void RecevoirDegats(float puissance)
@@ -68,6 +78,9 @@ public class Module : MonoBehaviour
         }
         else
         {
+            prefabShield.SetActive(false);
+            GetComponent<SpriteRenderer>().color = Color.white;
+
             float degatRecu = Math.Abs(Shield);
             CurrentVie -= degatRecu;
             if (CurrentVie <= 0)
@@ -91,7 +104,7 @@ public class Module : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (draggable)
+        if (Draggable)
         {
             transform.position = GetMousePos() + dragOffset;
         }
@@ -107,7 +120,7 @@ public class Module : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (draggable)
+        if (Draggable)
         {
             GetComponent<SpriteRenderer>().sortingOrder += 2;
             Collider2D col = Physics2D.OverlapPoint(GetMousePos(), LayerMask.GetMask("Sol"));
@@ -203,7 +216,7 @@ public class Module : MonoBehaviour
                 }
 
                 sol.Vaisseau.AddModule(this);
-                draggable = false;
+                Draggable = false;
             }
             else
             {

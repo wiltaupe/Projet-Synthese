@@ -17,11 +17,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 257.13565
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21.941935
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
       propertyPath: m_LocalPosition.z
@@ -90,14 +90,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5df8bb5a192c0c4aa638af0bd782ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coeur: {fileID: 8061238627296796663}
-  halfHeart: {fileID: 21300000, guid: 7a49a99117bd3554eb56137a90a95db7, type: 3}
-  noHeart: {fileID: 21300000, guid: eacf65feebfb21249b19f02c0a9ad0e1, type: 3}
   currentTile: {fileID: 0}
   Prefab: {fileID: 51492913654192037, guid: 4b9b5d065a4dc9e4180fd1c318423572, type: 3}
   nbCartes: 2
---- !u!1 &8061238627296796663 stripped
+  prefabShield: {fileID: 7380190306382629910}
+--- !u!1 &7380190306382629910 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4902601809833612089, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5601770364633399512, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
   m_PrefabInstance: {fileID: 3158940392271842510}
   m_PrefabAsset: {fileID: 0}
