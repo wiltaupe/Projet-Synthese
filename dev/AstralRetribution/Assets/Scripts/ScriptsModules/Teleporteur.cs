@@ -8,7 +8,6 @@ public class Teleporteur : Module
     public override bool teleporteur { get; set; } = true;
     Vaisseau vaisseau;
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
 

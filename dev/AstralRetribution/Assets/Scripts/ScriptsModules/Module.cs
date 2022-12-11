@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Module : MonoBehaviour
+public abstract class Module : MonoBehaviour
 {
     //public UnityEvent­<Module> module;
     public static event Action<Module> OnModuleHit;

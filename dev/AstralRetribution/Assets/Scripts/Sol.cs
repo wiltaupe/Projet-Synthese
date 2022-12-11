@@ -17,11 +17,12 @@ public class Sol : Tile
 
     private void GameManager_OnPlayerTurnEnd()
     {
-        
-       
         Parent.RoomSelected = false;
         Parent.isProtected = false;
-        GetComponent<SpriteRenderer>().material.color = Color.white;
+        if (this)
+        {
+            GetComponent<SpriteRenderer>().material.color = Color.white;
+        }
     }
 
     private void OnMouseOver()
