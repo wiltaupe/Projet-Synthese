@@ -9,22 +9,21 @@ public class Module : MonoBehaviour
     public static event Action<Module> OnModuleHit;
     private Vector3 dragOffset;
     public float Shield { get; set; }
-    public GameObject coeur;
-    public Sprite halfHeart;
-    public Sprite noHeart;
     private Camera cam;
     private Vector3 lastPos;
     public Sol currentTile = null;
     private bool redo = false;
     private bool aBouger = false;
-    private bool draggable = true;
+    public bool Draggable { get; set; } = true;
     public GameObject Prefab;
     public int nbCartes;
-    public bool ennemi { get; set; } = false;
+    public bool Ennemi { get; set; } = false;
 
     public virtual Etat Type { get; set; }
     public float MaxVie { get; set; } = 45;
     public float CurrentVie { get; set; }
+
+    [SerializeField] private GameObject prefabShield;
 
     private void Start()
     {
@@ -44,16 +43,16 @@ public class Module : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (draggable)
+        if (Draggable)
         {
-            float ajuster = (float)10 / (float)ShipManager.Taille;
+            float ajuster = 10 / (float)ShipManager.Taille;
 
             dragOffset = transform.position - GetMousePos();
             lastPos = GetMousePos();
 
             if (redo == false || aBouger == false)
             {
-                this.transform.localScale = new Vector3(ajuster, ajuster, 0);
+                transform.localScale = new Vector3(ajuster, ajuster, 0);
                 redo = true;
             }
 
@@ -61,6 +60,14 @@ public class Module : MonoBehaviour
         }
         
 
+    }
+
+    internal void Protection()
+    {
+        prefabShield.SetActive(true);
+        Shield = 15;
+
+        GetComponent<SpriteRenderer>().color = Color.cyan;
     }
 
     internal void RecevoirDegats(float puissance)
@@ -72,9 +79,11 @@ public class Module : MonoBehaviour
         }
         else
         {
+            prefabShield.SetActive(false);
+            GetComponent<SpriteRenderer>().color = Color.white;
+
             float degatRecu = Math.Abs(Shield);
             CurrentVie -= degatRecu;
-            StartCoroutine(AfficherCoeur());
             if (CurrentVie <= 0)
             {
                 ModuleDetruit();
@@ -89,30 +98,14 @@ public class Module : MonoBehaviour
         
     }
 
-    private IEnumerator AfficherCoeur()
-    {
-        float ratio = CurrentVie / MaxVie;
-
-        if (ratio <= 0.5 && ratio > 0)
-        {
-            coeur.GetComponent<SpriteRenderer>().sprite = halfHeart;
-        }
-
-        coeur.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        coeur.SetActive(false);
-
-    }
-
     private void ModuleDetruit()
     {
-        coeur.GetComponent<SpriteRenderer>().sprite = noHeart;
         GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     private void OnMouseDrag()
     {
-        if (draggable)
+        if (Draggable)
         {
             transform.position = GetMousePos() + dragOffset;
         }
@@ -128,7 +121,7 @@ public class Module : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (draggable)
+        if (Draggable)
         {
             GetComponent<SpriteRenderer>().sortingOrder += 2;
             Collider2D col = Physics2D.OverlapPoint(GetMousePos(), LayerMask.GetMask("Sol"));
@@ -161,7 +154,7 @@ public class Module : MonoBehaviour
                 lastPos = sol.transform.position;
                 sol.Traversable = false;
                 sol.Vaisseau.AddModule(this);
-                draggable = false;
+                Draggable = false;
             }
             else
             {

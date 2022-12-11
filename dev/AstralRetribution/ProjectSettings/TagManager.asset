@@ -81,3 +81,6 @@ TagManager:
   - name: Bullet
     uniqueID: 3678305913
     locked: 0
+  - name: Bar
+    uniqueID: 1171956059
+    locked: 0

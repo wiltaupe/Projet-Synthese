@@ -59,11 +59,19 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 589743447, guid: c07830de40208b440a04610710e3a0a8, type: 3}
+    - target: {fileID: 6606997906483570793, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606997906483570793, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
---- !u!1 &1751743725205312138 stripped
+--- !u!1 &1295778346209689963 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4902601809833612089, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5601770364633399512, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
   m_PrefabInstance: {fileID: 6649278968068309427}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5316413661705423441 stripped
@@ -83,9 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb45542f0487c9e4ab144d36ec109999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coeur: {fileID: 1751743725205312138}
-  halfHeart: {fileID: 21300000, guid: 7a49a99117bd3554eb56137a90a95db7, type: 3}
-  noHeart: {fileID: 21300000, guid: eacf65feebfb21249b19f02c0a9ad0e1, type: 3}
   currentTile: {fileID: 0}
   Prefab: {fileID: 1023559613211307054, guid: 141130211b6bb2348a6c4e5dd831cf37, type: 3}
   nbCartes: 3
+  prefabShield: {fileID: 1295778346209689963}
