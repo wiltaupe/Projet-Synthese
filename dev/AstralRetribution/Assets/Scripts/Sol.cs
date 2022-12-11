@@ -21,21 +21,22 @@ public class Sol : Tile
        
         Parent.RoomSelected = false;
         Parent.isProtected = false;
+        GetComponent<SpriteRenderer>().material.color = Color.white;
     }
 
     private void OnMouseOver()
     {
         if (GameManager.Instance != null)
         {
-            if (GameManager.Instance.CarteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi") && !Parent.RoomSelected && GameManager.Instance.RoomSelected == null && !Parent.isProtected)
+            if (GameManager.Instance.CarteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi") && !Parent.RoomSelected && GameManager.Instance.RoomSelected == null)
             {
                 //GetComponent<SpriteRenderer>().material.color = Color.red
                 foreach (Sol sol in Parent.Tuiles)
                 {
-                    sol.GetComponent<SpriteRenderer>().material.color = Color.red;                
+                    sol.GetComponent<SpriteRenderer>().material.color = Color.magenta;        
                 }
             }
-            else if (!Parent.RoomSelected && !Parent.isProtected)
+            else if (!Parent.RoomSelected)
             {
                 GetComponent<SpriteRenderer>().material.color = Color.yellow;
             }
@@ -47,9 +48,10 @@ public class Sol : Tile
             GetComponent<SpriteRenderer>().material.color = Color.yellow;
         }
     }
+
     void OnMouseExit()
     {
-        if (!Parent.RoomSelected && !Parent.isProtected)
+        if (!Parent.RoomSelected)
         {
             foreach (Sol sol in Parent.Tuiles)
             {

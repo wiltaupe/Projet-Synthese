@@ -39,7 +39,7 @@ public class MainManager : MonoBehaviour
         module.transform.position = tuile.transform.position;
 
         module.GetComponent<Module>().currentTile = tuile;
-        module.GetComponent<Module>().ennemi = true;
+        module.GetComponent<Module>().Ennemi = true;
 
         tuile.Module = module.GetComponent<Module>();
     }
@@ -53,7 +53,8 @@ public class MainManager : MonoBehaviour
             foreach (GameObject module in moduleObligatoire)
             {
                 GameObject mod = Instantiate(module, transform.position, Quaternion.identity);
-                mod.transform.localScale = new Vector3(ajustersize, ajustersize, 0);
+                mod.transform.localScale = new Vector3(ajustersize/1.25f, ajustersize/1.25f, 0);
+                mod.GetComponent<Module>().Draggable = false;
 
                 PlacerModule(mod, vaisseau, v2);
             }

@@ -17,7 +17,7 @@ public class Mecanicien : MembreEquipage
 
     private void Module_OnModuleHit(Module obj)
     {
-        if (obj.ennemi)
+        if (obj.Ennemi)
         {
             this.etat = MembreEquipage.EnumEquipages.ePathFindingEnnemi;
             this.cible = obj.currentTile.Position;

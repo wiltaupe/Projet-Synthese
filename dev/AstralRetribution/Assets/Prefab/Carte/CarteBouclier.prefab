@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarteBouclier
       objectReference: {fileID: 0}
+    - target: {fileID: 8194989271316747001, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8194989271316747007, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_Sprite
       value: 

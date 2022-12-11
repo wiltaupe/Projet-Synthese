@@ -25,10 +25,9 @@ internal class DefendEnemyState : State
         salle.isProtected = true;
         foreach (Sol sol in salle.Tuiles)
         {
-            sol.GetComponent<SpriteRenderer>().material.color = Color.blue;
             if (sol.Module != null)
             {
-                sol.Module.Shield += 15;
+                sol.Module.Protection();
             }
         }
     }
