@@ -5,7 +5,6 @@ using System.Linq;
 
 public class Mouvement : MonoBehaviour
 {
-    //public static event System.Action<Teleporteur> OnmidlePosition;
     private Animator anim;
     private Vector2 direction = new Vector2();
     private float vitesse = 10.0f;
@@ -256,8 +255,9 @@ public class Mouvement : MonoBehaviour
 
             if (vEnnemi)
             {
-                vaisseauEnnemi = GameObject.Find("VaisseauEnnemi");
-                TestEnnemi = vaisseauEnnemi.GetComponent<Vaisseau>();
+                TestEnnemi = GameManager.Instance.VaisseauEnnemi.GetComponent<Vaisseau>();
+                //vaisseauEnnemi = GameObject.Find("VaisseauEnnemi");
+                //TestEnnemi = vaisseauEnnemi.GetComponent<Vaisseau>();
             }
 
             else
