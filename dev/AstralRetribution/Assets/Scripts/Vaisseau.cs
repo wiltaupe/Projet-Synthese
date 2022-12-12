@@ -8,7 +8,6 @@ public class Vaisseau : MonoBehaviour
     public List<Salle> Salles { get; set; }
     public List<GameObject> MembresEquipage { get; set; }
     public List<GameObject> MembreClone { get; set; } = new List<GameObject>();
-
     public List<Module> ModulesActifs { get; set; }
 
     public float esquive = 0;
@@ -62,6 +61,11 @@ public class Vaisseau : MonoBehaviour
         return MembresEquipage[Random.Range(0, MembresEquipage.Count)];
     }
 
+    internal Module GetRandomModule()
+    {
+        return ModulesActifs[Random.Range(0, ModulesActifs.Count)];
+    }
+
     internal Salle GetRandomDamagedSalle()
     {
         foreach (Salle salle in Salles)
@@ -73,8 +77,6 @@ public class Vaisseau : MonoBehaviour
         }
 
         return null;
-        
-
     }
 
     internal bool SalleEndommagee()

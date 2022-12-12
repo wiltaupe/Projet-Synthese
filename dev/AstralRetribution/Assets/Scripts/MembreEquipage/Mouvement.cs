@@ -201,12 +201,12 @@ public class Mouvement : MonoBehaviour
 
     private bool deplacementpathFinding()
     {
-        return (membre.etat & (MembreEquipage.EnumEquipages.eDeplacementPathfindin | MembreEquipage.EnumEquipages.ePathFindingEnnemi | MembreEquipage.EnumEquipages.ePathFindingEnnemi)) != 0;
+        return (membre.etat & (MembreEquipage.EnumEquipages.ePathFinding | MembreEquipage.EnumEquipages.ePathFindingEnnemi)) != 0;
     }
 
     private bool deplacement()
     {
-        return (membre.etat & (MembreEquipage.EnumEquipages.eDeplacement | MembreEquipage.EnumEquipages.ePassif)) != 0;
+        return (membre.etat & (MembreEquipage.EnumEquipages.ePassif)) != 0;
     }
 
 

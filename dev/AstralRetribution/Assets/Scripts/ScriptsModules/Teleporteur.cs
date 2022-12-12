@@ -39,7 +39,9 @@ public class Teleporteur : Module
                     membre.transform.position = sol.transform.position;
                     membre.gameObject.transform.GetChild(0).gameObject.SetActive(false);
 
+                    //collision.GetComponentInParent<MembreEquipage>().etat = MembreEquipage.EnumEquipages.eAction;
                     collision.GetComponentInParent<MembreEquipage>().etat = MembreEquipage.EnumEquipages.ePassif;
+                    collision.GetComponentInParent<Clone>().ActionEquipage();
                     collision.GetComponentInParent<MembreEquipage>().cloneTeleporter = true;
                 }
             }

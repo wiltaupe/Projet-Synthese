@@ -27,6 +27,5 @@ public class Mecanicien : MembreEquipage
             this.etat = MembreEquipage.EnumEquipages.ePathFinding;
             this.cible = obj.currentTile.Position;
         }
-
     }
 }

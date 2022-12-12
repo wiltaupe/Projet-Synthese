@@ -27,10 +27,9 @@ public class MembreEquipage : MonoBehaviour
     {
         eInactif = 1,
         ePassif = 2,
-        eDeplacement = 3,
-        ePathFinding = 4,
-        eDeplacementPathfindin = 5,
-        ePathFindingEnnemi = 6
+        ePathFinding = 3,
+        ePathFindingEnnemi = 4,
+        eAction = 5
     }
     internal void RecevoirDegats(float puissance)
     {
