@@ -4,6 +4,7 @@ using UnityEngine;
 public class MainManager : MonoBehaviour
 {
     public GameObject[] moduleObligatoire;
+    public GameObject[] moduleSecondaire;
     public static MainManager Instance { get; private set; }
 
     public ShipManager ShipManager { get; private set; }
@@ -55,8 +56,23 @@ public class MainManager : MonoBehaviour
                 GameObject mod = Instantiate(module, transform.position, Quaternion.identity);
                 mod.transform.localScale = new Vector3(ajustersize/1.25f, ajustersize/1.25f, 0);
                 mod.GetComponent<Module>().Draggable = false;
+                mod.GetComponent<Module>().vaisseauEnnemi = vaisseau;
 
                 PlacerModule(mod, vaisseau, v2);
+            }
+
+            int i = 0;
+
+            while (i < v1)
+            {
+                GameObject selection = moduleSecondaire[UnityEngine.Random.Range(0, moduleSecondaire.Length)];
+                GameObject mod = Instantiate(selection, transform.position, Quaternion.identity);
+                mod.transform.localScale = new Vector3(ajustersize / 1.25f, ajustersize / 1.25f, 0);
+                mod.GetComponent<Module>().Draggable = false;
+                mod.GetComponent<Module>().vaisseauEnnemi = vaisseau;
+
+                PlacerModule(mod, vaisseau, v2);
+                i++;
             }
         }
     }

@@ -14,6 +14,7 @@ public class MembreEquipage : MonoBehaviour
     public float MaxVie { get; set; } = 30;
     public float CurrentVie { get; set; }
     public EnumEquipages etat;
+    public bool cloneTeleporter;
 
     private void Start()
     {
@@ -26,10 +27,9 @@ public class MembreEquipage : MonoBehaviour
     {
         eInactif = 1,
         ePassif = 2,
-        eDeplacement = 3,
-        ePathFinding = 4,
-        eDeplacementPathfindin = 5,
-        ePathFindingEnnemi = 6
+        ePathFinding = 3,
+        ePathFindingEnnemi = 4,
+        eAction = 5
     }
     internal void RecevoirDegats(float puissance)
     {
@@ -45,7 +45,7 @@ public class MembreEquipage : MonoBehaviour
         }
     }
 
-    private void MembreMort()
+    public virtual void MembreMort()
     {
         Destroy(this.gameObject);
     }

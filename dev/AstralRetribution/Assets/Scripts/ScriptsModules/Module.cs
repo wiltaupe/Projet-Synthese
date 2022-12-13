@@ -20,9 +20,12 @@ public abstract class Module : MonoBehaviour
     public bool Ennemi { get; set; } = false;
     public virtual bool teleporteur { get; set; } = false;
     public virtual bool recepteur { get; set; } = false;
+    public virtual bool cloneur { get; set; } = false;
     public virtual Etat Type { get; set; }
     public float MaxVie { get; set; } = 45;
     public float CurrentVie { get; set; }
+    public Vaisseau vaisseauEnnemi;
+    public Vaisseau vaisseau;
 
     [SerializeField] private GameObject prefabShield;
 
@@ -150,8 +153,6 @@ public abstract class Module : MonoBehaviour
                 transform.position = sol.transform.position;
                 transform.SetParent(sol.transform);
                 this.currentTile = sol;
-                Vaisseau vaisseauEnnemi;
-                Vaisseau vaisseau;
 
                 if (Ennemi)
                 {
@@ -166,6 +167,12 @@ public abstract class Module : MonoBehaviour
                     {
                         vaisseauEnnemi.ajoutModuleRecepteur(sol, this);
                         sol.Traversable = true;
+                    }
+
+                    else if (cloneur)
+                    {
+                        vaisseauEnnemi.ajoutModuleCloneur();
+                        sol.Traversable = false;
                     }
 
                     else
@@ -187,6 +194,12 @@ public abstract class Module : MonoBehaviour
                     {
                         vaisseau.ajoutModuleRecepteur(sol, this);
                         sol.Traversable = true;
+                    }
+
+                    else if (cloneur)
+                    {
+                        vaisseau.ajoutModuleCloneur();
+                        sol.Traversable = false;
                     }
 
                     else

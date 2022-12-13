@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,10 +7,12 @@ public class Vaisseau : MonoBehaviour
 {
     public List<Salle> Salles { get; set; }
     public List<GameObject> MembresEquipage { get; set; }
+    public List<GameObject> MembreClone { get; set; } = new List<GameObject>();
     public List<Module> ModulesActifs { get; set; }
 
     public float esquive = 0;
     public GameObject tuiles;
+    public bool possedeCloneur;
     public bool possedeTeleporteur { get; set; } = false;
     public bool possedeRecepteur { get; set; } = false;
     public bool possedeTeleporteurRecepteur { get; set; } = false;
@@ -58,6 +61,11 @@ public class Vaisseau : MonoBehaviour
         return MembresEquipage[Random.Range(0, MembresEquipage.Count)];
     }
 
+    internal Module GetRandomModule()
+    {
+        return ModulesActifs[Random.Range(0, ModulesActifs.Count)];
+    }
+
     internal Salle GetRandomDamagedSalle()
     {
         foreach (Salle salle in Salles)
@@ -69,8 +77,6 @@ public class Vaisseau : MonoBehaviour
         }
 
         return null;
-        
-
     }
 
     internal bool SalleEndommagee()
@@ -198,5 +204,38 @@ public class Vaisseau : MonoBehaviour
         positionTeleporteur = sol.transform.position;
         solTeleporteur = sol.Position;
         Teleporteur = module;
+    }
+
+    internal void ajoutModuleCloneur()
+    {
+        possedeCloneur = true;
+    }
+
+    internal IEnumerator EnvoyerClone()
+    {
+        foreach (GameObject clone in MembreClone)
+        {
+            MembreEquipage membreClone = clone.GetComponent<MembreEquipage>();
+
+            if (membreClone.ennemi)
+            {
+                if (possedeTeleporteur)
+                {
+                    membreClone.etat = MembreEquipage.EnumEquipages.ePathFindingEnnemi;
+                    membreClone.cible = solTeleporteur;
+                }
+            }
+
+            else
+            {
+                if (possedeTeleporteur)
+                {
+                    membreClone.etat = MembreEquipage.EnumEquipages.ePathFinding;
+                    membreClone.cible = solTeleporteur;
+                }
+            }
+        }
+
+        yield break;
     }
 }
