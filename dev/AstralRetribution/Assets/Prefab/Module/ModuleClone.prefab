@@ -95,7 +95,7 @@ MonoBehaviour:
   nbCartes: 1
   vaisseauEnnemi: {fileID: 0}
   vaisseau: {fileID: 0}
-  prefabShield: {fileID: 0}
+  prefabShield: {fileID: 88362728739414992, guid: 63bd1c47125b3a441ac0ae0dbddeff9a, type: 3}
   Clone: {fileID: 4759468685315937364, guid: 7d32a0f5edb0afa4ebf7a1ad4b1ccc41, type: 3}
   tempsdistance: 10
   compteurClone: 0

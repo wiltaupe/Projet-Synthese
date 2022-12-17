@@ -146,9 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431977e86f52a214c950ab2859f9ce20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coeur: {fileID: 0}
-  halfHeart: {fileID: 0}
-  noHeart: {fileID: 0}
   currentTile: {fileID: 0}
   Prefab: {fileID: 8375737409147934575, guid: 5ddcff00d6670de42a18a4fceda2afd8, type: 3}
   nbCartes: 1
+  vaisseauEnnemi: {fileID: 0}
+  vaisseau: {fileID: 0}
+  prefabShield: {fileID: 88362728739414992, guid: 63bd1c47125b3a441ac0ae0dbddeff9a, type: 3}

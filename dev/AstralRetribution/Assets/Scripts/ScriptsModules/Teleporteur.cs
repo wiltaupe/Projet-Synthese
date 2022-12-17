@@ -5,7 +5,7 @@ using UnityEngine;
 public class Teleporteur : Module
 {
     public override Etat Type { get; set; } = Etat.actif;
-    public override bool teleporteur { get; set; } = true;
+    public override bool Teleport { get; set; } = true;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,24 +14,24 @@ public class Teleporteur : Module
         {
             if (!collision.gameObject.GetComponentInParent<MembreEquipage>().ennemi && collision.GetComponentInParent<MembreEquipage>() is not Clone)
             {
-                vaisseau = GameObject.Find("Vaisseau").GetComponent<Vaisseau>();
+                Vaisseau = GameObject.Find("Vaisseau").GetComponent<Vaisseau>();
 
-                if (vaisseau.possedeTeleporteurRecepteur)
+                if (Vaisseau.possedeTeleporteurRecepteur)
                 {
                     Transform membre = collision.gameObject.transform.parent;
                     Debug.Log("je teleporte");
-                    Debug.Log(vaisseau.positionRecepteur);
-                    membre.transform.position = vaisseau.positionRecepteur;
+                    Debug.Log(Vaisseau.positionRecepteur);
+                    membre.transform.position = Vaisseau.positionRecepteur;
                     membre.gameObject.transform.GetChild(0).gameObject.SetActive(false);
                 }
             }
 
             else if (!collision.gameObject.GetComponentInParent<MembreEquipage>().ennemi && collision.GetComponentInParent<MembreEquipage>() is Clone)
             {
-                vaisseau = GameObject.Find("Vaisseau").GetComponent<Vaisseau>();
+                Vaisseau = GameObject.Find("Vaisseau").GetComponent<Vaisseau>();
                 vaisseauEnnemi = GameObject.Find("VaisseauEnnemi").GetComponent<Vaisseau>();
 
-                if (vaisseau.possedeTeleporteur)
+                if (Vaisseau.possedeTeleporteur)
                 {
                     Sol sol = vaisseauEnnemi.GetRandomAvailableTile();
                     Transform membre = collision.gameObject.transform.parent;
