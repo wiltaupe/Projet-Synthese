@@ -30,6 +30,7 @@ public class MemberManager : MonoBehaviour
 
         membreEquipage.GetComponent<MembreEquipage>().tuile = tuile;
         membreEquipage.GetComponent<MembreEquipage>().ennemi = ennemi;
+        membreEquipage.GetComponent<MembreEquipage>().vaisseau = vaisseau;
 
         tuile.MembreEquipage = membreEquipage;
         return membreEquipage;

@@ -7,20 +7,19 @@ public class MembreEquipage : MonoBehaviour
     public static event Action­<MembreEquipage> OnMemberHit;
     public Sol tuile { get; set; }
     public bool ennemi { get; set; }
-    
     public Vector2 cible;
     public bool action;
-
     public float MaxVie { get; set; } = 30;
     public float CurrentVie { get; set; }
     public EnumEquipages etat;
     public bool cloneTeleporter;
+    public Vaisseau vaisseau;
 
     private void Start()
     {
         CurrentVie = MaxVie;
         etat = EnumEquipages.ePassif;
-        //Debug.Log(etat);
+        print(tuile);
     }
 
     public enum EnumEquipages

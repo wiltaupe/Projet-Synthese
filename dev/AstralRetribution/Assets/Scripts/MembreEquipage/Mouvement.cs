@@ -18,14 +18,14 @@ public class Mouvement : MonoBehaviour
     private List<(Vector2,string,Sol)> vecteurDeplacement;
     private List<(Vector2, string, Sol)> vecteurDeplacementTeleporteur;
     private HPT teleporteur = new HPT();
-    private GameObject vaisseau, vaisseauEnnemi;
-    private Vaisseau Test, TestEnnemi;
+    //private GameObject vaisseau, vaisseauEnnemi;
+    //private Vaisseau Test, TestEnnemi;
     private int compteur = 2;
     private bool trouver = false;
     private bool trouverTeleportation = false;
     private bool enPAth = false;
     private int indexPath = 0;
-    private bool vEnnemi;
+    //private bool vEnnemi;
     private MembreEquipage membre;
     private bool parentFinalTrouver = false;
     private bool telpo = false;
@@ -38,7 +38,7 @@ public class Mouvement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         membre = body.transform.gameObject.GetComponent<MembreEquipage>();
         membre.etat = MembreEquipage.EnumEquipages.ePassif;
-        vEnnemi = body.transform.gameObject.GetComponent<MembreEquipage>().ennemi;
+        //vEnnemi = body.transform.gameObject.GetComponent<MembreEquipage>().ennemi;
 
         if (membre is Clone)
         {
@@ -91,7 +91,7 @@ public class Mouvement : MonoBehaviour
                 if(testtele)
                 {
 
-                    if (clone && body.transform.GetComponentInParent<MembreEquipage>().tuile.Position == Test.solTeleporteur && !membreTeleporter)
+                    if (clone && body.transform.GetComponentInParent<MembreEquipage>().tuile.Position == membre.vaisseau.solTeleporteur && !membreTeleporter)
                     {
                         this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
                         membreTeleporter = true;
@@ -102,11 +102,10 @@ public class Mouvement : MonoBehaviour
                     {
                         Vector3 moveDir = (targetPosition - transform.position);
 
-                        //float distanceBefore = Vector3.Distance(transform.position, targetPosition.normalized);
                         anim.SetFloat("Horizontal", moveDir.x);
                         anim.SetFloat("Vertical", moveDir.y);
                         anim.SetFloat("Vitesse", moveDir.sqrMagnitude);
-                        // pour ajuster le tile present
+
                         body.transform.SetParent(GameObject.Find(vecteurDeplacement[indexPath].Item2).transform);
                         membre.tuile = vecteurDeplacement[indexPath].Item3;
 
@@ -144,7 +143,7 @@ public class Mouvement : MonoBehaviour
                 else
                 {
                     Vector3 targetPositionTeleporteur = vecteurDeplacementTeleporteur[indexPath].Item1;
-                    if (Vector3.Distance(transform.position, targetPositionTeleporteur) > 1.2f && body.transform.GetComponentInParent<MembreEquipage>().tuile.Position == Test.solTeleporteur && !membreTeleporter)
+                    if (Vector3.Distance(transform.position, targetPositionTeleporteur) > 1.2f && body.transform.GetComponentInParent<MembreEquipage>().tuile.Position == membre.vaisseau.solTeleporteur && !membreTeleporter)
                     {
                         this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
                         membreTeleporter = true;
@@ -154,11 +153,10 @@ public class Mouvement : MonoBehaviour
                     {
                         Vector3 moveDir = (targetPositionTeleporteur - transform.position);
 
-                        //float distanceBefore = Vector3.Distance(transform.position, targetPosition.normalized);
                         anim.SetFloat("Horizontal", moveDir.x);
                         anim.SetFloat("Vertical", moveDir.y);
                         anim.SetFloat("Vitesse", moveDir.sqrMagnitude);
-                        // pour ajuster le tile present
+
                         body.transform.SetParent(GameObject.Find(vecteurDeplacementTeleporteur[indexPath].Item2).transform);
                         membre.tuile = vecteurDeplacementTeleporteur[indexPath].Item3;
 
@@ -225,13 +223,13 @@ public class Mouvement : MonoBehaviour
         if ((membre.etat == MembreEquipage.EnumEquipages.ePathFindingEnnemi || membre.etat == MembreEquipage.EnumEquipages.ePathFinding) && !enPAth)
         {
 
-            if (vEnnemi && membre.etat == MembreEquipage.EnumEquipages.ePathFindingEnnemi)
+            if (membre.ennemi && membre.etat == MembreEquipage.EnumEquipages.ePathFindingEnnemi)
             {
                 StartCoroutine(MettreAJourVaisseau());
                 StartCoroutine(Pathfinder(membre.tuile.Position, membre.cible));
             }
 
-            if (!vEnnemi && membre.etat == MembreEquipage.EnumEquipages.ePathFinding)
+            if (!membre.ennemi && membre.etat == MembreEquipage.EnumEquipages.ePathFinding)
             {
                 StartCoroutine(MettreAJourVaisseau());
                 StartCoroutine(Pathfinder(membre.tuile.Position, membre.cible));
@@ -276,45 +274,17 @@ public class Mouvement : MonoBehaviour
             dicCLOSE.Add(compteur,(current,current.setT()));
             compteur++;
 
-
-            if (vEnnemi)
-            {
-                TestEnnemi = GameManager.Instance.VaisseauEnnemi.GetComponent<Vaisseau>();
-                //vaisseauEnnemi = GameObject.Find("VaisseauEnnemi");
-                //TestEnnemi = vaisseauEnnemi.GetComponent<Vaisseau>();
-            }
-
-            else
-            {
-                vaisseau = GameObject.Find("Vaisseau");
-                Test = vaisseau.GetComponent<Vaisseau>();
-            }
-
             if (current.maPosition == positionFin)
             {
                 StartCoroutine(TrouverListeChemin(current));
-                if (vEnnemi)
-                {
-                    if (TestEnnemi.possedeTeleporteurRecepteur && !clone)
-                    {
-                        StartCoroutine(PathfinderTeleportation(positionDepart, positionFin, true,true));
-                    }
-                    else
-                    {
-                        enPAth = true;
-                    }
-                }
 
+                if (membre.vaisseau.possedeTeleporteurRecepteur && !clone)
+                {
+                    StartCoroutine(PathfinderTeleportation(positionDepart, positionFin, true,true));
+                }
                 else
                 {
-                    if (Test.possedeTeleporteurRecepteur && !clone)
-                    {
-                        StartCoroutine(PathfinderTeleportation(positionDepart, positionFin, true,true));
-                    }
-                    else
-                    {
-                        enPAth = true;
-                    }
+                    enPAth = true;
                 }
 
                 trouver = true;
@@ -364,28 +334,14 @@ public class Mouvement : MonoBehaviour
             if (dicOPEN.Count() == 0)
             {
                 trouver = true;
-                if (vEnnemi)
-                {
-                    if (TestEnnemi.possedeTeleporteurRecepteur)
-                    {
-                        StartCoroutine(PathfinderTeleportation(positionDepart, positionFin, true,false));
-                    }
-                    else
-                    {
-                        membre.etat = MembreEquipage.EnumEquipages.ePassif;
-                    }
-                }
 
+                if (membre.vaisseau.possedeTeleporteurRecepteur)
+                {
+                    StartCoroutine(PathfinderTeleportation(positionDepart, positionFin, true,false));
+                }
                 else
                 {
-                    if (Test.possedeTeleporteurRecepteur && !clone)
-                    {
-                        StartCoroutine(PathfinderTeleportation(positionDepart, positionFin, true,false));
-                    }
-                    else
-                    {
-                        membre.etat = MembreEquipage.EnumEquipages.ePassif;
-                    }
+                    membre.etat = MembreEquipage.EnumEquipages.ePassif;
                 }
             }
         }
@@ -402,34 +358,14 @@ public class Mouvement : MonoBehaviour
         trouverTeleportation = false;
         List<HPT> pathHPT = new List<HPT>();
 
-        if (vEnnemi)
-        {
-            vaisseauEnnemi = GameObject.Find("VaisseauEnnemi");
-            TestEnnemi = vaisseauEnnemi.GetComponent<Vaisseau>();
-
             if (premierePartie)
             {
-                pathHPT = GenererHPT(positionDepart, TestEnnemi.solTeleporteur,dicOPENTeleporteur);
+                pathHPT = GenererHPT(positionDepart, membre.vaisseau.solTeleporteur,dicOPENTeleporteur);
             }
             else
             {
-                pathHPT = GenererHPT(TestEnnemi.solRecepteur,positionFin,dicOPENTeleporteur);
+                pathHPT = GenererHPT(membre.vaisseau.solRecepteur,positionFin,dicOPENTeleporteur);
             }
-        }
-
-        else
-        {
-            vaisseau = GameObject.Find("Vaisseau");
-            Test = vaisseau.GetComponent<Vaisseau>();
-            if (premierePartie)
-            {
-                pathHPT = GenererHPT(positionDepart, Test.solTeleporteur,dicOPENTeleporteur);
-            }
-            else
-            {
-                pathHPT = GenererHPT(Test.solRecepteur, positionFin,dicOPENTeleporteur);
-            }
-        }
 
         while (!trouverTeleportation)
         {
@@ -446,25 +382,12 @@ public class Mouvement : MonoBehaviour
 
             if (premierePartie)
             {
-                if (vEnnemi)
-                {
-                    if (current.maPosition == TestEnnemi.solTeleporteur)
+                    if (current.maPosition == membre.vaisseau.solTeleporteur)
                     {
                         StartCoroutine(TrouverListeCheminTeleporteur(current, true));
-                        StartCoroutine(PathfinderTeleportation(TestEnnemi.solRecepteur, positionFin, false, pathNormal));
+                        StartCoroutine(PathfinderTeleportation(membre.vaisseau.solRecepteur, positionFin, false, pathNormal));
                         trouverTeleportation = true;
                     }
-                }
-
-                else
-                {
-                    if (current.maPosition == Test.solTeleporteur)
-                    {
-                        StartCoroutine(TrouverListeCheminTeleporteur(current, true));
-                        StartCoroutine(PathfinderTeleportation(Test.solRecepteur, positionFin, false, pathNormal));
-                        trouverTeleportation = true;
-                    }
-                }
             }
 
             else 
@@ -586,6 +509,7 @@ public class Mouvement : MonoBehaviour
         yield break;
     }
 
+
     private List<HPT> TrouverVoisin(HPT current, List<HPT> tout)
     {
         List<HPT> mesvoisins = new List<HPT>();
@@ -673,10 +597,7 @@ public class Mouvement : MonoBehaviour
         List<HPT> listHPT = new List<HPT>();
         List<Tile> copy = new();
 
-
-        if (vEnnemi) { copy = tilepathEnnemi; }
-
-        if (!vEnnemi) { copy = tilepath; }
+        copy = tilepath;
 
         foreach (Tile iteration in copy)
         {
@@ -765,28 +686,9 @@ public class Mouvement : MonoBehaviour
 
     public IEnumerator MettreAJourVaisseau()
     {
-        Component[] tuilesMechant;
         Component[] tuiles;
 
-        if (vEnnemi)
-        {
-            vaisseauEnnemi = GameObject.Find("VaisseauEnnemi");
-            tuilesMechant = vaisseauEnnemi.transform.GetChild(0).gameObject.GetComponentsInChildren<Tile>();
-
-            tilepathEnnemi = new List<Tile>();
-
-            foreach (Tile tuile in tuilesMechant)
-            {
-                tilepathEnnemi.Add(tuile);
-            }
-
-            TestEnnemi = vaisseauEnnemi.GetComponent<Vaisseau>();
-        }
-
-        else
-        {
-            vaisseau = GameObject.Find("Vaisseau");
-            tuiles = GameObject.Find("Tuiles").GetComponentsInChildren<Tile>();
+            tuiles = membre.vaisseau.transform.GetChild(0).gameObject.GetComponentsInChildren<Tile>();
 
             tilepath = new List<Tile>();
 
@@ -795,8 +697,6 @@ public class Mouvement : MonoBehaviour
                 tilepath.Add(tuile);
             }
 
-            Test = vaisseau.GetComponent<Vaisseau>();
-        }
         yield break;
     }
 }
