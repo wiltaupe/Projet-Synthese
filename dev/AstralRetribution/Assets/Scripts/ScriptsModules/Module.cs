@@ -11,21 +11,21 @@ public abstract class Module : MonoBehaviour
     public float Shield { get; set; }
     private Camera cam;
     private Vector3 lastPos;
-    public Sol currentTile = null;
+    public Sol currentTile { get; set; } = null;
     private bool redo = false;
     private bool aBouger = false;
     public bool Draggable { get; set; } = true;
     public GameObject Prefab;
     public int nbCartes;
     public bool Ennemi { get; set; } = false;
-    public virtual bool teleporteur { get; set; } = false;
-    public virtual bool recepteur { get; set; } = false;
-    public virtual bool cloneur { get; set; } = false;
+    public virtual bool Teleport { get; set; } = false;
+    public virtual bool Recept { get; set; } = false;
+    public virtual bool Cloning { get; set; } = false;
     public virtual Etat Type { get; set; }
     public float MaxVie { get; set; } = 45;
     public float CurrentVie { get; set; }
-    public Vaisseau vaisseauEnnemi;
-    public Vaisseau vaisseau;
+    public Vaisseau vaisseauEnnemi { get; set; }
+    public Vaisseau Vaisseau { get; set; }
 
     [SerializeField] private GameObject prefabShield;
 
@@ -157,19 +157,19 @@ public abstract class Module : MonoBehaviour
                 if (Ennemi)
                 {
                     vaisseauEnnemi = GameObject.Find("VaisseauEnnemi").GetComponent<Vaisseau>();
-                    if (teleporteur)
+                    if (Teleport)
                     {
                         vaisseauEnnemi.ajoutModuleTeleporteur(sol, this);
                         sol.Traversable = true;
                     }
 
-                    else if (recepteur)
+                    else if (Recept)
                     {
                         vaisseauEnnemi.ajoutModuleRecepteur(sol, this);
                         sol.Traversable = true;
                     }
 
-                    else if (cloneur)
+                    else if (Cloning)
                     {
                         vaisseauEnnemi.ajoutModuleCloneur();
                         sol.Traversable = false;
@@ -182,23 +182,23 @@ public abstract class Module : MonoBehaviour
                 }
                 else
                 {
-                    vaisseau = GameObject.Find("Vaisseau").GetComponent<Vaisseau>();
+                    Vaisseau = GameObject.Find("Vaisseau").GetComponent<Vaisseau>();
 
-                    if (teleporteur)
+                    if (Teleport)
                     {
-                        vaisseau.ajoutModuleTeleporteur(sol, this);
+                        Vaisseau.ajoutModuleTeleporteur(sol, this);
                         sol.Traversable = true;
                     }
 
-                    else if (recepteur)
+                    else if (Recept)
                     {
-                        vaisseau.ajoutModuleRecepteur(sol, this);
+                        Vaisseau.ajoutModuleRecepteur(sol, this);
                         sol.Traversable = true;
                     }
 
-                    else if (cloneur)
+                    else if (Cloning)
                     {
-                        vaisseau.ajoutModuleCloneur();
+                        Vaisseau.ajoutModuleCloneur();
                         sol.Traversable = false;
                     }
 

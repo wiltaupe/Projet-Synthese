@@ -7,7 +7,9 @@ public class Clone : MembreEquipage
     public Cloneur cloneur;
     public override void MembreMort()
     {
-        cloneur.compteurClone = cloneur.compteurClone - 1;
+
+        cloneur.compteurClone--;
+        Instantiate(MortPrefab, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 

@@ -11,6 +11,8 @@ public class MembreEquipage : MonoBehaviour
     public bool action;
     public float MaxVie { get; set; } = 30;
     public float CurrentVie { get; set; }
+    [field:SerializeField]public GameObject MortPrefab { get; private set; }
+
     public EnumEquipages etat;
     public bool cloneTeleporter;
     public Vaisseau vaisseau;
@@ -46,6 +48,7 @@ public class MembreEquipage : MonoBehaviour
 
     public virtual void MembreMort()
     {
+        Instantiate(MortPrefab, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cloneur : Module
 {
     public override Etat Type { get; set; } = Etat.actif;
-    public override bool cloneur { get; set; } = true;
+    public override bool Cloning { get; set; } = true;
 
     public GameObject Clone;
     private float accumulateurTemps = 0.0f;
@@ -45,15 +45,15 @@ public class Cloneur : Module
 
         else
         {
-            if (vaisseau != null)
+            if (Vaisseau != null)
             {
-                if (vaisseau.possedeCloneur && accumulateurTemps > tempsdistance && Type == Etat.actif && compteurClone < 4)
+                if (Vaisseau.possedeCloneur && accumulateurTemps > tempsdistance && Type == Etat.actif && compteurClone < 4)
                 {
 
                     Transform MembreClone = Instantiate(Clone, transform.position, Quaternion.identity).transform;
                     Physics2D.IgnoreCollision(MembreClone.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
-                    vaisseau.MembresEquipage.Add(MembreClone.gameObject);
-                    vaisseau.MembreClone.Add(MembreClone.gameObject);
+                    Vaisseau.MembresEquipage.Add(MembreClone.gameObject);
+                    Vaisseau.MembreClone.Add(MembreClone.gameObject);
                     MembreClone.GetComponent<MembreEquipage>().tuile = currentTile;
                     MembreClone.GetComponent<MembreEquipage>().MaxVie = 10;
                     MembreClone.GetComponent<Clone>().cloneur = this;
