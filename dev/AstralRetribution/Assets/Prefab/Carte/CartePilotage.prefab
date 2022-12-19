@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: {fileID: 1146620808664126721}
   <Button>k__BackingField: {fileID: 4638614907170271270}
-  puissanceAttaque: 15
+  puissanceAttaque: 40
   precision: 0.75
 --- !u!1 &1146620808664126721 stripped
 GameObject:

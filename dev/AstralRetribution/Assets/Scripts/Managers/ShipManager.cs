@@ -13,6 +13,7 @@ public class ShipManager : MonoBehaviour
     [SerializeField] private int nbIterations;
     [SerializeField] private GameObject[] prefabVaisseau;
     [SerializeField] private GameObject[] prefabEnnemi;
+    private bool mechant;
 
     private List<RectInt> rectInts;
 
@@ -30,11 +31,13 @@ public class ShipManager : MonoBehaviour
         {
             govaisseau = Instantiate(prefabEnnemi[UnityEngine.Random.Range(0, prefabVaisseau.Length)], position, Quaternion.identity);
             govaisseau.name = "VaisseauEnnemi";
+            mechant = true;
         }
         else
         {
             govaisseau = Instantiate(prefabVaisseau[UnityEngine.Random.Range(0, prefabEnnemi.Length)], position, Quaternion.identity);
             govaisseau.name = "Vaisseau";
+            mechant = false;
         }
 
         return govaisseau.GetComponent<Vaisseau>();
@@ -50,7 +53,7 @@ public class ShipManager : MonoBehaviour
 
         foreach (RectInt rectInt in rectInts)
         {
-            Salle salle = new(rectInt.width, rectInt.height,rectInt);
+            Salle salle = new(rectInt.width, rectInt.height,rectInt,vaisseau);
             List<Sol> tiles = new();
 
             for (int i = rectInt.xMin; i <= rectInt.xMax; i++)
@@ -100,6 +103,7 @@ public class ShipManager : MonoBehaviour
         }
 
         vaisseau.Salles = salles;
+        vaisseau.mechant = mechant;
         return vaisseau;
     }
 

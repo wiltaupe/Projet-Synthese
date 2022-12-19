@@ -2,13 +2,15 @@ using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [field:SerializeField]public GameObject Bullet { get; set; }
     [SerializeField] private GameObject prefabParticle;
-
+    [field:SerializeField] public Slider PlayerSlider { get; set; }
+    [field:SerializeField] public Slider EnemySlider { get; set; }
     public delegate void PlayerTurnAction();
     public static event PlayerTurnAction OnPlayerTurn;
     public delegate void PlayerTurnEndAction();
