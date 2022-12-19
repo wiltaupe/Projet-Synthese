@@ -21,7 +21,6 @@ public class MembreEquipage : MonoBehaviour
     {
         CurrentVie = MaxVie;
         etat = EnumEquipages.ePassif;
-        print(tuile);
     }
 
     public enum EnumEquipages
@@ -48,7 +47,7 @@ public class MembreEquipage : MonoBehaviour
 
     public virtual void MembreMort()
     {
-        Instantiate(MortPrefab, transform.position, Quaternion.identity);
+        //Instantiate(MortPrefab, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }

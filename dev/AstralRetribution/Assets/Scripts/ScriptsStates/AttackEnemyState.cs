@@ -4,8 +4,7 @@ using UnityEngine;
 internal class AttackEnemyState : State
 {
     private readonly GameManager gameManager;
-    private readonly float degats = 15;
-    private float precision = 0.75f;
+    private readonly float degats = 40;
 
     public AttackEnemyState(GameManager gameManager)
     {
@@ -15,7 +14,7 @@ internal class AttackEnemyState : State
     public override IEnumerator Start()
     {
         Salle salle = gameManager.VaisseauJoueur.GetComponent<Vaisseau>().GetRandomSalle();
-        if (Random.Range(0f, 1f) <= precision)
+        if (Random.Range(0f, 1f) >= gameManager.VaisseauJoueur.GetComponent<Vaisseau>().esquive)
         {
             salle.RecevoirDegats(degats);
             GameManager.Instance.LancerMissile(salle);

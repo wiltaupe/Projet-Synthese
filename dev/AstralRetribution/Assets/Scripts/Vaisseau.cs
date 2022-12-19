@@ -13,6 +13,11 @@ public class Vaisseau : MonoBehaviour
     public float esquive = 0;
     public GameObject tuiles;
     public bool possedeCloneur;
+    private float maxVie;
+    private float currentVie;
+
+    public bool mechant;
+
     public bool possedeTeleporteur { get; set; } = false;
     public bool possedeRecepteur { get; set; } = false;
     public bool possedeTeleporteurRecepteur { get; set; } = false;
@@ -20,6 +25,36 @@ public class Vaisseau : MonoBehaviour
     public Vector2 positionRecepteur { get; set; } = new Vector2();
     public Vector2 solTeleporteur { get; set; } = new Vector2();
     public Vector2 positionTeleporteur { get; set; } = new Vector2();
+
+    internal void RecevoirDegats(float puissance)
+    {
+        currentVie -= puissance;
+
+        if (currentVie> 0)
+        {
+            if (mechant)
+            {
+                GameManager.Instance.EnemySlider.value = currentVie / maxVie;
+            }
+            else
+            {
+                GameManager.Instance.PlayerSlider.value = currentVie / maxVie;
+            }
+        }
+        else
+        {
+            if (mechant)
+            {
+                GameManager.Instance.SetState(new PlayerWinState(GameManager.Instance));
+            }
+            else
+            {
+                GameManager.Instance.SetState(new PlayerLostState(GameManager.Instance));
+            }
+        }
+
+        
+    }
 
     public Module Teleporteur { get; set; }
     public Module Recepteur { get; set; }
@@ -188,7 +223,7 @@ public class Vaisseau : MonoBehaviour
         }
     }
 
-    internal void ajoutModuleRecepteur(Sol sol,Module module)
+    internal void AjoutModuleRecepteur(Sol sol,Module module)
     {
         possedeRecepteur = true;
         VerifTelRec();
@@ -197,7 +232,7 @@ public class Vaisseau : MonoBehaviour
         Recepteur = module;
     }
 
-    internal void ajoutModuleTeleporteur(Sol sol,Module module)
+    internal void AjoutModuleTeleporteur(Sol sol,Module module)
     {
         possedeTeleporteur = true;
         VerifTelRec();
@@ -206,7 +241,7 @@ public class Vaisseau : MonoBehaviour
         Teleporteur = module;
     }
 
-    internal void ajoutModuleCloneur()
+    internal void AjoutModuleCloneur()
     {
         possedeCloneur = true;
     }
@@ -237,5 +272,19 @@ public class Vaisseau : MonoBehaviour
         }
 
         yield break;
+    }
+
+    private void Start()
+    {
+        foreach (Salle salle in Salles)
+        {
+            maxVie += 10;
+        }
+
+        Debug.Log(maxVie);
+        currentVie = maxVie;
+
+        
+
     }
 }
