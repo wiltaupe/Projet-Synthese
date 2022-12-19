@@ -63,7 +63,6 @@ public class MenuInitial : MonoBehaviour
             affichage.SetActive(true);
         }
 
-        
 
     } 
 }
