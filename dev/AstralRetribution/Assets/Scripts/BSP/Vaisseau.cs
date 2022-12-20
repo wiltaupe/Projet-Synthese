@@ -321,10 +321,6 @@ public class Vaisseau : MonoBehaviour
             maxVie += 10;
         }
 
-        Debug.Log(maxVie);
         currentVie = maxVie;
-
-        
-
     }
 }
