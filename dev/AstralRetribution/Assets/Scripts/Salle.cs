@@ -5,6 +5,7 @@ using UnityEngine;
 public class Salle
 {
     internal bool isProtected;
+    public List­<Module> listeModule { get; set; }
 
     public int Width { get; set; }
     public float MaxVie { get; set; }
@@ -19,6 +20,7 @@ public class Salle
         Width = width;
         Height = height;
         RectInt = rectint;
+        listeModule = new();
     }
 
     public void  AddTiles(List<Sol> sols)
@@ -63,10 +65,8 @@ public class Salle
             if (sol.Position.x == (int)RectInt.center.x && sol.Position.y == (int)RectInt.center.y)
             {
                 return sol;
-            }
-            
+            }    
         }
-
         return null;
     }
 }

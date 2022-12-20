@@ -6,12 +6,13 @@ public class MembreEquipage : MonoBehaviour
 {
     public static event Action­<MembreEquipage> OnMemberHit;
     public Sol tuile { get; set; }
+    [field: SerializeField] public float vitesse { get; set; } = 10f;
     public bool ennemi { get; set; }
     public Vector2 cible;
     public bool action;
     public float MaxVie { get; set; } = 30;
-    public float CurrentVie { get; set; }
-    [field:SerializeField]public GameObject MortPrefab { get; private set; }
+    [field: SerializeField] public float CurrentVie { get; set; }
+    [field: SerializeField] public GameObject MortPrefab { get; private set; }
 
     public EnumEquipages etat;
     public bool cloneTeleporter;
@@ -21,7 +22,6 @@ public class MembreEquipage : MonoBehaviour
     {
         CurrentVie = MaxVie;
         etat = EnumEquipages.ePassif;
-        print(tuile);
     }
 
     public enum EnumEquipages
@@ -50,5 +50,9 @@ public class MembreEquipage : MonoBehaviour
     {
         Instantiate(MortPrefab, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
+    }
+
+    public virtual void ActionEquipage()
+    {
     }
 }

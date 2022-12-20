@@ -57,6 +57,7 @@ public class MainManager : MonoBehaviour
                 mod.transform.localScale = new Vector3(ajustersize/1.25f, ajustersize/1.25f, 0);
                 mod.GetComponent<Module>().Draggable = false;
                 mod.GetComponent<Module>().vaisseauEnnemi = vaisseau;
+                vaisseau.ModulesActifs.Add(mod.GetComponent<Module>());
 
                 PlacerModule(mod, vaisseau, v2);
             }
@@ -70,6 +71,7 @@ public class MainManager : MonoBehaviour
                 mod.transform.localScale = new Vector3(ajustersize / 1.25f, ajustersize / 1.25f, 0);
                 mod.GetComponent<Module>().Draggable = false;
                 mod.GetComponent<Module>().vaisseauEnnemi = vaisseau;
+                vaisseau.ModulesActifs.Add(mod.GetComponent<Module>());
 
                 PlacerModule(mod, vaisseau, v2);
                 i++;

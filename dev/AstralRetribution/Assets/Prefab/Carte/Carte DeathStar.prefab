@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8272653854596935248
+--- !u!1001 &5525278582000829971
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -21,11 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4615452990420818837, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_text
-      value: Clone Go BOOM BOOM
-      objectReference: {fileID: 0}
-    - target: {fileID: 8099588507919625174, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: End Is Comming !
       objectReference: {fileID: 0}
     - target: {fileID: 8194989271316747000, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_Pivot.x
@@ -121,60 +117,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8194989271316747001, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_Name
-      value: CarteClone
-      objectReference: {fileID: 0}
-    - target: {fileID: 8194989271316747001, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: Carte DeathStar
       objectReference: {fileID: 0}
     - target: {fileID: 8194989271316747007, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300038, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
-    - target: {fileID: 8194989271316747007, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-      propertyPath: m_Color.b
-      value: 0.9254902
-      objectReference: {fileID: 0}
-    - target: {fileID: 8194989271316747007, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-      propertyPath: m_Color.g
-      value: 0.8782746
-      objectReference: {fileID: 0}
-    - target: {fileID: 8194989271316747007, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300104, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
---- !u!1 &191924204489573766 stripped
+--- !u!1 &4380383188528754117 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8099588507919625174, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-  m_PrefabInstance: {fileID: 8272653854596935248}
+  m_PrefabInstance: {fileID: 5525278582000829971}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &248873956448992425 stripped
+--- !u!1 &4402207932226409706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8194989271316747001, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-  m_PrefabInstance: {fileID: 8272653854596935248}
+  m_PrefabInstance: {fileID: 5525278582000829971}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4563331563320294000
+--- !u!114 &-8446905894838369938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248873956448992425}
+  m_GameObject: {fileID: 4402207932226409706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49c8eae7201f3154889a08fb860e0971, type: 3}
+  m_Script: {fileID: 11500000, guid: 273b2dbc53980df4498a7fb6333a0d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: {fileID: 191924204489573766}
-  <Button>k__BackingField: {fileID: 5557420149787500705}
---- !u!114 &5557420149787500705 stripped
+  description: {fileID: 4380383188528754117}
+  <Button>k__BackingField: {fileID: 8321536586698279138}
+--- !u!114 &8321536586698279138 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4598653469365800689, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-  m_PrefabInstance: {fileID: 8272653854596935248}
+  m_PrefabInstance: {fileID: 5525278582000829971}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248873956448992425}
+  m_GameObject: {fileID: 4402207932226409706}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}

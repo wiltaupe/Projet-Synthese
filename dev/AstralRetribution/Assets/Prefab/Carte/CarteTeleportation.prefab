@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1233887880228402596, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233887880228402596, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233887880228402596, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 130
+      objectReference: {fileID: 0}
     - target: {fileID: 4615452990420818837, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_text
       value: Mix Switch
@@ -50,6 +62,14 @@ PrefabInstance:
     - target: {fileID: 8194989271316747000, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194989271316747000, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194989271316747000, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 8194989271316747000, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_LocalPosition.x

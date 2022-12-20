@@ -85,4 +85,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cible: {x: 0, y: 0}
   action: 0
+  <MortPrefab>k__BackingField: {fileID: 5985634496115995773, guid: 463cf9f7af4680240898f6aeba3fe3e6, type: 3}
   etat: 0
+  cloneTeleporter: 0
+  vaisseau: {fileID: 0}
+  cloneur: {fileID: 0}
+  particuleEffect: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}

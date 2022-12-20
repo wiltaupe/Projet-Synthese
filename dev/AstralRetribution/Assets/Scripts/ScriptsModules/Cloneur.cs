@@ -54,6 +54,18 @@ public class Cloneur : Module
                     Physics2D.IgnoreCollision(MembreClone.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
                     Vaisseau.MembresEquipage.Add(MembreClone.gameObject);
                     Vaisseau.MembreClone.Add(MembreClone.gameObject);
+
+                    if (Vaisseau != null)
+                    {
+                        MembreClone.GetComponent<MembreEquipage>().vaisseau = Vaisseau;
+                        MembreClone.GetComponent<MembreEquipage>().ennemi = false;
+                    }
+                    else
+                    {
+                        MembreClone.GetComponent<MembreEquipage>().vaisseau = vaisseauEnnemi;
+                        MembreClone.GetComponent<MembreEquipage>().ennemi = true;
+                    }
+
                     MembreClone.GetComponent<MembreEquipage>().tuile = currentTile;
                     MembreClone.GetComponent<MembreEquipage>().MaxVie = 10;
                     MembreClone.GetComponent<Clone>().cloneur = this;
