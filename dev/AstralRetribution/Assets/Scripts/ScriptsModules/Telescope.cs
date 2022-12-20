@@ -30,6 +30,14 @@ public class Telescope : Module
 
     private void MiseAJourPresicion()
     {
+        if (Vaisseau != null)
+        {
+            Vaisseau.esquive = 0.1f;
+        }
 
+        if (vaisseauEnnemi != null)
+        {
+            vaisseauEnnemi.esquive = 0.1f;
+        }
     }
 }

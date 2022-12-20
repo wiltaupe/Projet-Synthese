@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class PlaneteGlace : Planete
 {
-
-    // Start is called before the first frame update
     void Start()
     {
         cercle = transform.GetChild(0).gameObject;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -19,7 +16,6 @@ public class PlaneteGlace : Planete
 
     override public Planete EnvoyerEvent()
     {
-        Debug.Log("je suis de glace");
         return this;
     }
 }

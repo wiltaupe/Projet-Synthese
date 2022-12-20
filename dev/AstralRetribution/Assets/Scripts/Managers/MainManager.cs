@@ -6,12 +6,9 @@ public class MainManager : MonoBehaviour
     public GameObject[] moduleObligatoire;
     public GameObject[] moduleSecondaire;
     public static MainManager Instance { get; private set; }
-
     public ShipManager ShipManager { get; private set; }
-
     public MemberManager MemberManager { get; private set; }
     public Sprite Background { get; set; }
-
     public Vaisseau VaisseauJoueur { get; set; }
 
     private void Awake()

@@ -14,7 +14,6 @@ internal class DefendEnemyState : State
     public override IEnumerator Start()
     {
         yield return new WaitForSeconds(2.0f);
-        Debug.Log("DefendEnemyState");
         ProtectSalle(gameManager.VaisseauEnnemi.GetComponent<Vaisseau>().GetMostDamagedSalle());
         
         gameManager.SetState(new PlayerTurnState(gameManager));

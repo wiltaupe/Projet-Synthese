@@ -35,20 +35,11 @@ public class Teleporteur : Module
                 {
                     Sol sol = vaisseauEnnemi.GetRandomAvailableTile();
                     Transform membre = collision.gameObject.transform.parent;
-                    Debug.Log("je teleporte des clones");
                     membre.transform.position = sol.transform.position;
                     membre.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                    //collision.GetComponentInParent<MembreEquipage>().etat = MembreEquipage.EnumEquipages.eAction;
-                    //collision.GetComponentInParent<MembreEquipage>().etat = MembreEquipage.EnumEquipages.ePathFindingEnnemi;
                     collision.GetComponentInParent<MembreEquipage>().vaisseau = vaisseauEnnemi;
-                    //collision.GetComponentInParent<MembreEquipage>().ActionEquipage();
                     collision.GetComponentInParent<MembreEquipage>().cloneTeleporter = true;
                 }
-            }
-
-            else if (collision.gameObject.GetComponentInParent<MembreEquipage>().ennemi)
-            {
-
             }
         }
     }

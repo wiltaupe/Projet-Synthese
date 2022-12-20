@@ -6,7 +6,6 @@ public class SunHeal : Module
 {
     public override Etat Type { get; set; } = Etat.passif;
     private bool HealTime = false;
-    // Start is called before the first frame update
 
     void Update()
     {

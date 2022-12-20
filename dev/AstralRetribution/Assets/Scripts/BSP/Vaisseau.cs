@@ -126,13 +126,11 @@ public class Vaisseau : MonoBehaviour
         return false;
     }
 
-    // Start is called before the first frame update
-
     private void Awake()
     {
         ModulesActifs = new();
     }
-    // Update is called once per frame
+
     void Update()
     {
         if(vestigeCourrant != null && enConstruction)
@@ -157,10 +155,7 @@ public class Vaisseau : MonoBehaviour
 
         int choice = Random.Range(0, Salles.Count);
         Salle salle = Salles[choice];
-
         int rand = Random.Range(0, salle.Tuiles.Count);
-
-
         Sol sol = salle.Tuiles[rand];
 
 

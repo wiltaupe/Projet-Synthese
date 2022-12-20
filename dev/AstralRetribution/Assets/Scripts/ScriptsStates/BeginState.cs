@@ -53,7 +53,6 @@ public class BeginState : State
         gameManager.VaisseauJoueur.transform.position = gameManager.PosJoueur.position;
         gameManager.VaisseauJoueur.GetComponent<Vaisseau>().tuiles.SetActive(true);
 
-
         gameManager.VaisseauEnnemi = MainManager.Instance.ShipManager.GenererVaisseau(gameManager.PosEnnemi.position, true).gameObject;
         gameManager.VaisseauEnnemi.transform.localScale = new Vector3(2.75f, 2.75f);
         MainManager.Instance.MemberManager.GenererMembres(UnityEngine.Random.Range(4,8), gameManager.VaisseauEnnemi.GetComponent<Vaisseau>(),true);

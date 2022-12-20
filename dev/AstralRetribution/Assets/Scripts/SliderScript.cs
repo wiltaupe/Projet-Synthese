@@ -9,8 +9,6 @@ public class SliderScript : MonoBehaviour
     public bool PlayerTurn { get; set; }
     [SerializeField] private UnityEvent tourFini;
 
-
-
     private void Start()
     {
         PlayerTurn = false;
@@ -48,9 +46,5 @@ public class SliderScript : MonoBehaviour
         {
             bar.transform.localScale = Vector2.zero;
         }
-
-        
     }
-
-
 }

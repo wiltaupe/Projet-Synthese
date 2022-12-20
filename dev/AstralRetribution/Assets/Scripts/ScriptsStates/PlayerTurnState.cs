@@ -11,12 +11,10 @@ internal class PlayerTurnState : State
     public PlayerTurnState(GameManager gameManager)
     {
         this.gameManager = gameManager;
-
     }
 
     public override IEnumerator Start()
     {
-        Debug.Log("PlayerTurnState");
         gameManager.Slider.tour = 0;
         gameManager.Slider.PlayerTurn = true;
         gameManager.DrawCards();

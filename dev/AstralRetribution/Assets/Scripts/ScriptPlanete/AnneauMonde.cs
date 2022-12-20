@@ -5,14 +5,12 @@ using UnityEngine.UI;
 
 public class AnneauMonde : Planete
 {
-    // Start is called before the first frame update
     void Start()
     {
         cercle = transform.GetChild(0).gameObject;
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -20,7 +18,6 @@ public class AnneauMonde : Planete
 
     override public Planete EnvoyerEvent()
     {
-        Debug.Log("je un AnneauMonde");
         return this;
     }
 }

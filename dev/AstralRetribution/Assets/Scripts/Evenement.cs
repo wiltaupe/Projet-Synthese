@@ -12,5 +12,4 @@ public class Evenement : ScriptableObject
     public bool[] hub;
     public bool[] vaisseauImportant;
     public GameObject[] modulePossible;
-
 }

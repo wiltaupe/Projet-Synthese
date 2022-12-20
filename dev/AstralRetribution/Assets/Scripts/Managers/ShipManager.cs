@@ -9,7 +9,6 @@ public class ShipManager : MonoBehaviour
     [SerializeField] private Sol sol;
     [SerializeField] private Porte porte;
     public static int Taille { get; private set; }
-    //[SerializeField] public int taille { get; set; }
     [SerializeField] private int nbIterations;
     [SerializeField] private GameObject[] prefabVaisseau;
     [SerializeField] private GameObject[] prefabEnnemi;
@@ -127,8 +126,8 @@ public class ShipManager : MonoBehaviour
     }
     private void PrendreRectDansArbre(BSPTree noeud)
     {
-        // source : https://www.geeksforgeeks.org/print-leaf-nodes-left-right-binary-tree/
-        // If node is null, return
+        // source : https://www.geeksforgeeks.org/print-leaf-nodes-left-right-binary-tree/ // If node is null, return
+
         if (noeud == null)
             return;
 
@@ -165,46 +164,15 @@ public class ShipManager : MonoBehaviour
 
         if (UnityEngine.Random.Range(0f, 1f) > 0.5f)
         {
-
-            // vertical split
             c1 = new RectInt(contenu.x, contenu.y, contenu.width, (int)UnityEngine.Random.Range(contenu.height * 0.3f, contenu.height * 0.5f));
             c2 = new RectInt(contenu.x, contenu.y + c1.height, contenu.width, contenu.height - c1.height);
-
-            /*try
-            {
-                if (c1.height <= 2 || c2.height <= 2 || c1.width <= 2 || c2.width <= 2)
-                {
-                    DiviserContenu(contenu);
-                }
-            }
-            catch (StackOverflowException)
-            {
-                GenererSalles(Taille, nbIterations);
-            }*/
-
-            //ratio pour egaliser  ////// % split x ou y par 50/50 augmentatiion 25% / - 25 %
         }
 
         else
         {
-            // horizontal split
             c1 = new RectInt(contenu.x, contenu.y, (int)UnityEngine.Random.Range(contenu.width * 0.3f, contenu.width * 0.5f), contenu.height);
             c2 = new RectInt(contenu.x + c1.width, contenu.y, contenu.width - c1.width, contenu.height);
-
-            /*try
-            {
-                if (c1.height <= 2 || c2.height <= 2 || c1.width <= 2 || c2.width <= 2)
-                {
-                    DiviserContenu(contenu);
-                }
-            }
-            catch (StackOverflowException)
-            {
-                GenererSalles(Taille, nbIterations);
-            }*/
-
         }
-
 
         return new RectInt[] { c1, c2 };
     }

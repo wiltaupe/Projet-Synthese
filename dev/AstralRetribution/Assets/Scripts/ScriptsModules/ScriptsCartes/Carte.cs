@@ -38,9 +38,6 @@ public class Carte : MonoBehaviour,ISelectHandler, IPointerEnterHandler,IPointer
 
     }
 
-    
-
-
     public void GameManager_OnPlayerTurnEnd()
     {
         Button.interactable = false;

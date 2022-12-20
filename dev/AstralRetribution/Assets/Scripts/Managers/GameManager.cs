@@ -14,10 +14,8 @@ public class GameManager : MonoBehaviour
     public delegate void PlayerTurnAction();
     public static event PlayerTurnAction OnPlayerTurn;
     public delegate void PlayerTurnEndAction();
-
     public static event PlayerTurnEndAction OnPlayerTurnEnd;
     public delegate void CardPlayedAction(Carte carte);
-
     public void MissParticleSpawn(Salle cible)
     {
         Instantiate(prefabParticle, cible.GetMiddleSol().transform.position, Quaternion.identity);
@@ -29,7 +27,6 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public Transform PosJoueur { get; set; }
     [field: SerializeField] public Transform PosEnnemi { get; set; }
     [field: SerializeField] public GameObject DeckContainer { get; set; }
-
     public GameObject VaisseauJoueur { get; set; }
     public GameObject VaisseauEnnemi { get; set; }
     [field:SerializeField] public SliderScript Slider { get; set; }
@@ -37,20 +34,15 @@ public class GameManager : MonoBehaviour
     public int cartesParTour = 4;
     private readonly System.Random random = new();
     [HideInInspector]public Salle RoomSelected { get; set; }
+    [HideInInspector] public Carte CarteSelected { get; set; }
 
     public void GenererDeck()
     {
-
         foreach (GameObject carte in DeckJoueur.Cartes.Values)
         {
             Instantiate(carte, DeckContainer.transform);
         }
-
-        
     }
-
-    [HideInInspector]public Carte CarteSelected { get; set; }
-
 
     public void Awake()
     {
@@ -87,7 +79,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         currentState = new BeginState(this);
@@ -118,26 +109,8 @@ public class GameManager : MonoBehaviour
         RoomSelected = null;
         CarteSelected = null;
 
-        //DiscardHand();
-
         SetState(new EnemyTurnState(this));
     }
-
-    /*private void DiscardHand()
-    {
-        var cartes = GameObject.FindGameObjectsWithTag("Carte");
-
-        foreach (GameObject carte in cartes)
-        {
-            Destroy(carte);
-        }
-
-        foreach (GameObject carte in DeckJoueur.Main)
-        {
-            DeckJoueur.Defausse.Add(carte);
-            DeckJoueur.Main.Remove(carte);
-        }
-    }*/
 
     private void PlayCard()
     {
