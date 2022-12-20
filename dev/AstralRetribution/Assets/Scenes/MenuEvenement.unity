@@ -796,7 +796,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1146091276}
         m_TargetAssemblyTypeName: MenuEvenement, Assembly-CSharp
-        m_MethodName: RetourHub
+        m_MethodName: selectionOUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1231,7 +1231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146091274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.56144, y: -33.00399, z: -13.355561}
+  m_LocalPosition: {x: 240.9, y: -0.1, z: -13.355561}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1256,6 +1256,7 @@ MonoBehaviour:
   boutonNON: {fileID: 1727323612}
   boutonCombat: {fileID: 48434547}
   boutonHUB: {fileID: 2058790139}
+  choix: 0
 --- !u!1 &1392288151
 GameObject:
   m_ObjectHideFlags: 0

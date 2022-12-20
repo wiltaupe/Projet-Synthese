@@ -9,7 +9,7 @@ public class MenuSelection : MonoBehaviour
     [SerializeField] private Transform positionJoueur;
     public GameObject boutonMenu;
     Vaisseau vaisseaujoueur;
-    // Start is called before the first frame update
+
     void Start()
     {
         vaisseaujoueur = GenererVaisseauJoueur();
@@ -47,6 +47,4 @@ public class MenuSelection : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("MenuHub");
     }
-
-    
 }

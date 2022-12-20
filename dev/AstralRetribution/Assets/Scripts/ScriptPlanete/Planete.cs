@@ -17,22 +17,13 @@ public class Planete : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (PlaneteManager.Instance.VerificationPosition(transform.position.x) > PlaneteManager.Instance.GetPosition() || (PlaneteManager.Instance.GetPosition() == 1 && PlaneteManager.Instance.VerificationPosition(transform.position.x) == PlaneteManager.Instance.GetPosition() && !PlaneteManager.Instance.GetDebut()))
+        if ((PlaneteManager.Instance.VerificationPosition(transform.position.x) > PlaneteManager.Instance.GetPosition() && possedeCheminDerriere) || (PlaneteManager.Instance.GetPosition() == 1 && PlaneteManager.Instance.VerificationPosition(transform.position.x) == PlaneteManager.Instance.GetPosition() && !PlaneteManager.Instance.GetDebut()))
         {
             PlaneteManager.Instance.SetPosition(PlaneteManager.Instance.VerificationPosition(transform.position.x));
             PlaneteManager.Instance.SetposSelection(gameObject.transform.position);
-            //if (Random.Range(0, 2) == 1)
-            //{
-            //SceneManager.LoadScene("MenuCombat");
-            /*}
-            else
-            {*/
+
             PlaneteManager.Instance.currentEvent = EnvoyerEvent();
             SceneManager.LoadScene("MenuEvenement");
-
-            /*}*/
-
-
             
         }
     }
@@ -44,9 +35,8 @@ public class Planete : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (PlaneteManager.Instance.VerificationPosition(transform.position.x) > PlaneteManager.Instance.GetPosition() || (PlaneteManager.Instance.GetPosition() == 1 && PlaneteManager.Instance.VerificationPosition(transform.position.x) == PlaneteManager.Instance.GetPosition() && !PlaneteManager.Instance.GetDebut()))
+        if ((PlaneteManager.Instance.VerificationPosition(transform.position.x) > PlaneteManager.Instance.GetPosition() && possedeCheminDerriere) || (PlaneteManager.Instance.GetPosition() == 1 && PlaneteManager.Instance.VerificationPosition(transform.position.x) == PlaneteManager.Instance.GetPosition() && !PlaneteManager.Instance.GetDebut()))
         {
-
             cercle.SetActive(true);
         }
     }

@@ -17,11 +17,23 @@ MonoBehaviour:
     longuement a la logique autour de cette plan\xE8te. Il existe un certain dilemme
     moral autour de la population de cette plan\xE8te qui pense que les autres plan\xE8tes
     ne sont pas plates. Vous d\xE9cidez de ne pas vous en m\xEAler et repartez."
+  - La civilisation de cette planete semble trouver votre arrivez pour le moins douteuse.
+    Vous voulez vous sauver mais vous entrer en combat
+  - Un  combat se lance contre la civilisation de cette planete qui semble rire de
+    votre reflexion sur le principe de la graviter
+  - Cette planete semble etre plutot de la forme d'un vaisseau. Peut-etre puisque
+    sen ai un ! Vous vous faite attaquer
   background:
   - {fileID: 21300000, guid: 9ef1ba40a3b11ab44a143612aae310ca, type: 3}
   - {fileID: 21300000, guid: d220151e1f5823e468b61eb0db71ac9c, type: 3}
   - {fileID: 21300000, guid: f17284567d91ae641aee4e4ff1b47a5f, type: 3}
   - {fileID: 21300000, guid: 6aa4497ab8324ba4089b855785dd2f92, type: 3}
-  choix: 0
-  combat: 1
-  hub: 00
+  choix: 00000000
+  combat: 00010101
+  hub: 01000000
+  vaisseauImportant: 00000000
+  modulePossible:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

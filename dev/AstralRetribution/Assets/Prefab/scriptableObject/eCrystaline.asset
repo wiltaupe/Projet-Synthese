@@ -17,11 +17,23 @@ MonoBehaviour:
     ramener moi \xE7a \xE0 la d\xE9charge, qu\u2019on lui montre la qualit\xE9 d\u2019un
     vaisseau cristallin : votre vaisseau est d\xE9truit et remplac\xE9 par un vaisseau
     cristallin"
+  - ' Vous semblez voir un objet brillez au loin, vous trouvez une piece qui pourrais
+    etre utile a votre equipage. Voulez vous la ramasser ?'
+  - " Aye toi, le pauvre, c\u2019est quoi se vaisseau de pacotille que tu poss\xE8des,
+    ramener moi \xE7a \xE0 la d\xE9charge. Vouz engagez le combat.  "
+  - Vous n'avez meme pas le temps de voir au loin ce qu'il y a sur cette planete
+    que vous etes attaquez !
   background:
   - {fileID: 21300000, guid: 195d8664fb404ca49b5183630844673c, type: 3}
   - {fileID: 21300000, guid: bb002ff2930177b41b79854d3cd3bb69, type: 3}
   - {fileID: 21300000, guid: 91f42e74532b69c4688ea04796ee4524, type: 3}
   - {fileID: 21300000, guid: 0a3023175bc2b334d9235eb55dcf1169, type: 3}
-  choix: 0
-  combat: 1
-  hub: 00
+  choix: 01010000
+  combat: 00000101
+  hub: 01010000
+  vaisseauImportant: 01010000
+  modulePossible:
+  - {fileID: 7865819657638452584, guid: ae125996c0175554f961030448e03daa, type: 3}
+  - {fileID: 1549601055636736994, guid: 106780b314d089743a0207b4afabca4e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}

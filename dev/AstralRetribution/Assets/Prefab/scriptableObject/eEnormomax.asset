@@ -17,9 +17,16 @@ MonoBehaviour:
     Vous et votre \xE9quipage tenter de repartir au plus vite. -Checker moi ce repas
     qui essaye de se sauver de mon assiette. Un membre de votre \xE9quipage se fait
     rattraper. Vous perdez un membre."
+  - "Les habitants de cette plan\xE8te semble appr\xE9cier le go\xFBt de la chair.
+    Vous et votre \xE9quipage tenter de repartir au plus vite. -Checker moi ce repas
+    qui essaye de se sauver de mon assiette. Un combat se lance"
   background:
   - {fileID: 21300000, guid: d1fe08adb987a9945b6107474b46716a, type: 3}
   - {fileID: 21300000, guid: e82ca672be363f440a10616f1293efbc, type: 3}
-  choix: 0
-  combat: 0
-  hub: 01
+  choix: 0000
+  combat: 0001
+  hub: 0100
+  vaisseauImportant: 0100
+  modulePossible:
+  - {fileID: 0}
+  - {fileID: 0}

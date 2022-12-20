@@ -14,11 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description:
   - Votre arrivez est pour le moins difficile vous rebrousser chemin rapidement.
+  - Votre arrivez est pour le moins difficile vous rebrousser chemin rapidement.
+  - "Vous semblez appercevoir au loin une ancienne structure ravag\xE9 pas la lave.
+    Voulez vous tantez d'explorer?"
+  - Un des plus grand serviteur du natif du systeme vous surprends a essayer d'atterir
+    sur sa planete. Vous etes attaquer sans meme pouvoir essayer un pourparler.
   background:
   - {fileID: 21300000, guid: f63576eaf9ba6c047b43192fac013bb9, type: 3}
   - {fileID: 21300000, guid: 7dde2a03096b5b54e971c50f6ca69f50, type: 3}
   - {fileID: 21300000, guid: 9aa28635f83082e46937e44291896ebb, type: 3}
   - {fileID: 21300000, guid: 09c992801e849b94e987850c8cc88a1b, type: 3}
-  choix: 1
-  combat: 0
-  hub: 00
+  choix: 00000100
+  combat: 00000001
+  hub: 01010000
+  vaisseauImportant: 00000100
+  modulePossible:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1549601055636736994, guid: 106780b314d089743a0207b4afabca4e, type: 3}
+  - {fileID: 0}

@@ -16,8 +16,15 @@ MonoBehaviour:
   - "Les habitant de cette m\xE9gastructure semble enfin avoir trouver un mat\xE9riau
     assez solide et flexible pour r\xE9ussir la cr\xE9ation d\u2019un projet d\u2019aussi
     grande envergure. -Je vous offre mon savoir en \xE9change d\u2019un des v\xF4tres."
+  - Votre arrivez est pour le moins pertubatrice. Vous engagez le combat contre 
+    la population de cette mega structure.
   background:
   - {fileID: 21300000, guid: 8e255bd1b2e64e24b9ecb0603738db76, type: 3}
-  choix: 1
-  combat: 0
-  hub: 00
+  - {fileID: 21300000, guid: 8e255bd1b2e64e24b9ecb0603738db76, type: 3}
+  choix: 0100
+  combat: 0001
+  hub: 0100
+  vaisseauImportant: 0100
+  modulePossible:
+  - {fileID: 7865819657638452584, guid: ae125996c0175554f961030448e03daa, type: 3}
+  - {fileID: 7865819657638452584, guid: ae125996c0175554f961030448e03daa, type: 3}

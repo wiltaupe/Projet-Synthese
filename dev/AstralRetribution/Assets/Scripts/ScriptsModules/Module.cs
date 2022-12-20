@@ -169,7 +169,7 @@ public abstract class Module : MonoBehaviour
 
                     else if (Recept)
                     {
-                        vaisseauEnnemi.AjoutModuleRecepteur(sol, this);
+                        vaisseauEnnemi.ajoutModuleRecepteur(sol, this);
                         sol.Traversable = true;
                     }
 
@@ -196,7 +196,7 @@ public abstract class Module : MonoBehaviour
 
                     else if (Recept)
                     {
-                        Vaisseau.AjoutModuleRecepteur(sol, this);
+                        Vaisseau.ajoutModuleRecepteur(sol, this);
                         sol.Traversable = true;
                     }
 

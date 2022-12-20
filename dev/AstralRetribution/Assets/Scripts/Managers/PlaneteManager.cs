@@ -129,6 +129,7 @@ public class PlaneteManager : MonoBehaviour
                     {
                         CreationLigne(g, p[k].Item1);
                         cheminAV.possedeCheminDevant = true;
+                        p[k].Item1.GetComponent<Planete>().possedeCheminDerriere = true;
                     }
 
                     if (distance < distancepetit)
@@ -159,10 +160,6 @@ public class PlaneteManager : MonoBehaviour
         lr.endColor = Color.cyan;
     }
 
-      /********************************************************/
-     /* https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm */
-    /********************************************************/
-
     public (float, float, float) GenererUnePlanete()
     {
         float x = UnityEngine.Random.Range(-55, 400);
@@ -188,7 +185,7 @@ public class PlaneteManager : MonoBehaviour
             {
                 var objet = GenererUnePlanete();
 
-                if (!VerificationRayon(new Vector3(objet.Item1,objet.Item2,0), 40f))  // 40f etant la véerification de distance pour en placer une autre
+                if (!VerificationRayon(new Vector3(objet.Item1,objet.Item2,0), 40f))
                 {
                     actif[actif.Count] = (new Vector3(objet.Item1, objet.Item2), objet.Item3, randomPlanetePrefeb);
                 }

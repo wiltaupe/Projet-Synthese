@@ -5,7 +5,7 @@ using UnityEngine;
 public class Salle
 {
     internal bool isProtected;
-    public List�<Module> listeModule { get; set; }
+    public List<Module> listeModule { get; set; }
 
     public int Width { get; set; }
     public float MaxVie { get; set; }
