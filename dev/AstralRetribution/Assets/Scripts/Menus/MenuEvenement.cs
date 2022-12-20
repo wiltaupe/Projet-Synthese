@@ -13,7 +13,6 @@ public class MenuEvenement : MonoBehaviour
     public GameObject boutonOUI, boutonNON, boutonCombat, boutonHUB;
     public int choix;
 
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -40,9 +39,6 @@ public class MenuEvenement : MonoBehaviour
         {
             boutonHUB.SetActive(true);
         }
-
-
-
     }
 
     public void selectionOUI()

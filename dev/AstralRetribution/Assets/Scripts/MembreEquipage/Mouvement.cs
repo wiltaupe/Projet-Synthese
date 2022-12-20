@@ -34,7 +34,6 @@ public class Mouvement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         membre = body.transform.gameObject.GetComponent<MembreEquipage>();
         membre.etat = MembreEquipage.EnumEquipages.ePassif;
-        //vEnnemi = body.transform.gameObject.GetComponent<MembreEquipage>().ennemi;
 
         if (membre is Clone)
         {

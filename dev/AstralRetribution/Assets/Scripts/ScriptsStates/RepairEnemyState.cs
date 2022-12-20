@@ -14,15 +14,11 @@ public class RepairEnemyState : State
 
     public override IEnumerator Start()
     {
-        Debug.Log("repairEnemyState");
         SelectRandomMembre();
         SelectRandomSalle();
         yield return new WaitForSeconds(1.0f);
         gameManager.SetState(new PlayerTurnState(gameManager));
-
     }
-
-
 
     private void SelectRandomMembre()
     {

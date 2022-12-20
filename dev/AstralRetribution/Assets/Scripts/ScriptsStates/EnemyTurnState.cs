@@ -23,8 +23,6 @@ public class EnemyTurnState : State
             gameManager.DeckJoueur.Cartes[carte.GetComponent<Carte>().Idx] = carte;
             carte.SetActive(false);
         }
-            
-        
         CheckCurrentState();
     }
 
@@ -44,17 +42,10 @@ public class EnemyTurnState : State
             {
                 gameManager.SetState(new DefendEnemyState(gameManager));
             }
-
-
         }
         else
         {
             gameManager.SetState(new AttackEnemyState(gameManager));
         }
-
     }
-
-
-
-
 }

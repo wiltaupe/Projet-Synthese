@@ -15,8 +15,6 @@ public class PlaneteManager : MonoBehaviour
     private Vector3 posSelection;
     private int indexPos;
     public Planete currentEvent;
-
-
     public void Awake()
     {
         if (Instance != null)
@@ -102,7 +100,7 @@ public class PlaneteManager : MonoBehaviour
                     if (VerificationPosition(TEST.x) == VerificationPosition(p[j].Item1.transform.position.x) - 1)
                     {
 
-                        if (distance < 110f) // -55 en x
+                        if (distance < 110f)
                         {
                             CreationLigne(p[i].Item1, p[j].Item1);
                             positionVerif.possedeCheminDerriere = true;
@@ -140,7 +138,7 @@ public class PlaneteManager : MonoBehaviour
                 }
             }
 
-            if (!cheminAV.possedeCheminDevant && VerificationPosition(posSelection.x) != 10) // dans le cas ou il n'existe pas de chemin avant
+            if (!cheminAV.possedeCheminDevant && VerificationPosition(posSelection.x) != 10)
             {
                 CreationLigne(g, p[positionAVANT].Item1);
             }      
@@ -221,7 +219,7 @@ public class PlaneteManager : MonoBehaviour
 
     public void PlacerActif()
     {
-        p = new(); // Garde les gamesObjects
+        p = new();
 
         for (int i = 0; i < actif.Count; i++)
         {

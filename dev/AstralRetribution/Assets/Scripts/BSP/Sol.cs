@@ -31,7 +31,6 @@ public class Sol : Tile
         {
             if (GameManager.Instance.CarteSelected is CartePilotage && Vaisseau.gameObject.CompareTag("VaisseauEnnemi") && !Parent.RoomSelected && GameManager.Instance.RoomSelected == null)
             {
-                //GetComponent<SpriteRenderer>().material.color = Color.red
                 foreach (Sol sol in Parent.Tuiles)
                 {
                     sol.GetComponent<SpriteRenderer>().material.color = Color.magenta;        
@@ -58,7 +57,6 @@ public class Sol : Tile
             {
                 sol.GetComponent<SpriteRenderer>().material.color = Color.white;
             }
-
         }
     }
 

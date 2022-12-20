@@ -21,7 +21,7 @@ public class Cloneur : Module
         {
             if (vaisseauEnnemi != null)
             {
-                if (/*vaisseauEnnemi.possedeCloneur && */accumulateurTemps > tempsdistance && Type == Etat.actif && compteurClone < 4)
+                if (accumulateurTemps > tempsdistance && Type == Etat.actif && compteurClone < 4)
                 {
 
                     Transform MembreClone = Instantiate(Clone, transform.position, Quaternion.identity).transform;
@@ -33,7 +33,7 @@ public class Cloneur : Module
                     MembreClone.GetComponent<Clone>().cloneur = this;
                     MembreClone.gameObject.transform.SetParent(currentTile.transform);
 
-                    float ajuster = 10 / (float)ShipManager.Taille;
+                    float ajuster = 16 / (float)ShipManager.Taille;
                     MembreClone.localScale = new Vector3(ajuster, ajuster, 0);
                     compteurClone += 1;
 

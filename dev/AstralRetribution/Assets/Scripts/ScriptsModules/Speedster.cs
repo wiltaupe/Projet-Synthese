@@ -18,7 +18,6 @@ public class Speedster : Module
                     sol.MembreEquipage.GetComponent<MembreEquipage>().vitesse = 20f;
                 }
             }
-
         }
 
         if (CurrentVie <= 0 && Type == Etat.inactif)
@@ -39,7 +38,6 @@ public class Speedster : Module
 
         if (vaisseauEnnemi != null)
         {
-
             foreach (GameObject m in vaisseauEnnemi.MembresEquipage)
             {
                 m.GetComponent<MembreEquipage>().vitesse = 10f;
