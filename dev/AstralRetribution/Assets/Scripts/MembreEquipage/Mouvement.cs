@@ -7,7 +7,6 @@ public class Mouvement : MonoBehaviour
 {
     private Animator anim;
     private Vector2 direction = new Vector2();
-    private float vitesse = 10.0f;
     private Rigidbody2D body;
     private bool verif = false;
     private Dictionary<int, (HPT, int)> dicOPEN;
@@ -18,14 +17,11 @@ public class Mouvement : MonoBehaviour
     private List<(Vector2,string,Sol)> vecteurDeplacement;
     private List<(Vector2, string, Sol)> vecteurDeplacementTeleporteur;
     private HPT teleporteur = new HPT();
-    //private GameObject vaisseau, vaisseauEnnemi;
-    //private Vaisseau Test, TestEnnemi;
     private int compteur = 2;
     private bool trouver = false;
     private bool trouverTeleportation = false;
     private bool enPAth = false;
     private int indexPath = 0;
-    //private bool vEnnemi;
     private MembreEquipage membre;
     private bool parentFinalTrouver = false;
     private bool telpo = false;
@@ -55,7 +51,7 @@ public class Mouvement : MonoBehaviour
             anim.SetFloat("Vertical", direction.y);
             anim.SetFloat("Vitesse", direction.sqrMagnitude);
 
-            body.velocity = direction * vitesse;
+            body.velocity = direction * membre.vitesse;
 
             if (direction.sqrMagnitude > 0.1f)
             {
@@ -109,7 +105,7 @@ public class Mouvement : MonoBehaviour
                         body.transform.SetParent(GameObject.Find(vecteurDeplacement[indexPath].Item2).transform);
                         membre.tuile = vecteurDeplacement[indexPath].Item3;
 
-                        transform.position = transform.position + moveDir.normalized * vitesse * 6 * Time.deltaTime;
+                        transform.position = transform.position + moveDir.normalized * membre.vitesse * 6 * Time.deltaTime;
                         moveDir.Normalize();
                     }
 
@@ -122,6 +118,7 @@ public class Mouvement : MonoBehaviour
                             if (indexPath >= vecteurDeplacement.Count)
                             {
                                 StopMoving();
+                                membre.ActionEquipage();
                                 membre.etat = MembreEquipage.EnumEquipages.ePassif;
                                 enPAth = false;
                             }
@@ -132,6 +129,7 @@ public class Mouvement : MonoBehaviour
                             if (indexPath + 1 >= vecteurDeplacement.Count)
                             {
                                 StopMoving();
+                                membre.ActionEquipage();
                                 membre.etat = MembreEquipage.EnumEquipages.ePassif;
                                 enPAth = false;
                             }
@@ -160,7 +158,7 @@ public class Mouvement : MonoBehaviour
                         body.transform.SetParent(GameObject.Find(vecteurDeplacementTeleporteur[indexPath].Item2).transform);
                         membre.tuile = vecteurDeplacementTeleporteur[indexPath].Item3;
 
-                        transform.position = transform.position + moveDir.normalized * vitesse * 6 * Time.deltaTime;
+                        transform.position = transform.position + moveDir.normalized * membre.vitesse * 6 * Time.deltaTime;
                         moveDir.Normalize();
 
                         if(membreTeleporter && this.gameObject.transform.GetChild(0).gameObject.activeSelf == false)
@@ -177,6 +175,7 @@ public class Mouvement : MonoBehaviour
                         if (indexPath +1 >= vecteurDeplacementTeleporteur.Count)
                         {
                             StopMoving();
+                            membre.ActionEquipage();
                             membre.etat = MembreEquipage.EnumEquipages.ePassif;
                             enPAth = false;
                         }
@@ -223,13 +222,13 @@ public class Mouvement : MonoBehaviour
         if ((membre.etat == MembreEquipage.EnumEquipages.ePathFindingEnnemi || membre.etat == MembreEquipage.EnumEquipages.ePathFinding) && !enPAth)
         {
 
-            if (membre.ennemi && membre.etat == MembreEquipage.EnumEquipages.ePathFindingEnnemi)
+            if (/*membre.ennemi &&*/ membre.etat == MembreEquipage.EnumEquipages.ePathFindingEnnemi)
             {
                 StartCoroutine(MettreAJourVaisseau());
                 StartCoroutine(Pathfinder(membre.tuile.Position, membre.cible));
             }
 
-            if (!membre.ennemi && membre.etat == MembreEquipage.EnumEquipages.ePathFinding)
+            if (/*!membre.ennemi &&*/ membre.etat == MembreEquipage.EnumEquipages.ePathFinding)
             {
                 StartCoroutine(MettreAJourVaisseau());
                 StartCoroutine(Pathfinder(membre.tuile.Position, membre.cible));

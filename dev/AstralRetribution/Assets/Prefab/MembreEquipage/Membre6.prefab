@@ -24,6 +24,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4900575925154573892, guid: 267c2625bdfed114b88fa98a1590f19f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900575925154573892, guid: 267c2625bdfed114b88fa98a1590f19f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900575925154573892, guid: 267c2625bdfed114b88fa98a1590f19f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -89,3 +97,4 @@ MonoBehaviour:
   etat: 0
   cloneTeleporter: 0
   vaisseau: {fileID: 0}
+  particuleEffect: {fileID: 100000, guid: aa3fed151f536ee49b583c6a3ac4a2e1, type: 3}

@@ -7,17 +7,16 @@ public class Vaisseau : MonoBehaviour
 {
     public List<Salle> Salles { get; set; }
     public List<GameObject> MembresEquipage { get; set; }
+
     public List<GameObject> MembreClone { get; set; } = new List<GameObject>();
     public List<Module> ModulesActifs { get; set; }
-
-    public float esquive = 0;
+    public Vestige vestigeCourrant { get; set; }
+    public float esquive = 0.1f;
     public GameObject tuiles;
     public bool possedeCloneur;
     private float maxVie;
     private float currentVie;
-
     public bool mechant;
-
     public bool possedeTeleporteur { get; set; } = false;
     public bool possedeRecepteur { get; set; } = false;
     public bool possedeTeleporteurRecepteur { get; set; } = false;
@@ -25,6 +24,7 @@ public class Vaisseau : MonoBehaviour
     public Vector2 positionRecepteur { get; set; } = new Vector2();
     public Vector2 solTeleporteur { get; set; } = new Vector2();
     public Vector2 positionTeleporteur { get; set; } = new Vector2();
+    private bool enConstruction = true;
 
     internal void RecevoirDegats(float puissance)
     {
@@ -55,7 +55,7 @@ public class Vaisseau : MonoBehaviour
 
         
     }
-
+    
     public Module Teleporteur { get; set; }
     public Module Recepteur { get; set; }
 
@@ -135,7 +135,21 @@ public class Vaisseau : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(vestigeCourrant != null && enConstruction)
+        {
+            enConstruction = false;
+            StartCoroutine(AjoutConstruction());
+        }
+    }
 
+    private IEnumerator AjoutConstruction()
+    {
+        yield return new WaitForSeconds(2);
+        if (vestigeCourrant.BuildCurrent != vestigeCourrant.BuildMax)
+        {
+            vestigeCourrant.BuildCurrent += 1;
+        }
+        enConstruction = true;
     }
 
     internal Sol GetRandomAvailableTile()
@@ -222,8 +236,34 @@ public class Vaisseau : MonoBehaviour
             positionTeleporteur = vecRecepteur;
         }
     }
+    
+    internal void PlacerVestige(GameObject v)
+    {
+        float ajustersize = (float)10 / (float)ShipManager.Taille;
 
-    internal void AjoutModuleRecepteur(Sol sol,Module module)
+        GameObject mod = Instantiate(v, transform.position, Quaternion.identity);
+        mod.transform.localScale = new Vector3(ajustersize / 1.25f, ajustersize / 1.25f, 0);
+        mod.GetComponent<Module>().Draggable = false;
+        mod.GetComponent<Module>().Vaisseau = this;
+        ModulesActifs.Add(mod.GetComponent<Module>());
+
+        Sol tuile = null;
+        while (tuile == null)
+        {
+            tuile = GetRandomAvailableTile();
+        }
+
+        mod.transform.SetParent(tuile.transform);
+        mod.transform.position = tuile.transform.position;
+
+        mod.GetComponent<Module>().currentTile = tuile;
+        mod.GetComponent<Module>().Ennemi = false;
+
+        tuile.Module = mod.GetComponent<Module>();
+        vestigeCourrant = mod.GetComponent<Vestige>();
+    }
+
+    internal void ajoutModuleRecepteur(Sol sol,Module module)
     {
         possedeRecepteur = true;
         VerifTelRec();

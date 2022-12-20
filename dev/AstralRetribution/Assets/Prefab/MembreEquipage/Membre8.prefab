@@ -83,9 +83,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3878d67c845167641a04c382e58a0352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bless:
-    m_PersistentCalls:
-      m_Calls: []
-  cible: {x: 11, y: 11}
+  cible: {x: 16, y: 16}
   action: 0
-  etat: 4
+  <MortPrefab>k__BackingField: {fileID: 0}
+  etat: 2
+  cloneTeleporter: 0
+  vaisseau: {fileID: 0}
+  particuleEffect: {fileID: 100004, guid: 3af6f68141914ca43ba39b2403757bd0, type: 3}

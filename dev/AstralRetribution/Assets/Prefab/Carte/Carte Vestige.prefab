@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8272653854596935248
+--- !u!1001 &5082695707387341801
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4615452990420818837, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_text
-      value: Clone Go BOOM BOOM
+      value: Le debut d'un grand Projet !
       objectReference: {fileID: 0}
     - target: {fileID: 8099588507919625174, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_IsActive
@@ -121,60 +121,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8194989271316747001, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_Name
-      value: CarteClone
-      objectReference: {fileID: 0}
-    - target: {fileID: 8194989271316747001, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: Carte Vestige
       objectReference: {fileID: 0}
     - target: {fileID: 8194989271316747007, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300038, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
-    - target: {fileID: 8194989271316747007, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-      propertyPath: m_Color.b
-      value: 0.9254902
-      objectReference: {fileID: 0}
-    - target: {fileID: 8194989271316747007, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-      propertyPath: m_Color.g
-      value: 0.8782746
-      objectReference: {fileID: 0}
-    - target: {fileID: 8194989271316747007, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
---- !u!1 &191924204489573766 stripped
+--- !u!1 &3958338637105135679 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8099588507919625174, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-  m_PrefabInstance: {fileID: 8272653854596935248}
+  m_PrefabInstance: {fileID: 5082695707387341801}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &248873956448992425 stripped
+--- !u!1 &3977575138987178256 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8194989271316747001, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-  m_PrefabInstance: {fileID: 8272653854596935248}
+  m_PrefabInstance: {fileID: 5082695707387341801}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4563331563320294000
+--- !u!114 &-3909757390761754121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248873956448992425}
+  m_GameObject: {fileID: 3977575138987178256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49c8eae7201f3154889a08fb860e0971, type: 3}
+  m_Script: {fileID: 11500000, guid: 73e5207eb1697434c9b32a70fb406057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: {fileID: 191924204489573766}
-  <Button>k__BackingField: {fileID: 5557420149787500705}
---- !u!114 &5557420149787500705 stripped
+  description: {fileID: 3958338637105135679}
+  <Button>k__BackingField: {fileID: 8744000524498707736}
+  vestige: {fileID: 5235472566709661963, guid: ed1883573c56c514f9a11bb2e0e81913, type: 3}
+--- !u!114 &8744000524498707736 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4598653469365800689, guid: 9f5992ca3dc43914d92001c4d91b526d, type: 3}
-  m_PrefabInstance: {fileID: 8272653854596935248}
+  m_PrefabInstance: {fileID: 5082695707387341801}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248873956448992425}
+  m_GameObject: {fileID: 3977575138987178256}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}

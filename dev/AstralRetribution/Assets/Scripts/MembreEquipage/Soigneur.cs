@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Soigneur : MembreEquipage
 {
-
+    public GameObject particuleEffect;
     private void OnEnable()
     {
         MembreEquipage.OnMemberHit += MembreEquipage_OnMemberHit;
@@ -28,5 +28,10 @@ public class Soigneur : MembreEquipage
             this.etat = MembreEquipage.EnumEquipages.ePathFinding;
             this.cible = obj.tuile.Position;
         }
+    }
+
+    public override void ActionEquipage()
+    {
+        Instantiate(particuleEffect, transform.position, Quaternion.identity);
     }
 }

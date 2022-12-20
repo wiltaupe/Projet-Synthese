@@ -37,7 +37,6 @@ public class MenuInitial : MonoBehaviour
         else
         {
             StartCoroutine(Transition("Salut le nouveau, c'est toi le boss aujourd'hui?"));
-
         }
     }
 
@@ -54,6 +53,8 @@ public class MenuInitial : MonoBehaviour
 
     private void Start()
     {
+        //PlayerPrefs.DeleteAll();
+
         if (PlayerPrefs.HasKey("nom") && PlayerPrefs.HasKey("age"))
         {
             identite.GetComponent<TextMeshProUGUI>().text = $"salut capitaine {PlayerPrefs.GetString("nom")}, tu as encore {PlayerPrefs.GetString("age")} ans n'est-ce pas ? ";

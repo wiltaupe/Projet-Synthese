@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8694279065548314250
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1549601055636736994, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_Name
+      value: ModuleArmeSupreme
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220005860789521011, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384273136948469266, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1006164766, guid: c07830de40208b440a04610710e3a0a8, type: 3}
+    - target: {fileID: 4384273136948469266, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384273136948469266, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_Color.g
+      value: 0.29864648
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384273136948469266, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+--- !u!1 &7865819657638452584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1549601055636736994, guid: cff9b4a77ad508f4786b797869bfb487, type: 3}
+  m_PrefabInstance: {fileID: 8694279065548314250}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-7742902335806305625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7865819657638452584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d256546b562e2646a12478e394734f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 3977575138987178256, guid: 384fd5205917de34f8317e74fd2a49e9, type: 3}
+  nbCartes: 1
+  <vaisseauEnnemi>k__BackingField: {fileID: 0}
+  <Vaisseau>k__BackingField: {fileID: 0}
+  prefabShield: {fileID: 88362728739414992, guid: 63bd1c47125b3a441ac0ae0dbddeff9a, type: 3}
+  PrefabFinal: {fileID: 4402207932226409706, guid: d8ba6d0e19cf2694da24de9ad4d0dc4e, type: 3}

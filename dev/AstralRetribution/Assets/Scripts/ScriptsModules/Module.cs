@@ -21,13 +21,15 @@ public abstract class Module : MonoBehaviour
     public virtual bool Teleport { get; set; } = false;
     public virtual bool Recept { get; set; } = false;
     public virtual bool Cloning { get; set; } = false;
+    public virtual bool SpeedAugmenter { get; set; } = false;
     public virtual Etat Type { get; set; }
     public float MaxVie { get; set; } = 45;
     public float CurrentVie { get; set; }
-    public Vaisseau vaisseauEnnemi { get; set; }
-    public Vaisseau Vaisseau { get; set; }
-
+    [field: SerializeField] public Vaisseau vaisseauEnnemi { get; set; }
+    [field: SerializeField] public Vaisseau Vaisseau { get; set; }
     [SerializeField] private GameObject prefabShield;
+
+    public Salle salleModule { get; set; }
 
     private void Start()
     {
@@ -42,7 +44,8 @@ public abstract class Module : MonoBehaviour
     public enum Etat
     {
         actif,
-        passif
+        passif,
+        inactif
     }
 
     private void OnMouseDown()
@@ -102,6 +105,7 @@ public abstract class Module : MonoBehaviour
 
     private void ModuleDetruit()
     {
+        Type = Etat.inactif;
         GetComponent<SpriteRenderer>().color = Color.red;
     }
 
@@ -208,9 +212,10 @@ public abstract class Module : MonoBehaviour
                     }
                 }
 
+                salleModule = sol.Parent;
                 lastPos = sol.transform.position;
-
                 sol.Vaisseau.AddModule(this);
+                sol.Parent.listeModule.Add(this);
                 Draggable = false;
             }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mecanicien : MembreEquipage
 {
-
+    public GameObject particuleEffect;
     private void OnEnable()
     {
         Module.OnModuleHit += Module_OnModuleHit;
@@ -28,4 +28,9 @@ public class Mecanicien : MembreEquipage
             this.cible = obj.currentTile.Position;
         }
     }
+    public override void ActionEquipage()
+    {
+        Instantiate(particuleEffect, transform.position, Quaternion.identity);
+    }
+
 }
