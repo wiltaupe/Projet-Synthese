@@ -48,7 +48,7 @@ public class MembreEquipage : MonoBehaviour
 
     public virtual void MembreMort()
     {
-        Instantiate(MortPrefab, transform.position, Quaternion.identity);
+        //Instantiate(MortPrefab, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Salle
 {
     internal bool isProtected;
-    public List­<Module> listeModule { get; set; }
+    public Listï¿½<Module> listeModule { get; set; }
 
     public int Width { get; set; }
     public float MaxVie { get; set; }
@@ -14,13 +14,15 @@ public class Salle
     public int Height { get; set; }
     public List<Sol> Tuiles { get; set; }
     public bool RoomSelected { get; set; }
+    public Vaisseau Vaisseau { get; set; }
 
-    public Salle(int width, int height,RectInt rectint)
+    public Salle(int width, int height,RectInt rectint,Vaisseau vaisseau)
     {
         Width = width;
         Height = height;
         RectInt = rectint;
         listeModule = new();
+        Vaisseau = vaisseau;
     }
 
     public void  AddTiles(List<Sol> sols)
@@ -31,6 +33,7 @@ public class Salle
     }
     public void RecevoirDegats(float puissance)
     {
+        Vaisseau.RecevoirDegats(puissance);
         foreach (Sol sol in Tuiles)
         {
             if (sol.Module != null)
